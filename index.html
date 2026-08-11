@@ -1,379 +1,360 @@
 <!doctype html>
 <html lang="gu">
+
 <head>
 
-<link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#07152e">
-<meta charset="utf-8">
-
-<meta name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-
-<title>Vandan Kutch Travels</title>
-
-<style>
-
-*{
-  box-sizing:border-box;
-}
-
-body{
-  margin:0;
-  background:#dfe4eb;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;
-  color:#172033;
-}
-
-.app{
-  width:100%;
-  max-width:430px;
-  min-height:100vh;
-  margin:auto;
-  background:#f6f7fa;
-  padding-bottom:88px;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-  background:linear-gradient(145deg,#07152e,#1d3a63);
-  color:#fff;
-  padding:30px 20px 22px;
-  border-radius:0 0 28px 28px;
-}
-
-.logo{
-  width:52px;
-  height:52px;
-  border-radius:15px;
-  background:#d8ad52;
-  color:#101010;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:25px;
-  font-weight:900;
-  margin-bottom:14px;
-}
-
-.brand{
-  font-size:24px;
-  font-weight:850;
-  letter-spacing:.3px;
-}
-
-.tag{
-  font-size:13px;
-  opacity:.82;
-  margin-top:4px;
-}
-
-.location{
-  font-size:13px;
-  margin-top:16px;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  background:#fff;
-  color:#172033;
-  border-radius:20px;
-  margin-top:18px;
-  padding:17px;
-  box-shadow:0 10px 25px #0002;
-}
-
-.hero h2{
-  margin:0 0 5px;
-  font-size:19px;
-}
-
-.muted{
-  font-size:12px;
-  color:#687387;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-button{
-  font:inherit;
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
-
-.primary{
-  border:0;
-  border-radius:13px;
-  background:#d8ad52;
-  color:#111;
-  font-weight:800;
-  padding:14px;
-  width:100%;
-  margin-top:14px;
-}
-
-.green{
-  border:0;
-  border-radius:13px;
-  background:#35a866;
-  color:#fff;
-  font-weight:800;
-  padding:14px;
-  width:100%;
-  margin-top:10px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section{
-  padding:18px;
-}
-
-.title{
-  font-size:18px;
-  font-weight:800;
-  margin-bottom:12px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:11px;
-}
-
-.card{
-  background:#fff;
-  border-radius:17px;
-  padding:15px;
-  box-shadow:0 5px 16px #00000010;
-}
-
-.service{
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
-
-.service:active{
-  transform:scale(.98);
-}
-
-.ico{
-  font-size:27px;
-}
-
-.service b{
-  display:block;
-  margin-top:7px;
-}
-
-.service .muted{
-  margin-top:3px;
-}
-
-/* =========================
-   BOTTOM NAV
-========================= */
-
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(430px,100%);
-  padding:9px 5px calc(9px + env(safe-area-inset-bottom));
-  background:#fff;
-  border-top:1px solid #e1e4e9;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  z-index:100;
-}
-
-.nav{
-  border:0;
-  background:none;
-  color:#6b7483;
-  font-size:11px;
-  padding:5px;
-}
-
-.nav strong{
-  display:block;
-  font-size:21px;
-  margin-bottom:2px;
-}
-
-.nav.on{
-  color:#07152e;
-  font-weight:800;
-}
-
-/* =========================
-   SCREENS
-========================= */
-
-.screen{
-  display:none;
-}
-
-.screen.on{
-  display:block;
-}
-
-.back{
-  border:0;
-  background:none;
-  color:#fff;
-  padding:0 0 15px;
-  font-weight:700;
-}
-
-/* =========================
-   FORM
-========================= */
-
-.form{
-  margin:16px;
-  background:#fff;
-  border-radius:18px;
-  padding:17px;
-  box-shadow:0 5px 18px #00000010;
-}
-
-.label{
-  font-size:12px;
-  color:#687387;
-  margin:10px 0 5px;
-}
-
-.input{
-  width:100%;
-  padding:13px;
-  border:1px solid #d8dde6;
-  border-radius:11px;
-  font-size:15px;
-  background:#fff;
-  color:#172033;
-}
-
-.input:focus{
-  outline:none;
-  border-color:#d8ad52;
-}
-
-.row{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.fare{
-  margin-top:14px;
-  background:#eef8f2;
-  border:1px solid #cde9d7;
-  border-radius:13px;
-  padding:13px;
-}
-
-.fare b{
-  font-size:20px;
-}
-
-/* =========================
-   TOURS
-========================= */
-
-.tour{
-  background:#fff;
-  border-radius:17px;
-  padding:16px;
-  margin-bottom:11px;
-  box-shadow:0 5px 16px #00000010;
-}
-
-.tour h3{
-  margin:0 0 4px;
-}
-
-.tour button{
-  margin-top:10px;
-}
-
-/* =========================
-   NOTICE
-========================= */
-
-.notice{
-  margin:16px;
-  background:#fff8e7;
-  border:1px solid #efdfa9;
-  border-radius:15px;
-  padding:14px;
-  font-size:13px;
-}
-
-/* =========================
-   BOOKING ITEM
-========================= */
-
-.booking{
-  background:#fff;
-  border-radius:17px;
-  padding:16px;
-  margin-bottom:12px;
-  box-shadow:0 5px 16px #00000010;
-}
-
-.booking h3{
-  margin:0 0 8px;
-}
-
-.booking-line{
-  font-size:13px;
-  margin:5px 0;
-  color:#4f596b;
-}
-
-.booking-line b{
-  color:#172033;
-}
-
-.booking-actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:12px;
-}
-
-.small-btn{
-  border:0;
-  border-radius:10px;
-  padding:10px;
-  font-weight:700;
-}
-
-.delete-btn{
-  background:#f1eeee;
-  color:#a33;
-}
-
-.whatsapp-btn{
-  background:#35a866;
-  color:#fff;
-}
-
-</style>
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="theme-color" content="#07152e">
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1,viewport-fit=cover"
+  >
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes"
+  >
+
+  <meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent"
+  >
+
+  <title>Vandan Kutch Travels</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #dfe4eb;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      color: #172033;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: auto;
+      background: #f6f7fa;
+      padding-bottom: 88px;
+    }
+
+    header {
+      background: linear-gradient(
+        145deg,
+        #07152e,
+        #1d3a63
+      );
+      color: #fff;
+      padding: 30px 20px 22px;
+      border-radius: 0 0 28px 28px;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: #d8ad52;
+      color: #101010;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 850;
+      letter-spacing: .3px;
+    }
+
+    .tag {
+      font-size: 13px;
+      opacity: .82;
+      margin-top: 4px;
+    }
+
+    .location {
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    .hero {
+      background: #fff;
+      color: #172033;
+      border-radius: 20px;
+      margin-top: 18px;
+      padding: 17px;
+      box-shadow: 0 10px 25px #0002;
+    }
+
+    .hero h2 {
+      margin: 0 0 5px;
+      font-size: 19px;
+    }
+
+    .muted {
+      font-size: 12px;
+      color: #687387;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .primary {
+      border: 0;
+      border-radius: 13px;
+      background: #d8ad52;
+      color: #111;
+      font-weight: 800;
+      padding: 14px;
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .primary:active {
+      transform: scale(.98);
+    }
+
+    .green {
+      border: 0;
+      border-radius: 13px;
+      background: #35a866;
+      color: #fff;
+      font-weight: 800;
+      padding: 14px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .green:active {
+      transform: scale(.98);
+    }
+
+    .section {
+      padding: 18px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 17px;
+      padding: 15px;
+      box-shadow: 0 5px 16px #00000010;
+    }
+
+    .service {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .service:active {
+      transform: scale(.98);
+    }
+
+    .ico {
+      font-size: 27px;
+    }
+
+    .service b {
+      display: block;
+      margin-top: 7px;
+    }
+
+    .service .muted {
+      margin-top: 3px;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(430px, 100%);
+      padding:
+        9px
+        5px
+        calc(9px + env(safe-area-inset-bottom));
+      background: #fff;
+      border-top: 1px solid #e1e4e9;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      z-index: 50;
+    }
+
+    .nav {
+      border: 0;
+      background: none;
+      color: #6b7483;
+      font-size: 11px;
+      padding: 3px;
+    }
+
+    .nav strong {
+      display: block;
+      font-size: 21px;
+      margin-bottom: 2px;
+    }
+
+    .nav.on {
+      color: #07152e;
+      font-weight: 800;
+    }
+
+    .screen {
+      display: none;
+    }
+
+    .screen.on {
+      display: block;
+    }
+
+    .back {
+      border: 0;
+      background: none;
+      color: #fff;
+      padding: 0 0 15px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .form {
+      margin: 16px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 17px;
+      box-shadow: 0 5px 18px #00000010;
+    }
+
+    .label {
+      font-size: 12px;
+      color: #687387;
+      margin: 10px 0 5px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d8dde6;
+      border-radius: 11px;
+      font-size: 15px;
+      background: #fff;
+      color: #172033;
+      outline: none;
+    }
+
+    .input:focus {
+      border-color: #d8ad52;
+      box-shadow: 0 0 0 2px #d8ad5230;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .fare {
+      margin-top: 14px;
+      background: #eef8f2;
+      border: 1px solid #cde9d7;
+      border-radius: 13px;
+      padding: 13px;
+    }
+
+    .fare b {
+      font-size: 20px;
+    }
+
+    .tour {
+      background: #fff;
+      border-radius: 17px;
+      padding: 16px;
+      margin-bottom: 11px;
+      box-shadow: 0 5px 16px #00000010;
+    }
+
+    .tour h3 {
+      margin: 0 0 4px;
+    }
+
+    .tour button {
+      margin-top: 10px;
+    }
+
+    .notice {
+      margin: 16px;
+      background: #fff8e7;
+      border: 1px solid #efdfa9;
+      border-radius: 15px;
+      padding: 14px;
+      font-size: 13px;
+    }
+
+    .booking-item {
+      background: #fff;
+      border-radius: 17px;
+      padding: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 5px 16px #00000010;
+    }
+
+    .booking-item h3 {
+      margin: 0 0 8px;
+    }
+
+    .booking-line {
+      font-size: 13px;
+      margin: 5px 0;
+      color: #4f596b;
+    }
+
+    .booking-line b {
+      color: #172033;
+    }
+
+    .small-button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-weight: 700;
+      background: #eef1f5;
+      color: #172033;
+    }
+
+  </style>
+
 </head>
 
 
@@ -381,617 +362,696 @@ button{
 
 <div class="app">
 
-<!-- ==================================================
-     HOME
-================================================== -->
 
-<section id="home" class="screen on">
+  <!-- =========================
+       HOME
+  ========================== -->
 
-<header>
+  <section id="home" class="screen on">
 
-<div class="logo">VK</div>
+    <header>
 
-<div class="brand">
-VANDAN KUTCH TRAVELS
+      <div class="logo">
+        VK
+      </div>
+
+      <div class="brand">
+        VANDAN KUTCH TRAVELS
+      </div>
+
+      <div class="tag">
+        Your Journey, Our Responsibility
+      </div>
+
+      <div class="location">
+        📍 Mundra, Kutch, Gujarat
+      </div>
+
+
+      <div class="hero">
+
+        <h2>
+          🚗 Ertiga CNG • 7 Seater
+        </h2>
+
+        <div class="muted">
+          Corporate • Airport • Railway •
+          Outstation • Kutch Tours
+        </div>
+
+        <button
+          class="primary"
+          onclick="go('book')"
+        >
+          🚕 BOOK YOUR RIDE
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <div class="section">
+
+      <div class="title">
+        Our Services
+      </div>
+
+
+      <div class="grid">
+
+
+        <div
+          class="card service"
+          onclick="quick('Airport Transfer')"
+        >
+
+          <div class="ico">
+            ✈️
+          </div>
+
+          <b>
+            Airport
+          </b>
+
+          <div class="muted">
+            Bhuj Airport
+          </div>
+
+        </div>
+
+
+        <div
+          class="card service"
+          onclick="quick('Railway Transfer')"
+        >
+
+          <div class="ico">
+            🚉
+          </div>
+
+          <b>
+            Railway
+          </b>
+
+          <div class="muted">
+            Gandhidham Station
+          </div>
+
+        </div>
+
+
+        <div
+          class="card service"
+          onclick="quick('Corporate Travel')"
+        >
+
+          <div class="ico">
+            🏢
+          </div>
+
+          <b>
+            Corporate
+          </b>
+
+          <div class="muted">
+            Company & guests
+          </div>
+
+        </div>
+
+
+        <div
+          class="card service"
+          onclick="go('tours')"
+        >
+
+          <div class="ico">
+            🏜️
+          </div>
+
+          <b>
+            Kutch Tours
+          </b>
+
+          <div class="muted">
+            Rann • Mandvi • Bhuj
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section">
+
+      <div class="card">
+
+        <b>
+          Why Vandan Kutch Travels?
+        </b>
+
+        <p class="muted">
+
+          ✓ Mundra based
+          <br>
+
+          ✓ Clean 7-seater Ertiga CNG
+          <br>
+
+          ✓ Local & outstation service
+          <br>
+
+          ✓ Easy WhatsApp booking
+
+        </p>
+
+      </div>
+
+
+      <button
+        class="green"
+        onclick="wa()"
+      >
+        💬 WhatsApp Booking
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       BOOK
+  ========================== -->
+
+  <section id="book" class="screen">
+
+    <header>
+
+      <button
+        class="back"
+        onclick="go('home')"
+      >
+        ← Back
+      </button>
+
+      <div class="brand">
+        Book Your Ride
+      </div>
+
+      <div class="tag">
+        Mundra • Kutch • Gujarat
+      </div>
+
+    </header>
+
+
+    <div class="form">
+
+
+      <div class="label">
+        Service
+      </div>
+
+      <select
+        id="service"
+        class="input"
+      >
+
+        <option>
+          Local Ride
+        </option>
+
+        <option>
+          Airport Transfer
+        </option>
+
+        <option>
+          Railway Transfer
+        </option>
+
+        <option>
+          Corporate Travel
+        </option>
+
+        <option>
+          Outstation
+        </option>
+
+        <option>
+          Kutch Tour
+        </option>
+
+      </select>
+
+
+      <div class="label">
+        Pickup Location
+      </div>
+
+      <input
+        id="pickup"
+        class="input"
+        type="text"
+        placeholder="e.g. The Fern Residency, Mundra"
+      >
+
+
+      <div class="label">
+        Drop Location
+      </div>
+
+      <input
+        id="drop"
+        class="input"
+        type="text"
+        placeholder="e.g. Bhuj Airport"
+      >
+
+
+      <div class="row">
+
+        <div>
+
+          <div class="label">
+            Date
+          </div>
+
+          <input
+            id="date"
+            type="date"
+            class="input"
+          >
+
+        </div>
+
+
+        <div>
+
+          <div class="label">
+            Time
+          </div>
+
+          <input
+            id="time"
+            type="time"
+            class="input"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div>
+
+          <div class="label">
+            Passengers
+          </div>
+
+          <input
+            id="people"
+            type="number"
+            min="1"
+            max="7"
+            value="2"
+            class="input"
+          >
+
+        </div>
+
+
+        <div>
+
+          <div class="label">
+            Name
+          </div>
+
+          <input
+            id="name"
+            class="input"
+            type="text"
+            placeholder="Your name"
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- CUSTOMER MOBILE NUMBER -->
+
+      <div class="label">
+        Mobile Number
+      </div>
+
+      <input
+        id="mobile"
+        class="input"
+        type="tel"
+        inputmode="numeric"
+        maxlength="10"
+        placeholder="Enter your 10-digit mobile number"
+      >
+
+
+      <div class="fare">
+
+        Estimated fare:
+        <b id="fare">
+          ₹ —
+        </b>
+
+        <div class="muted">
+          Final fare will be confirmed by Vandan.
+        </div>
+
+      </div>
+
+
+      <button
+        class="primary"
+        onclick="estimate()"
+      >
+        Calculate Estimate
+      </button>
+
+
+      <button
+        class="green"
+        onclick="sendBooking()"
+      >
+        💬 Confirm via WhatsApp
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       TOURS
+  ========================== -->
+
+  <section id="tours" class="screen">
+
+    <header>
+
+      <button
+        class="back"
+        onclick="go('home')"
+      >
+        ← Back
+      </button>
+
+      <div class="brand">
+        Kutch Tours
+      </div>
+
+      <div class="tag">
+        Private Ertiga CNG • 7 Seater
+      </div>
+
+    </header>
+
+
+    <div class="section">
+
+
+      <div class="tour">
+
+        <h3>
+          🏜️ Rann of Kutch
+        </h3>
+
+        <div class="muted">
+          Dhordo • White Rann • Kala Dungar
+        </div>
+
+        <button
+          class="primary"
+          onclick="quick('Kutch Tour')"
+        >
+          Request Quote
+        </button>
+
+      </div>
+
+
+      <div class="tour">
+
+        <h3>
+          🌊 Mandvi Tour
+        </h3>
+
+        <div class="muted">
+          Mandvi • Beach • Local sightseeing
+        </div>
+
+        <button
+          class="primary"
+          onclick="quick('Kutch Tour')"
+        >
+          Request Quote
+        </button>
+
+      </div>
+
+
+      <div class="tour">
+
+        <h3>
+          🏛️ Bhuj & Kutch
+        </h3>
+
+        <div class="muted">
+          Bhuj • Local sightseeing
+        </div>
+
+        <button
+          class="primary"
+          onclick="quick('Kutch Tour')"
+        >
+          Request Quote
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       BOOKINGS
+  ========================== -->
+
+  <section id="trips" class="screen">
+
+    <header>
+
+      <div class="brand">
+        My Bookings
+      </div>
+
+      <div class="tag">
+        Upcoming & recent rides
+      </div>
+
+    </header>
+
+
+    <div
+      class="section"
+      id="bookingList"
+    >
+
+      <div class="notice">
+        No bookings yet.
+        <br>
+        <br>
+        Book your first ride from the
+        <b>Book</b> tab.
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PROFILE
+  ========================== -->
+
+  <section id="profile" class="screen">
+
+    <header>
+
+      <div class="brand">
+        Profile
+      </div>
+
+      <div class="tag">
+        Vandan Kutch Travels
+      </div>
+
+    </header>
+
+
+    <div class="section">
+
+
+      <div class="card">
+
+        <b>
+          Vandan Nanjar
+        </b>
+
+        <div class="muted">
+          📞 +91 99137 47955
+        </div>
+
+        <div class="muted">
+          📍 Mundra, Kutch, Gujarat
+        </div>
+
+      </div>
+
+
+      <div
+        class="card"
+        style="margin-top:12px"
+      >
+
+        <b>
+          Vehicle
+        </b>
+
+        <div class="muted">
+          Maruti Suzuki Ertiga CNG • 7 Seater
+        </div>
+
+      </div>
+
+
+      <button
+        class="green"
+        onclick="call()"
+      >
+        📞 Call Vandan
+      </button>
+
+
+      <button
+        class="primary"
+        onclick="wa()"
+      >
+        💬 WhatsApp Booking
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       BOTTOM NAVIGATION
+  ========================== -->
+
+  <nav class="bottom">
+
+
+    <button
+      class="nav on"
+      onclick="go('home', this)"
+    >
+
+      <strong>
+        🏠
+      </strong>
+
+      Home
+
+    </button>
+
+
+    <button
+      class="nav"
+      onclick="go('book', this)"
+    >
+
+      <strong>
+        🚕
+      </strong>
+
+      Book
+
+    </button>
+
+
+    <button
+      class="nav"
+      onclick="go('trips', this)"
+    >
+
+      <strong>
+        📋
+      </strong>
+
+      Bookings
+
+    </button>
+
+
+    <button
+      class="nav"
+      onclick="go('profile', this)"
+    >
+
+      <strong>
+        👤
+      </strong>
+
+      Profile
+
+    </button>
+
+
+  </nav>
+
+
 </div>
 
-<div class="tag">
-Your Journey, Our Responsibility
-</div>
 
-<div class="location">
-📍 Mundra, Kutch, Gujarat
-</div>
-
-<div class="hero">
-
-<h2>
-🚗 Ertiga CNG • 7 Seater
-</h2>
-
-<div class="muted">
-Corporate • Airport • Railway • Outstation • Kutch Tours
-</div>
-
-<button
-  class="primary"
-  onclick="go('book')">
-🚕 BOOK YOUR RIDE
-</button>
-
-</div>
-
-</header>
-
-
-<div class="section">
-
-<div class="title">
-Our Services
-</div>
-
-<div class="grid">
-
-<div
-  class="card service"
-  onclick="quick('Airport Transfer')">
-
-<div class="ico">✈️</div>
-
-<b>Airport</b>
-
-<div class="muted">
-Bhuj Airport
-</div>
-
-</div>
-
-
-<div
-  class="card service"
-  onclick="quick('Railway Transfer')">
-
-<div class="ico">🚉</div>
-
-<b>Railway</b>
-
-<div class="muted">
-Gandhidham Station
-</div>
-
-</div>
-
-
-<div
-  class="card service"
-  onclick="quick('Corporate Travel')">
-
-<div class="ico">🏢</div>
-
-<b>Corporate</b>
-
-<div class="muted">
-Company & guests
-</div>
-
-</div>
-
-
-<div
-  class="card service"
-  onclick="go('tours')">
-
-<div class="ico">🏜️</div>
-
-<b>Kutch Tours</b>
-
-<div class="muted">
-Rann • Mandvi • Bhuj
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="section">
-
-<div class="card">
-
-<b>
-Why Vandan Kutch Travels?
-</b>
-
-<p class="muted">
-
-✓ Mundra based<br>
-✓ Clean 7-seater Ertiga CNG<br>
-✓ Local & outstation service<br>
-✓ Easy WhatsApp booking
-
-</p>
-
-</div>
-
-
-<button
-  class="green"
-  onclick="wa()">
-
-💬 WhatsApp Booking
-
-</button>
-
-</div>
-
-</section>
-
-
-<!-- ==================================================
-     BOOK
-================================================== -->
-
-<section id="book" class="screen">
-
-<header>
-
-<button
-  class="back"
-  onclick="go('home')">
-
-← Back
-
-</button>
-
-<div class="brand">
-Book Your Ride
-</div>
-
-<div class="tag">
-Mundra • Kutch • Gujarat
-</div>
-
-</header>
-
-
-<div class="form">
-
-<div class="label">
-Service
-</div>
-
-<select id="service" class="input">
-
-<option>Local Ride</option>
-<option>Airport Transfer</option>
-<option>Railway Transfer</option>
-<option>Corporate Travel</option>
-<option>Outstation</option>
-<option>Kutch Tour</option>
-
-</select>
-
-
-<div class="label">
-Pickup Location
-</div>
-
-<input
-  id="pickup"
-  class="input"
-  placeholder="e.g. The Fern Residency, Mundra">
-
-
-<div class="label">
-Drop Location
-</div>
-
-<input
-  id="drop"
-  class="input"
-  placeholder="e.g. Bhuj Airport">
-
-
-<div class="row">
-
-<div>
-
-<div class="label">
-Date
-</div>
-
-<input
-  id="date"
-  type="date"
-  class="input">
-
-</div>
-
-
-<div>
-
-<div class="label">
-Time
-</div>
-
-<input
-  id="time"
-  type="time"
-  class="input">
-
-</div>
-
-</div>
-
-
-<div class="row">
-
-<div>
-
-<div class="label">
-Passengers
-</div>
-
-<input
-  id="people"
-  type="number"
-  min="1"
-  max="7"
-  value="2"
-  class="input">
-
-</div>
-
-
-<div>
-
-<div class="label">
-Name
-</div>
-
-<input
-  id="name"
-  class="input"
-  placeholder="Your name">
-
-</div>
-
-</div>
-
-
-<div class="label">
-Mobile
-</div>
-
-<input
-  id="mobile"
-  class="input"
-  value="+91 99137 47955">
-
-
-<div class="fare">
-
-Estimated fare:
-
-<b id="fare">
-₹ —
-</b>
-
-<div class="muted">
-Final fare will be confirmed by Vandan.
-</div>
-
-</div>
-
-
-<button
-  class="primary"
-  onclick="estimate()">
-
-Calculate Estimate
-
-</button>
-
-
-<button
-  class="green"
-  onclick="sendBooking()">
-
-Confirm via WhatsApp
-
-</button>
-
-</div>
-
-</section>
-
-
-<!-- ==================================================
-     TOURS
-================================================== -->
-
-<section id="tours" class="screen">
-
-<header>
-
-<button
-  class="back"
-  onclick="go('home')">
-
-← Back
-
-</button>
-
-<div class="brand">
-Kutch Tours
-</div>
-
-<div class="tag">
-Private Ertiga CNG • 7 Seater
-</div>
-
-</header>
-
-
-<div class="section">
-
-
-<div class="tour">
-
-<h3>
-🏜️ Rann of Kutch
-</h3>
-
-<div class="muted">
-Dhordo • White Rann • Kala Dungar
-</div>
-
-<button
-  class="primary"
-  onclick="quick('Kutch Tour')">
-
-Request Quote
-
-</button>
-
-</div>
-
-
-<div class="tour">
-
-<h3>
-🌊 Mandvi Tour
-</h3>
-
-<div class="muted">
-Mandvi • Beach • Local sightseeing
-</div>
-
-<button
-  class="primary"
-  onclick="quick('Kutch Tour')">
-
-Request Quote
-
-</button>
-
-</div>
-
-
-<div class="tour">
-
-<h3>
-🏛️ Bhuj & Kutch
-</h3>
-
-<div class="muted">
-Bhuj • Local sightseeing
-</div>
-
-<button
-  class="primary"
-  onclick="quick('Kutch Tour')">
-
-Request Quote
-
-</button>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- ==================================================
-     BOOKINGS
-================================================== -->
-
-<section id="trips" class="screen">
-
-<header>
-
-<div class="brand">
-My Bookings
-</div>
-
-<div class="tag">
-Upcoming & recent rides
-</div>
-
-</header>
-
-
-<div
-  class="section"
-  id="bookingList">
-
-<div class="notice">
-
-No bookings yet.
-
-<br><br>
-
-Book your first ride from the
-<b>Book</b> tab.
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ==================================================
-     PROFILE
-================================================== -->
-
-<section id="profile" class="screen">
-
-<header>
-
-<div class="brand">
-Profile
-</div>
-
-<div class="tag">
-Vandan Kutch Travels
-</div>
-
-</header>
-
-
-<div class="section">
-
-
-<div class="card">
-
-<b>
-Vandan Nanjar
-</b>
-
-<div class="muted">
-📞 +91 99137 47955
-</div>
-
-<div class="muted">
-📍 Mundra, Kutch, Gujarat
-</div>
-
-</div>
-
-
-<div
-  class="card"
-  style="margin-top:12px">
-
-<b>
-Vehicle
-</b>
-
-<div class="muted">
-Maruti Suzuki Ertiga CNG • 7 Seater
-</div>
-
-</div>
-
-
-<button
-  class="green"
-  onclick="call()">
-
-📞 Call Vandan
-
-</button>
-
-
-<button
-  class="primary"
-  onclick="wa()">
-
-💬 WhatsApp Booking
-
-</button>
-
-
-</div>
-
-</section>
-
-
-<!-- ==================================================
-     BOTTOM NAV
-================================================== -->
-
-<nav class="bottom">
-
-<button
-  class="nav on"
-  onclick="go('home',this)">
-
-<strong>🏠</strong>
-Home
-
-</button>
-
-
-<button
-  class="nav"
-  onclick="go('book',this)">
-
-<strong>🚕</strong>
-Book
-
-</button>
-
-
-<button
-  class="nav"
-  onclick="go('trips',this)">
-
-<strong>📋</strong>
-Bookings
-
-</button>
-
-
-<button
-  class="nav"
-  onclick="go('profile',this)">
-
-<strong>👤</strong>
-Profile
-
-</button>
-
-</nav>
-
-</div>
-
-
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
 
 <script>
 
-/* =========================
+
+/* =========================================
    SERVICE WORKER
-========================= */
+========================================= */
 
 if ('serviceWorker' in navigator) {
 
-  window.addEventListener('load', function(){
+  window.addEventListener('load', function () {
 
     navigator.serviceWorker
       .register('service-worker.js')
-      .catch(function(error){
+      .catch(function (error) {
 
         console.log(
-          'Service Worker registration failed:',
+          'Service Worker Error:',
           error
         );
 
@@ -1002,9 +1062,10 @@ if ('serviceWorker' in navigator) {
 }
 
 
-/* =========================
-   SCREEN NAVIGATION
-========================= */
+
+/* =========================================
+   SCREENS
+========================================= */
 
 const screens = [
   'home',
@@ -1017,13 +1078,15 @@ const screens = [
 
 function go(id, btn) {
 
-  screens.forEach(function(x){
+  screens.forEach(function (x) {
 
     const el =
       document.getElementById(x);
 
     if (el) {
+
       el.classList.remove('on');
+
     }
 
   });
@@ -1033,13 +1096,15 @@ function go(id, btn) {
     document.getElementById(id);
 
   if (page) {
+
     page.classList.add('on');
+
   }
 
 
   document
     .querySelectorAll('.nav')
-    .forEach(function(x){
+    .forEach(function (x) {
 
       x.classList.remove('on');
 
@@ -1050,31 +1115,47 @@ function go(id, btn) {
 
     btn.classList.add('on');
 
-  } else {
+  }
 
-    const navButton =
-      document.querySelector(
-        `.nav[onclick*="'${id}'"]`
-      );
 
-    if (navButton) {
-      navButton.classList.add('on');
+  /*
+    Automatically highlight
+    correct bottom navigation.
+  */
+
+  const navMap = {
+
+    home: 0,
+    book: 1,
+    trips: 2,
+    profile: 3
+
+  };
+
+
+  if (
+    navMap[id] !== undefined
+  ) {
+
+    const navButtons =
+      document.querySelectorAll('.nav');
+
+    if (navButtons[navMap[id]]) {
+
+      navButtons[navMap[id]]
+        .classList.add('on');
+
     }
 
   }
 
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-
 }
 
 
-/* =========================
+
+/* =========================================
    QUICK SERVICE
-========================= */
+========================================= */
 
 function quick(service) {
 
@@ -1082,37 +1163,20 @@ function quick(service) {
     document.getElementById('service');
 
   if (serviceEl) {
-    serviceEl.value = service;
-  }
 
+    serviceEl.value = service;
+
+  }
 
   go('book');
-
-
-  const pickup =
-    document.getElementById('pickup');
-
-  const drop =
-    document.getElementById('drop');
-
-
-  if (
-    pickup &&
-    drop &&
-    pickup.value.trim() &&
-    drop.value.trim()
-  ) {
-
-    estimate();
-
-  }
 
 }
 
 
-/* =========================
+
+/* =========================================
    GET COORDINATES
-========================= */
+========================================= */
 
 async function getCoordinates(location) {
 
@@ -1128,13 +1192,20 @@ async function getCoordinates(location) {
 
 
   const response =
-    await fetch(url);
+    await fetch(url, {
+
+      headers: {
+        'Accept':
+          'application/json'
+      }
+
+    });
 
 
   if (!response.ok) {
 
     throw new Error(
-      'Geocoding request failed'
+      'Location service unavailable'
     );
 
   }
@@ -1144,10 +1215,7 @@ async function getCoordinates(location) {
     await response.json();
 
 
-  if (
-    !data ||
-    !data.length
-  ) {
+  if (!data.length) {
 
     throw new Error(
       'Location not found: ' +
@@ -1159,18 +1227,23 @@ async function getCoordinates(location) {
 
   return {
 
-    lat:parseFloat(data[0].lat),
+    lat: parseFloat(
+      data[0].lat
+    ),
 
-    lon:parseFloat(data[0].lon)
+    lon: parseFloat(
+      data[0].lon
+    )
 
   };
 
 }
 
 
-/* =========================
+
+/* =========================================
    CALCULATE ROAD DISTANCE
-========================= */
+========================================= */
 
 async function calculateDistance(
   pickup,
@@ -1186,10 +1259,15 @@ async function calculateDistance(
 
 
   const url =
-    `https://router.project-osrm.org/route/v1/driving/` +
-    `${start.lon},${start.lat};` +
-    `${end.lon},${end.lat}` +
-    `?overview=false`;
+    'https://router.project-osrm.org/route/v1/driving/' +
+    start.lon +
+    ',' +
+    start.lat +
+    ';' +
+    end.lon +
+    ',' +
+    end.lat +
+    '?overview=false';
 
 
   const response =
@@ -1199,7 +1277,7 @@ async function calculateDistance(
   if (!response.ok) {
 
     throw new Error(
-      'Routing request failed'
+      'Route service unavailable'
     );
 
   }
@@ -1229,32 +1307,29 @@ async function calculateDistance(
 }
 
 
-/* =========================
+
+/* =========================================
    ESTIMATE FARE
-========================= */
+========================================= */
 
 async function estimate() {
 
-  const pickupEl =
-    document.getElementById('pickup');
-
-  const dropEl =
-    document.getElementById('drop');
-
-  const fareBox =
-    document.getElementById('fare');
-
-
   const pickup =
-    pickupEl
-      ? pickupEl.value.trim()
-      : '';
+    document
+      .getElementById('pickup')
+      ?.value
+      .trim() || '';
 
 
   const drop =
-    dropEl
-      ? dropEl.value.trim()
-      : '';
+    document
+      .getElementById('drop')
+      ?.value
+      .trim() || '';
+
+
+  const fareBox =
+    document.getElementById('fare');
 
 
   if (!pickup || !drop) {
@@ -1281,9 +1356,9 @@ async function estimate() {
     }
 
 
-    /* =========================
-       ROAD DISTANCE
-    ========================= */
+    /*
+      Automatic road distance
+    */
 
     const distanceKm =
       await calculateDistance(
@@ -1292,9 +1367,9 @@ async function estimate() {
       );
 
 
-    /* =========================
-       RATE
-    ========================= */
+    /*
+      ₹18 per KM
+    */
 
     const ratePerKm = 18;
 
@@ -1305,9 +1380,9 @@ async function estimate() {
       );
 
 
-    /* =========================
-       MINIMUM FARE
-    ========================= */
+    /*
+      Minimum fare ₹500
+    */
 
     if (fare < 500) {
 
@@ -1316,9 +1391,9 @@ async function estimate() {
     }
 
 
-    /* =========================
-       SHOW FARE
-    ========================= */
+    /*
+      Show fare
+    */
 
     if (fareBox) {
 
@@ -1358,35 +1433,53 @@ async function estimate() {
 }
 
 
-/* =========================
+
+/* =========================================
    SEND BOOKING
-========================= */
+========================================= */
 
 async function sendBooking() {
+
+
+  /*
+    First calculate fare
+  */
+
+  const fare =
+    await estimate();
+
 
   const nameEl =
     document.getElementById('name');
 
+
   const mobileEl =
     document.getElementById('mobile');
+
 
   const serviceEl =
     document.getElementById('service');
 
+
   const pickupEl =
     document.getElementById('pickup');
+
 
   const dropEl =
     document.getElementById('drop');
 
+
   const dateEl =
     document.getElementById('date');
+
 
   const timeEl =
     document.getElementById('time');
 
+
   const peopleEl =
     document.getElementById('people');
+
 
 
   const name =
@@ -1437,9 +1530,11 @@ async function sendBooking() {
       : '';
 
 
+
   /* =========================
      VALIDATION
-  ========================= */
+  ========================== */
+
 
   if (!name) {
 
@@ -1456,6 +1551,27 @@ async function sendBooking() {
 
     alert(
       'Please enter your mobile number'
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Remove spaces, +, -, etc.
+  */
+
+  const cleanMobile =
+    mobile.replace(/\D/g, '');
+
+
+  if (
+    cleanMobile.length !== 10
+  ) {
+
+    alert(
+      'Please enter a valid 10-digit mobile number'
     );
 
     return;
@@ -1485,125 +1601,132 @@ async function sendBooking() {
   }
 
 
-  /* =========================
-     CALCULATE FARE
-  ========================= */
+  if (!date) {
 
-  const fare =
-    await estimate();
+    alert(
+      'Please select date'
+    );
+
+    return;
+
+  }
+
+
+  if (!time) {
+
+    alert(
+      'Please select time'
+    );
+
+    return;
+
+  }
+
+
+  const passengerCount =
+    parseInt(
+      people || '0',
+      10
+    );
+
+
+  if (
+    passengerCount < 1 ||
+    passengerCount > 7
+  ) {
+
+    alert(
+      'Passengers must be between 1 and 7'
+    );
+
+    return;
+
+  }
+
+
+
+  /* =========================
+     BOOKING MESSAGE
+  ========================== */
+
+  const message =
+`VANDAN KUTCH TRAVELS - BOOKING REQUEST
+
+Name: ${name}
+Customer Mobile: +91 ${cleanMobile}
+Service: ${service}
+Pickup: ${pickup}
+Drop: ${drop}
+Date: ${date}
+Time: ${time}
+Passengers: ${passengerCount}
+Estimated fare: ₹${fare || 'To be confirmed'}
+
+Please confirm this booking.
+
+Thank you.`;
+
 
 
   /* =========================
      SAVE BOOKING
-  ========================= */
+  ========================== */
 
-  const booking = {
+  saveBooking({
 
-    name:name,
+    name: name,
 
-    mobile:mobile,
+    mobile:
+      '+91 ' + cleanMobile,
 
-    service:service,
+    service: service,
 
-    pickup:pickup,
+    pickup: pickup,
 
-    drop:drop,
+    drop: drop,
 
-    date:date,
+    date: date,
 
-    time:time,
+    time: time,
 
-    people:people,
+    people: passengerCount,
 
-    fare:fare,
+    fare: fare
 
-    createdAt:
-      new Date().toISOString()
+  });
 
-  };
-
-
-  saveBooking(booking);
 
 
   /* =========================
-     WHATSAPP MESSAGE
-  ========================= */
+     OPEN WHATSAPP
+  ========================== */
 
-  const message =
-
-`🚕 VANDAN KUTCH TRAVELS
-
-BOOKING REQUEST
-
-Name: ${name}
-Mobile: ${mobile}
-Service: ${service}
-Pickup: ${pickup}
-Drop: ${drop}
-Date: ${date || 'Not specified'}
-Time: ${time || 'Not specified'}
-Passengers: ${people}
-Estimated Fare: ₹${fare}
-
-Please confirm availability and final fare.
-
-Thank you.
-Vandan Kutch Travels
-Mundra, Kutch, Gujarat`;
+  const whatsappNumber =
+    '919913747955';
 
 
-  const whatsappUrl =
-    'https://wa.me/919913747955?text=' +
+  const whatsappURL =
+    'https://wa.me/' +
+    whatsappNumber +
+    '?text=' +
     encodeURIComponent(message);
 
 
   window.location.href =
-    whatsappUrl;
+    whatsappURL;
 
 }
 
 
-/* =========================
-   WHATSAPP GENERAL
-========================= */
 
-function wa() {
-
-  const message =
-    'Hello Vandan Kutch Travels, I would like to book an Ertiga CNG ride. Please share availability and fare.';
-
-
-  const url =
-    'https://wa.me/919913747955?text=' +
-    encodeURIComponent(message);
-
-
-  window.location.href =
-    url;
-
-}
-
-
-/* =========================
-   PHONE CALL
-========================= */
-
-function call() {
-
-  window.location.href =
-    'tel:+919913747955';
-
-}
-
-
-/* =========================
+/* =========================================
    SAVE BOOKING
-========================= */
+========================================= */
 
 function saveBooking(booking) {
 
   let bookings = [];
+
 
   try {
 
@@ -1611,8 +1734,8 @@ function saveBooking(booking) {
       JSON.parse(
         localStorage.getItem(
           'vandanBookings'
-        )
-      ) || [];
+        ) || '[]'
+      );
 
   } catch (error) {
 
@@ -1621,7 +1744,21 @@ function saveBooking(booking) {
   }
 
 
-  bookings.unshift(booking);
+  booking.createdAt =
+    new Date().toISOString();
+
+
+  bookings.unshift(
+    booking
+  );
+
+
+  /*
+    Keep last 20 bookings
+  */
+
+  bookings =
+    bookings.slice(0, 20);
 
 
   localStorage.setItem(
@@ -1630,41 +1767,17 @@ function saveBooking(booking) {
   );
 
 
-  renderBookings();
+  loadBookings();
 
 }
 
 
-/* =========================
-   GET BOOKINGS
-========================= */
 
-function getBookings() {
+/* =========================================
+   LOAD BOOKINGS
+========================================= */
 
-  try {
-
-    return (
-      JSON.parse(
-        localStorage.getItem(
-          'vandanBookings'
-        )
-      ) || []
-    );
-
-  } catch (error) {
-
-    return [];
-
-  }
-
-}
-
-
-/* =========================
-   DISPLAY BOOKINGS
-========================= */
-
-function renderBookings() {
+function loadBookings() {
 
   const list =
     document.getElementById(
@@ -1673,164 +1786,154 @@ function renderBookings() {
 
 
   if (!list) {
+
     return;
+
   }
 
 
-  const bookings =
-    getBookings();
+  let bookings = [];
+
+
+  try {
+
+    bookings =
+      JSON.parse(
+        localStorage.getItem(
+          'vandanBookings'
+        ) || '[]'
+      );
+
+  } catch (error) {
+
+    bookings = [];
+
+  }
 
 
   if (!bookings.length) {
 
-    list.innerHTML = `
-
-      <div class="notice">
-
+    list.innerHTML =
+      `<div class="notice">
         No bookings yet.
-
         <br><br>
-
         Book your first ride from the
         <b>Book</b> tab.
-
-      </div>
-
-    `;
+      </div>`;
 
     return;
 
   }
 
 
-  list.innerHTML = '';
+  list.innerHTML =
+    bookings.map(function (booking, index) {
 
+      return `
+        <div class="booking-item">
 
-  bookings.forEach(
-    function(booking,index){
+          <h3>
+            🚕 ${escapeHTML(
+              booking.service
+            )}
+          </h3>
 
-      const item =
-        document.createElement(
-          'div'
-        );
+          <div class="booking-line">
+            <b>Name:</b>
+            ${escapeHTML(booking.name)}
+          </div>
 
+          <div class="booking-line">
+            <b>Mobile:</b>
+            ${escapeHTML(booking.mobile)}
+          </div>
 
-      item.className =
-        'booking';
+          <div class="booking-line">
+            <b>Pickup:</b>
+            ${escapeHTML(booking.pickup)}
+          </div>
 
+          <div class="booking-line">
+            <b>Drop:</b>
+            ${escapeHTML(booking.drop)}
+          </div>
 
-      item.innerHTML = `
+          <div class="booking-line">
+            <b>Date:</b>
+            ${escapeHTML(booking.date)}
+          </div>
 
-        <h3>
-          🚕 ${escapeHtml(
-            booking.service
-          )}
-        </h3>
+          <div class="booking-line">
+            <b>Time:</b>
+            ${escapeHTML(booking.time)}
+          </div>
 
-        <div class="booking-line">
-          <b>Name:</b>
-          ${escapeHtml(
-            booking.name
-          )}
-        </div>
+          <div class="booking-line">
+            <b>Passengers:</b>
+            ${booking.people}
+          </div>
 
-        <div class="booking-line">
-          <b>Pickup:</b>
-          ${escapeHtml(
-            booking.pickup
-          )}
-        </div>
-
-        <div class="booking-line">
-          <b>Drop:</b>
-          ${escapeHtml(
-            booking.drop
-          )}
-        </div>
-
-        <div class="booking-line">
-          <b>Date:</b>
-          ${escapeHtml(
-            booking.date || 'Not specified'
-          )}
-        </div>
-
-        <div class="booking-line">
-          <b>Time:</b>
-          ${escapeHtml(
-            booking.time || 'Not specified'
-          )}
-        </div>
-
-        <div class="booking-line">
-          <b>Passengers:</b>
-          ${escapeHtml(
-            booking.people
-          )}
-        </div>
-
-        <div class="booking-line">
-          <b>Estimated Fare:</b>
-          ₹${escapeHtml(
-            String(booking.fare)
-          )}
-        </div>
-
-        <div class="booking-actions">
+          <div class="booking-line">
+            <b>Estimated Fare:</b>
+            ₹${booking.fare || '—'}
+          </div>
 
           <button
-            class="small-btn whatsapp-btn"
-            onclick="repeatWhatsApp(${index})">
-
-            WhatsApp
-
-          </button>
-
-          <button
-            class="small-btn delete-btn"
-            onclick="deleteBooking(${index})">
-
-            Delete
-
+            class="small-button"
+            onclick="deleteBooking(${index})"
+          >
+            🗑️ Delete
           </button>
 
         </div>
-
       `;
 
-
-      list.appendChild(item);
-
-    }
-  );
+    }).join('');
 
 }
 
 
-/* =========================
+
+/* =========================================
    ESCAPE HTML
-========================= */
+========================================= */
 
-function escapeHtml(value) {
+function escapeHTML(value) {
 
-  return String(value)
-    .replaceAll('&','&amp;')
-    .replaceAll('<','&lt;')
-    .replaceAll('>','&gt;')
-    .replaceAll('"','&quot;')
-    .replaceAll("'","&#039;");
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 
 }
 
 
-/* =========================
+
+/* =========================================
    DELETE BOOKING
-========================= */
+========================================= */
 
 function deleteBooking(index) {
 
-  const bookings =
-    getBookings();
+  let bookings = [];
+
+
+  try {
+
+    bookings =
+      JSON.parse(
+        localStorage.getItem(
+          'vandanBookings'
+        ) || '[]'
+      );
+
+  } catch (error) {
+
+    bookings = [];
+
+  }
 
 
   if (
@@ -1856,68 +1959,105 @@ function deleteBooking(index) {
   );
 
 
-  renderBookings();
+  loadBookings();
 
 }
 
 
-/* =========================
-   REPEAT WHATSAPP
-========================= */
 
-function repeatWhatsApp(index) {
+/* =========================================
+   WHATSAPP GENERAL BUTTON
+========================================= */
 
-  const bookings =
-    getBookings();
+function wa() {
 
-
-  const booking =
-    bookings[index];
-
-
-  if (!booking) {
-    return;
-  }
+  const whatsappNumber =
+    '919913747955';
 
 
   const message =
+    'Hello Vandan Kutch Travels, I want to book an Ertiga CNG.';
 
-`🚕 VANDAN KUTCH TRAVELS
 
-BOOKING REQUEST
-
-Name: ${booking.name}
-Mobile: ${booking.mobile}
-Service: ${booking.service}
-Pickup: ${booking.pickup}
-Drop: ${booking.drop}
-Date: ${booking.date || 'Not specified'}
-Time: ${booking.time || 'Not specified'}
-Passengers: ${booking.people}
-Estimated Fare: ₹${booking.fare}
-
-Please confirm availability and final fare.`;
+  const url =
+    'https://wa.me/' +
+    whatsappNumber +
+    '?text=' +
+    encodeURIComponent(message);
 
 
   window.location.href =
-    'https://wa.me/919913747955?text=' +
-    encodeURIComponent(message);
+    url;
 
 }
 
 
-/* =========================
-   LOAD BOOKINGS
-========================= */
+
+/* =========================================
+   CALL
+========================================= */
+
+function call() {
+
+  window.location.href =
+    'tel:+919913747955';
+
+}
+
+
+
+/* =========================================
+   PAGE LOAD
+========================================= */
 
 document.addEventListener(
   'DOMContentLoaded',
-  function(){
+  function () {
 
-    renderBookings();
+    loadBookings();
 
-  }
-);
+
+    /*
+      Set today's date as minimum date.
+    */
+
+    const dateEl =
+      document.getElementById('date');
+
+
+    if (dateEl) {
+
+      const today =
+        new Date();
+
+
+      const year =
+        today.getFullYear();
+
+
+      const month =
+        String(
+          today.getMonth() + 1
+        ).padStart(2, '0');
+
+
+      const day =
+        String(
+          today.getDate()
+        ).padStart(2, '0');
+
+
+      const todayString =
+        `${year}-${month}-${day}`;
+
+
+      dateEl.min =
+        todayString;
+
+    }
+
+  });
+
 
 </script>
 
