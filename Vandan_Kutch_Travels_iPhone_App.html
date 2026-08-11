@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="gu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Vandan Kutch Travels</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#dfe4eb;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:#172033}
+.app{width:100%;max-width:430px;min-height:100vh;margin:auto;background:#f6f7fa;padding-bottom:88px}
+header{background:linear-gradient(145deg,#07152e,#1d3a63);color:#fff;padding:30px 20px 22px;border-radius:0 0 28px 28px}
+.logo{width:52px;height:52px;border-radius:15px;background:#d8ad52;color:#101010;display:flex;align-items:center;justify-content:center;font-size:25px;font-weight:900;margin-bottom:14px}
+.brand{font-size:24px;font-weight:850;letter-spacing:.3px}.tag{font-size:13px;opacity:.82;margin-top:4px}.location{font-size:13px;margin-top:16px}
+.hero{background:#fff;color:#172033;border-radius:20px;margin-top:18px;padding:17px;box-shadow:0 10px 25px #0002}.hero h2{margin:0 0 5px;font-size:19px}.muted{font-size:12px;color:#687387}
+button{font:inherit;cursor:pointer}.primary{border:0;border-radius:13px;background:#d8ad52;color:#111;font-weight:800;padding:14px;width:100%;margin-top:14px}.green{border:0;border-radius:13px;background:#35a866;color:#fff;font-weight:800;padding:14px;width:100%;margin-top:10px}
+.section{padding:18px}.title{font-size:18px;font-weight:800;margin-bottom:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.card{background:#fff;border-radius:17px;padding:15px;box-shadow:0 5px 16px #00000010}.service{cursor:pointer}.ico{font-size:27px}.service b{display:block;margin-top:7px}.service .muted{margin-top:3px}
+.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);padding:9px 5px calc(9px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e1e4e9;display:grid;grid-template-columns:repeat(4,1fr);z-index:5}.nav{border:0;background:none;color:#6b7483;font-size:11px}.nav strong{display:block;font-size:21px;margin-bottom:2px}.nav.on{color:#07152e;font-weight:800}
+.screen{display:none}.screen.on{display:block}.back{border:0;background:none;color:#fff;padding:0 0 15px;font-weight:700}
+.form{margin:16px;background:#fff;border-radius:18px;padding:17px;box-shadow:0 5px 18px #00000010}.label{font-size:12px;color:#687387;margin:10px 0 5px}.input{width:100%;padding:13px;border:1px solid #d8dde6;border-radius:11px;font-size:15px;background:#fff}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.fare{margin-top:14px;background:#eef8f2;border:1px solid #cde9d7;border-radius:13px;padding:13px}.fare b{font-size:20px}.tour{background:#fff;border-radius:17px;padding:16px;margin-bottom:11px;box-shadow:0 5px 16px #00000010}.tour h3{margin:0 0 4px}.tour button{margin-top:10px}
+.notice{margin:16px;background:#fff8e7;border:1px solid #efdfa9;border-radius:15px;padding:14px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="app">
+
+<section id="home" class="screen on">
+<header>
+<div class="logo">VK</div>
+<div class="brand">VANDAN KUTCH TRAVELS</div>
+<div class="tag">Your Journey, Our Responsibility</div>
+<div class="location">📍 Mundra, Kutch, Gujarat</div>
+<div class="hero">
+<h2>🚗 Ertiga CNG • 7 Seater</h2>
+<div class="muted">Corporate • Airport • Railway • Outstation • Kutch Tours</div>
+<button class="primary" onclick="go('book')">🚕 BOOK YOUR RIDE</button>
+</div>
+</header>
+<div class="section">
+<div class="title">Our Services</div>
+<div class="grid">
+<div class="card service" onclick="quick('Airport Transfer')"><div class="ico">✈️</div><b>Airport</b><div class="muted">Bhuj Airport</div></div>
+<div class="card service" onclick="quick('Railway Transfer')"><div class="ico">🚉</div><b>Railway</b><div class="muted">Gandhidham Station</div></div>
+<div class="card service" onclick="quick('Corporate Travel')"><div class="ico">🏢</div><b>Corporate</b><div class="muted">Company & guests</div></div>
+<div class="card service" onclick="go('tours')"><div class="ico">🏜️</div><b>Kutch Tours</b><div class="muted">Rann • Mandvi • Bhuj</div></div>
+</div>
+</div>
+<div class="section">
+<div class="card"><b>Why Vandan Kutch Travels?</b><p class="muted">✓ Mundra based<br>✓ Clean 7-seater Ertiga CNG<br>✓ Local & outstation service<br>✓ Easy WhatsApp booking</p></div>
+<button class="green" onclick="wa()">💬 WhatsApp Booking</button>
+</div>
+</section>
+
+<section id="book" class="screen">
+<header><button class="back" onclick="go('home')">← Back</button><div class="brand">Book Your Ride</div><div class="tag">Mundra • Kutch • Gujarat</div></header>
+<div class="form">
+<div class="label">Service</div>
+<select id="service" class="input">
+<option>Local Ride</option><option>Airport Transfer</option><option>Railway Transfer</option><option>Corporate Travel</option><option>Outstation</option><option>Kutch Tour</option>
+</select>
+<div class="label">Pickup Location</div><input id="pickup" class="input" placeholder="e.g. The Fern Residency, Mundra">
+<div class="label">Drop Location</div><input id="drop" class="input" placeholder="e.g. Bhuj Airport">
+<div class="row"><div><div class="label">Date</div><input id="date" type="date" class="input"></div><div><div class="label">Time</div><input id="time" type="time" class="input"></div></div>
+<div class="row"><div><div class="label">Passengers</div><input id="people" type="number" min="1" max="7" value="2" class="input"></div><div><div class="label">Name</div><input id="name" class="input" placeholder="Your name"></div></div>
+<div class="label">Mobile</div><input id="mobile" class="input" value="+91 99137 47955">
+<div class="fare">Estimated fare: <b id="fare">₹ —</b><div class="muted">Final fare will be confirmed by Vandan.</div></div>
+<button class="primary" onclick="estimate()">Calculate Estimate</button>
+<button class="green" onclick="sendBooking()">Confirm via WhatsApp</button>
+</div>
+</section>
+
+<section id="tours" class="screen">
+<header><button class="back" onclick="go('home')">← Back</button><div class="brand">Kutch Tours</div><div class="tag">Private Ertiga CNG • 7 Seater</div></header>
+<div class="section">
+<div class="tour"><h3>🏜️ Rann of Kutch</h3><div class="muted">Dhordo • White Rann • Kala Dungar</div><button class="primary" onclick="quick('Kutch Tour')">Request Quote</button></div>
+<div class="tour"><h3>🌊 Mandvi Tour</h3><div class="muted">Mandvi • Beach • Local sightseeing</div><button class="primary" onclick="quick('Kutch Tour')">Request Quote</button></div>
+<div class="tour"><h3>🏛️ Bhuj & Kutch</h3><div class="muted">Bhuj • Local sightseeing</div><button class="primary" onclick="quick('Kutch Tour')">Request Quote</button></div>
+</div>
+</section>
+
+<section id="trips" class="screen">
+<header><div class="brand">My Bookings</div><div class="tag">Upcoming & recent rides</div></header>
+<div class="section" id="bookingList"><div class="notice">No bookings yet.<br><br>Book your first ride from the <b>Book</b> tab.</div></div>
+</section>
+
+<section id="profile" class="screen">
+<header><div class="brand">Profile</div><div class="tag">Vandan Kutch Travels</div></header>
+<div class="section">
+<div class="card"><b>Vandan Nanjar</b><div class="muted">📞 +91 99137 47955</div><div class="muted">📍 Mundra, Kutch, Gujarat</div></div>
+<div class="card" style="margin-top:12px"><b>Vehicle</b><div class="muted">Maruti Suzuki Ertiga CNG • 7 Seater</div></div>
+<button class="green" onclick="call()">📞 Call Vandan</button>
+<button class="primary" onclick="wa()">💬 WhatsApp Booking</button>
+</div>
+</section>
+
+<nav class="bottom">
+<button class="nav on" onclick="go('home',this)"><strong>🏠</strong>Home</button>
+<button class="nav" onclick="go('book',this)"><strong>🚕</strong>Book</button>
+<button class="nav" onclick="go('trips',this)"><strong>📋</strong>Bookings</button>
+<button class="nav" onclick="go('profile',this)"><strong>👤</strong>Profile</button>
+</nav>
+</div>
+
+<script>
+const screens=['home','book','tours','trips','profile'];
+function go(id,btn){screens.forEach(x=>document.getElementById(x).classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.nav').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');scrollTo(0,0)}
+function quick(s){document.getElementById('service').value=s;go('book')}
+function estimate(){let s=document.getElementById('service').value;let f={'Local Ride':500,'Airport Transfer':1200,'Railway Transfer':900,'Corporate Travel':1000,'Outstation':2500,'Kutch Tour':3500}[s]||1000;document.getElementById('fare').textContent='₹'+f.toLocaleString('en-IN')+'+';return f}
+function sendBooking(){let f=estimate();let m=`VANDAN KUTCH TRAVELS - BOOKING REQUEST\n\nName: ${name.value}\nMobile: ${mobile.value}\nService: ${service.value}\nPickup: ${pickup.value}\nDrop: ${drop.value}\nDate: ${date.value}\nTime: ${time.value}\nPassengers: ${people.value}\nEstimated fare: ₹${f}`;document.getElementById('bookingList').innerHTML=`<div class="card"><b>${service.value}</b><div class="muted">${pickup.value} → ${drop.value}</div><div class="muted">${date.value} ${time.value}</div><br><b>REQUESTED</b></div>`;go('trips');window.location.href='https://wa.me/919913747955?text='+encodeURIComponent(m)}
+function wa(){window.location.href='https://wa.me/919913747955?text='+encodeURIComponent('Hello Vandan Kutch Travels, I want to book an Ertiga CNG.')}
+function call(){window.location.href='tel:+919913747955'}
+</script>
+</body>
+</html>
