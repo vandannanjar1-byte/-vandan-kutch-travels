@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="gu">
-<head>
+<head><link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#000000">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,7 +22,19 @@ button{font:inherit;cursor:pointer}.primary{border:0;border-radius:13px;backgrou
 .notice{margin:16px;background:#fff8e7;border:1px solid #efdfa9;border-radius:15px;padding:14px;font-size:13px}
 </style>
 </head>
-<body>
+<script>
+
+if ('serviceWorker' in navigator) {
+
+  window.addEventListener('load', () => {
+
+    navigator.serviceWorker.register('service-worker.js');
+
+  });
+
+}
+
+</script><body>
 <div class="app">
 
 <section id="home" class="screen on">
