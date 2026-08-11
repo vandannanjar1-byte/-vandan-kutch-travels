@@ -137,55 +137,136 @@ function quick(service) {
   estimate();
 }
 
-function estimate() {
+async function getCoordinates(location) {
 
-  const serviceEl = document.getElementById('service');
-  const pickupEl = document.getElementById('pickup');
-  const dropEl = document.getElementById('drop');
-  const fareBox = document.getElementById('fare');
+  const url =
+    'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' +
+    encodeURIComponent(location + ', Kutch, Gujarat, India');
 
-  const service = serviceEl ? serviceEl.value.trim() : '';
-  const pickup = pickupEl ? pickupEl.value.trim().toLowerCase() : '';
-  const drop = dropEl ? dropEl.value.trim().toLowerCase() : '';
+  const response = await fetch(url, {
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
 
-  let fare = 0;
+  const data = await response.json();
 
-  // MUNDRA → BHUJ / BHUJ AIRPORT
-  if (
-    service === 'Local Ride' &&
-    pickup.includes('mundra') &&
-    drop.includes('bhuj')
-  ) {
-
-    const distance = 60;
-    const rate = 18;
-
-    fare = distance * rate; // ₹1080
-
-  } else {
-
-    const fares = {
-      'Local Ride': 500,
-      'Airport Transfer': 1080,
-      'Railway Transfer': 1080,
-      'Corporate Travel': 1080,
-      'Kutch Tour': 1080
-    };
-
-    fare = fares[service] || 0;
+  if (!data.length) {
+    throw new Error('Location not found: ' + location);
   }
 
-  if (fareBox) {
-    fareBox.innerText = '₹' + fare;
-  }
-
-  return fare;
+  return {
+    lat: parseFloat(data[0].lat),
+    lon: parseFloat(data[0].lon)
+  };
 }
 
 
-function sendBooking() {
+async function calculateDistance(pickup, drop) {
 
-  const fare = estimate();
+  const start = await getCoordinates(pickup);
+  const end = await getCoordinates(drop);
+
+  const url =
+    `https://router.project-osrm.org/route/v1/driving/` +
+    `${start.lon},${start.lat};${end.lon},${end.lat}` +
+    `?overview=false`;
+
+  const response = await fetch(url);
+  const data = await response.json();
+
+  if (
+    data.code !== 'Ok' ||
+    !data.routes ||
+    !data.routes.length
+  ) {
+    throw new Error('Route not found');
+  }
+
+  return data.routes[0].distance / 1000;
+}
+
+
+async function estimate() {
+
+  const service =
+    document.getElementById('service')?.value.trim() || '';
+
+  const pickup =
+    document.getElementById('pickup')?.value.trim() || '';
+
+  const drop =
+    document.getElementById('drop')?.value.trim() || '';
+
+  const fareBox =
+    document.getElementById('fare');
+
+  if (!pickup || !drop) {
+    if (fareBox) {
+      fareBox.innerText = 'Enter pickup & drop';
+    }
+    return 0;
+  }
+
+  try {
+
+    if (fareBox) {
+      fareBox.innerText = 'Calculating...';
+    }
+
+    // =========================
+    // AUTOMATIC ROAD DISTANCE
+    // =========================
+
+    const distanceKm =
+      await calculateDistance(pickup, drop);
+
+    // ₹18 PER KM
+    const ratePerKm = 18;
+
+    let fare =
+      Math.ceil(distanceKm * ratePerKm);
+
+    // =========================
+    // MINIMUM FARE ₹500
+    // =========================
+
+    if (fare < 500) {
+      fare = 500;
+    }
+
+    // =========================
+    // SHOW RESULT
+    // =========================
+
+    if (fareBox) {
+
+      fareBox.innerHTML =
+        `₹${fare}+<br>
+         <small>
+         ${distanceKm.toFixed(1)} km × ₹${ratePerKm}/km
+         </small>`;
+    }
+
+    return fare;
+
+  } catch (error) {
+
+    console.error(error);
+
+    if (fareBox) {
+      fareBox.innerText =
+        'Unable to calculate distance';
+    }
+
+    return 0;
+  }
+
+
+
+async function sendBooking() {
+
+  const fare = await estimate();
 
   const nameEl = document.getElementById('name');
   const mobileEl = document.getElementById('mobile');
