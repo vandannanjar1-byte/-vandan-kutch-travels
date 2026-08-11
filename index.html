@@ -1,23 +1,21 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 
 <meta charset="utf-8">
 
 <meta name="viewport"
-      content="width=device-width,initial-scale=1,viewport-fit=cover">
+content="width=device-width,initial-scale=1,viewport-fit=cover">
 
 <meta name="theme-color" content="#07152e">
 
-<meta name="apple-mobile-web-app-capable"
-      content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
 
 <meta name="apple-mobile-web-app-status-bar-style"
-      content="default">
+content="default">
 
 <title>Vandan Kutch Travels</title>
-
-<link rel="manifest" href="manifest.json">
 
 <style>
 
@@ -34,6 +32,16 @@ body{
   background:#dfe4eb;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   color:#172033;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
 }
 
 .app{
@@ -72,8 +80,8 @@ header{
 
 .brand{
   font-size:25px;
-  font-weight:850;
-  letter-spacing:.3px;
+  font-weight:900;
+  letter-spacing:.2px;
 }
 
 .tag{
@@ -84,7 +92,7 @@ header{
 
 .location{
   font-size:15px;
-  margin-top:17px;
+  margin-top:18px;
 }
 
 /* =========================
@@ -94,8 +102,8 @@ header{
 .hero{
   background:#fff;
   color:#172033;
-  border-radius:22px;
-  margin-top:19px;
+  border-radius:21px;
+  margin-top:20px;
   padding:18px;
   box-shadow:0 10px 25px #0002;
 }
@@ -108,6 +116,9 @@ header{
 .muted{
   font-size:14px;
   color:#687387;
+}
+
+.hero .muted{
   line-height:1.5;
 }
 
@@ -115,29 +126,15 @@ header{
    BUTTONS
 ========================= */
 
-button,
-select,
-input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
 .primary{
   border:0;
   border-radius:14px;
   background:#d8ad52;
   color:#111;
-  font-weight:800;
+  font-weight:850;
   padding:15px;
   width:100%;
   margin-top:15px;
-}
-
-.primary:active{
-  transform:scale(.98);
 }
 
 .green{
@@ -145,14 +142,21 @@ button{
   border-radius:14px;
   background:#35a866;
   color:#fff;
-  font-weight:800;
+  font-weight:850;
   padding:15px;
   width:100%;
   margin-top:11px;
 }
 
-.green:active{
-  transform:scale(.98);
+.danger{
+  border:0;
+  border-radius:12px;
+  background:#f1e1e1;
+  color:#a52d2d;
+  font-weight:700;
+  padding:12px;
+  width:100%;
+  margin-top:10px;
 }
 
 /* =========================
@@ -184,14 +188,11 @@ button{
 
 .service{
   cursor:pointer;
-}
-
-.service:active{
-  transform:scale(.98);
+  min-height:145px;
 }
 
 .ico{
-  font-size:30px;
+  font-size:31px;
 }
 
 .service b{
@@ -201,7 +202,7 @@ button{
 }
 
 .service .muted{
-  margin-top:3px;
+  margin-top:4px;
 }
 
 /* =========================
@@ -216,13 +217,17 @@ button{
   display:block;
 }
 
+/* =========================
+   BACK
+========================= */
+
 .back{
   border:0;
   background:none;
   color:#fff;
-  padding:0 0 16px;
-  font-weight:750;
-  font-size:18px;
+  padding:0 0 18px;
+  font-weight:800;
+  font-size:17px;
 }
 
 /* =========================
@@ -230,7 +235,7 @@ button{
 ========================= */
 
 .form{
-  margin:18px;
+  margin:18px 16px;
   background:#fff;
   border-radius:20px;
   padding:18px;
@@ -242,6 +247,10 @@ button{
   color:#687387;
   margin:12px 0 6px;
   font-weight:600;
+}
+
+.required{
+  color:#c93434;
 }
 
 .input{
@@ -256,42 +265,18 @@ button{
 }
 
 .input:focus{
-  border-color:#d8ad52;
-  box-shadow:0 0 0 3px #d8ad5230;
+  border-color:#8da5c5;
+  box-shadow:0 0 0 3px #8da5c520;
 }
 
 .row{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:11px;
+  gap:10px;
 }
 
-/* =========================
-   LOCATION SELECT
-========================= */
-
-.locationBox{
-  position:relative;
-}
-
-.searchInput{
-  width:100%;
-  padding:13px;
-  border:1px solid #d8dde6;
-  border-radius:12px;
-  font-size:15px;
-  margin-bottom:8px;
-  outline:none;
-}
-
-.locationSelect{
-  width:100%;
-  padding:14px;
-  border:1px solid #d8dde6;
-  border-radius:12px;
-  font-size:16px;
-  background:#fff;
-  color:#172033;
+.hidden{
+  display:none !important;
 }
 
 /* =========================
@@ -304,6 +289,10 @@ button{
   border:1px solid #cde9d7;
   border-radius:14px;
   padding:15px;
+}
+
+.fare-title{
+  font-size:16px;
 }
 
 .fare b{
@@ -329,10 +318,7 @@ button{
 
 .tour h3{
   margin:0 0 5px;
-}
-
-.tour button{
-  margin-top:10px;
+  font-size:18px;
 }
 
 /* =========================
@@ -340,52 +326,45 @@ button{
 ========================= */
 
 .notice{
-  margin:18px;
   background:#fff8e7;
   border:1px solid #efdfa9;
   border-radius:15px;
   padding:15px;
   font-size:14px;
+  line-height:1.5;
 }
 
 /* =========================
-   BOOKING CARD
+   BOOKING ITEM
 ========================= */
 
-.booking{
+.booking-item{
   background:#fff;
-  border-radius:17px;
+  border-radius:18px;
   padding:16px;
   margin-bottom:12px;
   box-shadow:0 5px 16px #00000010;
 }
 
-.bookingTitle{
-  font-size:17px;
-  font-weight:800;
-  margin-bottom:7px;
+.booking-item h3{
+  margin:0 0 8px;
 }
 
-.bookingLine{
-  font-size:13px;
-  color:#687387;
-  margin-top:5px;
+.booking-line{
+  margin:5px 0;
+  font-size:14px;
 }
 
-.bookingFare{
-  font-size:18px;
-  font-weight:800;
-  margin-top:9px;
+.booking-line b{
+  color:#172033;
 }
 
-.deleteBtn{
-  border:0;
-  background:#f4e3e3;
-  color:#a33;
-  padding:9px 12px;
-  border-radius:10px;
-  margin-top:12px;
-  font-weight:700;
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card{
+  margin-bottom:12px;
 }
 
 /* =========================
@@ -411,7 +390,7 @@ button{
   background:none;
   color:#6b7483;
   font-size:12px;
-  padding:5px 2px;
+  padding:4px 2px;
 }
 
 .nav strong{
@@ -422,25 +401,20 @@ button{
 
 .nav.on{
   color:#07152e;
-  font-weight:800;
+  font-weight:850;
 }
 
 /* =========================
-   SMALL HELP TEXT
+   LOADING
 ========================= */
 
-.help{
-  font-size:12px;
-  color:#7a8494;
-  margin-top:6px;
-}
-
-.required{
-  color:#b33;
+.loading{
+  opacity:.65;
+  pointer-events:none;
 }
 
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
 @media(max-width:360px){
@@ -450,11 +424,11 @@ button{
   }
 
   .grid{
-    gap:8px;
+    grid-template-columns:1fr;
   }
 
   .row{
-    gap:8px;
+    grid-template-columns:1fr;
   }
 
 }
@@ -463,9 +437,11 @@ button{
 
 </head>
 
+
 <body>
 
 <div class="app">
+
 
 <!-- =====================================================
      HOME
@@ -488,6 +464,7 @@ Your Journey, Our Responsibility
 <div class="location">
 📍 Mundra, Kutch, Gujarat
 </div>
+
 
 <div class="hero">
 
@@ -516,7 +493,9 @@ onclick="go('book')">
 Our Services
 </div>
 
+
 <div class="grid">
+
 
 <div
 class="card service"
@@ -542,7 +521,7 @@ onclick="quick('Railway Transfer')">
 <b>Railway</b>
 
 <div class="muted">
-Gujarat Stations
+Gujarat Railway Stations
 </div>
 
 </div>
@@ -577,6 +556,7 @@ Rann • Mandvi • Bhuj
 
 </div>
 
+
 </div>
 
 </div>
@@ -586,16 +566,14 @@ Rann • Mandvi • Bhuj
 
 <div class="card">
 
-<b>
-Why Vandan Kutch Travels?
-</b>
+<b>Why Vandan Kutch Travels?</b>
 
 <p class="muted">
 
 ✓ Mundra based<br>
 ✓ Clean 7-seater Ertiga CNG<br>
 ✓ Local & outstation service<br>
-✓ Airport & railway transfers<br>
+✓ Airport & railway transfer<br>
 ✓ Easy WhatsApp booking
 
 </p>
@@ -605,7 +583,7 @@ Why Vandan Kutch Travels?
 
 <button
 class="green"
-onclick="wa()">
+onclick="waGeneral()">
 
 💬 WhatsApp Booking
 
@@ -627,7 +605,9 @@ onclick="wa()">
 <button
 class="back"
 onclick="go('home')">
+
 ← Back
+
 </button>
 
 <div class="brand">
@@ -643,6 +623,7 @@ Mundra • Kutch • Gujarat
 
 <div class="form">
 
+
 <!-- SERVICE -->
 
 <div class="label">
@@ -652,7 +633,7 @@ Service <span class="required">*</span>
 <select
 id="service"
 class="input"
-onchange="serviceChanged()">
+onchange="updateDropLocation()">
 
 <option value="Local Ride">
 Local Ride
@@ -690,40 +671,154 @@ Pickup Location <span class="required">*</span>
 <input
 id="pickup"
 class="input"
-placeholder="e.g. Mundra"
-autocomplete="street-address">
+placeholder="e.g. Mundra, Hotel, Company, Address"
+autocomplete="street-address"
+>
 
 
-<!-- DROP AREA -->
+<!-- DROP LABEL -->
 
 <div class="label">
 Drop Location <span class="required">*</span>
 </div>
 
-<div id="dropContainer">
+
+<!-- NORMAL DROP -->
 
 <input
 id="drop"
 class="input"
-placeholder="e.g. Bhuj Airport">
+placeholder="Enter drop location"
+>
 
-</div>
+
+<!-- AIRPORT DROP -->
+
+<select
+id="airportDrop"
+class="input hidden">
+
+<option value="">
+Select Gujarat Airport
+</option>
+
+<option>
+Ahmedabad Airport (AMD) — Ahmedabad
+</option>
+
+<option>
+Vadodara Airport (BDQ) — Vadodara
+</option>
+
+<option>
+Surat Airport (STV) — Surat
+</option>
+
+<option>
+Rajkot International Airport (HSR) — Rajkot
+</option>
+
+<option>
+Bhuj Airport (BHJ) — Bhuj
+</option>
+
+<option>
+Jamnagar Airport (JGA) — Jamnagar
+</option>
+
+<option>
+Bhavnagar Airport (BHU) — Bhavnagar
+</option>
+
+<option>
+Kandla Airport (IXY) — Kandla
+</option>
+
+<option>
+Porbandar Airport (PBD) — Porbandar
+</option>
+
+</select>
 
 
-<!-- DATE + TIME -->
+<!-- RAILWAY DROP -->
+
+<select
+id="railwayDrop"
+class="input hidden">
+
+<option value="">
+Select Gujarat Railway Station
+</option>
+
+<option>Ahmedabad Junction (ADI)</option>
+
+<option>Gandhinagar Capital (GNC)</option>
+
+<option>Gandhidham Junction (GIMB)</option>
+
+<option>Bhuj Railway Station (BHUJ)</option>
+
+<option>Anjar Railway Station (AJE)</option>
+
+<option>Adipur Railway Station (AI)</option>
+
+<option>Samakhiali Junction (SIOB)</option>
+
+<option>New Bhuj Railway Station</option>
+
+<option>Rajkot Junction (RJT)</option>
+
+<option>Surendranagar Junction (SUNR)</option>
+
+<option>Vadodara Junction (BRC)</option>
+
+<option>Surat Railway Station (ST)</option>
+
+<option>Bhavnagar Terminus (BVC)</option>
+
+<option>Jamnagar Railway Station (JAM)</option>
+
+<option>Porbandar Railway Station (PBR)</option>
+
+<option>Mehsana Junction (MSH)</option>
+
+<option>Palanpur Junction (PNU)</option>
+
+<option>Sabarmati Junction (SBT)</option>
+
+<option>Gandhidham Railway Station (GIMB)</option>
+
+<option>Morbi Railway Station (MVI)</option>
+
+<option>Wankaner Junction (WKR)</option>
+
+<option>Gondal Railway Station (GDL)</option>
+
+<option>Botad Junction (BTD)</option>
+
+<option>Veraval Junction (VRL)</option>
+
+<option>Junagadh Junction (JND)</option>
+
+</select>
+
+
+<!-- DATE & TIME -->
 
 <div class="row">
 
 <div>
 
 <div class="label">
-Date
+Date <span class="required">*</span>
 </div>
 
 <input
 id="date"
 type="date"
-class="input">
+class="input"
+>
 
 </div>
 
@@ -731,20 +826,21 @@ class="input">
 <div>
 
 <div class="label">
-Time
+Time <span class="required">*</span>
 </div>
 
 <input
 id="time"
 type="time"
-class="input">
+class="input"
+>
 
 </div>
 
 </div>
 
 
-<!-- PASSENGERS + NAME -->
+<!-- PASSENGERS & NAME -->
 
 <div class="row">
 
@@ -760,7 +856,8 @@ type="number"
 min="1"
 max="7"
 value="2"
-class="input">
+class="input"
+>
 
 </div>
 
@@ -775,14 +872,15 @@ Name <span class="required">*</span>
 id="name"
 class="input"
 placeholder="Your name"
-autocomplete="name">
+autocomplete="name"
+>
 
 </div>
 
 </div>
 
 
-<!-- MOBILE -->
+<!-- CUSTOMER MOBILE -->
 
 <div class="label">
 Mobile Number <span class="required">*</span>
@@ -795,16 +893,15 @@ type="tel"
 inputmode="numeric"
 maxlength="10"
 placeholder="Enter your 10-digit mobile number"
-autocomplete="tel">
-
-<div class="help">
-Customer's mobile number — your number is not shown here.
-</div>
+autocomplete="tel"
+>
 
 
 <!-- FARE -->
 
 <div class="fare">
+
+<div class="fare-title">
 
 Estimated fare:
 
@@ -812,16 +909,19 @@ Estimated fare:
 ₹ —
 </b>
 
-<div
-class="muted"
-id="fareDetails">
-Enter pickup & drop and calculate estimate.
+</div>
+
+<div class="muted" id="fareDetails">
+Final fare will be confirmed by Vandan.
 </div>
 
 </div>
 
+
+<!-- CALCULATE -->
 
 <button
+id="estimateBtn"
 class="primary"
 onclick="estimate()">
 
@@ -830,6 +930,8 @@ Calculate Estimate
 </button>
 
 
+<!-- WHATSAPP -->
+
 <button
 class="green"
 onclick="sendBooking()">
@@ -837,6 +939,7 @@ onclick="sendBooking()">
 💬 Confirm via WhatsApp
 
 </button>
+
 
 </div>
 
@@ -854,7 +957,9 @@ onclick="sendBooking()">
 <button
 class="back"
 onclick="go('home')">
+
 ← Back
+
 </button>
 
 <div class="brand">
@@ -869,6 +974,7 @@ Private Ertiga CNG • 7 Seater
 
 
 <div class="section">
+
 
 <div class="tour">
 
@@ -932,6 +1038,7 @@ Request Quote
 
 </div>
 
+
 </div>
 
 </section>
@@ -954,6 +1061,7 @@ Upcoming & recent rides
 </div>
 
 </header>
+
 
 <div
 class="section"
@@ -985,7 +1093,8 @@ Vandan Kutch Travels
 
 <div class="section">
 
-<div class="card">
+
+<div class="card profile-card">
 
 <b>
 Vandan Kutch Travels
@@ -998,16 +1107,33 @@ Vandan Kutch Travels
 </div>
 
 
-<div
-class="card"
-style="margin-top:12px">
+<div class="card profile-card">
 
 <b>
 Vehicle
 </b>
 
 <div class="muted">
-Maruti Suzuki Ertiga CNG • 7 Seater
+🚗 Maruti Suzuki Ertiga CNG • 7 Seater
+</div>
+
+</div>
+
+
+<div class="card profile-card">
+
+<b>
+Services
+</b>
+
+<div class="muted">
+
+✈️ Airport Transfer<br>
+🚉 Railway Transfer<br>
+🏢 Corporate Travel<br>
+🚗 Outstation<br>
+🏜️ Kutch Tours
+
 </div>
 
 </div>
@@ -1015,7 +1141,7 @@ Maruti Suzuki Ertiga CNG • 7 Seater
 
 <button
 class="green"
-onclick="call()">
+onclick="callOwner()">
 
 📞 Call Vandan
 
@@ -1024,11 +1150,12 @@ onclick="call()">
 
 <button
 class="primary"
-onclick="wa()">
+onclick="waGeneral()">
 
 💬 WhatsApp Booking
 
 </button>
+
 
 </div>
 
@@ -1036,7 +1163,7 @@ onclick="wa()">
 
 
 <!-- =====================================================
-     BOTTOM NAV
+     BOTTOM NAVIGATION
 ===================================================== -->
 
 <nav class="bottom">
@@ -1046,6 +1173,7 @@ class="nav on"
 onclick="go('home',this)">
 
 <strong>🏠</strong>
+
 Home
 
 </button>
@@ -1056,6 +1184,7 @@ class="nav"
 onclick="go('book',this)">
 
 <strong>🚕</strong>
+
 Book
 
 </button>
@@ -1066,6 +1195,7 @@ class="nav"
 onclick="go('trips',this)">
 
 <strong>📋</strong>
+
 Bookings
 
 </button>
@@ -1076,11 +1206,13 @@ class="nav"
 onclick="go('profile',this)">
 
 <strong>👤</strong>
+
 Profile
 
 </button>
 
 </nav>
+
 
 </div>
 
@@ -1088,24 +1220,18 @@ Profile
 <script>
 
 /* =====================================================
-   BASIC SETTINGS
+   SETTINGS
 ===================================================== */
 
 /*
-   IMPORTANT:
-   This is YOUR WhatsApp number.
-   Customer will NOT see this number in the form.
-   It is only used to send booking messages to you.
+  THIS IS YOUR BUSINESS WHATSAPP NUMBER.
+  CUSTOMER'S NUMBER IS NEVER PRE-FILLED.
 */
-
 const OWNER_WHATSAPP = "919913747955";
 
-const OWNER_PHONE = "+919913747955";
+const RATE_PER_KM = 18;
 
-
-/* =====================================================
-   SCREEN NAVIGATION
-===================================================== */
+const MIN_FARE = 500;
 
 const screens = [
   "home",
@@ -1115,6 +1241,10 @@ const screens = [
   "profile"
 ];
 
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
 function go(id, btn){
 
@@ -1139,7 +1269,9 @@ function go(id, btn){
   document
     .querySelectorAll(".nav")
     .forEach(function(x){
+
       x.classList.remove("on");
+
     });
 
 
@@ -1148,20 +1280,20 @@ function go(id, btn){
   }
   else{
 
-    const navMap = {
+    const map = {
       home:0,
       book:1,
       trips:2,
       profile:3
     };
 
-    if(navMap[id] !== undefined){
+    if(map[id] !== undefined){
 
       const navs =
         document.querySelectorAll(".nav");
 
-      if(navs[navMap[id]]){
-        navs[navMap[id]].classList.add("on");
+      if(navs[map[id]]){
+        navs[map[id]].classList.add("on");
       }
 
     }
@@ -1174,6 +1306,11 @@ function go(id, btn){
     behavior:"smooth"
   });
 
+
+  if(id === "trips"){
+    renderBookings();
+  }
+
 }
 
 
@@ -1183,9 +1320,12 @@ function go(id, btn){
 
 function quick(service){
 
-  document.getElementById("service").value = service;
+  const serviceEl =
+    document.getElementById("service");
 
-  serviceChanged();
+  serviceEl.value = service;
+
+  updateDropLocation();
 
   go("book");
 
@@ -1193,507 +1333,104 @@ function quick(service){
 
 
 /* =====================================================
-   GUJARAT AIRPORTS
+   DROP LOCATION SWITCHER
 ===================================================== */
 
-const airports = [
-
-  {
-    name:"Sardar Vallabhbhai Patel International Airport",
-    city:"Ahmedabad",
-    code:"AMD"
-  },
-
-  {
-    name:"Surat Airport",
-    city:"Surat",
-    code:"STV"
-  },
-
-  {
-    name:"Vadodara Airport",
-    city:"Vadodara",
-    code:"BDQ"
-  },
-
-  {
-    name:"Rajkot International Airport",
-    city:"Rajkot / Hirasar",
-    code:"HSR"
-  },
-
-  {
-    name:"Bhuj Airport",
-    city:"Bhuj",
-    code:"BHJ"
-  },
-
-  {
-    name:"Jamnagar Airport",
-    city:"Jamnagar",
-    code:"JGA"
-  },
-
-  {
-    name:"Bhavnagar Airport",
-    city:"Bhavnagar",
-    code:"BHU"
-  },
-
-  {
-    name:"Porbandar Airport",
-    city:"Porbandar",
-    code:"PBD"
-  },
-
-  {
-    name:"Kandla Airport",
-    city:"Kandla / Gandhidham",
-    code:"IXY"
-  },
-
-  {
-    name:"Keshod Airport",
-    city:"Keshod",
-    code:"IXK"
-  }
-
-];
-
-
-/* =====================================================
-   GUJARAT RAILWAY STATIONS
-===================================================== */
-
-const railwayStations = [
-
-  "Ahmedabad Junction (ADI)",
-
-  "Sabarmati Junction (SBT)",
-
-  "Sabarmati BG (SBIB)",
-
-  "Gandhinagar Capital (GNC)",
-
-  "Kalupur Railway Station",
-
-  "Maninagar (MAN)",
-
-  "Chandlodiya (CLDY)",
-
-  "Viramgam Junction (VG)",
-
-  "Sanand (SAU)",
-
-  "Kadi (KADI)",
-
-  "Mahesana Junction (MSH)",
-
-  "Unjha (UJA)",
-
-  "Palanpur Junction (PNU)",
-
-  "Siddhpur (SID)",
-
-  "Himmatnagar (HMT)",
-
-  "Modasa (MDSA)",
-
-  "Nadiad Junction (ND)",
-
-  "Anand Junction (ANND)",
-
-  "Vadodara Junction (BRC)",
-
-  "Bharuch Junction (BH)",
-
-  "Ankleshwar Junction (AKV)",
-
-  "Surat (ST)",
-
-  "Udhna Junction (UDN)",
-
-  "Navsari (NVS)",
-
-  "Bilimora Junction (BIM)",
-
-  "Valsad (BL)",
-
-  "Vapi (VAPI)",
-
-  "Godhra Junction (GDA)",
-
-  "Dahod (DHD)",
-
-  "Ahmedabad Cantonment",
-
-  "Rajkot Junction (RJT)",
-
-  "Wankaner Junction (WKR)",
-
-  "Morbi (MVI)",
-
-  "Surendranagar Junction (SUNR)",
-
-  "Botad Junction (BTD)",
-
-  "Gondal (GDL)",
-
-  "Jamnagar (JAM)",
-
-  "Hapa (HAPA)",
-
-  "Dwarka (DWK)",
-
-  "Okha (OKHA)",
-
-  "Porbandar (PBR)",
-
-  "Bhaktinagar (BKNG)",
-
-  "Gandhidham Junction (GIMB)",
-
-  "Adipur Junction (AI)",
-
-  "Anjar (AJE)",
-
-  "Bhuj (BHUJ)",
-
-  "Mundra-Malpur",
-
-  "Samakhiali Junction (SIOB)",
-
-  "Kandla Port",
-
-  "Bhachau (BCOB)",
-
-  "Maliya Miyana Junction (MALB)",
-
-  "Viramgam Junction",
-
-  "Dhrangadhra Junction (DHG)",
-
-  "Limbdi (LM)",
-
-  "Jetalsar Junction (JLR)",
-
-  "Junagadh Junction (JND)",
-
-  "Keshod (KSD)",
-
-  "Veraval (VRL)",
-
-  "Somnath (SMNH)",
-
-  "Amreli",
-
-  "Dhola Junction (DLJ)",
-
-  "Bhavnagar Terminus (BVC)",
-
-  "Palitana (PIT)",
-
-  "Mahuva (MHV)"
-
-];
-
-
-/* =====================================================
-   SERVICE CHANGE
-===================================================== */
-
-function serviceChanged(){
+function updateDropLocation(){
 
   const service =
     document.getElementById("service").value;
 
-  const container =
-    document.getElementById("dropContainer");
+  const normalDrop =
+    document.getElementById("drop");
+
+  const airportDrop =
+    document.getElementById("airportDrop");
+
+  const railwayDrop =
+    document.getElementById("railwayDrop");
+
+
+  /*
+    Hide all drop fields first.
+  */
+
+  normalDrop.classList.add("hidden");
+
+  airportDrop.classList.add("hidden");
+
+  railwayDrop.classList.add("hidden");
+
+
+  /*
+    AIRPORT
+  */
+
+  if(service === "Airport Transfer"){
+
+    airportDrop.classList.remove("hidden");
+
+  }
+
+
+  /*
+    RAILWAY
+  */
+
+  else if(service === "Railway Transfer"){
+
+    railwayDrop.classList.remove("hidden");
+
+  }
+
+
+  /*
+    OTHER SERVICES
+  */
+
+  else{
+
+    normalDrop.classList.remove("hidden");
+
+  }
+
+}
+
+
+/* =====================================================
+   GET SELECTED DROP
+===================================================== */
+
+function getDropValue(){
+
+  const service =
+    document.getElementById("service").value;
 
 
   if(service === "Airport Transfer"){
 
-    renderAirportSelector();
-
-  }
-
-  else if(service === "Railway Transfer"){
-
-    renderRailwaySelector();
-
-  }
-
-  else{
-
-    renderNormalDropInput();
-
-  }
-
-}
-
-
-/* =====================================================
-   NORMAL DROP INPUT
-===================================================== */
-
-function renderNormalDropInput(){
-
-  const container =
-    document.getElementById("dropContainer");
-
-  container.innerHTML = `
-
-    <input
-      id="drop"
-      class="input"
-      placeholder="Enter drop location"
-      autocomplete="street-address">
-
-  `;
-
-}
-
-
-/* =====================================================
-   AIRPORT SELECTOR
-===================================================== */
-
-function renderAirportSelector(){
-
-  const container =
-    document.getElementById("dropContainer");
-
-  let options = `
-    <option value="">
-      Select Gujarat Airport
-    </option>
-  `;
-
-
-  airports.forEach(function(airport){
-
-    options += `
-
-      <option
-        value="${escapeHTML(airport.name)}, ${escapeHTML(airport.city)}">
-
-        ${escapeHTML(airport.name)}
-        (${escapeHTML(airport.code)}) — ${escapeHTML(airport.city)}
-
-      </option>
-
-    `;
-
-  });
-
-
-  container.innerHTML = `
-
-    <div class="locationBox">
-
-      <input
-        id="airportSearch"
-        class="searchInput"
-        placeholder="🔎 Search airport..."
-        oninput="filterAirports()">
-
-      <select
-        id="drop"
-        class="locationSelect">
-
-        ${options}
-
-      </select>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   AIRPORT SEARCH
-===================================================== */
-
-function filterAirports(){
-
-  const search =
-    document
-      .getElementById("airportSearch")
+    return document
+      .getElementById("airportDrop")
       .value
-      .toLowerCase()
       .trim();
 
-
-  const select =
-    document.getElementById("drop");
+  }
 
 
-  select.innerHTML = `
+  if(service === "Railway Transfer"){
 
-    <option value="">
-      Select Gujarat Airport
-    </option>
-
-  `;
-
-
-  airports
-    .filter(function(airport){
-
-      const text =
-        (
-          airport.name +
-          " " +
-          airport.city +
-          " " +
-          airport.code
-        ).toLowerCase();
-
-      return text.includes(search);
-
-    })
-    .forEach(function(airport){
-
-      const option =
-        document.createElement("option");
-
-      option.value =
-        airport.name + ", " + airport.city;
-
-      option.textContent =
-        airport.name +
-        " (" +
-        airport.code +
-        ") — " +
-        airport.city;
-
-      select.appendChild(option);
-
-    });
-
-}
-
-
-/* =====================================================
-   RAILWAY SELECTOR
-===================================================== */
-
-function renderRailwaySelector(){
-
-  const container =
-    document.getElementById("dropContainer");
-
-
-  let options = `
-    <option value="">
-      Select Gujarat Railway Station
-    </option>
-  `;
-
-
-  railwayStations.forEach(function(station){
-
-    options += `
-
-      <option value="${escapeHTML(station)}">
-        ${escapeHTML(station)}
-      </option>
-
-    `;
-
-  });
-
-
-  container.innerHTML = `
-
-    <div class="locationBox">
-
-      <input
-        id="railwaySearch"
-        class="searchInput"
-        placeholder="🔎 Search railway station..."
-        oninput="filterRailwayStations()">
-
-      <select
-        id="drop"
-        class="locationSelect">
-
-        ${options}
-
-      </select>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================================
-   RAILWAY SEARCH
-===================================================== */
-
-function filterRailwayStations(){
-
-  const search =
-    document
-      .getElementById("railwaySearch")
+    return document
+      .getElementById("railwayDrop")
       .value
-      .toLowerCase()
       .trim();
 
-
-  const select =
-    document.getElementById("drop");
+  }
 
 
-  select.innerHTML = `
-
-    <option value="">
-      Select Gujarat Railway Station
-    </option>
-
-  `;
-
-
-  railwayStations
-    .filter(function(station){
-
-      return station
-        .toLowerCase()
-        .includes(search);
-
-    })
-    .forEach(function(station){
-
-      const option =
-        document.createElement("option");
-
-      option.value = station;
-
-      option.textContent = station;
-
-      select.appendChild(option);
-
-    });
-
-}
-
-
-/* =====================================================
-   HTML ESCAPE
-===================================================== */
-
-function escapeHTML(value){
-
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return document
+    .getElementById("drop")
+    .value
+    .trim();
 
 }
 
@@ -1710,8 +1447,7 @@ async function getCoordinates(location){
     "&limit=1" +
     "&q=" +
     encodeURIComponent(
-      location +
-      ", Gujarat, India"
+      location + ", Gujarat, India"
     );
 
 
@@ -1724,11 +1460,7 @@ async function getCoordinates(location){
 
 
   if(!response.ok){
-
-    throw new Error(
-      "Location service unavailable"
-    );
-
+    throw new Error("Location service unavailable");
   }
 
 
@@ -1757,7 +1489,7 @@ async function getCoordinates(location){
 
 
 /* =====================================================
-   CALCULATE ROAD DISTANCE
+   ROAD DISTANCE
 ===================================================== */
 
 async function calculateDistance(
@@ -1768,22 +1500,16 @@ async function calculateDistance(
   const start =
     await getCoordinates(pickup);
 
-
   const end =
     await getCoordinates(drop);
 
 
   const url =
     "https://router.project-osrm.org/route/v1/driving/" +
-
-    start.lon +
-    "," +
-    start.lat +
-    ";" +
-    end.lon +
-    "," +
+    start.lon + "," +
+    start.lat + ";" +
+    end.lon + "," +
     end.lat +
-
     "?overview=false";
 
 
@@ -1792,11 +1518,7 @@ async function calculateDistance(
 
 
   if(!response.ok){
-
-    throw new Error(
-      "Route service unavailable"
-    );
-
+    throw new Error("Route service unavailable");
   }
 
 
@@ -1810,9 +1532,7 @@ async function calculateDistance(
     !data.routes.length
   ){
 
-    throw new Error(
-      "Route not found"
-    );
+    throw new Error("Route not found");
 
   }
 
@@ -1829,24 +1549,15 @@ async function calculateDistance(
 async function estimate(){
 
   const service =
-    document
-      .getElementById("service")
-      ?.value
-      .trim() || "";
+    document.getElementById("service").value.trim();
 
 
   const pickup =
-    document
-      .getElementById("pickup")
-      ?.value
-      .trim() || "";
+    document.getElementById("pickup").value.trim();
 
 
   const drop =
-    document
-      .getElementById("drop")
-      ?.value
-      .trim() || "";
+    getDropValue();
 
 
   const fareBox =
@@ -1855,6 +1566,10 @@ async function estimate(){
 
   const fareDetails =
     document.getElementById("fareDetails");
+
+
+  const estimateBtn =
+    document.getElementById("estimateBtn");
 
 
   if(!pickup){
@@ -1873,10 +1588,10 @@ async function estimate(){
   if(!drop){
 
     fareBox.innerText =
-      "Enter drop";
+      "Select / enter drop";
 
     fareDetails.innerText =
-      "Please select or enter drop location.";
+      "Please select the destination.";
 
     return 0;
 
@@ -1884,6 +1599,12 @@ async function estimate(){
 
 
   try{
+
+    estimateBtn.classList.add("loading");
+
+    estimateBtn.innerText =
+      "Calculating...";
+
 
     fareBox.innerText =
       "Calculating...";
@@ -1900,42 +1621,35 @@ async function estimate(){
       );
 
 
-    /*
-      CURRENT RATE:
-      ₹18 per km
-
-      MINIMUM FARE:
-      ₹500
-    */
-
-    const ratePerKm = 18;
-
     let fare =
       Math.ceil(
-        distanceKm *
-        ratePerKm
+        distanceKm * RATE_PER_KM
       );
 
 
-    if(fare < 500){
-
-      fare = 500;
-
+    if(fare < MIN_FARE){
+      fare = MIN_FARE;
     }
 
 
     fareBox.innerText =
-      "₹" +
-      fare +
-      "+";
+      "₹" + fare + "+";
 
 
     fareDetails.innerHTML =
       distanceKm.toFixed(1) +
       " km × ₹" +
-      ratePerKm +
-      "/km<br>" +
-      "Final fare will be confirmed by Vandan.";
+      RATE_PER_KM +
+      "/km • Minimum fare ₹" +
+      MIN_FARE +
+      "<br>Final fare will be confirmed by Vandan.";
+
+
+    estimateBtn.innerText =
+      "Calculate Estimate";
+
+
+    estimateBtn.classList.remove("loading");
 
 
     return fare;
@@ -1954,6 +1668,13 @@ async function estimate(){
       "Please check pickup/drop location and try again.";
 
 
+    estimateBtn.innerText =
+      "Calculate Estimate";
+
+
+    estimateBtn.classList.remove("loading");
+
+
     return 0;
 
   }
@@ -1962,205 +1683,157 @@ async function estimate(){
 
 
 /* =====================================================
-   VALIDATE MOBILE
+   VALIDATE BOOKING
 ===================================================== */
 
-function cleanMobile(value){
-
-  return String(value)
-    .replace(/\D/g,"");
-
-}
-
-
-function validMobile(value){
-
-  const mobile =
-    cleanMobile(value);
-
-  return /^[6-9][0-9]{9}$/.test(mobile);
-
-}
-
-
-/* =====================================================
-   SEND BOOKING
-===================================================== */
-
-async function sendBooking(){
-
-  const nameEl =
-    document.getElementById("name");
-
-  const mobileEl =
-    document.getElementById("mobile");
-
-  const serviceEl =
-    document.getElementById("service");
-
-  const pickupEl =
-    document.getElementById("pickup");
-
-  const dropEl =
-    document.getElementById("drop");
-
-  const dateEl =
-    document.getElementById("date");
-
-  const timeEl =
-    document.getElementById("time");
-
-  const peopleEl =
-    document.getElementById("people");
-
-
-  const name =
-    nameEl.value.trim();
-
-
-  const mobile =
-    cleanMobile(
-      mobileEl.value.trim()
-    );
-
+function validateBooking(){
 
   const service =
-    serviceEl.value.trim();
+    document.getElementById("service").value.trim();
 
 
   const pickup =
-    pickupEl.value.trim();
+    document.getElementById("pickup").value.trim();
 
 
   const drop =
-    dropEl
-      ? dropEl.value.trim()
-      : "";
+    getDropValue();
 
 
   const date =
-    dateEl.value;
+    document.getElementById("date").value;
 
 
   const time =
-    timeEl.value;
+    document.getElementById("time").value;
 
 
   const people =
-    peopleEl.value;
+    document.getElementById("people").value;
 
 
-  /* =========================
-     VALIDATION
-  ========================= */
-
-  if(!name){
-
-    alert(
-      "Please enter your name."
-    );
-
-    nameEl.focus();
-
-    return;
-
-  }
+  const name =
+    document.getElementById("name").value.trim();
 
 
-  if(!validMobile(mobile)){
+  const mobile =
+    document.getElementById("mobile").value
+      .replace(/\D/g,"");
 
-    alert(
-      "Please enter a valid 10-digit Indian mobile number."
-    );
 
-    mobileEl.focus();
+  if(!service){
 
-    return;
+    alert("Please select a service.");
+
+    return null;
 
   }
 
 
   if(!pickup){
 
-    alert(
-      "Please enter pickup location."
-    );
+    alert("Please enter pickup location.");
 
-    pickupEl.focus();
-
-    return;
+    return null;
 
   }
 
 
   if(!drop){
 
-    alert(
-      "Please select or enter drop location."
-    );
+    alert("Please select or enter drop location.");
 
-    return;
+    return null;
 
   }
 
 
-  if(!people ||
-     Number(people) < 1 ||
-     Number(people) > 7){
+  if(!date){
 
-    alert(
-      "Passengers must be between 1 and 7."
-    );
+    alert("Please select date.");
 
-    return;
+    return null;
 
   }
 
 
-  /* =========================
-     FARE
-  ========================= */
+  if(!time){
 
-  const fare =
-    await estimate();
+    alert("Please select time.");
 
-
-  if(!fare){
-
-    alert(
-      "Please calculate a valid fare before confirming the booking."
-    );
-
-    return;
+    return null;
 
   }
 
 
-  /* =========================
-     BOOKING OBJECT
-  ========================= */
+  if(
+    !people ||
+    Number(people) < 1 ||
+    Number(people) > 7
+  ){
+
+    alert("Passengers must be between 1 and 7.");
+
+    return null;
+
+  }
+
+
+  if(!name){
+
+    alert("Please enter your name.");
+
+    return null;
+
+  }
+
+
+  if(mobile.length !== 10){
+
+    alert(
+      "Please enter a valid 10-digit mobile number."
+    );
+
+    return null;
+
+  }
+
+
+  return {
+
+    service,
+    pickup,
+    drop,
+    date,
+    time,
+    people,
+    name,
+    mobile
+
+  };
+
+}
+
+
+/* =====================================================
+   SAVE BOOKING
+===================================================== */
+
+function saveBooking(data,fare){
+
+  const bookings =
+    JSON.parse(
+      localStorage.getItem("vkt_bookings") || "[]"
+    );
+
 
   const booking = {
 
     id:Date.now(),
 
-    name:name,
+    ...data,
 
-    mobile:mobile,
-
-    service:service,
-
-    pickup:pickup,
-
-    drop:drop,
-
-    date:date,
-
-    time:time,
-
-    people:people,
-
-    fare:fare,
+    fare:fare || 0,
 
     createdAt:
       new Date().toISOString()
@@ -2168,60 +1841,88 @@ async function sendBooking(){
   };
 
 
-  /* =========================
-     SAVE BOOKING
-  ========================= */
-
-  const bookings =
-    getBookings();
-
-
   bookings.unshift(booking);
 
 
   localStorage.setItem(
-    "vandanBookings",
+    "vkt_bookings",
     JSON.stringify(bookings)
   );
 
+}
 
-  renderBookings();
+
+/* =====================================================
+   SEND BOOKING TO WHATSAPP
+===================================================== */
+
+async function sendBooking(){
+
+  const data =
+    validateBooking();
 
 
-  /* =========================
-     WHATSAPP MESSAGE
-  ========================= */
+  if(!data){
+    return;
+  }
+
+
+  let fare = 0;
+
+
+  /*
+    Try to calculate fare.
+  */
+
+  fare =
+    await estimate();
+
+
+  /*
+    Even if fare calculation fails,
+    customer can still send booking.
+  */
+
+  const fareText =
+    fare > 0
+      ? "₹" + fare + "+"
+      : "To be confirmed";
+
+
+  saveBooking(
+    data,
+    fare
+  );
+
 
   const message =
-
 `🚕 VANDAN KUTCH TRAVELS
 BOOKING REQUEST
 
-👤 Name: ${name}
+👤 Name: ${data.name}
+📱 Customer Mobile: ${data.mobile}
 
-📱 Customer Mobile: +91 ${mobile}
+🚗 Service: ${data.service}
 
-🚗 Service: ${service}
+📍 Pickup:
+${data.pickup}
 
-📍 Pickup: ${pickup}
+📍 Drop:
+${data.drop}
 
-📍 Drop: ${drop}
+📅 Date: ${data.date}
+⏰ Time: ${data.time}
+👥 Passengers: ${data.people}
 
-📅 Date: ${date || "Not specified"}
+💰 Estimated Fare: ${fareText}
 
-⏰ Time: ${time || "Not specified"}
+Please confirm availability and final fare.
 
-👥 Passengers: ${people}
-
-💰 Estimated Fare: ₹${fare}+
-
-Please confirm the booking.
-
-Thank you.`;
-
+Thank you.
+Vandan Kutch Travels`;
 
 
-  const whatsappURL =
+  const whatsappUrl =
     "https://wa.me/" +
     OWNER_WHATSAPP +
     "?text=" +
@@ -2229,54 +1930,69 @@ Thank you.`;
 
 
   window.location.href =
-    whatsappURL;
+    whatsappUrl;
 
 }
 
 
 /* =====================================================
-   GET BOOKINGS
+   GENERAL WHATSAPP
 ===================================================== */
 
-function getBookings(){
+function waGeneral(){
 
-  try{
+  const message =
+`Hello Vandan Kutch Travels,
 
-    return JSON.parse(
-      localStorage.getItem(
-        "vandanBookings"
-      )
-    ) || [];
+I would like to enquire about a ride.
 
-  }
-  catch(error){
+Please share availability and fare.
 
-    return [];
+Thank you.`;
 
-  }
+  const url =
+    "https://wa.me/" +
+    OWNER_WHATSAPP +
+    "?text=" +
+    encodeURIComponent(message);
+
+
+  window.location.href = url;
 
 }
 
 
 /* =====================================================
-   DISPLAY BOOKINGS
+   CALL
+===================================================== */
+
+function callOwner(){
+
+  window.location.href =
+    "tel:+919913747955";
+
+}
+
+
+/* =====================================================
+   BOOKINGS LIST
 ===================================================== */
 
 function renderBookings(){
 
-  const container =
-    document.getElementById(
-      "bookingList"
-    );
+  const list =
+    document.getElementById("bookingList");
 
 
   const bookings =
-    getBookings();
+    JSON.parse(
+      localStorage.getItem("vkt_bookings") || "[]"
+    );
 
 
   if(!bookings.length){
 
-    container.innerHTML = `
+    list.innerHTML = `
 
       <div class="notice">
 
@@ -2296,68 +2012,177 @@ function renderBookings(){
   }
 
 
-  container.innerHTML = "";
+  let html = "";
 
 
-  bookings.forEach(function(booking){
+  bookings.forEach(function(b,index){
 
-    const card =
-      document.createElement("div");
+    html += `
 
-    card.className =
-      "booking";
+      <div class="booking-item">
 
+        <h3>
+          🚕 ${escapeHtml(b.service)}
+        </h3>
 
-    card.innerHTML = `
+        <div class="booking-line">
+          <b>Name:</b>
+          ${escapeHtml(b.name)}
+        </div>
 
-      <div class="bookingTitle">
-        🚕 ${escapeHTML(booking.service)}
+        <div class="booking-line">
+          <b>Mobile:</b>
+          ${escapeHtml(b.mobile)}
+        </div>
+
+        <div class="booking-line">
+          <b>Pickup:</b>
+          ${escapeHtml(b.pickup)}
+        </div>
+
+        <div class="booking-line">
+          <b>Drop:</b>
+          ${escapeHtml(b.drop)}
+        </div>
+
+        <div class="booking-line">
+          <b>Date:</b>
+          ${escapeHtml(b.date)}
+        </div>
+
+        <div class="booking-line">
+          <b>Time:</b>
+          ${escapeHtml(b.time)}
+        </div>
+
+        <div class="booking-line">
+          <b>Passengers:</b>
+          ${escapeHtml(b.people)}
+        </div>
+
+        <div class="booking-line">
+          <b>Estimated Fare:</b>
+          ${
+            b.fare
+              ? "₹" + b.fare + "+"
+              : "To be confirmed"
+          }
+        </div>
+
+        <button
+          class="green"
+          onclick="repeatBooking(${b.id})">
+
+          Book Again
+
+        </button>
+
+        <button
+          class="danger"
+          onclick="deleteBooking(${b.id})">
+
+          Delete
+
+        </button>
+
       </div>
-
-      <div class="bookingLine">
-        👤 ${escapeHTML(booking.name)}
-      </div>
-
-      <div class="bookingLine">
-        📱 +91 ${escapeHTML(booking.mobile)}
-      </div>
-
-      <div class="bookingLine">
-        📍 ${escapeHTML(booking.pickup)}
-      </div>
-
-      <div class="bookingLine">
-        📍 ${escapeHTML(booking.drop)}
-      </div>
-
-      <div class="bookingLine">
-        📅 ${escapeHTML(booking.date || "Not specified")}
-        &nbsp;
-        ⏰ ${escapeHTML(booking.time || "Not specified")}
-      </div>
-
-      <div class="bookingLine">
-        👥 ${escapeHTML(booking.people)} passengers
-      </div>
-
-      <div class="bookingFare">
-        💰 ₹${escapeHTML(booking.fare)}+
-      </div>
-
-      <button
-        class="deleteBtn"
-        onclick="deleteBooking(${booking.id})">
-
-        Delete Booking
-
-      </button>
 
     `;
 
-
-    container.appendChild(card);
-
   });
+
+
+  html += `
+
+    <button
+      class="danger"
+      onclick="clearBookings()">
+
+      Clear All Bookings
+
+    </button>
+
+  `;
+
+
+  list.innerHTML = html;
+
+}
+
+
+/* =====================================================
+   REPEAT BOOKING
+===================================================== */
+
+function repeatBooking(id){
+
+  const bookings =
+    JSON.parse(
+      localStorage.getItem("vkt_bookings") || "[]"
+    );
+
+
+  const booking =
+    bookings.find(
+      function(x){
+        return x.id === id;
+      }
+    );
+
+
+  if(!booking){
+    return;
+  }
+
+
+  document.getElementById("service").value =
+    booking.service;
+
+
+  updateDropLocation();
+
+
+  document.getElementById("pickup").value =
+    booking.pickup;
+
+
+  const service =
+    booking.service;
+
+
+  if(service === "Airport Transfer"){
+
+    document.getElementById("airportDrop").value =
+      booking.drop;
+
+  }
+  else if(service === "Railway Transfer"){
+
+    document.getElementById("railwayDrop").value =
+      booking.drop;
+
+  }
+  else{
+
+    document.getElementById("drop").value =
+      booking.drop;
+
+  }
+
+
+  document.getElementById("people").value =
+    booking.people;
+
+
+  document.getElementById("name").value =
+    booking.name;
+
+
+  document.getElementById("mobile").value =
+    booking.mobile;
+
+
+  go("book");
 
 }
 
@@ -2368,31 +2193,23 @@ function renderBookings(){
 
 function deleteBooking(id){
 
-  const ok =
-    confirm(
-      "Delete this booking?"
+  const bookings =
+    JSON.parse(
+      localStorage.getItem("vkt_bookings") || "[]"
     );
 
 
-  if(!ok){
-
-    return;
-
-  }
-
-
-  const bookings =
-    getBookings()
-      .filter(function(booking){
-
-        return booking.id !== id;
-
-      });
+  const updated =
+    bookings.filter(
+      function(x){
+        return x.id !== id;
+      }
+    );
 
 
   localStorage.setItem(
-    "vandanBookings",
-    JSON.stringify(bookings)
+    "vkt_bookings",
+    JSON.stringify(updated)
   );
 
 
@@ -2402,102 +2219,147 @@ function deleteBooking(id){
 
 
 /* =====================================================
-   WHATSAPP GENERAL
+   CLEAR BOOKINGS
 ===================================================== */
 
-function wa(){
+function clearBookings(){
 
-  const message =
-`Hello Vandan Kutch Travels,
+  const ok =
+    confirm(
+      "Delete all saved bookings?"
+    );
 
-I would like to enquire about booking an Ertiga CNG.
 
-Please share availability and fare.
+  if(!ok){
+    return;
+  }
 
-Thank you.`;
 
-  window.location.href =
-    "https://wa.me/" +
-    OWNER_WHATSAPP +
-    "?text=" +
-    encodeURIComponent(message);
+  localStorage.removeItem(
+    "vkt_bookings"
+  );
+
+
+  renderBookings();
 
 }
 
 
 /* =====================================================
-   CALL
+   SECURITY / HTML ESCAPE
 ===================================================== */
 
-function call(){
+function escapeHtml(value){
 
-  window.location.href =
-    "tel:" +
-    OWNER_PHONE;
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
 /* =====================================================
-   DEFAULT DATE
+   DATE SETUP
 ===================================================== */
 
-function setDefaultDate(){
+function setupDate(){
 
   const dateInput =
     document.getElementById("date");
 
 
-  if(!dateInput.value){
-
-    const now =
-      new Date();
+  const now =
+    new Date();
 
 
-    const year =
-      now.getFullYear();
+  const year =
+    now.getFullYear();
 
 
-    const month =
-      String(
-        now.getMonth() + 1
-      ).padStart(2,"0");
+  const month =
+    String(now.getMonth()+1)
+      .padStart(2,"0");
 
 
-    const day =
-      String(
-        now.getDate()
-      ).padStart(2,"0");
+  const day =
+    String(now.getDate())
+      .padStart(2,"0");
 
 
-    dateInput.value =
-      year +
-      "-" +
-      month +
-      "-" +
-      day;
+  const today =
+    year + "-" + month + "-" + day;
 
-  }
+
+  dateInput.min = today;
+
+  dateInput.value = today;
 
 }
 
 
 /* =====================================================
-   INITIALIZE
+   DEFAULT TIME
 ===================================================== */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
+function setupTime(){
 
-    renderBookings();
+  const timeInput =
+    document.getElementById("time");
 
-    setDefaultDate();
 
-    serviceChanged();
+  const now =
+    new Date();
 
-  }
-);
+
+  const hours =
+    String(now.getHours())
+      .padStart(2,"0");
+
+
+  const minutes =
+    String(now.getMinutes())
+      .padStart(2,"0");
+
+
+  timeInput.value =
+    hours + ":" + minutes;
+
+}
+
+
+/* =====================================================
+   MOBILE INPUT
+===================================================== */
+
+document
+  .getElementById("mobile")
+  .addEventListener(
+    "input",
+    function(){
+
+      this.value =
+        this.value
+          .replace(/\D/g,"")
+          .slice(0,10);
+
+    }
+  );
+
+
+/* =====================================================
+   START APP
+===================================================== */
+
+setupDate();
+
+setupTime();
+
+updateDropLocation();
+
+renderBookings();
 
 
 /* =====================================================
@@ -2513,17 +2375,17 @@ if(
     function(){
 
       navigator.serviceWorker
-        .register(
-          "service-worker.js"
-        )
-        .catch(function(error){
+        .register("service-worker.js")
+        .catch(
+          function(error){
 
-          console.log(
-            "Service Worker:",
-            error
-          );
+            console.log(
+              "Service worker not available:",
+              error
+            );
 
-        });
+          }
+        );
 
     }
   );
