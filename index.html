@@ -139,121 +139,28 @@ function quick(service) {
 
 function estimate() {
 
-  const service = document.getElementById('service').value;
-  const pickup = document.getElementById('pickup').value.trim().toLowerCase();
-  const drop = document.getElementById('drop').value.trim().toLowerCase();
-
-  let fare = 0;
-
-  // Mundra → Bhuj / Bhuj Airport
-  if (
-    service === 'Local Ride' &&
-    pickup.includes('mundra') &&
-    (
-      drop.includes('bhuj') ||
-      drop.includes('bhuj airport')
-    )
-  ) {
-    const distance = 60;
-    const rate = 18;
-
-    fare = distance * rate;
-  }
-
-  // Other services
-  else {
-
-    const fares = {
-      'Local Ride': 500,
-      'Airport Transfer': 1080,
-      'Railway Transfer': 1080,
-      'Corporate Travel': 1080,
-      'Kutch Tour': 1080
-    };
-
-    fare = fares[service] || 0;
-  }
-
+  const serviceEl = document.getElementById('service');
+  const pickupEl = document.getElementById('pickup');
+  const dropEl = document.getElementById('drop');
   const fareBox = document.getElementById('fare');
 
-  if (fareBox) {
-    fareBox.innerText = '₹' + fare;
-  }
-
-  return fare;
-}
-
-
-function sendBooking() {
-
-  const fare = estimate();
-
-  const name = document.getElementById('name').value.trim();
-  const mobile = document.getElementById('mobile').value.trim();
-  const service = document.getElementById('service').value;
-  const pickup = document.getElementById('pickup').value.trim();
-  const drop = document.getElementById('drop').value.trim();
-  const date = document.getElementById('date').value;
-  const time = document.getElementById('time').value;
-  const people = document.getElementById('people').value;
-
-  if (!name || !mobile || !pickup || !drop || !date || !time) {
-    alert('Please fill all booking details.');
-    return;
-  }
-
-  const m = `VANDAN KUTCH TRAVELS - BOOKING REQUEST
-
-Name: ${name}
-Mobile: ${mobile}
-Service: ${service}
-Pickup: ${pickup}
-Drop: ${drop}
-Date: ${date}
-Time: ${time}
-Passengers: ${people}
-Estimated Fare: ₹${fare}`;
-
-  window.location.href =
-    'https://wa.me/919913747955?text=' +
-    encodeURIComponent(m);
-}
-
-
-function call() {
-  window.location.href = 'tel:+91991913747955';
-}
-
-</script>
-const screens=['home','book','tours','trips','profile'];
-function go(id,btn){screens.forEach(x=>document.getElementById(x).classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.nav').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');scrollTo(0,0)}
-function quick(s){
-  document.getElementById('service').value = s;
-  go('book');
-}
-
-function estimate() {
-
-  const service = document.getElementById('service').value;
-  const pickup = document.getElementById('pickup').value.trim().toLowerCase();
-  const drop = document.getElementById('drop').value.trim().toLowerCase();
+  const service = serviceEl ? serviceEl.value.trim() : '';
+  const pickup = pickupEl ? pickupEl.value.trim().toLowerCase() : '';
+  const drop = dropEl ? dropEl.value.trim().toLowerCase() : '';
 
   let fare = 0;
 
-  // Mundra → Bhuj / Bhuj Airport
+  // MUNDRA → BHUJ / BHUJ AIRPORT
   if (
     service === 'Local Ride' &&
     pickup.includes('mundra') &&
-    (
-      drop.includes('bhuj') ||
-      drop.includes('bhuj airport')
-    )
+    drop.includes('bhuj')
   ) {
 
     const distance = 60;
     const rate = 18;
 
-    fare = distance * rate;
+    fare = distance * rate; // ₹1080
 
   } else {
 
@@ -268,29 +175,58 @@ function estimate() {
     fare = fares[service] || 0;
   }
 
-  const fareBox = document.getElementById('fare');
-
   if (fareBox) {
     fareBox.innerText = '₹' + fare;
   }
 
   return fare;
 }
-  
 
-function sendBooking(){
-  let fare = estimate();
 
-  let name = document.getElementById('name').value;
-  let mobile = document.getElementById('mobile').value;
-  let service = document.getElementById('service').value;
-  let pickup = document.getElementById('pickup').value;
-  let drop = document.getElementById('drop').value;
-  let date = document.getElementById('date').value;
-  let time = document.getElementById('time').value;
-  let people = document.getElementById('people').value;
+function sendBooking() {
 
-  let m = `VANDAN KUTCH TRAVELS - BOOKING REQUEST
+  const fare = estimate();
+
+  const nameEl = document.getElementById('name');
+  const mobileEl = document.getElementById('mobile');
+  const serviceEl = document.getElementById('service');
+  const pickupEl = document.getElementById('pickup');
+  const dropEl = document.getElementById('drop');
+  const dateEl = document.getElementById('date');
+  const timeEl = document.getElementById('time');
+  const peopleEl = document.getElementById('people');
+
+  const name = nameEl ? nameEl.value.trim() : '';
+  const mobile = mobileEl ? mobileEl.value.trim() : '';
+  const service = serviceEl ? serviceEl.value.trim() : '';
+  const pickup = pickupEl ? pickupEl.value.trim() : '';
+  const drop = dropEl ? dropEl.value.trim() : '';
+  const date = dateEl ? dateEl.value : '';
+  const time = timeEl ? timeEl.value : '';
+  const people = peopleEl ? peopleEl.value : '';
+
+  if (!name) {
+    alert('Please enter your name');
+    return;
+  }
+
+  if (!mobile) {
+    alert('Please enter your mobile number');
+    return;
+  }
+
+  if (!pickup) {
+    alert('Please enter pickup location');
+    return;
+  }
+
+  if (!drop) {
+    alert('Please enter drop location');
+    return;
+  }
+
+  const message =
+`VANDAN KUTCH TRAVELS - BOOKING REQUEST
 
 Name: ${name}
 Mobile: ${mobile}
@@ -303,10 +239,18 @@ Passengers: ${people}
 Estimated fare: ₹${fare}`;
 
   window.location.href =
-    'https://wa.me/919913747955?text=' + encodeURIComponent(m);
+    'https://wa.me/919913747955?text=' +
+    encodeURIComponent(message);
 }
 
-function call(){window.location.href='tel:+919913747955'}
+
+function call() {
+  window.location.href = 'tel:+919913747955';
+}
+
+
+
+
 </script>
 </body>
 </html>
