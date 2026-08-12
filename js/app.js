@@ -78,6 +78,9 @@ function bookingMessage(b) {
     `Name: ${b.name}`,
     `Mobile: ${b.mobile}`,
     `Service: ${b.service}`,
+    b.tripType || b.railwayTripType
+  ? `Trip Type: ${b.tripType || b.railwayTripType}`
+  : "",
     b.tour ? `Tour: ${b.tour}` : "",
     `Pickup: ${b.pickup}`,
     `Drop: ${b.drop}`,
