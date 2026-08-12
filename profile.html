@@ -4,40 +4,933 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b5cff">
-  <title>Profile | Vandan Kutch Travels</title>
+
+  <title>Customer Profile | Vandan Kutch Travels</title>
+
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ================================
+       CUSTOMER PROFILE
+       ================================ */
+
+    .profile-card {
+      text-align: center;
+      padding: 30px 22px;
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      margin: 5px auto 20px;
+      border-radius: 32px;
+      background: #2f5bea;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(47, 91, 234, 0.20);
+    }
+
+    .profile-title {
+      margin: 0;
+      font-size: 30px;
+      color: #172033;
+    }
+
+    .profile-subtitle {
+      margin: 8px 0 25px;
+      color: #7b8498;
+      font-size: 16px;
+    }
+
+    .profile-form {
+      text-align: left;
+    }
+
+    .profile-form .field {
+      margin-bottom: 18px;
+    }
+
+    .profile-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 700;
+      color: #172033;
+    }
+
+    .profile-form input,
+    .profile-form textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 16px 17px;
+      border: 1px solid #dce3ef;
+      border-radius: 16px;
+      background: #fff;
+      color: #172033;
+      font-size: 16px;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .profile-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .profile-form input:focus,
+    .profile-form textarea:focus {
+      border-color: #2f5bea;
+      box-shadow: 0 0 0 3px rgba(47, 91, 234, 0.10);
+    }
+
+    .profile-buttons {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .profile-buttons button {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 16px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .save-profile {
+      background: #4caf50;
+      color: #fff;
+    }
+
+    .edit-profile {
+      background: #eef2f8;
+      color: #172033;
+    }
+
+    .bookings-profile {
+      background: #2f5bea;
+      color: #fff;
+    }
+
+    .clear-profile {
+      background: #fff;
+      color: #e53935;
+      border: 1px solid #f0caca !important;
+    }
+
+    .profile-message {
+      min-height: 22px;
+      text-align: center;
+      margin: 14px 0 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .saved-info {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #f4f7fb;
+      text-align: left;
+    }
+
+    .saved-info h3 {
+      margin: 0 0 12px;
+      color: #172033;
+      font-size: 18px;
+    }
+
+    .saved-info p {
+      margin: 7px 0;
+      color: #667085;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .saved-info strong {
+      color: #172033;
+    }
+
+    .welcome-box {
+      display: none;
+      margin-bottom: 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #eef5ff;
+      color: #172033;
+      text-align: left;
+    }
+
+    .welcome-box strong {
+      color: #2f5bea;
+    }
+
+    @media (max-width: 600px) {
+      .profile-card {
+        padding: 25px 18px;
+      }
+
+      .profile-avatar {
+        width: 105px;
+        height: 105px;
+        font-size: 42px;
+        border-radius: 28px;
+      }
+
+      .profile-title {
+        font-size: 27px;
+      }
+    }
+  </style>
 </head>
+
 <body data-page="profile">
+
+  <!-- ================================
+       HEADER
+       ================================ -->
+
   <header class="topbar">
-    <a class="brand" href="index.html"><span class="brand-mark">VK</span><span><b>VANDAN KUTCH TRAVELS</b><small>Profile</small></span></a>
+
+    <a class="brand" href="index.html">
+      <span class="brand-mark">VK</span>
+
+      <span>
+        <b>VANDAN KUTCH TRAVELS</b>
+        <small>Customer Profile</small>
+      </span>
+    </a>
+
+    <a class="icon-btn" href="index.html" aria-label="Back">
+      ←
+    </a>
+
   </header>
 
+
+  <!-- ================================
+       MAIN CONTENT
+       ================================ -->
+
   <main class="page narrow">
-    <section class="profile-card card">
-      <div class="avatar">VK</div>
-      <h1>Vandan Kutch Travels</h1>
-      <p class="muted">📍 Mundra, Kutch, Gujarat</p>
-      <div class="vehicle-line"><span>Vehicle</span><b>Maruti Suzuki Ertiga CNG • 7 Seater</b></div>
-      <div class="profile-actions">
-        <a class="btn secondary" data-call href="#">📞 Call Vandan</a>
-        <a class="btn whatsapp" data-whatsapp-general href="#">💬 WhatsApp Booking</a>
+
+    <section class="card profile-card">
+
+      <!-- Avatar -->
+      <div class="profile-avatar" id="profileAvatar">
+        👤
       </div>
+
+
+      <!-- Title -->
+      <h1 class="profile-title">
+        Customer Profile
+      </h1>
+
+      <p class="profile-subtitle">
+        Save your details for faster bookings
+      </p>
+
+
+      <!-- Welcome message -->
+      <div class="welcome-box" id="welcomeBox">
+        Welcome back, <strong id="welcomeName">Customer</strong>! 👋
+      </div>
+
+
+      <!-- ================================
+           PROFILE FORM
+           ================================ -->
+
+      <form id="profileForm" class="profile-form">
+
+        <!-- Name -->
+        <div class="field">
+
+          <label for="customerName">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            name="customerName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            maxlength="60"
+            required
+          >
+
+        </div>
+
+
+        <!-- Mobile -->
+        <div class="field">
+
+          <label for="customerMobile">
+            Mobile Number
+          </label>
+
+          <input
+            type="tel"
+            id="customerMobile"
+            name="customerMobile"
+            inputmode="numeric"
+            maxlength="10"
+            placeholder="10-digit mobile number"
+            autocomplete="tel"
+            required
+          >
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="field">
+
+          <label for="customerEmail">
+            Email
+            <span style="font-weight:400;color:#8992a5;">
+              (Optional)
+            </span>
+          </label>
+
+          <input
+            type="email"
+            id="customerEmail"
+            name="customerEmail"
+            placeholder="example@email.com"
+            autocomplete="email"
+            maxlength="100"
+          >
+
+        </div>
+
+
+        <!-- Default Pickup -->
+        <div class="field">
+
+          <label for="customerPickup">
+            Default Pickup Location
+          </label>
+
+          <input
+            type="text"
+            id="customerPickup"
+            name="customerPickup"
+            placeholder="e.g. Mundra"
+            maxlength="120"
+          >
+
+        </div>
+
+
+        <!-- Address -->
+        <div class="field">
+
+          <label for="customerAddress">
+            Address
+            <span style="font-weight:400;color:#8992a5;">
+              (Optional)
+            </span>
+          </label>
+
+          <textarea
+            id="customerAddress"
+            name="customerAddress"
+            placeholder="Enter your address"
+            maxlength="250"
+          ></textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="profile-buttons">
+
+          <button
+            type="submit"
+            class="save-profile"
+            id="saveProfileBtn"
+          >
+            💾 Save Profile
+          </button>
+
+          <button
+            type="button"
+            class="edit-profile"
+            id="editProfileBtn"
+          >
+            ✏️ Edit Profile
+          </button>
+
+          <button
+            type="button"
+            class="bookings-profile"
+            id="myBookingsBtn"
+          >
+            📋 My Bookings
+          </button>
+
+          <button
+            type="button"
+            class="clear-profile"
+            id="clearProfileBtn"
+          >
+            🗑️ Clear Profile
+          </button>
+
+        </div>
+
+
+        <!-- Message -->
+        <p
+          id="profileMessage"
+          class="profile-message"
+          role="status"
+        ></p>
+
+      </form>
+
+
+      <!-- ================================
+           SAVED INFORMATION
+           ================================ -->
+
+      <div
+        class="saved-info"
+        id="savedInfo"
+        style="display:none;"
+      >
+
+        <h3>
+          ✅ Saved Profile
+        </h3>
+
+        <p>
+          <strong>Name:</strong>
+          <span id="savedName">—</span>
+        </p>
+
+        <p>
+          <strong>Mobile:</strong>
+          <span id="savedMobile">—</span>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <span id="savedEmail">—</span>
+        </p>
+
+        <p>
+          <strong>Pickup:</strong>
+          <span id="savedPickup">—</span>
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          <span id="savedAddress">—</span>
+        </p>
+
+      </div>
+
     </section>
 
-    <section class="card info">
-      <h2>About</h2>
-      <p>Corporate • Airport • Railway • Outstation • Kutch Tours</p>
-      <p>Clean 7-seater Ertiga CNG with local and outstation service.</p>
-    </section>
   </main>
 
+
+  <!-- ================================
+       BOTTOM NAVIGATION
+       ================================ -->
+
   <nav class="bottom-nav">
-    <a href="index.html">🏠<span>Home</span></a>
-    <a href="booking.html">🚕<span>Book</span></a>
-    <a href="bookings.html">📋<span>Bookings</span></a>
-    <a class="active" href="profile.html">👤<span>Profile</span></a>
+
+    <a href="index.html">
+      🏠
+      <span>Home</span>
+    </a>
+
+    <a href="booking.html">
+      🚕
+      <span>Book</span>
+    </a>
+
+    <a href="bookings.html">
+      📋
+      <span>Bookings</span>
+    </a>
+
+    <a class="active" href="profile.html">
+      👤
+      <span>Profile</span>
+    </a>
+
   </nav>
 
+
+  <!-- ================================
+       PROFILE JAVASCRIPT
+       ================================ -->
+
+  <script>
+
+    const profileForm = document.getElementById("profileForm");
+
+    const customerName =
+      document.getElementById("customerName");
+
+    const customerMobile =
+      document.getElementById("customerMobile");
+
+    const customerEmail =
+      document.getElementById("customerEmail");
+
+    const customerPickup =
+      document.getElementById("customerPickup");
+
+    const customerAddress =
+      document.getElementById("customerAddress");
+
+    const profileAvatar =
+      document.getElementById("profileAvatar");
+
+    const welcomeBox =
+      document.getElementById("welcomeBox");
+
+    const welcomeName =
+      document.getElementById("welcomeName");
+
+    const savedInfo =
+      document.getElementById("savedInfo");
+
+    const savedName =
+      document.getElementById("savedName");
+
+    const savedMobile =
+      document.getElementById("savedMobile");
+
+    const savedEmail =
+      document.getElementById("savedEmail");
+
+    const savedPickup =
+      document.getElementById("savedPickup");
+
+    const savedAddress =
+      document.getElementById("savedAddress");
+
+    const profileMessage =
+      document.getElementById("profileMessage");
+
+    const editProfileBtn =
+      document.getElementById("editProfileBtn");
+
+    const clearProfileBtn =
+      document.getElementById("clearProfileBtn");
+
+    const myBookingsBtn =
+      document.getElementById("myBookingsBtn");
+
+
+    /* =================================
+       LOAD PROFILE
+       ================================= */
+
+    function loadProfile() {
+
+      const profile =
+        JSON.parse(
+          localStorage.getItem("vandanCustomerProfile")
+        );
+
+      if (!profile) {
+
+        profileForm.reset();
+
+        savedInfo.style.display = "none";
+
+        welcomeBox.style.display = "none";
+
+        profileAvatar.textContent = "👤";
+
+        return;
+      }
+
+
+      customerName.value =
+        profile.name || "";
+
+      customerMobile.value =
+        profile.mobile || "";
+
+      customerEmail.value =
+        profile.email || "";
+
+      customerPickup.value =
+        profile.pickup || "";
+
+      customerAddress.value =
+        profile.address || "";
+
+
+      updateProfileDisplay(profile);
+
+    }
+
+
+    /* =================================
+       UPDATE PROFILE DISPLAY
+       ================================= */
+
+    function updateProfileDisplay(profile) {
+
+      const name =
+        profile.name || "Customer";
+
+      welcomeName.textContent =
+        name;
+
+      welcomeBox.style.display =
+        "block";
+
+
+      // First letter avatar
+      const firstLetter =
+        name.trim().charAt(0).toUpperCase();
+
+      if (firstLetter) {
+
+        profileAvatar.textContent =
+          firstLetter;
+
+      } else {
+
+        profileAvatar.textContent =
+          "👤";
+
+      }
+
+
+      savedName.textContent =
+        profile.name || "—";
+
+      savedMobile.textContent =
+        profile.mobile || "—";
+
+      savedEmail.textContent =
+        profile.email || "—";
+
+      savedPickup.textContent =
+        profile.pickup || "—";
+
+      savedAddress.textContent =
+        profile.address || "—";
+
+
+      savedInfo.style.display =
+        "block";
+
+    }
+
+
+    /* =================================
+       SAVE PROFILE
+       ================================= */
+
+    profileForm.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+          customerName.value.trim();
+
+        const mobile =
+          customerMobile.value
+            .replace(/\D/g, "")
+            .trim();
+
+        const email =
+          customerEmail.value.trim();
+
+        const pickup =
+          customerPickup.value.trim();
+
+        const address =
+          customerAddress.value.trim();
+
+
+        /* Name validation */
+
+        if (name.length < 2) {
+
+          showMessage(
+            "Please enter your name.",
+            "error"
+          );
+
+          customerName.focus();
+
+          return;
+
+        }
+
+
+        /* Mobile validation */
+
+        if (!/^[6-9]\d{9}$/.test(mobile)) {
+
+          showMessage(
+            "Please enter a valid 10-digit mobile number.",
+            "error"
+          );
+
+          customerMobile.focus();
+
+          return;
+
+        }
+
+
+        /* Email validation */
+
+        if (
+          email &&
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        ) {
+
+          showMessage(
+            "Please enter a valid email address.",
+            "error"
+          );
+
+          customerEmail.focus();
+
+          return;
+
+        }
+
+
+        const profile = {
+
+          name: name,
+
+          mobile: mobile,
+
+          email: email,
+
+          pickup: pickup,
+
+          address: address
+
+        };
+
+
+        /* Save complete profile */
+
+        localStorage.setItem(
+          "vandanCustomerProfile",
+          JSON.stringify(profile)
+        );
+
+
+        /*
+          These two values are also saved separately
+          so booking.html can use them automatically.
+        */
+
+        localStorage.setItem(
+          "customerName",
+          name
+        );
+
+        localStorage.setItem(
+          "customerMobile",
+          mobile
+        );
+
+
+        updateProfileDisplay(profile);
+
+
+        showMessage(
+          "✅ Profile saved successfully!",
+          "success"
+        );
+
+      }
+    );
+
+
+    /* =================================
+       MOBILE NUMBER CLEANING
+       ================================= */
+
+    customerMobile.addEventListener(
+      "input",
+      function() {
+
+        this.value =
+          this.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+      }
+    );
+
+
+    /* =================================
+       EDIT PROFILE
+       ================================= */
+
+    editProfileBtn.addEventListener(
+      "click",
+      function() {
+
+        customerName.focus();
+
+        customerName.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+        showMessage(
+          "✏️ You can edit your profile now.",
+          "info"
+        );
+
+      }
+    );
+
+
+    /* =================================
+       MY BOOKINGS
+       ================================= */
+
+    myBookingsBtn.addEventListener(
+      "click",
+      function() {
+
+        window.location.href =
+          "bookings.html";
+
+      }
+    );
+
+
+    /* =================================
+       CLEAR PROFILE
+       ================================= */
+
+    clearProfileBtn.addEventListener(
+      "click",
+      function() {
+
+        const confirmed =
+          confirm(
+            "Are you sure you want to clear your customer profile?"
+          );
+
+        if (!confirmed) {
+          return;
+        }
+
+
+        localStorage.removeItem(
+          "vandanCustomerProfile"
+        );
+
+        localStorage.removeItem(
+          "customerName"
+        );
+
+        localStorage.removeItem(
+          "customerMobile"
+        );
+
+
+        profileForm.reset();
+
+        savedInfo.style.display =
+          "none";
+
+        welcomeBox.style.display =
+          "none";
+
+        profileAvatar.textContent =
+          "👤";
+
+
+        showMessage(
+          "Profile cleared.",
+          "success"
+        );
+
+      }
+    );
+
+
+    /* =================================
+       MESSAGE
+       ================================= */
+
+    function showMessage(
+      message,
+      type
+    ) {
+
+      profileMessage.textContent =
+        message;
+
+
+      if (type === "success") {
+
+        profileMessage.style.color =
+          "#2e9d46";
+
+      } else if (type === "error") {
+
+        profileMessage.style.color =
+          "#d93636";
+
+      } else {
+
+        profileMessage.style.color =
+          "#2f5bea";
+
+      }
+
+
+      setTimeout(
+        function() {
+
+          profileMessage.textContent =
+            "";
+
+        },
+        4000
+      );
+
+    }
+
+
+    /* =================================
+       START
+       ================================= */
+
+    loadProfile();
+
+  </script>
+
+
+  <!-- Existing application JavaScript -->
   <script src="js/app.js"></script>
+
 </body>
 </html>
