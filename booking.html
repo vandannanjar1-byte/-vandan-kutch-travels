@@ -7,83 +7,574 @@
   <title>Book Your Ride | Vandan Kutch Travels</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body data-page="booking">
-  <header class="topbar">
-    <a class="brand" href="index.html"><span class="brand-mark">VK</span><span><b>VANDAN KUTCH TRAVELS</b><small>Book Your Ride</small></span></a>
-    <a class="icon-btn" href="index.html" aria-label="Back">←</a>
-  </header>
 
-  <main class="page narrow">
-    <section class="card form-card">
-      <p class="eyebrow">Mundra • Kutch • Gujarat</p>
-      <h1>Book Your Ride</h1>
+<header class="topbar">
 
-      <form id="bookingForm">
-        <div class="field">
-          <label for="service">Service</label>
-          <select id="service" name="service" required>
-            <option value="">Select service</option>
-            <option>Airport</option>
-            <option>Railway</option>
-            <option>Corporate</option>
-            <option>Outstation</option>
-            <option>Kutch Tour</option>
-          </select>
-        </div>
+  <a class="brand" href="index.html">
+    <span class="brand-mark">VK</span>
 
-        <div class="two">
-          <div class="field"><label for="pickup">Pickup Location</label><input id="pickup" name="pickup" placeholder="e.g. The Fern Residency, Mundra" required></div>
-          <div class="field"><label for="drop">Drop Location</label><input id="drop" name="drop" placeholder="e.g. Bhuj Airport" required></div>
-        </div>
+    <span>
+      <b>VANDAN KUTCH TRAVELS</b>
+      <small>Book Your Ride</small>
+    </span>
+  </a>
 
-        <div class="field">
-          <label for="airport">Select Gujarat Airport</label>
-          <select id="airport" name="airport">
-            <option value="">Not applicable</option>
-            <option>Bhuj Airport (BHJ)</option>
-            <option>Kandla Airport (IXY)</option>
-            <option>Ahmedabad Airport (AMD)</option>
-            <option>Rajkot Airport (HSR)</option>
-            <option>Vadodara Airport (BDQ)</option>
-            <option>Surat Airport (STV)</option>
-          </select>
-        </div>
+  <a class="icon-btn" href="index.html" aria-label="Back">
+    ←
+  </a>
 
-        <div class="two">
-          <div class="field"><label for="date">Date</label><input type="date" id="date" name="date" required></div>
-          <div class="field"><label for="time">Time</label><input type="time" id="time" name="time" required></div>
-        </div>
+</header>
 
-        <div class="two">
-          <div class="field"><label for="passengers">Passengers</label><input type="number" id="passengers" name="passengers" min="1" max="7" value="1" required></div>
-          <div class="field"><label for="distance">Distance (KM)</label><input type="number" id="distance" name="distance" min="1" step="0.1" placeholder="e.g. 50" required></div>
-        </div>
-        <div class="field"><label for="mobile">Mobile Number</label><input type="tel" id="mobile" name="mobile" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required></div>
 
-        <div class="field"><label for="name">Name</label><input id="name" name="name" placeholder="Your name" required></div>
+<main class="page narrow">
 
-        <div class="fare-box">
-          <span>Estimated fare</span>
-          <strong id="fare">₹ —</strong>
-          <small>Final fare will be confirmed by Vandan.</small>
-        </div>
+<section class="card form-card">
 
-        <div class="actions">
-          <button class="btn secondary" type="button" id="estimateBtn">Calculate Estimate</button>
-          <button class="btn whatsapp" type="submit">Confirm via WhatsApp</button>
-        </div>
-        <p id="formMessage" class="form-message" role="status"></p>
-      </form>
-    </section>
-  </main>
+  <p class="eyebrow">
+    Mundra • Kutch • Gujarat
+  </p>
 
-  <nav class="bottom-nav">
-    <a href="index.html">🏠<span>Home</span></a>
-    <a class="active" href="booking.html">🚕<span>Book</span></a>
-    <a href="bookings.html">📋<span>Bookings</span></a>
-    <a href="profile.html">👤<span>Profile</span></a>
-  </nav>
+  <h1>Book Your Ride</h1>
 
-  <script src="js/app.js"></script>
+
+  <form id="bookingForm">
+
+
+    <!-- SERVICE -->
+
+    <div class="field">
+
+      <label for="service">
+        Service
+      </label>
+
+      <select
+        id="service"
+        name="service"
+        required
+      >
+
+        <option value="">
+          Select service
+        </option>
+
+        <option value="Airport">
+          Airport
+        </option>
+
+        <option value="Railway">
+          Railway
+        </option>
+
+        <option value="Corporate">
+          Corporate
+        </option>
+
+        <option value="Outstation">
+          Outstation
+        </option>
+
+        <option value="Kutch Tour">
+          Kutch Tour
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- TRIP TYPE -->
+
+    <div
+      class="field"
+      id="tripTypeGroup"
+      style="display:none;"
+    >
+
+      <label for="tripType">
+        Trip Type
+      </label>
+
+      <select
+        id="tripType"
+        name="tripType"
+      >
+
+        <option value="">
+          Select Trip Type
+        </option>
+
+        <option value="Airport Pickup">
+          Airport Pickup
+        </option>
+
+        <option value="Airport Drop">
+          Airport Drop
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- RAILWAY TRIP TYPE -->
+
+    <div
+      class="field"
+      id="railwayTripTypeGroup"
+      style="display:none;"
+    >
+
+      <label for="railwayTripType">
+        Trip Type
+      </label>
+
+      <select
+        id="railwayTripType"
+        name="railwayTripType"
+      >
+
+        <option value="">
+          Select Trip Type
+        </option>
+
+        <option value="Railway Pickup">
+          Railway Pickup
+        </option>
+
+        <option value="Railway Drop">
+          Railway Drop
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- AIRPORT -->
+
+    <div
+      class="field"
+      id="airportGroup"
+      style="display:none;"
+    >
+
+      <label for="airport">
+        Select Gujarat Airport
+      </label>
+
+      <select
+        id="airport"
+        name="airport"
+      >
+
+        <option value="">
+          Select Airport
+        </option>
+
+        <option value="Ahmedabad Airport (AMD)">
+          Ahmedabad Airport (AMD)
+        </option>
+
+        <option value="Bhuj Airport (BHJ)">
+          Bhuj Airport (BHJ)
+        </option>
+
+        <option value="Vadodara Airport (BDQ)">
+          Vadodara Airport (BDQ)
+        </option>
+
+        <option value="Surat Airport (STV)">
+          Surat Airport (STV)
+        </option>
+
+        <option value="Rajkot International Airport (HSR)">
+          Rajkot International Airport (HSR)
+        </option>
+
+        <option value="Bhavnagar Airport (BHU)">
+          Bhavnagar Airport (BHU)
+        </option>
+
+        <option value="Jamnagar Airport (JGA)">
+          Jamnagar Airport (JGA)
+        </option>
+
+        <option value="Porbandar Airport (PBD)">
+          Porbandar Airport (PBD)
+        </option>
+
+        <option value="Kandla Airport (IXY)">
+          Kandla Airport (IXY)
+        </option>
+
+        <option value="Keshod Airport (IXK)">
+          Keshod Airport (IXK)
+        </option>
+
+        <option value="Mundra Airport (MUD)">
+          Mundra Airport (MUD)
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- RAILWAY -->
+
+    <div
+      class="field"
+      id="railwayGroup"
+      style="display:none;"
+    >
+
+      <label for="railway">
+        Select Gujarat Railway Station
+      </label>
+
+      <select
+        id="railway"
+        name="railway"
+      >
+
+        <option value="">
+          Select Railway Station
+        </option>
+
+        <option value="Ahmedabad Junction (ADI)">
+          Ahmedabad Junction (ADI)
+        </option>
+
+        <option value="Vadodara Junction (BRC)">
+          Vadodara Junction (BRC)
+        </option>
+
+        <option value="Surat (ST)">
+          Surat (ST)
+        </option>
+
+        <option value="Rajkot Junction (RJT)">
+          Rajkot Junction (RJT)
+        </option>
+
+        <option value="Bhuj (BHUJ)">
+          Bhuj (BHUJ)
+        </option>
+
+        <option value="Gandhidham Junction (GIMB)">
+          Gandhidham Junction (GIMB)
+        </option>
+
+        <option value="Anand Junction (ANND)">
+          Anand Junction (ANND)
+        </option>
+
+        <option value="Nadiad Junction (ND)">
+          Nadiad Junction (ND)
+        </option>
+
+        <option value="Bharuch Junction (BH)">
+          Bharuch Junction (BH)
+        </option>
+
+        <option value="Ankleshwar Junction (AKV)">
+          Ankleshwar Junction (AKV)
+        </option>
+
+        <option value="Vapi (VAPI)">
+          Vapi (VAPI)
+        </option>
+
+        <option value="Navsari (NVS)">
+          Navsari (NVS)
+        </option>
+
+        <option value="Udhna Junction (UDN)">
+          Udhna Junction (UDN)
+        </option>
+
+        <option value="Mehsana Junction (MSH)">
+          Mehsana Junction (MSH)
+        </option>
+
+        <option value="Palanpur Junction (PNU)">
+          Palanpur Junction (PNU)
+        </option>
+
+        <option value="Jamnagar (JAM)">
+          Jamnagar (JAM)
+        </option>
+
+        <option value="Surendranagar Junction (SUNR)">
+          Surendranagar Junction (SUNR)
+        </option>
+
+        <option value="Bhavnagar Terminus (BVC)">
+          Bhavnagar Terminus (BVC)
+        </option>
+
+        <option value="Veraval (VRL)">
+          Veraval (VRL)
+        </option>
+
+        <option value="Porbandar (PBR)">
+          Porbandar (PBR)
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- PICKUP / DROP -->
+
+    <div class="two">
+
+      <div class="field">
+
+        <label for="pickup">
+          Pickup Location
+        </label>
+
+        <input
+          id="pickup"
+          name="pickup"
+          placeholder="e.g. The Fern Residency, Mundra"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="drop">
+          Drop Location
+        </label>
+
+        <input
+          id="drop"
+          name="drop"
+          placeholder="e.g. Bhuj"
+          required
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- DATE / TIME -->
+
+    <div class="two">
+
+      <div class="field">
+
+        <label for="date">
+          Date
+        </label>
+
+        <input
+          type="date"
+          id="date"
+          name="date"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="time">
+          Time
+        </label>
+
+        <input
+          type="time"
+          id="time"
+          name="time"
+          required
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- PASSENGERS / DISTANCE -->
+
+    <div class="two">
+
+      <div class="field">
+
+        <label for="passengers">
+          Passengers
+        </label>
+
+        <input
+          type="number"
+          id="passengers"
+          name="passengers"
+          min="1"
+          max="7"
+          value="1"
+          required
+        >
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="distance">
+          Distance (KM)
+        </label>
+
+        <input
+          type="number"
+          id="distance"
+          name="distance"
+          min="1"
+          step="0.1"
+          placeholder="e.g. 50"
+          required
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- MOBILE -->
+
+    <div class="field">
+
+      <label for="mobile">
+        Mobile Number
+      </label>
+
+      <input
+        type="tel"
+        id="mobile"
+        name="mobile"
+        inputmode="numeric"
+        maxlength="10"
+        placeholder="10-digit mobile number"
+        required
+      >
+
+    </div>
+
+
+    <!-- NAME -->
+
+    <div class="field">
+
+      <label for="name">
+        Name
+      </label>
+
+      <input
+        id="name"
+        name="name"
+        placeholder="Your name"
+        required
+      >
+
+    </div>
+
+
+    <!-- FARE -->
+
+    <div class="fare-box">
+
+      <span>
+        Estimated fare
+      </span>
+
+      <strong id="fare">
+        ₹ —
+      </strong>
+
+      <small>
+        Final fare will be confirmed by Vandan.
+      </small>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="actions">
+
+      <button
+        class="btn secondary"
+        type="button"
+        id="estimateBtn"
+      >
+        Calculate Estimate
+      </button>
+
+
+      <button
+        class="btn whatsapp"
+        type="submit"
+      >
+        Confirm via WhatsApp
+      </button>
+
+    </div>
+
+
+    <p
+      id="formMessage"
+      class="form-message"
+      role="status"
+    ></p>
+
+
+  </form>
+
+</section>
+
+</main>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+  <a href="index.html">
+    🏠
+    <span>Home</span>
+  </a>
+
+  <a
+    class="active"
+    href="booking.html"
+  >
+    🚕
+    <span>Book</span>
+  </a>
+
+  <a href="bookings.html">
+    📋
+    <span>Bookings</span>
+  </a>
+
+  <a href="profile.html">
+    👤
+    <span>Profile</span>
+  </a>
+
+</nav>
+
+
+<script src="js/app.js?v=3"></script>
+
 </body>
 </html>
