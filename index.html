@@ -1,563 +1,1015 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
   <title>Vandan Kutch Travels</title>
-  <!-- Font & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
   <style>
+
+    /* =========================================================
+       VANDAN KUTCH TRAVELS
+       PIXEL-PERFECT 11 SCREEN UI
+       PART 1 — HTML + CSS
+       ========================================================= */
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #ffffff;
+      color: #102142;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
       min-height: 100vh;
-      padding: 12px;
     }
-    .app-container {
-      max-width: 420px;
-      width: 100%;
-      background: white;
-      border-radius: 32px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      overflow: hidden;
-      position: relative;
-      padding-bottom: 80px;
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: inherit;
     }
-    /* screens */
-    .screen {
-      display: none;
-      padding: 20px 18px 30px;
-      background: white;
+
+    button {
+      cursor: pointer;
     }
-    .screen.active {
+
+    img {
+      max-width: 100%;
       display: block;
     }
-    /* nav */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      max-width: 420px;
+
+
+    /* =========================================================
+       MAIN HEADER
+       ========================================================= */
+
+    .header {
       width: 100%;
-      background: #0b1a33;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 8px 14px;
-      border-top-left-radius: 24px;
-      border-top-right-radius: 24px;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
-      z-index: 20;
-    }
-    .nav-item {
-      color: #8896b0;
+      max-width: 1500px;
+
+      margin: 14px auto 10px;
+
+      padding: 0 16px;
+
       text-align: center;
-      font-size: 11px;
-      font-weight: 500;
-      transition: 0.2s;
-      flex: 1;
-      cursor: pointer;
-      padding: 4px 0;
+
+      font-size: 22px;
+      line-height: 1.25;
+
+      font-weight: 900;
+
+      color: #062653;
+
+      letter-spacing: 0.2px;
     }
-    .nav-item i {
-      font-size: 20px;
-      display: block;
-      margin-bottom: 2px;
+
+    .header span {
+      color: #ff6a00;
     }
-    .nav-item.active {
-      color: #f97316;
-    }
-    /* buttons, cards */
-    .btn-primary {
-      background: #f97316;
-      border: none;
-      color: white;
-      font-weight: 600;
-      padding: 14px 20px;
-      border-radius: 40px;
-      font-size: 16px;
+
+
+    /* =========================================================
+       MAIN SCREEN GRID
+       ========================================================= */
+
+    .grid {
       width: 100%;
-      box-shadow: 0 6px 14px rgba(249,115,22,0.3);
-      transition: 0.2s;
-      cursor: pointer;
-      text-align: center;
-    }
-    .btn-primary:active { transform: scale(0.97); }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid #f97316;
-      color: #f97316;
-      font-weight: 600;
-      padding: 12px 16px;
-      border-radius: 40px;
-      font-size: 15px;
-      width: 100%;
-      text-align: center;
-      cursor: pointer;
-    }
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-      border: 1px solid #f0f2f5;
-    }
-    .flex-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      background: #0b1a33;
-      color: white;
-      border-radius: 40px;
-      padding: 4px 14px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    .text-navy { color: #0b1a33; }
-    .text-orange { color: #f97316; }
-    .bg-navy { background: #0b1a33; }
-    .bg-orange { background: #f97316; }
-    /* home hero */
-    .hero-img {
-      background: linear-gradient(145deg, #0b1a33 0%, #1a2f4e 100%);
-      border-radius: 28px;
-      padding: 30px 20px 20px;
-      margin-bottom: 20px;
-      color: white;
-      position: relative;
-      min-height: 180px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-    .hero-img .tagline {
-      font-size: 14px;
-      opacity: 0.8;
-      letter-spacing: 0.3px;
-    }
-    .service-grid {
+      max-width: 1500px;
+
+      margin: 0 auto;
+
+      padding: 0 16px 30px;
+
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 18px 0;
+
+      grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+      column-gap: 16px;
+      row-gap: 20px;
     }
-    .service-item {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 12px 8px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 500;
-      color: #0b1a33;
-    }
-    .service-item i { font-size: 20px; color: #f97316; display: block; margin-bottom: 4px; }
-    /* form */
-    .input-group {
-      background: #f8fafc;
-      border-radius: 16px;
-      padding: 12px 16px;
-      margin-bottom: 12px;
-      border: 1px solid #eef2f6;
-    }
-    .input-group label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #5b6f8c;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .input-group input, .input-group select {
-      border: none;
-      background: transparent;
-      font-size: 16px;
+
+
+    /* =========================================================
+       SCREEN CARD
+       ========================================================= */
+
+    .screen {
       width: 100%;
-      outline: none;
-      font-weight: 500;
-      color: #0b1a33;
+      min-width: 0;
     }
-    .toggle-group {
-      display: flex;
-      background: #f0f2f6;
-      border-radius: 40px;
-      padding: 4px;
-      margin-bottom: 18px;
-    }
-    .toggle-group span {
-      flex: 1;
-      text-align: center;
-      padding: 10px 0;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 15px;
-      color: #3d4e66;
-      cursor: pointer;
-    }
-    .toggle-group span.active {
-      background: #0b1a33;
-      color: white;
-    }
-    /* vehicle card */
-    .vehicle-card {
+
+
+    /* =========================================================
+       SCREEN TITLE
+       ========================================================= */
+
+    .screen-label {
+      width: 100%;
+      height: 27px;
+
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
+
+      font-size: 12px;
+
+      font-weight: 900;
+
+      color: #062653;
+
+      letter-spacing: 0.1px;
+    }
+
+
+    /* =========================================================
+       PHONE / SCREEN WRAPPER
+       ========================================================= */
+
+    .screen-wrap {
+      position: relative;
+
+      width: 100%;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
       border-radius: 20px;
-      border: 1.5px solid #eef2f6;
-      margin-bottom: 12px;
-      background: white;
-      transition: 0.15s;
+
+      box-shadow:
+        0 9px 24px rgba(7, 30, 69, 0.14);
+
+      cursor: pointer;
+
+      transform: translateZ(0);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .screen-wrap:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 13px 30px rgba(7, 30, 69, 0.18);
+    }
+
+    .screen-wrap img {
+      width: 100%;
+      height: auto;
+
+      display: block;
+
+      user-select: none;
+
+      -webkit-user-drag: none;
+    }
+
+
+    /* =========================================================
+       TRANSPARENT INTERACTION LAYER
+       ========================================================= */
+
+    .hotspots {
+      position: absolute;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: auto;
+    }
+
+    .hot {
+      position: absolute;
+
+      border: none;
+
+      background: transparent;
+
       cursor: pointer;
     }
-    .vehicle-card.selected {
-      border-color: #f97316;
-      background: #fff6ed;
+
+
+    /* =========================================================
+       FOOTER / INFORMATION
+       ========================================================= */
+
+    .help {
+      width: 100%;
+      max-width: 1500px;
+
+      margin: 0 auto 25px;
+
+      padding: 10px 16px;
+
+      text-align: center;
+
+      font-size: 12px;
+
+      line-height: 1.5;
+
+      color: #687287;
     }
-    .vehicle-card .v-img {
-      width: 70px;
-      height: 70px;
-      background: #eef2f6;
-      border-radius: 16px;
-      display: flex;
+
+
+    /* =========================================================
+       MODAL BACKDROP
+       ========================================================= */
+
+    .modal-bg {
+      display: none;
+
+      position: fixed;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      padding: 18px;
+
+      background:
+        rgba(0, 20, 55, 0.48);
+
+      z-index: 9999;
+
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      color: #0b1a33;
     }
-    .vehicle-info { flex: 1; }
-    .vehicle-info h4 { font-size: 16px; font-weight: 700; }
-    .vehicle-info p { font-size: 13px; color: #4b5e7a; }
-    .price-tag { font-weight: 700; color: #0b1a33; }
-    .radio-dot {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #cbd5e1;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal {
+      width: min(430px, 100%);
+
+      max-height: 90vh;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30);
     }
-    .vehicle-card.selected .radio-dot { border-color: #f97316; }
-    .vehicle-card.selected .radio-dot::after {
-      content: '';
-      width: 12px;
-      height: 12px;
-      background: #f97316;
-      border-radius: 50%;
-    }
-    /* summary */
-    .summary-line {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
+
+
+    /* =========================================================
+       MODAL HEADER
+       ========================================================= */
+
+    .modal h3 {
+      width: 100%;
+
+      margin: 0;
+
+      padding: 15px;
+
+      background: #062653;
+
+      color: #ffffff;
+
       font-size: 15px;
-      border-bottom: 1px solid #f0f2f5;
+
+      font-weight: 900;
     }
-    .summary-line.total { font-weight: 700; font-size: 18px; border-bottom: none; padding-top: 12px; }
-    .booking-id { background: #f0f4fe; padding: 6px 14px; border-radius: 40px; font-size: 13px; font-weight: 600; }
-    /* booking card */
-    .booking-card {
-      border-left: 4px solid #f97316;
-      padding: 14px 16px;
-      background: white;
-      border-radius: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      border: 1px solid #f0f2f5;
+
+
+    /* =========================================================
+       MODAL BODY
+       ========================================================= */
+
+    .modal-body {
+      padding: 15px;
+
+      max-height: calc(90vh - 60px);
+
+      overflow-y: auto;
+
+      color: #102142;
+
+      font-size: 12px;
+
+      line-height: 1.5;
     }
-    .status-badge {
+
+    .modal-body p {
+      margin-bottom: 9px;
+    }
+
+    .modal-body label {
+      display: block;
+
+      margin: 8px 0 4px;
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      color: #102142;
+    }
+
+
+    /* =========================================================
+       INPUTS
+       ========================================================= */
+
+    .modal-body input,
+    .modal-body select,
+    .modal-body textarea {
+      width: 100%;
+
+      height: 40px;
+
+      padding: 0 10px;
+
+      border: 1px solid #dddddd;
+
+      border-radius: 9px;
+
+      outline: none;
+
+      background: #ffffff;
+
+      color: #102142;
+
       font-size: 11px;
-      padding: 4px 12px;
-      border-radius: 30px;
-      background: #eaf4ea;
-      color: #1f7b4d;
-      font-weight: 600;
     }
-    .status-badge.pending { background: #fff3e0; color: #b45a1c; }
-    .status-badge.cancelled { background: #fee8e8; color: #b33a3a; }
-    /* map placeholder */
-    .map-placeholder {
-      background: #d9e2ec;
-      height: 160px;
-      border-radius: 24px;
+
+    .modal-body textarea {
+      height: 90px;
+
+      padding-top: 10px;
+
+      resize: vertical;
+    }
+
+    .modal-body input:focus,
+    .modal-body select:focus,
+    .modal-body textarea:focus {
+      border-color: #ff6a00;
+
+      box-shadow:
+        0 0 0 2px rgba(255, 106, 0, 0.12);
+    }
+
+
+    /* =========================================================
+       BUTTON ACTIONS
+       ========================================================= */
+
+    .actions {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #2b405a;
-      font-weight: 500;
-      margin-bottom: 16px;
+
+      gap: 8px;
+
+      margin-top: 14px;
     }
-    /* utils */
-    .mt-2 { margin-top: 12px; }
-    .mb-2 { margin-bottom: 12px; }
-    .text-center { text-align: center; }
-    .flex-between { display: flex; justify-content: space-between; align-items: center; }
-    .gap-2 { gap: 8px; }
-    .w-100 { width: 100%; }
-    .icon-lg { font-size: 48px; }
-    .success-icon { color: #10b981; }
-    .clickable { cursor: pointer; }
-    .mt-4 { margin-top: 24px; }
-    .px-2 { padding: 0 8px; }
-    /* confirmation */
-    .confirmation-card { background: #f8fafc; border-radius: 28px; padding: 24px; }
-    hr { border: none; border-top: 1px solid #e4e9f0; margin: 16px 0; }
-    /* small */
-    @media (max-width: 400px) {
-      .app-container { border-radius: 0; }
+
+    .actions button {
+      flex: 1;
+
+      height: 38px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      font-size: 11px;
+
+      font-weight: 900;
     }
+
+
+    /* =========================================================
+       CANCEL BUTTON
+       ========================================================= */
+
+    .cancel {
+      background: #eeeeee;
+
+      color: #102142;
+    }
+
+    .cancel:hover {
+      background: #e3e3e3;
+    }
+
+
+    /* =========================================================
+       ORANGE BUTTON
+       ========================================================= */
+
+    .ok {
+      background: #ff6a00;
+
+      color: #ffffff;
+    }
+
+    .ok:hover {
+      background: #ed5e00;
+    }
+
+
+    /* =========================================================
+       TOAST MESSAGE
+       ========================================================= */
+
+    .toast {
+      position: fixed;
+
+      left: 50%;
+
+      bottom: 20px;
+
+      transform:
+        translate(-50%, 20px);
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      z-index: 10000;
+
+      min-width: 160px;
+
+      max-width: calc(100% - 30px);
+
+      padding: 10px 15px;
+
+      border-radius: 10px;
+
+      background: #062653;
+
+      color: #ffffff;
+
+      text-align: center;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.22);
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+
+      transform:
+        translate(-50%, 0);
+    }
+
+
+    /* =========================================================
+       MOBILE SAFETY
+       ========================================================= */
+
+    @media (max-width: 1100px) {
+
+      .grid {
+        grid-template-columns:
+          repeat(4, minmax(0, 1fr));
+      }
+
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 760px) {
+
+      .header {
+        font-size: 16px;
+
+        padding:
+          4px 12px 8px;
+      }
+
+      .grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        column-gap: 10px;
+
+        row-gap: 14px;
+
+        padding:
+          0 10px 25px;
+      }
+
+      .screen-label {
+        height: 25px;
+
+        font-size: 10px;
+      }
+
+      .help {
+        font-size: 11px;
+
+        padding:
+          8px 12px;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE PHONE
+       ========================================================= */
+
+    @media (max-width: 430px) {
+
+      body {
+        overflow-x: hidden;
+      }
+
+      .header {
+        font-size: 15px;
+
+        line-height: 1.35;
+
+        margin-top: 10px;
+      }
+
+      .grid {
+        width: 100%;
+
+        max-width: 390px;
+
+        grid-template-columns: 1fr;
+
+        margin: 0 auto;
+
+        padding:
+          0 10px 25px;
+      }
+
+      .screen-label {
+        height: 26px;
+
+        font-size: 11px;
+      }
+
+      .screen-wrap {
+        border-radius: 18px;
+      }
+
+      .help {
+        padding:
+          8px 15px;
+
+        font-size: 10px;
+      }
+
+    }
+
+
+    /* =========================================================
+       SMALL PHONE
+       ========================================================= */
+
+    @media (max-width: 360px) {
+
+      .header {
+        font-size: 13px;
+      }
+
+      .grid {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+    }
+
+
+    /* =========================================================
+       ACCESSIBILITY
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
-<div class="app-container" id="app">
-  <!-- SCREENS -->
-  <div id="screen-home" class="screen active">
-    <div class="flex-between" style="padding: 8px 0 4px;">
-      <span style="font-weight: 700; font-size: 22px; color:#0b1a33;">VK<span style="color:#f97316;">T</span></span>
-      <span style="font-size: 13px; color:#4b5e7a;">Your Journey, Our Responsibility</span>
-    </div>
-    <div class="hero-img">
-      <div><span style="font-size: 32px; font-weight: 700;">Vandan Kutch</span><br><span style="font-size: 20px; font-weight: 300;">Travels</span></div>
-      <div class="tagline" style="margin-top: 12px;"><i class="fas fa-car" style="color:#f97316;"></i> Safe, Reliable & Comfortable</div>
-    </div>
-    <h3 style="font-size: 20px; margin: 8px 0 4px;">Book your ride</h3>
-    <p style="color:#4b5e7a; margin-bottom: 16px;">Safe, Reliable & Comfortable</p>
-    <button class="btn-primary" onclick="navigateTo('screen-booking')"><i class="fas fa-calendar-check"></i> BOOK NOW</button>
-    <div class="flex-row" style="margin: 16px 0; gap: 12px;">
-      <button class="btn-outline" style="flex:1;"><i class="fas fa-phone-alt"></i> Call</button>
-      <button class="btn-outline" style="flex:1;"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-    </div>
-    <div class="service-grid">
-      <div class="service-item"><i class="fas fa-rupee-sign"></i> Best Prices</div>
-      <div class="service-item"><i class="fas fa-shield-alt"></i> Safe & Secure</div>
-      <div class="service-item"><i class="fas fa-car"></i> Clean Cars</div>
-      <div class="service-item"><i class="fas fa-headset"></i> 24/7 Support</div>
-    </div>
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <div class="header">
+
+    VANDAN KUTCH TRAVELS
+
+    <span>
+      – YOUR JOURNEY, YOUR RESPONSIBILITY
+    </span>
+
   </div>
 
-  <!-- BOOKING -->
-  <div id="screen-booking" class="screen">
-    <div class="flex-between"><h3>Book a Ride</h3><span class="badge" onclick="navigateTo('screen-home')"><i class="fas fa-arrow-left"></i> Back</span></div>
-    <div class="toggle-group">
-      <span class="active" id="toggle-oneway" onclick="setTrip('oneway')">One Way</span>
-      <span id="toggle-roundtrip" onclick="setTrip('roundtrip')">Round Trip</span>
-    </div>
-    <div class="input-group"><label><i class="fas fa-circle"></i> Pickup</label><input type="text" id="pickupInput" placeholder="Current location or search" value="Bhuj, Gujarat"></div>
-    <div class="input-group"><label><i class="fas fa-map-marker-alt"></i> Drop</label><input type="text" id="dropInput" placeholder="Destination" value="Mumbai, Maharashtra"></div>
-    <div class="flex-row" style="gap:8px;">
-      <div class="input-group" style="flex:1;"><label>Date</label><input type="date" id="bookingDate" value="2026-08-15"></div>
-      <div class="input-group" style="flex:1;"><label>Time</label><input type="time" id="bookingTime" value="09:30"></div>
-    </div>
-    <button class="btn-primary" onclick="navigateTo('screen-vehicles')"><i class="fas fa-search"></i> Search Cars</button>
-  </div>
 
-  <!-- VEHICLES -->
-  <div id="screen-vehicles" class="screen">
-    <div class="flex-between"><h3>Select your car</h3><span class="badge" onclick="navigateTo('screen-booking')"><i class="fas fa-arrow-left"></i> Back</span></div>
-    <div id="vehicleList"></div>
-    <button class="btn-primary" id="continueToSummaryBtn" onclick="continueToSummary()">Continue</button>
-  </div>
+  <!-- =======================================================
+       11 SCREEN GRID
+       
+       PART 2 માં નીચેના screen contents આવશે.
+       ======================================================= -->
 
-  <!-- SUMMARY -->
-  <div id="screen-summary" class="screen">
-    <div class="flex-between"><h3>Booking Summary</h3><span class="badge" onclick="navigateTo('screen-vehicles')"><i class="fas fa-edit"></i> Edit</span></div>
-    <div id="summaryContent"></div>
-    <button class="btn-primary" onclick="confirmBooking()"><i class="fas fa-check-circle"></i> CONFIRM BOOKING</button>
-    <p style="font-size:12px; color:#7b8aa3; margin-top:8px;">* Estimated fare, subject to change.</p>
-  </div>
+  <div class="grid" id="screenGrid">
 
-  <!-- CONFIRMATION -->
-  <div id="screen-confirmation" class="screen">
-    <div class="confirmation-card text-center">
-      <i class="fas fa-check-circle success-icon" style="font-size:72px;"></i>
-      <h2 style="margin:8px 0;">Booking Confirmed!</h2>
-      <p style="color:#4b5e7a;">Your ride has been booked successfully.</p>
-      <hr>
-      <div id="confirmDetails" class="text-left" style="font-size:15px;"></div>
-      <div class="flex-row" style="margin-top:20px; gap:10px;">
-        <button class="btn-outline" style="flex:1;" onclick="navigateTo('screen-bookings')"><i class="fas fa-list-ul"></i> View Booking</button>
-        <button class="btn-outline" style="flex:1;"><i class="fab fa-whatsapp"></i> Share</button>
+
+    <!-- =====================================================
+         SCREEN 1
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        1. HOME
       </div>
-      <button class="btn-primary" style="margin-top:12px;"><i class="fas fa-phone-alt"></i> Call Support</button>
-    </div>
-  </div>
 
-  <!-- BOOKINGS -->
-  <div id="screen-bookings" class="screen">
-    <h3>My Bookings</h3>
-    <div class="flex-row" style="gap:4px; margin:12px 0;">
-      <span class="badge" style="background:#f97316;" onclick="filterBookings('upcoming')">Upcoming</span>
-      <span class="badge" style="background:#0b1a33;" onclick="filterBookings('completed')">Completed</span>
-      <span class="badge" style="background:#6b7a93;" onclick="filterBookings('cancelled')">Cancelled</span>
-    </div>
-    <div id="bookingList"></div>
-  </div>
+      <div
+        class="screen-wrap"
+        data-screen="1"
+      >
 
-  <!-- CONTACT -->
-  <div id="screen-contact" class="screen">
-    <h3>We are here to help you</h3>
-    <div class="card"><i class="fas fa-phone-alt text-orange"></i> <span style="font-weight:600;">+91 98765 43210</span> <button class="btn-outline" style="padding:6px 12px; width:auto; display:inline-block;">Call</button></div>
-    <div class="card"><i class="fab fa-whatsapp text-orange"></i> <span style="font-weight:600;">+91 98765 43210</span> <button class="btn-outline" style="padding:6px 12px; width:auto;">WhatsApp</button></div>
-    <div class="card"><i class="fas fa-envelope text-orange"></i> info@vandankutch.com</div>
-    <div class="card"><i class="fas fa-map-pin text-orange"></i> Bhuj, Kutch, Gujarat, India</div>
-  </div>
+        <!-- PART 2: Screen 1 image/content -->
 
-  <!-- PROFILE -->
-  <div id="screen-profile" class="screen">
-    <div class="text-center"><i class="fas fa-user-circle" style="font-size:64px; color:#0b1a33;"></i><h3>Guest User</h3><p>+91 98765 43210</p></div>
-    <div class="card flex-between"><span>My Profile</span><i class="fas fa-chevron-right"></i></div>
-    <div class="card flex-between" onclick="navigateTo('screen-bookings')"><span>My Bookings</span><i class="fas fa-chevron-right"></i></div>
-    <div class="card flex-between"><span>Saved Addresses</span><i class="fas fa-chevron-right"></i></div>
-    <div class="card flex-between"><span>Payment Methods</span><i class="fas fa-chevron-right"></i></div>
-    <div class="card flex-between"><span>Notifications</span><i class="fas fa-chevron-right"></i></div>
-    <div class="card flex-between"><span>Help & Support</span><i class="fas fa-chevron-right"></i></div>
-    <div class="card flex-between"><span>Settings</span><i class="fas fa-chevron-right"></i></div>
-    <button class="btn-outline" style="border-color:#b33a3a; color:#b33a3a;">Logout</button>
-  </div>
+        <div
+          class="hotspots"
+          data-screen="1"
+        ></div>
 
-  <!-- BOTTOM NAV -->
-  <div class="bottom-nav">
-    <div class="nav-item active" onclick="navigateTo('screen-home')"><i class="fas fa-home"></i>Home</div>
-    <div class="nav-item" onclick="navigateTo('screen-bookings')"><i class="fas fa-list-ul"></i>Bookings</div>
-    <div class="nav-item" onclick="navigateTo('screen-contact')"><i class="fas fa-headset"></i>Contact</div>
-    <div class="nav-item" onclick="navigateTo('screen-profile')"><i class="fas fa-user"></i>Profile</div>
-  </div>
-</div>
-<script>
-  // data
-  const vehicles = [
-    { id:'sedan', name:'Sedan', example:'Dzire, Etios', passengers:4, luggage:2, price:12, icon:'fa-car' },
-    { id:'suv', name:'SUV', example:'Ertiga, XL6', passengers:6, luggage:4, price:16, icon:'fa-truck' },
-    { id:'innova', name:'Innova', example:'Crysta', passengers:6, luggage:4, price:20, icon:'fa-caravan' },
-    { id:'tempo', name:'Tempo Traveller', example:'12 seater', passengers:12, luggage:6, price:28, icon:'fa-bus' }
-  ];
-  let selectedVehicle = null;
-  let bookingData = { pickup:'Bhuj, Gujarat', drop:'Mumbai, Maharashtra', date:'2026-08-15', time:'09:30', trip:'oneway' };
-  let bookings = JSON.parse(localStorage.getItem('vandanBookings')) || [];
-  let bookingIdCounter = bookings.length + 1001;
-
-  function navigateTo(screenId) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.getElementById(screenId).classList.add('active');
-    if (screenId === 'screen-vehicles') renderVehicles();
-    if (screenId === 'screen-summary') renderSummary();
-    if (screenId === 'screen-bookings') renderBookings();
-    // update nav
-    const map = { 'screen-home':'Home','screen-bookings':'Bookings','screen-contact':'Contact','screen-profile':'Profile' };
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    if (map[screenId]) {
-      document.querySelectorAll('.nav-item').forEach(n => { if(n.textContent.trim()===map[screenId]) n.classList.add('active'); });
-    }
-  }
-
-  function setTrip(type) {
-    bookingData.trip = type;
-    document.getElementById('toggle-oneway').classList.toggle('active', type==='oneway');
-    document.getElementById('toggle-roundtrip').classList.toggle('active', type==='roundtrip');
-  }
-
-  function renderVehicles() {
-    const container = document.getElementById('vehicleList');
-    container.innerHTML = vehicles.map(v => `
-      <div class="vehicle-card ${selectedVehicle?.id===v.id?'selected':''}" onclick="selectVehicle('${v.id}')">
-        <div class="v-img"><i class="fas ${v.icon}"></i></div>
-        <div class="vehicle-info"><h4>${v.name}</h4><p>${v.example} • ${v.passengers} seats • ${v.luggage} bags</p></div>
-        <div><span class="price-tag">₹${v.price}/km</span><div class="radio-dot"></div></div>
       </div>
-    `).join('');
-  }
 
-  function selectVehicle(id) {
-    selectedVehicle = vehicles.find(v => v.id===id);
-    renderVehicles();
-  }
+    </section>
 
-  function continueToSummary() {
-    if (!selectedVehicle) { alert('Please select a vehicle'); return; }
-    // gather booking data
-    bookingData.pickup = document.getElementById('pickupInput').value || 'Bhuj';
-    bookingData.drop = document.getElementById('dropInput').value || 'Mumbai';
-    bookingData.date = document.getElementById('bookingDate').value || '2026-08-15';
-    bookingData.time = document.getElementById('bookingTime').value || '09:30';
-    navigateTo('screen-summary');
-  }
 
-  function renderSummary() {
-    const dist = 330;
-    const base = selectedVehicle.price * dist;
-    const driverAllow = 300;
-    const toll = 420;
-    const total = base + driverAllow + toll;
-    document.getElementById('summaryContent').innerHTML = `
-      <div class="card"><div class="summary-line"><span>Pickup</span><span>${bookingData.pickup}</span></div>
-      <div class="summary-line"><span>Drop</span><span>${bookingData.drop}</span></div>
-      <div class="summary-line"><span>Date & Time</span><span>${bookingData.date} ${bookingData.time}</span></div>
-      <div class="summary-line"><span>Vehicle</span><span>${selectedVehicle.name}</span></div>
-      <hr>
-      <div class="summary-line"><span>Estimated Distance</span><span>~${dist} km</span></div>
-      <div class="summary-line"><span>Base Fare (₹${selectedVehicle.price}/km)</span><span>₹${base}</span></div>
-      <div class="summary-line"><span>Driver Allowance</span><span>₹${driverAllow}</span></div>
-      <div class="summary-line"><span>Toll & Parking</span><span>₹${toll}</span></div>
-      <div class="summary-line total"><span>Total Fare</span><span>₹${total}</span></div>
-      <p style="font-size:12px; color:#7b8aa3;">* estimated fare</p></div>
-    `;
-  }
+    <!-- =====================================================
+         SCREEN 2
+         ===================================================== -->
 
-  function confirmBooking() {
-    const id = 'VKT' + String(bookingIdCounter++).padStart(4,'0');
-    const newBooking = {
-      id, pickup: bookingData.pickup, drop: bookingData.drop, date: bookingData.date, time: bookingData.time,
-      vehicle: selectedVehicle.name, status: 'Confirmed', timestamp: Date.now()
-    };
-    bookings.push(newBooking);
-    localStorage.setItem('vandanBookings', JSON.stringify(bookings));
-    // show confirmation
-    document.getElementById('confirmDetails').innerHTML = `
-      <p><strong>Booking ID:</strong> ${id}</p>
-      <p><strong>Date:</strong> ${bookingData.date}</p>
-      <p><strong>Time:</strong> ${bookingData.time}</p>
-      <p><strong>Pickup:</strong> ${bookingData.pickup}</p>
-      <p><strong>Drop:</strong> ${bookingData.drop}</p>
-      <p><strong>Car:</strong> ${selectedVehicle.name}</p>
-    `;
-    navigateTo('screen-confirmation');
-  }
+    <section class="screen">
 
-  function renderBookings(filter='upcoming') {
-    const list = document.getElementById('bookingList');
-    let filtered = bookings;
-    if (filter==='upcoming') filtered = bookings.filter(b => b.status==='Confirmed' || b.status==='Pending');
-    else if (filter==='completed') filtered = bookings.filter(b => b.status==='Completed');
-    else if (filter==='cancelled') filtered = bookings.filter(b => b.status==='Cancelled');
-    list.innerHTML = filtered.length ? filtered.map(b => `
-      <div class="booking-card"><div class="flex-between"><span><strong>${b.id}</strong></span><span class="status-badge ${b.status==='Pending'?'pending':b.status==='Cancelled'?'cancelled':''}">${b.status}</span></div>
-      <div>${b.date} ${b.time}</div><div>${b.pickup} → ${b.drop}</div><div style="font-weight:500;">${b.vehicle}</div></div>
-    `).join('') : '<div class="card text-center" style="color:#6b7a93;">No bookings</div>';
-  }
+      <div class="screen-label">
+        2. BOOK A RIDE
+      </div>
 
-  function filterBookings(type) {
-    renderBookings(type);
-  }
+      <div
+        class="screen-wrap"
+        data-screen="2"
+      >
 
-  // init
-  document.addEventListener('DOMContentLoaded', function() {
-    setTrip('oneway');
-    renderVehicles();
-    // default date
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('bookingDate').setAttribute('min', today);
-  });
-</script>
-</body>
-</html>
+        <!-- PART 2: Screen 2 -->
+
+        <div
+          class="hotspots"
+          data-screen="2"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 3
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        3. PICKUP &amp; DROP
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="3"
+      >
+
+        <!-- PART 2: Screen 3 -->
+
+        <div
+          class="hotspots"
+          data-screen="3"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 4
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        4. DATE &amp; TIME
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="4"
+      >
+
+        <!-- PART 2: Screen 4 -->
+
+        <div
+          class="hotspots"
+          data-screen="4"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 5
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        5. SELECT CAR
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="5"
+      >
+
+        <!-- PART 2: Screen 5 -->
+
+        <div
+          class="hotspots"
+          data-screen="5"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 6
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        6. FARE / SUMMARY
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="6"
+      >
+
+        <!-- PART 2: Screen 6 -->
+
+        <div
+          class="hotspots"
+          data-screen="6"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 7
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        7. BOOKING CONFIRMED
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="7"
+      >
+
+        <!-- PART 2: Screen 7 -->
+
+        <div
+          class="hotspots"
+          data-screen="7"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 8
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        8. MY BOOKINGS
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="8"
+      >
+
+        <!-- PART 2: Screen 8 -->
+
+        <div
+          class="hotspots"
+          data-screen="8"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 9
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        9. CONTACT / SUPPORT
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="9"
+      >
+
+        <!-- PART 2: Screen 9 -->
+
+        <div
+          class="hotspots"
+          data-screen="9"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 10
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        10. ABOUT US
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="10"
+      >
+
+        <!-- PART 2: Screen 10 -->
+
+        <div
+          class="hotspots"
+          data-screen="10"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 11
+         ===================================================== -->
+
+    <section class="screen">
+
+      <div class="screen-label">
+        11. PROFILE / SETTINGS
+      </div>
+
+      <div
+        class="screen-wrap"
+        data-screen="11"
+      >
+
+        <!-- PART 2: Screen 11 -->
+
+        <div
+          class="hotspots"
+          data-screen="11"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+  </div>
+
+
+  <!-- =======================================================
+       INFORMATION
+       ======================================================= -->
+
+  <div class="help">
+
+    Vandan Kutch Travels —
+    Safe, Reliable &amp; Comfortable Travel
+
+  </div>
+
+
+  <!-- =======================================================
+       MODAL
+       ======================================================= -->
+
+  <div
+    id="modalBg"
+    class="modal-bg"
+  >
+
+    <div class="modal">
+
+      <h3 id="modalTitle">
+        Vandan Kutch Travels
+      </h3>
+
+      <div
+        class="modal-body"
+        id="modalBody"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       TOAST
+       ======================================================= -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <!-- =======================================================
+       PART 2 STARTS HERE
+       ======================================================= -->
