@@ -4,74 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b5cff">
-
   <title>Book Your Ride | Vandan Kutch Travels</title>
-
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    .auto-note {
-      font-size: 13px;
-      color: #718096;
-      margin-top: 7px;
-      line-height: 1.4;
-    }
-
-    .distance-status {
-      font-size: 14px;
-      margin-top: 8px;
-      color: #64748b;
-    }
-
-    .distance-status.success {
-      color: #16a34a;
-    }
-
-    .distance-status.error {
-      color: #dc2626;
-    }
-
     .hidden {
       display: none !important;
     }
 
-    .location-btn {
-      width: 100%;
-      margin-top: 8px;
+    .auto-location {
+      background: #f3f6fb !important;
+      color: #172033 !important;
+      font-weight: 600;
     }
 
-    .readonly-location {
-      background: #f8fafc;
+    .location-note {
+      margin-top: 7px;
+      color: #71809a;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .trip-box {
+      margin-bottom: 20px;
+    }
+
+    .trip-box label {
+      display: block;
+      margin-bottom: 9px;
+      font-weight: 700;
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 9px;
+      font-weight: 700;
     }
   </style>
 </head>
 
 <body data-page="booking">
 
-  <!-- ================= HEADER ================= -->
-
+  <!-- TOP BAR -->
   <header class="topbar">
-
     <a class="brand" href="index.html">
-
       <span class="brand-mark">VK</span>
 
       <span>
         <b>VANDAN KUTCH TRAVELS</b>
         <small>Book Your Ride</small>
       </span>
-
     </a>
 
     <a class="icon-btn" href="index.html" aria-label="Back">
       ←
     </a>
-
   </header>
 
 
-  <!-- ================= MAIN ================= -->
-
+  <!-- MAIN -->
   <main class="page narrow">
 
     <section class="card form-card">
@@ -85,24 +76,16 @@
       </h1>
 
 
-      <!-- ================= BOOKING FORM ================= -->
-
       <form id="bookingForm">
 
-
         <!-- SERVICE -->
-
         <div class="field">
 
           <label for="service">
             Service
           </label>
 
-          <select
-            id="service"
-            name="service"
-            required
-          >
+          <select id="service" name="service" required>
 
             <option value="">
               Select service
@@ -133,30 +116,31 @@
         </div>
 
 
-
-        <!-- ================= AIRPORT OPTIONS ================= -->
-
+        <!-- AIRPORT / RAILWAY DIRECTION -->
         <div
           class="field hidden"
-          id="airportOptions"
+          id="tripTypeBox"
         >
 
-          <label for="airportTripType">
-            Airport Service
+          <label for="tripType">
+            Pickup / Drop
           </label>
 
-          <select id="airportTripType">
+          <select
+            id="tripType"
+            name="tripType"
+          >
 
             <option value="">
-              Select Airport Service
+              Select
             </option>
 
-            <option value="Airport Pickup">
-              ✈️ Airport Pickup
+            <option value="Pickup">
+              Pickup
             </option>
 
-            <option value="Airport Drop">
-              ✈️ Airport Drop
+            <option value="Drop">
+              Drop
             </option>
 
           </select>
@@ -164,16 +148,20 @@
         </div>
 
 
+        <!-- AIRPORT SELECT -->
         <div
           class="field hidden"
-          id="airportSelectBox"
+          id="airportBox"
         >
 
           <label for="airport">
             Select Gujarat Airport
           </label>
 
-          <select id="airport" name="airport">
+          <select
+            id="airport"
+            name="airport"
+          >
 
             <option value="">
               Select Airport
@@ -191,8 +179,8 @@
               Ahmedabad Airport (AMD)
             </option>
 
-            <option value="Rajkot Airport (HSR)">
-              Rajkot Airport (HSR)
+            <option value="Rajkot International Airport (HSR)">
+              Rajkot International Airport (HSR)
             </option>
 
             <option value="Vadodara Airport (BDQ)">
@@ -203,24 +191,12 @@
               Surat Airport (STV)
             </option>
 
-            <option value="Jamnagar Airport (JGA)">
-              Jamnagar Airport (JGA)
-            </option>
-
             <option value="Bhavnagar Airport (BHU)">
               Bhavnagar Airport (BHU)
             </option>
 
-            <option value="Porbandar Airport (PBD)">
-              Porbandar Airport (PBD)
-            </option>
-
-            <option value="Keshod Airport (IXK)">
-              Keshod Airport (IXK)
-            </option>
-
-            <option value="Deesa Airport">
-              Deesa Airport
+            <option value="Jamnagar Airport (JGA)">
+              Jamnagar Airport (JGA)
             </option>
 
           </select>
@@ -228,134 +204,79 @@
         </div>
 
 
-
-        <!-- ================= RAILWAY OPTIONS ================= -->
-
+        <!-- RAILWAY SELECT -->
         <div
           class="field hidden"
-          id="railwayOptions"
-        >
-
-          <label for="railwayTripType">
-            Railway Service
-          </label>
-
-          <select id="railwayTripType">
-
-            <option value="">
-              Select Railway Service
-            </option>
-
-            <option value="Railway Pickup">
-              🚆 Railway Pickup
-            </option>
-
-            <option value="Railway Drop">
-              🚆 Railway Drop
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div
-          class="field hidden"
-          id="railwaySelectBox"
+          id="railwayBox"
         >
 
           <label for="railway">
             Select Gujarat Railway Station
           </label>
 
-          <select id="railway" name="railway">
+          <select
+            id="railway"
+            name="railway"
+          >
 
             <option value="">
               Select Railway Station
             </option>
 
-            <option value="Bhuj Railway Station">
-              Bhuj Railway Station
+            <option value="Bhuj Railway Station (BHUJ)">
+              Bhuj Railway Station (BHUJ)
             </option>
 
-            <option value="Gandhidham Junction">
-              Gandhidham Junction
+            <option value="Gandhidham Junction (GIMB)">
+              Gandhidham Junction (GIMB)
             </option>
 
-            <option value="Mundra">
-              Mundra
+            <option value="Anjar Railway Station (AJE)">
+              Anjar Railway Station (AJE)
             </option>
 
-            <option value="Ahmedabad Junction">
-              Ahmedabad Junction
+            <option value="Adipur Junction (AI)">
+              Adipur Junction (AI)
             </option>
 
-            <option value="Sabarmati Junction">
-              Sabarmati Junction
+            <option value="Samakhiali Junction (SIOB)">
+              Samakhiali Junction (SIOB)
             </option>
 
-            <option value="Kalupur Railway Station">
-              Kalupur Railway Station
+            <option value="Ahmedabad Junction (ADI)">
+              Ahmedabad Junction (ADI)
             </option>
 
-            <option value="Gandhinagar Capital">
-              Gandhinagar Capital
+            <option value="Gandhinagar Capital (GNC)">
+              Gandhinagar Capital (GNC)
             </option>
 
-            <option value="Mehsana Junction">
-              Mehsana Junction
+            <option value="Mehsana Junction (MSH)">
+              Mehsana Junction (MSH)
             </option>
 
-            <option value="Palanpur Junction">
-              Palanpur Junction
+            <option value="Rajkot Junction (RJT)">
+              Rajkot Junction (RJT)
             </option>
 
-            <option value="Rajkot Junction">
-              Rajkot Junction
+            <option value="Vadodara Junction (BRC)">
+              Vadodara Junction (BRC)
             </option>
 
-            <option value="Surendranagar Junction">
-              Surendranagar Junction
+            <option value="Surat Railway Station (ST)">
+              Surat Railway Station (ST)
             </option>
 
-            <option value="Jamnagar Railway Station">
-              Jamnagar Railway Station
+            <option value="Bhavnagar Terminus (BVC)">
+              Bhavnagar Terminus (BVC)
             </option>
 
-            <option value="Dwarka Railway Station">
-              Dwarka Railway Station
+            <option value="Jamnagar Railway Station (JAM)">
+              Jamnagar Railway Station (JAM)
             </option>
 
-            <option value="Porbandar Railway Station">
-              Porbandar Railway Station
-            </option>
-
-            <option value="Bhavnagar Terminus">
-              Bhavnagar Terminus
-            </option>
-
-            <option value="Vadodara Junction">
-              Vadodara Junction
-            </option>
-
-            <option value="Anand Junction">
-              Anand Junction
-            </option>
-
-            <option value="Nadiad Junction">
-              Nadiad Junction
-            </option>
-
-            <option value="Bharuch Junction">
-              Bharuch Junction
-            </option>
-
-            <option value="Surat Railway Station">
-              Surat Railway Station
-            </option>
-
-            <option value="Vapi Railway Station">
-              Vapi Railway Station
+            <option value="Porbandar Railway Station (PBR)">
+              Porbandar Railway Station (PBR)
             </option>
 
           </select>
@@ -363,56 +284,51 @@
         </div>
 
 
+        <!-- PICKUP -->
+        <div class="field">
 
-        <!-- ================= PICKUP / DROP ================= -->
+          <label for="pickup">
+            Pickup Location
+          </label>
 
-        <div class="two">
+          <input
+            id="pickup"
+            name="pickup"
+            placeholder="e.g. The Fern Residency, Mundra"
+            required
+          >
 
-          <div class="field">
-
-            <label for="pickup">
-              Pickup Location
-            </label>
-
-            <input
-              id="pickup"
-              name="pickup"
-              placeholder="e.g. The Fern Residency, Mundra"
-              required
-            >
-
-            <p class="auto-note">
-              Airport/Railway pickup હોય તો અહીં location automatic આવશે.
-            </p>
-
-          </div>
-
-
-          <div class="field">
-
-            <label for="drop">
-              Drop Location
-            </label>
-
-            <input
-              id="drop"
-              name="drop"
-              placeholder="e.g. Bhuj Airport"
-              required
-            >
-
-            <p class="auto-note">
-              Airport/Railway drop હોય તો અહીં location automatic આવશે.
-            </p>
-
-          </div>
+          <p
+            id="pickupNote"
+            class="location-note hidden"
+          ></p>
 
         </div>
 
 
+        <!-- DROP -->
+        <div class="field">
 
-        <!-- ================= DATE & TIME ================= -->
+          <label for="drop">
+            Drop Location
+          </label>
 
+          <input
+            id="drop"
+            name="drop"
+            placeholder="e.g. Bhuj Airport"
+            required
+          >
+
+          <p
+            id="dropNote"
+            class="location-note hidden"
+          ></p>
+
+        </div>
+
+
+        <!-- DATE + TIME -->
         <div class="two">
 
           <div class="field">
@@ -449,9 +365,7 @@
         </div>
 
 
-
-        <!-- ================= PASSENGERS & DISTANCE ================= -->
-
+        <!-- PASSENGERS + DISTANCE -->
         <div class="two">
 
           <div class="field">
@@ -485,25 +399,16 @@
               name="distance"
               min="1"
               step="0.1"
-              placeholder="Automatic"
+              placeholder="e.g. 50"
               required
             >
-
-            <div
-              id="distanceStatus"
-              class="distance-status"
-            >
-              Pickup અને Drop નાખ્યા પછી distance automatic calculate થશે.
-            </div>
 
           </div>
 
         </div>
 
 
-
-        <!-- ================= MOBILE ================= -->
-
+        <!-- MOBILE -->
         <div class="field">
 
           <label for="mobile">
@@ -523,9 +428,7 @@
         </div>
 
 
-
-        <!-- ================= NAME ================= -->
-
+        <!-- NAME -->
         <div class="field">
 
           <label for="name">
@@ -542,9 +445,7 @@
         </div>
 
 
-
-        <!-- ================= FARE ================= -->
-
+        <!-- FARE -->
         <div class="fare-box">
 
           <span>
@@ -562,9 +463,7 @@
         </div>
 
 
-
-        <!-- ================= BUTTONS ================= -->
-
+        <!-- BUTTONS -->
         <div class="actions">
 
           <button
@@ -592,7 +491,6 @@
           role="status"
         ></p>
 
-
       </form>
 
     </section>
@@ -600,9 +498,7 @@
   </main>
 
 
-
-  <!-- ================= BOTTOM NAV ================= -->
-
+  <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
 
     <a href="index.html">
@@ -631,595 +527,339 @@
   </nav>
 
 
-
-  <!-- ================= ORIGINAL APP JS ================= -->
-
+  <!-- EXISTING APP JS -->
   <script src="js/app.js"></script>
 
 
-
-  <!-- ================= AUTOMATIC LOCATION & DISTANCE ================= -->
-
+  <!-- BOOKING PAGE LOGIC -->
   <script>
 
     const service = document.getElementById("service");
 
-    const airportOptions =
-      document.getElementById("airportOptions");
+    const tripTypeBox = document.getElementById("tripTypeBox");
+    const tripType = document.getElementById("tripType");
 
-    const airportSelectBox =
-      document.getElementById("airportSelectBox");
+    const airportBox = document.getElementById("airportBox");
+    const airport = document.getElementById("airport");
 
-    const airportTripType =
-      document.getElementById("airportTripType");
+    const railwayBox = document.getElementById("railwayBox");
+    const railway = document.getElementById("railway");
 
-    const airport =
-      document.getElementById("airport");
+    const pickup = document.getElementById("pickup");
+    const drop = document.getElementById("drop");
 
-
-    const railwayOptions =
-      document.getElementById("railwayOptions");
-
-    const railwaySelectBox =
-      document.getElementById("railwaySelectBox");
-
-    const railwayTripType =
-      document.getElementById("railwayTripType");
-
-    const railway =
-      document.getElementById("railway");
-
-
-    const pickup =
-      document.getElementById("pickup");
-
-    const drop =
-      document.getElementById("drop");
-
-    const distance =
-      document.getElementById("distance");
-
-    const distanceStatus =
-      document.getElementById("distanceStatus");
+    const pickupNote = document.getElementById("pickupNote");
+    const dropNote = document.getElementById("dropNote");
 
 
     /*
-      -----------------------------------------
       SERVICE CHANGE
-      -----------------------------------------
     */
 
     service.addEventListener("change", function () {
 
-      airportOptions.classList.add("hidden");
-      airportSelectBox.classList.add("hidden");
+      const selectedService = this.value;
 
-      railwayOptions.classList.add("hidden");
-      railwaySelectBox.classList.add("hidden");
+      // Reset
+      tripTypeBox.classList.add("hidden");
+      airportBox.classList.add("hidden");
+      railwayBox.classList.add("hidden");
 
-      airportTripType.value = "";
+      tripType.value = "";
       airport.value = "";
-
-      railwayTripType.value = "";
       railway.value = "";
 
+      resetLocations();
 
-      if (this.value === "Airport") {
 
-        airportOptions.classList.remove("hidden");
+      /*
+        AIRPORT
+      */
 
-      }
+      if (selectedService === "Airport") {
 
+        tripTypeBox.classList.remove("hidden");
+        airportBox.classList.remove("hidden");
 
-      if (this.value === "Railway") {
+        tripType.required = true;
+        airport.required = true;
 
-        railwayOptions.classList.remove("hidden");
-
-      }
-
-    });
-
-
-
-    /*
-      -----------------------------------------
-      AIRPORT SERVICE
-      -----------------------------------------
-    */
-
-    airportTripType.addEventListener("change", function () {
-
-      if (!this.value) {
-
-        airportSelectBox.classList.add("hidden");
-
-        return;
-
-      }
-
-      airportSelectBox.classList.remove("hidden");
-
-      updateAirportLocation();
-
-    });
-
-
-
-    airport.addEventListener("change", function () {
-
-      updateAirportLocation();
-
-    });
-
-
-
-    function updateAirportLocation() {
-
-      const selectedAirport =
-        airport.value;
-
-      const tripType =
-        airportTripType.value;
-
-
-      if (!selectedAirport || !tripType) {
-        return;
-      }
-
-
-      if (tripType === "Airport Drop") {
-
-        drop.value =
-          selectedAirport;
-
-        drop.classList.add("readonly-location");
-
-        pickup.focus();
-
-      }
-
-
-      if (tripType === "Airport Pickup") {
-
-        pickup.value =
-          selectedAirport;
-
-        pickup.classList.add("readonly-location");
-
-        drop.focus();
-
-      }
-
-
-      calculateDistanceAutomatically();
-
-    }
-
-
-
-    /*
-      -----------------------------------------
-      RAILWAY SERVICE
-      -----------------------------------------
-    */
-
-    railwayTripType.addEventListener("change", function () {
-
-      if (!this.value) {
-
-        railwaySelectBox.classList.add("hidden");
-
-        return;
-
-      }
-
-      railwaySelectBox.classList.remove("hidden");
-
-      updateRailwayLocation();
-
-    });
-
-
-
-    railway.addEventListener("change", function () {
-
-      updateRailwayLocation();
-
-    });
-
-
-
-    function updateRailwayLocation() {
-
-      const selectedStation =
-        railway.value;
-
-      const tripType =
-        railwayTripType.value;
-
-
-      if (!selectedStation || !tripType) {
-        return;
-      }
-
-
-      if (tripType === "Railway Drop") {
-
-        drop.value =
-          selectedStation;
-
-        drop.classList.add("readonly-location");
-
-        pickup.focus();
-
-      }
-
-
-      if (tripType === "Railway Pickup") {
-
-        pickup.value =
-          selectedStation;
-
-        pickup.classList.add("readonly-location");
-
-        drop.focus();
-
-      }
-
-
-      calculateDistanceAutomatically();
-
-    }
-
-
-
-    /*
-      -----------------------------------------
-      WHEN USER CHANGES PICKUP / DROP
-      -----------------------------------------
-    */
-
-    pickup.addEventListener(
-      "change",
-      calculateDistanceAutomatically
-    );
-
-    drop.addEventListener(
-      "change",
-      calculateDistanceAutomatically
-    );
-
-    pickup.addEventListener(
-      "blur",
-      calculateDistanceAutomatically
-    );
-
-    drop.addEventListener(
-      "blur",
-      calculateDistanceAutomatically
-    );
-
-
-
-    /*
-      -----------------------------------------
-      GEOCODE LOCATION
-      -----------------------------------------
-    */
-
-    async function geocodeLocation(location) {
-
-      const url =
-        "https://nominatim.openstreetmap.org/search" +
-        "?format=jsonv2" +
-        "&limit=1" +
-        "&countrycodes=in" +
-        "&q=" +
-        encodeURIComponent(location + ", Gujarat, India");
-
-
-      const response =
-        await fetch(url);
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "Location search failed"
-        );
-
-      }
-
-
-      const data =
-        await response.json();
-
-
-      if (!data.length) {
-
-        throw new Error(
-          "Location not found"
-        );
-
-      }
-
-
-      return {
-
-        lat:
-          parseFloat(data[0].lat),
-
-        lon:
-          parseFloat(data[0].lon)
-
-      };
-
-    }
-
-
-
-    /*
-      -----------------------------------------
-      ROAD DISTANCE USING OSRM
-      -----------------------------------------
-    */
-
-    async function getRoadDistance(
-      start,
-      end
-    ) {
-
-      const url =
-        "https://router.project-osrm.org/route/v1/driving/" +
-        start.lon +
-        "," +
-        start.lat +
-        ";" +
-        end.lon +
-        "," +
-        end.lat +
-        "?overview=false";
-
-
-      const response =
-        await fetch(url);
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "Route calculation failed"
-        );
-
-      }
-
-
-      const data =
-        await response.json();
-
-
-      if (
-        !data.routes ||
-        !data.routes.length
-      ) {
-
-        throw new Error(
-          "Route not found"
-        );
-
-      }
-
-
-      return data.routes[0].distance / 1000;
-
-    }
-
-
-
-    /*
-      -----------------------------------------
-      AUTOMATIC DISTANCE
-      -----------------------------------------
-    */
-
-    let distanceTimer = null;
-
-
-    async function calculateDistanceAutomatically() {
-
-      const pickupValue =
-        pickup.value.trim();
-
-      const dropValue =
-        drop.value.trim();
-
-
-      if (
-        pickupValue.length < 3 ||
-        dropValue.length < 3
-      ) {
-
-        return;
-
-      }
-
-
-      clearTimeout(distanceTimer);
-
-
-      distanceTimer =
-        setTimeout(
-          async function () {
-
-            try {
-
-              distanceStatus.textContent =
-                "📍 Calculating road distance...";
-
-              distanceStatus.className =
-                "distance-status";
-
-
-              const start =
-                await geocodeLocation(
-                  pickupValue
-                );
-
-
-              const end =
-                await geocodeLocation(
-                  dropValue
-                );
-
-
-              const km =
-                await getRoadDistance(
-                  start,
-                  end
-                );
-
-
-              const rounded =
-                Math.max(
-                  1,
-                  Math.round(km * 10) / 10
-                );
-
-
-              distance.value =
-                rounded;
-
-
-              distanceStatus.textContent =
-                "✓ Automatic road distance: " +
-                rounded +
-                " KM";
-
-
-              distanceStatus.className =
-                "distance-status success";
-
-
-              /*
-                Automatically calculate fare
-              */
-
-              calculateFare();
-
-            }
-
-            catch (error) {
-
-              console.log(
-                "Distance error:",
-                error
-              );
-
-
-              distanceStatus.textContent =
-                "Distance automatic calculate ન થઈ શક્યું. KM manually નાખી શકો છો.";
-
-
-              distanceStatus.className =
-                "distance-status error";
-
-            }
-
-          },
-          800
-        );
-
-    }
-
-
-
-    /*
-      -----------------------------------------
-      FARE CALCULATION
-      -----------------------------------------
-    */
-
-    function calculateFare() {
-
-      const km =
-        parseFloat(distance.value);
-
-
-      if (
-        !km ||
-        km <= 0
-      ) {
-
-        document.getElementById(
-          "fare"
-        ).textContent =
-          "₹ —";
-
-        return;
+        railway.required = false;
 
       }
 
 
       /*
-        Current rate:
-        ₹18 / KM
+        RAILWAY
       */
 
-      const rate =
-        18;
+      else if (selectedService === "Railway") {
+
+        tripTypeBox.classList.remove("hidden");
+        railwayBox.classList.remove("hidden");
+
+        tripType.required = true;
+        railway.required = true;
+
+        airport.required = false;
+
+      }
 
 
-      const fare =
-        Math.round(
-          km * rate
-        );
+      /*
+        OTHER SERVICES
+      */
+
+      else {
+
+        tripType.required = false;
+        airport.required = false;
+        railway.required = false;
+
+      }
+
+    });
 
 
-      document.getElementById(
-        "fare"
-      ).textContent =
-        "₹" +
-        fare.toLocaleString("en-IN");
+    /*
+      TRIP TYPE CHANGE
+    */
+
+    tripType.addEventListener("change", updateLocations);
+
+
+    /*
+      AIRPORT CHANGE
+    */
+
+    airport.addEventListener("change", updateLocations);
+
+
+    /*
+      RAILWAY CHANGE
+    */
+
+    railway.addEventListener("change", updateLocations);
+
+
+    function updateLocations() {
+
+      const selectedService = service.value;
+      const selectedTrip = tripType.value;
+
+
+      /*
+        AIRPORT
+      */
+
+      if (selectedService === "Airport") {
+
+        const selectedAirport = airport.value;
+
+        if (!selectedAirport) {
+          resetLocations();
+          return;
+        }
+
+
+        /*
+          AIRPORT PICKUP
+
+          Pickup = AUTOMATIC
+          Drop = MANUAL
+        */
+
+        if (selectedTrip === "Pickup") {
+
+          pickup.value = selectedAirport;
+
+          pickup.readOnly = true;
+          pickup.classList.add("auto-location");
+
+          pickupNote.textContent =
+            "✈️ Airport Pickup: Airport location automatic આવી ગયું છે.";
+
+          pickupNote.classList.remove("hidden");
+
+
+          drop.value = "";
+          drop.readOnly = false;
+          drop.classList.remove("auto-location");
+
+          drop.placeholder =
+            "e.g. Mundra, Hotel, Home";
+
+          dropNote.textContent =
+            "📍 Drop Location તમે manually નાખશો.";
+
+          dropNote.classList.remove("hidden");
+
+        }
+
+
+        /*
+          AIRPORT DROP
+
+          Pickup = MANUAL
+          Drop = AUTOMATIC
+        */
+
+        else if (selectedTrip === "Drop") {
+
+          pickup.value = "";
+          pickup.readOnly = false;
+          pickup.classList.remove("auto-location");
+
+          pickup.placeholder =
+            "e.g. Mundra, Hotel, Home";
+
+          pickupNote.textContent =
+            "📍 Pickup Location તમે manually નાખશો.";
+
+          pickupNote.classList.remove("hidden");
+
+
+          drop.value = selectedAirport;
+
+          drop.readOnly = true;
+          drop.classList.add("auto-location");
+
+          dropNote.textContent =
+            "✈️ Airport Drop: Airport location automatic આવી ગયું છે.";
+
+          dropNote.classList.remove("hidden");
+
+        }
+
+      }
+
+
+      /*
+        RAILWAY
+      */
+
+      else if (selectedService === "Railway") {
+
+        const selectedStation = railway.value;
+
+        if (!selectedStation) {
+          resetLocations();
+          return;
+        }
+
+
+        /*
+          RAILWAY PICKUP
+
+          Pickup = AUTOMATIC
+          Drop = MANUAL
+        */
+
+        if (selectedTrip === "Pickup") {
+
+          pickup.value = selectedStation;
+
+          pickup.readOnly = true;
+          pickup.classList.add("auto-location");
+
+          pickupNote.textContent =
+            "🚆 Railway Pickup: Railway Station location automatic આવી ગયું છે.";
+
+          pickupNote.classList.remove("hidden");
+
+
+          drop.value = "";
+          drop.readOnly = false;
+          drop.classList.remove("auto-location");
+
+          drop.placeholder =
+            "e.g. Mundra, Hotel, Home";
+
+          dropNote.textContent =
+            "📍 Drop Location તમે manually નાખશો.";
+
+          dropNote.classList.remove("hidden");
+
+        }
+
+
+        /*
+          RAILWAY DROP
+
+          Pickup = MANUAL
+          Drop = AUTOMATIC
+        */
+
+        else if (selectedTrip === "Drop") {
+
+          pickup.value = "";
+          pickup.readOnly = false;
+          pickup.classList.remove("auto-location");
+
+          pickup.placeholder =
+            "e.g. Mundra, Hotel, Home";
+
+          pickupNote.textContent =
+            "📍 Pickup Location તમે manually નાખશો.";
+
+          pickupNote.classList.remove("hidden");
+
+
+          drop.value = selectedStation;
+
+          drop.readOnly = true;
+          drop.classList.add("auto-location");
+
+          dropNote.textContent =
+            "🚆 Railway Drop: Railway Station location automatic આવી ગયું છે.";
+
+          dropNote.classList.remove("hidden");
+
+        }
+
+      }
 
     }
 
 
-
     /*
-      -----------------------------------------
-      ESTIMATE BUTTON
-      -----------------------------------------
+      RESET LOCATIONS
     */
 
-    document
-      .getElementById("estimateBtn")
-      .addEventListener(
-        "click",
-        function () {
+    function resetLocations() {
 
-          calculateFare();
+      pickup.value = "";
+      drop.value = "";
 
-          calculateDistanceAutomatically();
+      pickup.readOnly = false;
+      drop.readOnly = false;
 
-        }
-      );
+      pickup.classList.remove("auto-location");
+      drop.classList.remove("auto-location");
 
+      pickup.placeholder =
+        "e.g. The Fern Residency, Mundra";
+
+      drop.placeholder =
+        "e.g. Bhuj Airport";
+
+      pickupNote.textContent = "";
+      dropNote.textContent = "";
+
+      pickupNote.classList.add("hidden");
+      dropNote.classList.add("hidden");
+
+    }
 
 
     /*
-      -----------------------------------------
-      DISTANCE MANUAL CHANGE
-      -----------------------------------------
+      IF USER CHANGES SERVICE
+      MAKE SURE LOCATION STATE IS CORRECT
     */
 
-    distance.addEventListener(
-      "input",
-      calculateFare
-    );
-
+    resetLocations();
 
   </script>
-
 
 </body>
 </html>
