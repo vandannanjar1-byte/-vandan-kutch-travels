@@ -143,7 +143,225 @@ function initBookingPage() {
   const service = document.getElementById("service");
 
   const tour = params.get("tour");
+const tripTypeGroup = document.getElementById("tripTypeGroup");
+const railwayTripTypeGroup = document.getElementById("railwayTripTypeGroup");
 
+const tripType = document.getElementById("tripType");
+const railwayTripType = document.getElementById("railwayTripType");
+
+const airportGroup = document.getElementById("airportGroup");
+const railwayGroup = document.getElementById("railwayGroup");
+
+const airport = document.getElementById("airport");
+const railway = document.getElementById("railway");
+
+const pickup = document.getElementById("pickup");
+const drop = document.getElementById("drop");
+
+function updateTransportFields() {
+
+  const selectedService = service ? service.value : "";
+
+  /* Hide everything first */
+
+  if (tripTypeGroup) {
+    tripTypeGroup.style.display = "none";
+  }
+
+  if (railwayTripTypeGroup) {
+    railwayTripTypeGroup.style.display = "none";
+  }
+
+  if (airportGroup) {
+    airportGroup.style.display = "none";
+  }
+
+  if (railwayGroup) {
+    railwayGroup.style.display = "none";
+  }
+
+
+  /* AIRPORT */
+
+  if (selectedService === "Airport") {
+
+    if (tripTypeGroup) {
+      tripTypeGroup.style.display = "block";
+    }
+
+    if (airportGroup) {
+      airportGroup.style.display = "block";
+    }
+
+    updateAirportLocation();
+
+  }
+
+
+  /* RAILWAY */
+
+  else if (selectedService === "Railway") {
+
+    if (railwayTripTypeGroup) {
+      railwayTripTypeGroup.style.display = "block";
+    }
+
+    if (railwayGroup) {
+      railwayGroup.style.display = "block";
+    }
+
+    updateRailwayLocation();
+
+  }
+
+}
+
+
+function updateAirportLocation() {
+
+  if (!airport || !tripType || !pickup || !drop) {
+    return;
+  }
+
+  const selectedAirport = airport.value;
+
+  if (!selectedAirport) {
+    return;
+  }
+
+
+  if (tripType.value === "Airport Pickup") {
+
+    pickup.value = selectedAirport;
+
+    pickup.readOnly = true;
+
+    drop.readOnly = false;
+
+    drop.placeholder = "Enter destination";
+
+  }
+
+
+  else if (tripType.value === "Airport Drop") {
+
+    drop.value = selectedAirport;
+
+    drop.readOnly = true;
+
+    pickup.readOnly = false;
+
+    pickup.placeholder = "Enter pickup location";
+
+  }
+
+}
+
+
+function updateRailwayLocation() {
+
+  if (!railway || !railwayTripType || !pickup || !drop) {
+    return;
+  }
+
+  const selectedStation = railway.value;
+
+  if (!selectedStation) {
+    return;
+  }
+
+
+  if (railwayTripType.value === "Railway Pickup") {
+
+    pickup.value = selectedStation;
+
+    pickup.readOnly = true;
+
+    drop.readOnly = false;
+
+    drop.placeholder = "Enter destination";
+
+  }
+
+
+  else if (railwayTripType.value === "Railway Drop") {
+
+    drop.value = selectedStation;
+
+    drop.readOnly = true;
+
+    pickup.readOnly = false;
+
+    pickup.placeholder = "Enter pickup location";
+
+  }
+
+}
+
+
+/* SERVICE CHANGE */
+
+if (service) {
+
+  service.addEventListener(
+    "change",
+    updateTransportFields
+  );
+
+}
+
+
+/* AIRPORT OPTION CHANGE */
+
+if (tripType) {
+
+  tripType.addEventListener(
+    "change",
+    updateAirportLocation
+  );
+
+}
+
+
+/* AIRPORT CHANGE */
+
+if (airport) {
+
+  airport.addEventListener(
+    "change",
+    updateAirportLocation
+  );
+
+}
+
+
+/* RAILWAY OPTION CHANGE */
+
+if (railwayTripType) {
+
+  railwayTripType.addEventListener(
+    "change",
+    updateRailwayLocation
+  );
+
+}
+
+
+/* RAILWAY CHANGE */
+
+if (railway) {
+
+  railway.addEventListener(
+    "change",
+    updateRailwayLocation
+  );
+
+}
+
+
+/* INITIAL */
+
+updateTransportFields();
 
   if (params.get("service") && service) {
 
