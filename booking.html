@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b5cff">
+
   <title>Book Your Ride | Vandan Kutch Travels</title>
+
   <link rel="stylesheet" href="css/style.css">
 
   <style>
@@ -15,54 +17,92 @@
     .auto-location {
       background: #f3f6fb !important;
       color: #172033 !important;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .location-note {
-      margin-top: 7px;
+      margin: 7px 0 0;
       color: #71809a;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .fare-box {
+      margin-top: 20px;
+    }
+
+    .fare-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 8px 0;
+    }
+
+    .fare-row strong {
+      font-size: 18px;
+    }
+
+    .fare-row.advance strong {
+      color: #16803c;
+    }
+
+    .fare-row.remaining strong {
+      color: #d97706;
+    }
+
+    .cash-note {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f7f8fa;
+      color: #566176;
       font-size: 14px;
       line-height: 1.5;
     }
 
-    .trip-box {
-      margin-bottom: 20px;
-    }
-
-    .trip-box label {
-      display: block;
-      margin-bottom: 9px;
-      font-weight: 700;
-    }
-
-    .section-label {
-      display: block;
-      margin-bottom: 9px;
-      font-weight: 700;
+    .trip-type-box {
+      margin-top: 2px;
     }
   </style>
 </head>
 
 <body data-page="booking">
 
-  <!-- TOP BAR -->
+  <!-- =========================
+       HEADER
+       ========================= -->
+
   <header class="topbar">
+
     <a class="brand" href="index.html">
-      <span class="brand-mark">VK</span>
+
+      <span class="brand-mark">
+        VK
+      </span>
 
       <span>
         <b>VANDAN KUTCH TRAVELS</b>
         <small>Book Your Ride</small>
       </span>
+
     </a>
 
-    <a class="icon-btn" href="index.html" aria-label="Back">
+    <a
+      class="icon-btn"
+      href="index.html"
+      aria-label="Back"
+    >
       ←
     </a>
+
   </header>
 
 
-  <!-- MAIN -->
+  <!-- =========================
+       MAIN
+       ========================= -->
+
   <main class="page narrow">
 
     <section class="card form-card">
@@ -78,17 +118,28 @@
 
       <form id="bookingForm">
 
-        <!-- SERVICE -->
+        <!-- =====================
+             SERVICE
+             ===================== -->
+
         <div class="field">
 
           <label for="service">
             Service
           </label>
 
-          <select id="service" name="service" required>
+          <select
+            id="service"
+            name="service"
+            required
+          >
 
             <option value="">
               Select service
+            </option>
+
+            <option value="Local">
+              Local
             </option>
 
             <option value="Airport">
@@ -99,16 +150,12 @@
               Railway
             </option>
 
-            <option value="Corporate">
-              Corporate
+            <option value="Out for Kutch">
+              Out for Kutch
             </option>
 
-            <option value="Outstation">
-              Outstation
-            </option>
-
-            <option value="Kutch Tour">
-              Kutch Tour
+            <option value="Out of Gujarat">
+              Out of Gujarat
             </option>
 
           </select>
@@ -116,9 +163,13 @@
         </div>
 
 
-        <!-- AIRPORT / RAILWAY DIRECTION -->
+        <!-- =====================
+             AIRPORT / RAILWAY
+             PICKUP OR DROP
+             ===================== -->
+
         <div
-          class="field hidden"
+          class="field trip-type-box hidden"
           id="tripTypeBox"
         >
 
@@ -132,7 +183,7 @@
           >
 
             <option value="">
-              Select
+              Select option
             </option>
 
             <option value="Pickup">
@@ -148,7 +199,10 @@
         </div>
 
 
-        <!-- AIRPORT SELECT -->
+        <!-- =====================
+             AIRPORT
+             ===================== -->
+
         <div
           class="field hidden"
           id="airportBox"
@@ -204,7 +258,10 @@
         </div>
 
 
-        <!-- RAILWAY SELECT -->
+        <!-- =====================
+             RAILWAY
+             ===================== -->
+
         <div
           class="field hidden"
           id="railwayBox"
@@ -284,7 +341,10 @@
         </div>
 
 
-        <!-- PICKUP -->
+        <!-- =====================
+             PICKUP LOCATION
+             ===================== -->
+
         <div class="field">
 
           <label for="pickup">
@@ -306,7 +366,10 @@
         </div>
 
 
-        <!-- DROP -->
+        <!-- =====================
+             DROP LOCATION
+             ===================== -->
+
         <div class="field">
 
           <label for="drop">
@@ -316,7 +379,7 @@
           <input
             id="drop"
             name="drop"
-            placeholder="e.g. Bhuj Airport"
+            placeholder="e.g. Bhuj"
             required
           >
 
@@ -328,7 +391,10 @@
         </div>
 
 
-        <!-- DATE + TIME -->
+        <!-- =====================
+             DATE + TIME
+             ===================== -->
+
         <div class="two">
 
           <div class="field">
@@ -365,7 +431,10 @@
         </div>
 
 
-        <!-- PASSENGERS + DISTANCE -->
+        <!-- =====================
+             PASSENGERS + DISTANCE
+             ===================== -->
+
         <div class="two">
 
           <div class="field">
@@ -408,7 +477,10 @@
         </div>
 
 
-        <!-- MOBILE -->
+        <!-- =====================
+             MOBILE
+             ===================== -->
+
         <div class="field">
 
           <label for="mobile">
@@ -428,7 +500,10 @@
         </div>
 
 
-        <!-- NAME -->
+        <!-- =====================
+             NAME
+             ===================== -->
+
         <div class="field">
 
           <label for="name">
@@ -445,16 +520,61 @@
         </div>
 
 
-        <!-- FARE -->
+        <!-- =====================
+             FARE
+             ===================== -->
+
         <div class="fare-box">
 
-          <span>
-            Estimated fare
-          </span>
+          <div class="fare-row">
 
-          <strong id="fare">
-            ₹ —
-          </strong>
+            <span>
+              Estimated Fare
+            </span>
+
+            <strong id="fare">
+              ₹ —
+            </strong>
+
+          </div>
+
+
+          <div class="fare-row advance">
+
+            <span>
+              Advance (20%)
+            </span>
+
+            <strong id="advanceAmount">
+              ₹ —
+            </strong>
+
+          </div>
+
+
+          <div class="fare-row remaining">
+
+            <span>
+              Remaining (80%)
+            </span>
+
+            <strong id="remainingAmount">
+              ₹ —
+            </strong>
+
+          </div>
+
+
+          <div class="cash-note">
+
+            💵 <strong>Payment: Cash</strong><br>
+
+            20% advance will be confirmed with
+            Vandan Kutch Travels. Remaining 80%
+            is payable later.
+
+          </div>
+
 
           <small>
             Final fare will be confirmed by Vandan.
@@ -463,7 +583,10 @@
         </div>
 
 
-        <!-- BUTTONS -->
+        <!-- =====================
+             ACTION BUTTONS
+             ===================== -->
+
         <div class="actions">
 
           <button
@@ -485,6 +608,8 @@
         </div>
 
 
+        <!-- MESSAGE -->
+
         <p
           id="formMessage"
           class="form-message"
@@ -498,7 +623,10 @@
   </main>
 
 
-  <!-- BOTTOM NAV -->
+  <!-- =========================
+       BOTTOM NAVIGATION
+       ========================= -->
+
   <nav class="bottom-nav">
 
     <a href="index.html">
@@ -527,207 +655,339 @@
   </nav>
 
 
-  <!-- EXISTING APP JS -->
+  <!-- =========================
+       EXISTING APP JS
+       ========================= -->
+
   <script src="js/app.js"></script>
 
 
-  <!-- BOOKING PAGE LOGIC -->
+  <!-- =========================
+       BOOKING PAGE LOGIC
+       ========================= -->
+
   <script>
 
-    const service = document.getElementById("service");
+    const service =
+      document.getElementById("service");
 
-    const tripTypeBox = document.getElementById("tripTypeBox");
-    const tripType = document.getElementById("tripType");
+    const tripTypeBox =
+      document.getElementById("tripTypeBox");
 
-    const airportBox = document.getElementById("airportBox");
-    const airport = document.getElementById("airport");
+    const tripType =
+      document.getElementById("tripType");
 
-    const railwayBox = document.getElementById("railwayBox");
-    const railway = document.getElementById("railway");
+    const airportBox =
+      document.getElementById("airportBox");
 
-    const pickup = document.getElementById("pickup");
-    const drop = document.getElementById("drop");
+    const airport =
+      document.getElementById("airport");
 
-    const pickupNote = document.getElementById("pickupNote");
-    const dropNote = document.getElementById("dropNote");
+    const railwayBox =
+      document.getElementById("railwayBox");
+
+    const railway =
+      document.getElementById("railway");
+
+    const pickup =
+      document.getElementById("pickup");
+
+    const drop =
+      document.getElementById("drop");
+
+    const pickupNote =
+      document.getElementById("pickupNote");
+
+    const dropNote =
+      document.getElementById("dropNote");
+
+    const distance =
+      document.getElementById("distance");
+
+    const fare =
+      document.getElementById("fare");
+
+    const advanceAmount =
+      document.getElementById("advanceAmount");
+
+    const remainingAmount =
+      document.getElementById("remainingAmount");
+
+    const mobile =
+      document.getElementById("mobile");
+
+    const name =
+      document.getElementById("name");
 
 
     /*
-      SERVICE CHANGE
+    =====================================
+    RATE
+    =====================================
     */
 
-    service.addEventListener("change", function () {
+    const RATE_PER_KM = 18;
 
-      const selectedService = this.value;
-
-      // Reset
-      tripTypeBox.classList.add("hidden");
-      airportBox.classList.add("hidden");
-      railwayBox.classList.add("hidden");
-
-      tripType.value = "";
-      airport.value = "";
-      railway.value = "";
-
-      resetLocations();
+    const ADVANCE_PERCENT = 20;
 
 
-      /*
-        AIRPORT
-      */
+    /*
+    =====================================
+    SERVICE CHANGE
+    =====================================
+    */
 
-      if (selectedService === "Airport") {
+    service.addEventListener(
+      "change",
+      function () {
 
-        tripTypeBox.classList.remove("hidden");
-        airportBox.classList.remove("hidden");
-
-        tripType.required = true;
-        airport.required = true;
-
-        railway.required = false;
-
-      }
+        const selectedService =
+          this.value;
 
 
-      /*
-        RAILWAY
-      */
+        /*
+        RESET
+        */
 
-      else if (selectedService === "Railway") {
+        tripTypeBox.classList.add("hidden");
 
-        tripTypeBox.classList.remove("hidden");
-        railwayBox.classList.remove("hidden");
+        airportBox.classList.add("hidden");
 
-        tripType.required = true;
-        railway.required = true;
-
-        airport.required = false;
-
-      }
+        railwayBox.classList.add("hidden");
 
 
-      /*
-        OTHER SERVICES
-      */
+        tripType.value = "";
 
-      else {
+        airport.value = "";
+
+        railway.value = "";
+
 
         tripType.required = false;
+
         airport.required = false;
+
         railway.required = false;
 
+
+        resetLocations();
+
+
+        /*
+        AIRPORT
+        */
+
+        if (
+          selectedService === "Airport"
+        ) {
+
+          tripTypeBox.classList.remove(
+            "hidden"
+          );
+
+          airportBox.classList.remove(
+            "hidden"
+          );
+
+          tripType.required = true;
+
+          airport.required = true;
+
+        }
+
+
+        /*
+        RAILWAY
+        */
+
+        else if (
+          selectedService === "Railway"
+        ) {
+
+          tripTypeBox.classList.remove(
+            "hidden"
+          );
+
+          railwayBox.classList.remove(
+            "hidden"
+          );
+
+          tripType.required = true;
+
+          railway.required = true;
+
+        }
+
       }
-
-    });
-
-
-    /*
-      TRIP TYPE CHANGE
-    */
-
-    tripType.addEventListener("change", updateLocations);
+    );
 
 
     /*
-      AIRPORT CHANGE
+    =====================================
+    TRIP TYPE CHANGE
+    =====================================
     */
 
-    airport.addEventListener("change", updateLocations);
+    tripType.addEventListener(
+      "change",
+      updateLocations
+    );
 
 
     /*
-      RAILWAY CHANGE
+    =====================================
+    AIRPORT CHANGE
+    =====================================
     */
 
-    railway.addEventListener("change", updateLocations);
+    airport.addEventListener(
+      "change",
+      updateLocations
+    );
 
+
+    /*
+    =====================================
+    RAILWAY CHANGE
+    =====================================
+    */
+
+    railway.addEventListener(
+      "change",
+      updateLocations
+    );
+
+
+    /*
+    =====================================
+    UPDATE LOCATIONS
+    =====================================
+    */
 
     function updateLocations() {
 
-      const selectedService = service.value;
-      const selectedTrip = tripType.value;
+      const selectedService =
+        service.value;
+
+      const selectedTrip =
+        tripType.value;
 
 
       /*
-        AIRPORT
+      AIRPORT
       */
 
-      if (selectedService === "Airport") {
+      if (
+        selectedService === "Airport"
+      ) {
 
-        const selectedAirport = airport.value;
+        const selectedAirport =
+          airport.value;
+
 
         if (!selectedAirport) {
+
           resetLocations();
+
           return;
+
         }
 
 
         /*
-          AIRPORT PICKUP
+        AIRPORT PICKUP
 
-          Pickup = AUTOMATIC
-          Drop = MANUAL
+        Pickup = Automatic
+        Drop = Manual
         */
 
-        if (selectedTrip === "Pickup") {
+        if (
+          selectedTrip === "Pickup"
+        ) {
 
-          pickup.value = selectedAirport;
+          pickup.value =
+            selectedAirport;
 
           pickup.readOnly = true;
-          pickup.classList.add("auto-location");
+
+          pickup.classList.add(
+            "auto-location"
+          );
 
           pickupNote.textContent =
-            "✈️ Airport Pickup: Airport location automatic આવી ગયું છે.";
+            "✈️ Airport Pickup: selected airport is automatic.";
 
-          pickupNote.classList.remove("hidden");
+          pickupNote.classList.remove(
+            "hidden"
+          );
 
 
           drop.value = "";
+
           drop.readOnly = false;
-          drop.classList.remove("auto-location");
+
+          drop.classList.remove(
+            "auto-location"
+          );
 
           drop.placeholder =
             "e.g. Mundra, Hotel, Home";
 
           dropNote.textContent =
-            "📍 Drop Location તમે manually નાખશો.";
+            "📍 Enter your destination.";
 
-          dropNote.classList.remove("hidden");
+          dropNote.classList.remove(
+            "hidden"
+          );
 
         }
 
 
         /*
-          AIRPORT DROP
+        AIRPORT DROP
 
-          Pickup = MANUAL
-          Drop = AUTOMATIC
+        Pickup = Manual
+        Drop = Automatic
         */
 
-        else if (selectedTrip === "Drop") {
+        else if (
+          selectedTrip === "Drop"
+        ) {
 
           pickup.value = "";
+
           pickup.readOnly = false;
-          pickup.classList.remove("auto-location");
+
+          pickup.classList.remove(
+            "auto-location"
+          );
 
           pickup.placeholder =
             "e.g. Mundra, Hotel, Home";
 
           pickupNote.textContent =
-            "📍 Pickup Location તમે manually નાખશો.";
+            "📍 Enter your pickup location.";
 
-          pickupNote.classList.remove("hidden");
+          pickupNote.classList.remove(
+            "hidden"
+          );
 
 
-          drop.value = selectedAirport;
+          drop.value =
+            selectedAirport;
 
           drop.readOnly = true;
-          drop.classList.add("auto-location");
+
+          drop.classList.add(
+            "auto-location"
+          );
 
           dropNote.textContent =
-            "✈️ Airport Drop: Airport location automatic આવી ગયું છે.";
+            "✈️ Airport Drop: selected airport is automatic.";
 
-          dropNote.classList.remove("hidden");
+          dropNote.classList.remove(
+            "hidden"
+          );
 
         }
 
@@ -735,85 +995,120 @@
 
 
       /*
-        RAILWAY
+      RAILWAY
       */
 
-      else if (selectedService === "Railway") {
+      else if (
+        selectedService === "Railway"
+      ) {
 
-        const selectedStation = railway.value;
+        const selectedStation =
+          railway.value;
+
 
         if (!selectedStation) {
+
           resetLocations();
+
           return;
+
         }
 
 
         /*
-          RAILWAY PICKUP
+        RAILWAY PICKUP
 
-          Pickup = AUTOMATIC
-          Drop = MANUAL
+        Pickup = Automatic
+        Drop = Manual
         */
 
-        if (selectedTrip === "Pickup") {
+        if (
+          selectedTrip === "Pickup"
+        ) {
 
-          pickup.value = selectedStation;
+          pickup.value =
+            selectedStation;
 
           pickup.readOnly = true;
-          pickup.classList.add("auto-location");
+
+          pickup.classList.add(
+            "auto-location"
+          );
 
           pickupNote.textContent =
-            "🚆 Railway Pickup: Railway Station location automatic આવી ગયું છે.";
+            "🚆 Railway Pickup: selected station is automatic.";
 
-          pickupNote.classList.remove("hidden");
+          pickupNote.classList.remove(
+            "hidden"
+          );
 
 
           drop.value = "";
+
           drop.readOnly = false;
-          drop.classList.remove("auto-location");
+
+          drop.classList.remove(
+            "auto-location"
+          );
 
           drop.placeholder =
             "e.g. Mundra, Hotel, Home";
 
           dropNote.textContent =
-            "📍 Drop Location તમે manually નાખશો.";
+            "📍 Enter your destination.";
 
-          dropNote.classList.remove("hidden");
+          dropNote.classList.remove(
+            "hidden"
+          );
 
         }
 
 
         /*
-          RAILWAY DROP
+        RAILWAY DROP
 
-          Pickup = MANUAL
-          Drop = AUTOMATIC
+        Pickup = Manual
+        Drop = Automatic
         */
 
-        else if (selectedTrip === "Drop") {
+        else if (
+          selectedTrip === "Drop"
+        ) {
 
           pickup.value = "";
+
           pickup.readOnly = false;
-          pickup.classList.remove("auto-location");
+
+          pickup.classList.remove(
+            "auto-location"
+          );
 
           pickup.placeholder =
             "e.g. Mundra, Hotel, Home";
 
           pickupNote.textContent =
-            "📍 Pickup Location તમે manually નાખશો.";
+            "📍 Enter your pickup location.";
 
-          pickupNote.classList.remove("hidden");
+          pickupNote.classList.remove(
+            "hidden"
+          );
 
 
-          drop.value = selectedStation;
+          drop.value =
+            selectedStation;
 
           drop.readOnly = true;
-          drop.classList.add("auto-location");
+
+          drop.classList.add(
+            "auto-location"
+          );
 
           dropNote.textContent =
-            "🚆 Railway Drop: Railway Station location automatic આવી ગયું છે.";
+            "🚆 Railway Drop: selected station is automatic.";
 
-          dropNote.classList.remove("hidden");
+          dropNote.classList.remove(
+            "hidden"
+          );
 
         }
 
@@ -823,41 +1118,304 @@
 
 
     /*
-      RESET LOCATIONS
+    =====================================
+    RESET LOCATIONS
+    =====================================
     */
 
     function resetLocations() {
 
       pickup.value = "";
+
       drop.value = "";
 
+
       pickup.readOnly = false;
+
       drop.readOnly = false;
 
-      pickup.classList.remove("auto-location");
-      drop.classList.remove("auto-location");
+
+      pickup.classList.remove(
+        "auto-location"
+      );
+
+      drop.classList.remove(
+        "auto-location"
+      );
+
 
       pickup.placeholder =
         "e.g. The Fern Residency, Mundra";
 
       drop.placeholder =
-        "e.g. Bhuj Airport";
+        "e.g. Bhuj";
+
 
       pickupNote.textContent = "";
+
       dropNote.textContent = "";
 
-      pickupNote.classList.add("hidden");
-      dropNote.classList.add("hidden");
+
+      pickupNote.classList.add(
+        "hidden"
+      );
+
+      dropNote.classList.add(
+        "hidden"
+      );
 
     }
 
 
     /*
-      IF USER CHANGES SERVICE
-      MAKE SURE LOCATION STATE IS CORRECT
+    =====================================
+    MOBILE NUMBER
+    =====================================
     */
 
-    resetLocations();
+    mobile.addEventListener(
+      "input",
+      function () {
+
+        this.value =
+          this.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+      }
+    );
+
+
+    /*
+    =====================================
+    PROFILE AUTO FILL
+    =====================================
+    */
+
+    function loadCustomerProfile() {
+
+      try {
+
+        const profile =
+          JSON.parse(
+            localStorage.getItem(
+              "vandanCustomerProfile"
+            )
+          );
+
+
+        if (!profile) {
+          return;
+        }
+
+
+        if (
+          profile.name &&
+          !name.value
+        ) {
+
+          name.value =
+            profile.name;
+
+        }
+
+
+        if (
+          profile.mobile &&
+          !mobile.value
+        ) {
+
+          mobile.value =
+            profile.mobile;
+
+        }
+
+
+        if (
+          profile.pickup &&
+          !pickup.value
+        ) {
+
+          pickup.value =
+            profile.pickup;
+
+        }
+
+      }
+
+      catch (error) {
+
+        console.log(
+          "Profile load skipped."
+        );
+
+      }
+
+    }
+
+
+    /*
+    =====================================
+    FARE CALCULATION
+    =====================================
+    */
+
+    function calculateFare() {
+
+      const km =
+        Number(
+          distance.value || 0
+        );
+
+
+      if (
+        !km ||
+        km <= 0
+      ) {
+
+        fare.textContent =
+          "₹ —";
+
+        advanceAmount.textContent =
+          "₹ —";
+
+        remainingAmount.textContent =
+          "₹ —";
+
+        return 0;
+
+      }
+
+
+      const total =
+        Math.round(
+          km * RATE_PER_KM
+        );
+
+
+      const advance =
+        Math.round(
+          total *
+          ADVANCE_PERCENT /
+          100
+        );
+
+
+      const remaining =
+        total -
+        advance;
+
+
+      fare.textContent =
+        "₹" +
+        total.toLocaleString(
+          "en-IN"
+        );
+
+
+      advanceAmount.textContent =
+        "₹" +
+        advance.toLocaleString(
+          "en-IN"
+        );
+
+
+      remainingAmount.textContent =
+        "₹" +
+        remaining.toLocaleString(
+          "en-IN"
+        );
+
+
+      return total;
+
+    }
+
+
+    /*
+    =====================================
+    DISTANCE CHANGE
+    =====================================
+    */
+
+    distance.addEventListener(
+      "input",
+      calculateFare
+    );
+
+
+    /*
+    =====================================
+    ESTIMATE BUTTON
+    =====================================
+    */
+
+    const estimateBtn =
+      document.getElementById(
+        "estimateBtn"
+      );
+
+    const formMessage =
+      document.getElementById(
+        "formMessage"
+      );
+
+
+    estimateBtn.addEventListener(
+      "click",
+      function () {
+
+        if (!service.value) {
+
+          formMessage.textContent =
+            "Please select a service first.";
+
+          formMessage.className =
+            "form-message error";
+
+          return;
+
+        }
+
+
+        const total =
+          calculateFare();
+
+
+        if (!total) {
+
+          formMessage.textContent =
+            "Please enter the distance in KM.";
+
+          formMessage.className =
+            "form-message error";
+
+          distance.focus();
+
+          return;
+
+        }
+
+
+        formMessage.textContent =
+          "Estimate calculated at ₹18 per KM.";
+
+        formMessage.className =
+          "form-message success";
+
+      }
+    );
+
+
+    /*
+    =====================================
+    INITIAL LOAD
+    =====================================
+    */
+
+    loadCustomerProfile();
+
+    calculateFare();
 
   </script>
 
