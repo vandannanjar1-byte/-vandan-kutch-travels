@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b5cff">
+<title>Vandan Kutch Travels</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#0b5cff;--primary2:#0647c7;--dark:#10213d;--text:#172033;
+  --muted:#6b7280;--bg:#f5f7fb;--white:#fff;--green:#159447;
+  --border:#e3e8f0;--shadow:0 10px 30px rgba(16,33,61,.10);--radius:18px
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--dark)}
+.logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--primary),#36a2ff);color:white;display:grid;place-items:center;font-weight:900;font-size:18px;box-shadow:0 6px 16px rgba(11,92,255,.25)}
+.brand strong{font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px}
+.navlinks{display:flex;gap:8px}.navlinks button{border:0;background:transparent;padding:10px 12px;color:#344054;border-radius:10px}.navlinks button:hover{background:#eef4ff}
+.menu{display:none;border:0;background:#eef4ff;padding:9px 11px;border-radius:10px}
+.hero{background:linear-gradient(135deg,#082e7a,#0b5cff 55%,#39a8ff);color:#fff;padding:52px 18px 86px}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.03;margin-bottom:17px}.hero p{font-size:17px;opacity:.9;max-width:610px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:8px 12px;border-radius:99px;font-size:13px}
+.booking{margin-top:-54px;position:relative;z-index:2;padding:0 18px}
+.booking-card{max-width:1080px;margin:auto;background:white;border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:24px}
+.service-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:22px}
+.service-tab{border:1px solid var(--border);background:#fff;padding:12px 7px;border-radius:13px;font-weight:700;color:#344054;font-size:12px}
+.service-tab.active{background:#eaf1ff;color:var(--primary);border-color:#bcd1ff}
+.tab-icon{font-size:20px;display:block;margin-bottom:4px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{position:relative}.field label{font-size:12px;font-weight:800;color:#475467;display:block;margin-bottom:7px}
+.field input,.field select{width:100%;height:50px;border:1px solid #d5dce8;border-radius:12px;padding:0 14px;outline:none;background:#fff;color:var(--text)}
+.field input:focus,.field select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(11,92,255,.10)}
+.location-wrap{position:relative}.location-status{font-size:11px;margin-top:5px;color:var(--muted)}
+.suggestions{position:absolute;left:0;right:0;top:78px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 28px rgba(0,0,0,.13);z-index:20;overflow:hidden;display:none}
+.suggestion{padding:12px 14px;border-bottom:1px solid #f0f2f5;cursor:pointer}.suggestion:last-child{border:0}.suggestion:hover{background:#f6f9ff}.suggestion b{display:block;font-size:13px}.suggestion span{font-size:11px;color:var(--muted)}
+.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}
+.primary{border:0;background:var(--primary);color:#fff;padding:14px 21px;border-radius:12px;font-weight:800;box-shadow:0 7px 18px rgba(11,92,255,.22)}
+.primary:hover{background:var(--primary2)}
+.secondary{border:1px solid var(--border);background:#fff;color:var(--dark);padding:13px 18px;border-radius:12px;font-weight:700}
+.distance-box{margin-top:16px;background:#f7fbff;border:1px solid #d8e7ff;border-radius:15px;padding:15px;display:none}
+.distance-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.distance-value{font-size:25px;font-weight:900;color:var(--primary)}.fare-value{font-size:25px;font-weight:900;color:var(--green)}
+.note{font-size:11px;color:var(--muted);margin-top:5px}
+.section{max-width:1180px;margin:auto;padding:62px 18px}.section h2{text-align:center;font-size:30px;color:var(--dark)}.section-lead{text-align:center;color:var(--muted);max-width:650px;margin:8px auto 30px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:0 5px 18px rgba(16,33,61,.05)}.card-icon{font-size:32px}.card h3{margin:10px 0 6px}.card p{color:var(--muted);font-size:14px}
+.payment{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.payment-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px}.advance{font-size:42px;font-weight:900;color:var(--primary)}
+.summary{display:none;margin-top:18px;border:1px solid #cfe0ff;background:#f7faff;border-radius:17px;padding:20px}.summary h3{margin-bottom:12px}.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px}.summary-grid div{background:#fff;border-radius:10px;padding:10px}.summary-grid span{display:block;color:var(--muted);font-size:11px}
+.footer{background:#0d1b33;color:#dbe6f7;padding:38px 18px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer strong{color:#fff}.footer p{font-size:13px;margin-top:6px;color:#aebbd0}
+.toast{position:fixed;right:18px;bottom:18px;z-index:100;background:#172033;color:#fff;padding:13px 16px;border-radius:12px;box-shadow:var(--shadow);display:none;font-size:13px}
+@media(max-width:850px){.hero-inner{grid-template-columns:1fr}.hero{padding-top:38px}.service-tabs{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:1fr 1fr}.payment{grid-template-columns:1fr}.navlinks{display:none}.menu{display:block}}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.booking-card{padding:16px;border-radius:18px}.service-tab{padding:10px 4px}.hero{padding-bottom:70px}.section{padding:45px 16px}.summary-grid{grid-template-columns:1fr}.brand strong{font-size:15px}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a class="brand" href="#">
+      <div class="logo">VK</div>
+      <div><strong>Vandan Kutch Travels</strong><small>Travel • Taxi • Tours</small></div>
+    </a>
+    <div class="navlinks">
+      <button onclick="scrollToBooking()">Book Now</button>
+      <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</button>
+      <button onclick="document.getElementById('payment').scrollIntoView({behavior:'smooth'})">Payment</button>
+    </div>
+    <button class="menu" onclick="scrollToBooking()">☰</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>Travel Kutch.<br>Travel Gujarat.<br>Travel Easy.</h1>
+      <p>Reliable taxi and travel services with simple online booking, location-based pickup & drop, automatic driving distance and transparent fare calculation.</p>
+      <div class="hero-badges">
+        <span class="badge">📍 Smart Location Search</span>
+        <span class="badge">📏 Automatic KM</span>
+        <span class="badge">💳 20% Advance</span>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="booking-card">
+    <div class="service-tabs" id="serviceTabs">
+      <button class="service-tab active" data-service="Local Service"><span class="tab-icon">🚕</span>Local</button>
+      <button class="service-tab" data-service="Airport Service"><span class="tab-icon">✈️</span>Airport</button>
+      <button class="service-tab" data-service="Railway Service"><span class="tab-icon">🚆</span>Railway</button>
+      <button class="service-tab" data-service="Out of Kutch Service"><span class="tab-icon">🗺️</span>Out of Kutch</button>
+      <button class="service-tab" data-service="Out of Gujarat Service"><span class="tab-icon">🏙️</span>Out of Gujarat</button>
+      <button class="service-tab" data-service="Car & Taxi"><span class="tab-icon">🚗</span>Car & Taxi</button>
+    </div>
+
+    <h2 id="bookingTitle">Book Local Service</h2>
+    <p class="section-lead" style="margin:5px 0 18px;text-align:left">Select pickup and drop locations. Distance will be calculated automatically after both locations are selected.</p>
+
+    <div class="form-grid">
+      <div class="field">
+        <label>📍 PICKUP LOCATION</label>
+        <div class="location-wrap">
+          <input id="pickup" autocomplete="off" placeholder="Search airport, station, village, hotel, society..." />
+          <div id="pickupSuggestions" class="suggestions"></div>
+        </div>
+        <div id="pickupStatus" class="location-status">Search and select a location.</div>
+      </div>
+
+      <div class="field">
+        <label>📍 DROP LOCATION</label>
+        <div class="location-wrap">
+          <input id="drop" autocomplete="off" placeholder="Search destination..." />
+          <div id="dropSuggestions" class="suggestions"></div>
+        </div>
+        <div id="dropStatus" class="location-status">Search and select a location.</div>
+      </div>
+
+      <div class="field">
+        <label>📅 TRAVEL DATE</label>
+        <input id="travelDate" type="date">
+      </div>
+      <div class="field">
+        <label>🕐 PICKUP TIME</label>
+        <input id="travelTime" type="time">
+      </div>
+
+      <div class="field">
+        <label>👤 PASSENGERS</label>
+        <select id="passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
+      </div>
+      <div class="field">
+        <label>🚗 VEHICLE</label>
+        <select id="vehicle">
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="Innova">Innova</option>
+          <option value="Tempo Traveller">Tempo Traveller</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="primary" onclick="calculateDistance()">📏 Calculate Distance</button>
+      <button class="secondary" onclick="useDemoLocations()">Demo Locations</button>
+    </div>
+
+    <div class="distance-box" id="distanceBox">
+      <div class="distance-row">
+        <div><small>DRIVING DISTANCE</small><div class="distance-value" id="distanceValue">—</div><div class="note" id="durationValue">—</div></div>
+        <div><small>ESTIMATED FARE</small><div class="fare-value" id="fareValue">₹ —</div><div class="note">Final fare can be confirmed by Vandan Kutch Travels.</div></div>
+      </div>
+    </div>
+
+    <div class="summary" id="summary">
+      <h3>Booking Summary</h3>
+      <div class="summary-grid">
+        <div><span>Service</span><b id="sService">—</b></div>
+        <div><span>Vehicle</span><b id="sVehicle">—</b></div>
+        <div><span>Pickup</span><b id="sPickup">—</b></div>
+        <div><span>Drop</span><b id="sDrop">—</b></div>
+        <div><span>Date & Time</span><b id="sDate">—</b></div>
+        <div><span>Advance (20%)</span><b id="sAdvance">—</b></div>
+      </div>
+      <button class="primary" style="margin-top:15px" onclick="sendBooking()">Continue Booking</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <h2>Our Services</h2>
+  <p class="section-lead">One booking flow for local and long-distance travel.</p>
+  <div class="cards">
+    <div class="card"><div class="card-icon">🚕</div><h3>Local Service</h3><p>Point-to-point travel within your local area with automatic driving distance.</p></div>
+    <div class="card"><div class="card-icon">✈️</div><h3>Airport Service</h3><p>Airport pickup and drop with location search and automatic route distance.</p></div>
+    <div class="card"><div class="card-icon">🚆</div><h3>Railway Service</h3><p>Railway station transfers with easy pickup and destination selection.</p></div>
+    <div class="card"><div class="card-icon">🗺️</div><h3>Out of Kutch</h3><p>Travel from Kutch to destinations outside Kutch with automatic KM calculation.</p></div>
+    <div class="card"><div class="card-icon">🏙️</div><h3>Out of Gujarat</h3><p>Interstate travel with route-based driving distance and fare estimation.</p></div>
+    <div class="card"><div class="card-icon">🚗</div><h3>Car & Taxi</h3><p>Comfortable vehicles for local, intercity and custom travel requirements.</p></div>
+  </div>
+</section>
+
+<section class="section" id="payment">
+  <h2>Simple Payment</h2>
+  <p class="section-lead">Book your vehicle with a 20% advance and pay the remaining amount later.</p>
+  <div class="payment">
+    <div class="payment-box"><div class="advance">20%</div><h3>Advance Payment</h3><p style="color:var(--muted);margin-top:6px">Pay 20% of the estimated booking amount to confirm the booking.</p></div>
+    <div class="payment-box"><div class="advance">80%</div><h3>Remaining Payment</h3><p style="color:var(--muted);margin-top:6px">The remaining 80% can be paid later, according to the booking terms.</p></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div><strong>Vandan Kutch Travels</strong><p>Reliable travel services from Kutch to Gujarat and beyond.</p></div>
+    <div><strong>Booking Flow</strong><p>Pickup → Drop → Automatic KM → Fare → 20% Advance</p></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/*
+  VAN​DAN KUTCH TRAVELS — AUTOMATIC DISTANCE ENGINE
+
+  IMPORTANT:
+  1. Enable Google Maps Platform APIs in Google Cloud.
+  2. For production, use a restricted API key and preferably a secure backend/proxy.
+  3. Replace GOOGLE_MAPS_API_KEY below with your browser-restricted key.
+  4. The production version should use Google Places/Autocomplete + Routes API.
+*/
+
+const GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY";
+
+let selectedService = "Local Service";
+let pickupPlace = null;
+let dropPlace = null;
+let lastDistanceKm = 0;
+
+const serviceTabs = document.querySelectorAll(".service-tab");
+serviceTabs.forEach(btn => btn.addEventListener("click", () => {
+  serviceTabs.forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  selectedService = btn.dataset.service;
+  document.getElementById("bookingTitle").textContent = "Book " + selectedService;
+  resetRoute();
+}));
+
+function scrollToBooking(){document.getElementById("booking").scrollIntoView({behavior:"smooth"});}
+
+function resetRoute(){
+  pickupPlace=null;dropPlace=null;lastDistanceKm=0;
+  document.getElementById("pickupStatus").textContent="Search and select a location.";
+  document.getElementById("dropStatus").textContent="Search and select a location.";
+  document.getElementById("distanceBox").style.display="none";
+  document.getElementById("summary").style.display="none";
+}
+
+function showToast(msg){
+  const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";
+  clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2800);
+}
+
+/*
+  Demo autocomplete:
+  This is only a fallback so the new HTML can be tested immediately.
+  In production, replace this with Google Places Autocomplete / Places API.
+*/
+const demoPlaces=[
+  {name:"Bhuj Airport, Bhuj, Gujarat",lat:23.2878,lng:69.6701},
+  {name:"Bhuj Railway Station, Bhuj, Gujarat",lat:23.2534,lng:69.6669},
+  {name:"Mundra, Kutch, Gujarat",lat:22.8397,lng:69.7219},
+  {name:"Gandhidham, Kutch, Gujarat",lat:23.0753,lng:70.1337},
+  {name:"Anjar, Kutch, Gujarat",lat:23.1132,lng:70.0266},
+  {name:"Gandhi Dham Railway Station, Gujarat",lat:23.0745,lng:70.1328},
+  {name:"Ahmedabad Airport, Gujarat",lat:23.0734,lng:72.6266},
+  {name:"Ahmedabad Railway Station, Gujarat",lat:23.0264,lng:72.6006},
+  {name:"Vadodara Airport, Gujarat",lat:22.3362,lng:73.2263},
+  {name:"Rajkot Airport, Gujarat",lat:22.3094,lng:70.7795}
+];
+
+function attachSearch(inputId,suggestId,statusId,type){
+  const input=document.getElementById(inputId), box=document.getElementById(suggestId);
+  input.addEventListener("input",()=>{
+    const q=input.value.trim().toLowerCase();
+    box.innerHTML="";
+    if(!q){box.style.display="none";return}
+    const matches=demoPlaces.filter(p=>p.name.toLowerCase().includes(q)).slice(0,6);
+    matches.forEach(p=>{
+      const d=document.createElement("div");d.className="suggestion";
+      d.innerHTML="<b>📍 "+p.name.split(",")[0]+"</b><span>"+p.name+"</span>";
+      d.onclick=()=>{
+        input.value=p.name;
+        box.style.display="none";
+        if(type==="pickup") pickupPlace=p; else dropPlace=p;
+        document.getElementById(statusId).textContent="✓ Location selected";
+        if(pickupPlace&&dropPlace) calculateDistance();
+      };
+      box.appendChild(d);
+    });
+    box.style.display=matches.length?"block":"none";
+  });
+}
+attachSearch("pickup","pickupSuggestions","pickupStatus","pickup");
+attachSearch("drop","dropSuggestions","dropStatus","drop");
+
+function haversine(a,b){
+  const R=6371,rad=Math.PI/180;
+  const dLat=(b.lat-a.lat)*rad,dLng=(b.lng-a.lng)*rad;
+  const x=Math.sin(dLat/2)**2+Math.cos(a.lat*rad)*Math.cos(b.lat*rad)*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(x));
+}
+
+/*
+  Route distance:
+  The demo fallback estimates distance using coordinates.
+  Once Google Routes API is connected, replace this function with
+  computeRoutes() from your secured backend / Google Routes API.
+*/
+async function getDrivingDistance(){
+  if(!pickupPlace||!dropPlace) throw new Error("Select both locations.");
+
+  // Production placeholder:
+  // return await fetch("/api/routes", {
+  //   method:"POST",
+  //   headers:{"Content-Type":"application/json"},
+  //   body:JSON.stringify({origin:pickupPlace,destination:dropPlace})
+  // }).then(r=>r.json());
+
+  // Temporary test fallback — NOT road distance.
+  // This keeps the UI functional until the Google Routes API is connected.
+  const straightKm=haversine(pickupPlace,dropPlace);
+  return {distanceKm:straightKm*1.25,durationMin:Math.max(8,Math.round(straightKm*1.8))};
+}
+
+function ratePerKm(){
+  switch(selectedService){
+    case "Local Service": return 18;
+    case "Airport Service": return 20;
+    case "Railway Service": return 19;
+    case "Out of Kutch Service": return 17;
+    case "Out of Gujarat Service": return 16;
+    case "Car & Taxi": return 18;
+    default:return 18;
+  }
+}
+
+async function calculateDistance(){
+  if(!pickupPlace||!dropPlace){
+    showToast("Please search and select both Pickup and Drop locations.");
+    return;
+  }
+  const btn=document.querySelector(".form-actions .primary");
+  const old=btn.textContent;btn.disabled=true;btn.textContent="Calculating…";
+  try{
+    const route=await getDrivingDistance();
+    lastDistanceKm=route.distanceKm;
+    const fare=Math.max(300,Math.round(lastDistanceKm*ratePerKm()));
+    document.getElementById("distanceValue").textContent=lastDistanceKm.toFixed(1)+" KM";
+    document.getElementById("durationValue").textContent="Estimated driving time: "+route.durationMin+" min";
+    document.getElementById("fareValue").textContent="₹ "+fare.toLocaleString("en-IN");
+    document.getElementById("distanceBox").style.display="block";
+    updateSummary(fare);
+  }catch(e){showToast(e.message||"Could not calculate route.");}
+  finally{btn.disabled=false;btn.textContent=old}
+}
+
+function updateSummary(fare){
+  document.getElementById("sService").textContent=selectedService;
+  document.getElementById("sVehicle").textContent=document.getElementById("vehicle").value;
+  document.getElementById("sPickup").textContent=pickupPlace.name;
+  document.getElementById("sDrop").textContent=dropPlace.name;
+  const date=document.getElementById("travelDate").value||"Date not selected";
+  const time=document.getElementById("travelTime").value||"Time not selected";
+  document.getElementById("sDate").textContent=date+" • "+time;
+  document.getElementById("sAdvance").textContent="₹ "+Math.round(fare*.20).toLocaleString("en-IN");
+  document.getElementById("summary").style.display="block";
+}
+
+function useDemoLocations(){
+  pickupPlace=demoPlaces[1];dropPlace=demoPlaces[0];
+  document.getElementById("pickup").value=pickupPlace.name;
+  document.getElementById("drop").value=dropPlace.name;
+  document.getElementById("pickupStatus").textContent="✓ Location selected";
+  document.getElementById("dropStatus").textContent="✓ Location selected";
+  calculateDistance();
+}
+
+function sendBooking(){
+  if(!pickupPlace||!dropPlace||!lastDistanceKm){showToast("Please calculate the distance first.");return}
+  showToast("Booking flow ready — connect Firebase/WhatsApp/payment next.");
+}
+
+document.getElementById("travelDate").min=new Date().toISOString().split("T")[0];
+</script>
+</body>
+</html>
