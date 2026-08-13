@@ -3,379 +3,2934 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#0b5cff">
+<meta name="theme-color" content="#050505">
+
 <title>Vandan Kutch Travels</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --primary:#0b5cff;--primary2:#0647c7;--dark:#10213d;--text:#172033;
-  --muted:#6b7280;--bg:#f5f7fb;--white:#fff;--green:#159447;
-  --border:#e3e8f0;--shadow:0 10px 30px rgba(16,33,61,.10);--radius:18px
+*{
+  box-sizing:border-box;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
-button,input,select{font:inherit}
-button{cursor:pointer}
-.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav{max-width:1180px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:13px 18px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--dark)}
-.logo{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--primary),#36a2ff);color:white;display:grid;place-items:center;font-weight:900;font-size:18px;box-shadow:0 6px 16px rgba(11,92,255,.25)}
-.brand strong{font-size:18px}.brand small{display:block;color:var(--muted);font-size:11px}
-.navlinks{display:flex;gap:8px}.navlinks button{border:0;background:transparent;padding:10px 12px;color:#344054;border-radius:10px}.navlinks button:hover{background:#eef4ff}
-.menu{display:none;border:0;background:#eef4ff;padding:9px 11px;border-radius:10px}
-.hero{background:linear-gradient(135deg,#082e7a,#0b5cff 55%,#39a8ff);color:#fff;padding:52px 18px 86px}
-.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center}
-.hero h1{font-size:clamp(34px,5vw,60px);line-height:1.03;margin-bottom:17px}.hero p{font-size:17px;opacity:.9;max-width:610px}
-.hero-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:8px 12px;border-radius:99px;font-size:13px}
-.booking{margin-top:-54px;position:relative;z-index:2;padding:0 18px}
-.booking-card{max-width:1080px;margin:auto;background:white;border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow);padding:24px}
-.service-tabs{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:22px}
-.service-tab{border:1px solid var(--border);background:#fff;padding:12px 7px;border-radius:13px;font-weight:700;color:#344054;font-size:12px}
-.service-tab.active{background:#eaf1ff;color:var(--primary);border-color:#bcd1ff}
-.tab-icon{font-size:20px;display:block;margin-bottom:4px}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.field{position:relative}.field label{font-size:12px;font-weight:800;color:#475467;display:block;margin-bottom:7px}
-.field input,.field select{width:100%;height:50px;border:1px solid #d5dce8;border-radius:12px;padding:0 14px;outline:none;background:#fff;color:var(--text)}
-.field input:focus,.field select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(11,92,255,.10)}
-.location-wrap{position:relative}.location-status{font-size:11px;margin-top:5px;color:var(--muted)}
-.suggestions{position:absolute;left:0;right:0;top:78px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 28px rgba(0,0,0,.13);z-index:20;overflow:hidden;display:none}
-.suggestion{padding:12px 14px;border-bottom:1px solid #f0f2f5;cursor:pointer}.suggestion:last-child{border:0}.suggestion:hover{background:#f6f9ff}.suggestion b{display:block;font-size:13px}.suggestion span{font-size:11px;color:var(--muted)}
-.form-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:18px}
-.primary{border:0;background:var(--primary);color:#fff;padding:14px 21px;border-radius:12px;font-weight:800;box-shadow:0 7px 18px rgba(11,92,255,.22)}
-.primary:hover{background:var(--primary2)}
-.secondary{border:1px solid var(--border);background:#fff;color:var(--dark);padding:13px 18px;border-radius:12px;font-weight:700}
-.distance-box{margin-top:16px;background:#f7fbff;border:1px solid #d8e7ff;border-radius:15px;padding:15px;display:none}
-.distance-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.distance-value{font-size:25px;font-weight:900;color:var(--primary)}.fare-value{font-size:25px;font-weight:900;color:var(--green)}
-.note{font-size:11px;color:var(--muted);margin-top:5px}
-.section{max-width:1180px;margin:auto;padding:62px 18px}.section h2{text-align:center;font-size:30px;color:var(--dark)}.section-lead{text-align:center;color:var(--muted);max-width:650px;margin:8px auto 30px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:0 5px 18px rgba(16,33,61,.05)}.card-icon{font-size:32px}.card h3{margin:10px 0 6px}.card p{color:var(--muted);font-size:14px}
-.payment{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}.payment-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:25px}.advance{font-size:42px;font-weight:900;color:var(--primary)}
-.summary{display:none;margin-top:18px;border:1px solid #cfe0ff;background:#f7faff;border-radius:17px;padding:20px}.summary h3{margin-bottom:12px}.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px}.summary-grid div{background:#fff;border-radius:10px;padding:10px}.summary-grid span{display:block;color:var(--muted);font-size:11px}
-.footer{background:#0d1b33;color:#dbe6f7;padding:38px 18px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}.footer strong{color:#fff}.footer p{font-size:13px;margin-top:6px;color:#aebbd0}
-.toast{position:fixed;right:18px;bottom:18px;z-index:100;background:#172033;color:#fff;padding:13px 16px;border-radius:12px;box-shadow:var(--shadow);display:none;font-size:13px}
-@media(max-width:850px){.hero-inner{grid-template-columns:1fr}.hero{padding-top:38px}.service-tabs{grid-template-columns:repeat(3,1fr)}.cards{grid-template-columns:1fr 1fr}.payment{grid-template-columns:1fr}.navlinks{display:none}.menu{display:block}}
-@media(max-width:560px){.form-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.booking-card{padding:16px;border-radius:18px}.service-tab{padding:10px 4px}.hero{padding-bottom:70px}.section{padding:45px 16px}.summary-grid{grid-template-columns:1fr}.brand strong{font-size:15px}}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#000;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+}
+
+.app{
+  max-width:430px;
+  min-height:100vh;
+  margin:auto;
+  background:#050505;
+  padding-bottom:84px;
+}
+
+button,
+input,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.screen{
+  display:none;
+  min-height:calc(100vh - 84px);
+}
+
+.screen.active{
+  display:block;
+}
+
+/* =========================
+   COMMON HEADER
+========================= */
+
+header{
+  height:82px;
+  padding:12px 16px;
+  border-bottom:1px solid #2b2519;
+
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  position:sticky;
+  top:0;
+
+  background:#050505;
+  z-index:5;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+
+  border:1.5px solid #e9bd43;
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  color:#f2c94c;
+
+  font:700 19px Georgia,serif;
+}
+
+.brand{
+  font-weight:900;
+  color:#f2c94c;
+  font-size:16px;
+  letter-spacing:.3px;
+}
+
+.brand small{
+  display:block;
+  color:#aaa;
+  font-size:7px;
+  letter-spacing:1.3px;
+  margin-top:4px;
+}
+
+.back{
+  width:42px;
+  height:42px;
+
+  border:1px solid #6c521d;
+  border-radius:50%;
+
+  background:#111;
+  color:#f2c94c;
+
+  font-size:28px;
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.content{
+  padding:18px 15px;
+}
+
+.heading{
+  text-align:center;
+  color:#f2c94c;
+  font-size:25px;
+  font-weight:900;
+  margin:4px 0;
+}
+
+.sub{
+  text-align:center;
+  color:#aaa;
+  font-size:10px;
+  line-height:1.5;
+  margin:6px 18px 18px;
+}
+
+.card{
+  border:1px solid #60491a;
+  border-radius:17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12110d,
+      #080808
+    );
+
+  padding:15px;
+  margin-bottom:12px;
+}
+
+.gold{
+  color:#f2c94c;
+}
+
+.btn{
+  width:100%;
+  height:51px;
+
+  border:0;
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      #f5d05a,
+      #d9a932
+    );
+
+  color:#111;
+
+  font-size:13px;
+  font-weight:900;
+}
+
+.outline{
+  width:100%;
+  height:48px;
+
+  border:1px solid #73571e;
+  border-radius:12px;
+
+  background:#0b0b0b;
+  color:#f2c94c;
+
+  font-size:11px;
+  font-weight:800;
+}
+
+/* =========================
+   HOME SCREEN
+========================= */
+
+.home-hero{
+  padding:22px 16px 10px;
+  text-align:center;
+}
+
+.home-hero .vk{
+  width:82px;
+  height:82px;
+
+  margin:auto;
+
+  border:2px solid #e9bd43;
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  color:#f2c94c;
+
+  font:700 34px Georgia,serif;
+
+  background:#0c0b08;
+}
+
+.home-hero h1{
+  font-size:24px;
+  color:#f2c94c;
+  margin:14px 0 4px;
+}
+
+.home-hero p{
+  color:#999;
+  font-size:10px;
+  margin:0;
+}
+
+.service-title{
+  text-align:left;
+  color:#f2c94c;
+  font-weight:900;
+  font-size:14px;
+  margin:18px 0 10px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.service-card{
+  border:1px solid #5d461a;
+  border-radius:15px;
+
+  background:#0d0d0d;
+
+  padding:15px 10px;
+
+  text-align:center;
+
+  color:#fff;
+}
+
+.service-card .sicon{
+  font-size:27px;
+}
+
+.service-card b{
+  display:block;
+  font-size:11px;
+  margin-top:6px;
+}
+
+.service-card small{
+  color:#888;
+  font-size:8px;
+  display:block;
+  margin-top:4px;
+}
+
+.quick{
+  margin-top:13px;
+}
+
+/* =========================
+   BOOK SCREEN
+========================= */
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+
+  margin-bottom:14px;
+}
+
+.service{
+  height:69px;
+
+  border:1px solid #60491a;
+  border-radius:12px;
+
+  background:#0d0d0d;
+  color:#ddd;
+
+  font-size:10px;
+  font-weight:800;
+}
+
+.service.active{
+  background:
+    linear-gradient(
+      145deg,
+      #f5d05a,
+      #c79428
+    );
+
+  color:#111;
+
+  border-color:#f5cf59;
+}
+
+.label{
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1.1px;
+
+  color:#aaa;
+
+  margin:0 0 7px;
+}
+
+.field{
+  position:relative;
+  margin-bottom:12px;
+}
+
+.field .ico{
+  position:absolute;
+  left:12px;
+  top:12px;
+
+  color:#f2c94c;
+  font-size:17px;
+}
+
+input,
+select{
+  width:100%;
+  height:47px;
+
+  border:1px solid #3b3325;
+  border-radius:11px;
+
+  background:#050505;
+  color:#fff;
+
+  padding:0 12px 0 38px;
+
+  font-size:12px;
+  outline:none;
+}
+
+input:focus,
+select:focus{
+  border-color:#dcb343;
+}
+
+.two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+
+.info{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  border:1px solid #3b3325;
+  border-radius:11px;
+
+  padding:10px;
+
+  background:#080808;
+}
+
+.caricon{
+  font-size:29px;
+}
+
+.info b{
+  font-size:11px;
+}
+
+.info small{
+  display:block;
+  color:#aaa;
+  font-size:8px;
+  margin-top:3px;
+}
+
+.distance{
+  padding:13px;
+
+  border:1px solid #72551c;
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151108,
+      #090909
+    );
+
+  margin-bottom:12px;
+}
+
+.distance-title{
+  display:flex;
+  justify-content:space-between;
+
+  color:#f2c94c;
+
+  font-size:11px;
+  font-weight:900;
+}
+
+.distance-value{
+  font-size:25px;
+  font-weight:900;
+  margin-top:4px;
+}
+
+.distance-note{
+  font-size:9px;
+  color:#999;
+  margin-top:4px;
+}
+
+.fare{
+  padding:14px;
+
+  border:1px solid #72551c;
+  border-radius:15px;
+
+  background:#0d0d0d;
+
+  margin:12px 0;
+}
+
+.fare-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.fare-row b:first-child{
+  font-size:11px;
+  color:#aaa;
+}
+
+.amount{
+  font-size:25px;
+  font-weight:900;
+}
+
+.amount small{
+  font-size:10px;
+  color:#aaa;
+}
+
+.payment{
+  border-top:1px solid #3b3325;
+
+  margin-top:10px;
+  padding-top:10px;
+
+  display:flex;
+  justify-content:space-between;
+
+  font-size:10px;
+}
+
+.payment b{
+  color:#f2c94c;
+}
+
+.whatsapp{
+  width:100%;
+  height:52px;
+
+  border:0;
+  border-radius:14px;
+
+  background:#25d366;
+
+  color:#061007;
+
+  font-size:13px;
+  font-weight:900;
+
+  margin-top:9px;
+}
+
+.note{
+  text-align:center;
+  color:#777;
+  font-size:8px;
+  line-height:1.5;
+  margin:9px 20px;
+}
+
+/* =========================
+   MY BOOKINGS
+========================= */
+
+.empty{
+  text-align:center;
+
+  border:1px solid #60491a;
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12110d,
+      #080808
+    );
+
+  padding:35px 20px;
+}
+
+.empty .icon{
+  width:70px;
+  height:70px;
+
+  border:1px solid #9a7527;
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  margin:auto;
+
+  background:#111;
+
+  color:#f2c94c;
+
+  font-size:34px;
+}
+
+.empty h3{
+  margin:15px 0 7px;
+  font-size:17px;
+}
+
+.empty p{
+  color:#999;
+  font-size:11px;
+  line-height:1.5;
+  margin:0 0 18px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-card{
+  text-align:center;
+
+  border:1px solid #60491a;
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12110d,
+      #080808
+    );
+
+  padding:18px 15px;
+
+  margin-bottom:12px;
+}
+
+.avatar{
+  width:88px;
+  height:88px;
+
+  margin:auto;
+
+  border-radius:50%;
+
+  border:2px solid #e9bd43;
+
+  background:#111;
+
+  display:grid;
+  place-items:center;
+
+  color:#f2c94c;
+
+  font-size:34px;
+
+  overflow:hidden;
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.photo-btn{
+  margin-top:10px;
+
+  background:none;
+
+  border:1px solid #73571e;
+
+  color:#f2c94c;
+
+  border-radius:9px;
+
+  padding:7px 12px;
+
+  font-size:9px;
+  font-weight:800;
+}
+
+.profile-card h3{
+  margin:10px 0 3px;
+  font-size:17px;
+}
+
+.profile-card p{
+  margin:0;
+  color:#999;
+  font-size:10px;
+}
+
+.form{
+  border:1px solid #4f3e1c;
+  border-radius:16px;
+
+  background:#0d0d0d;
+
+  padding:15px;
+}
+
+.form input{
+  padding-left:12px;
+  margin-bottom:12px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-main{
+  text-align:center;
+
+  border:1px solid #60491a;
+  border-radius:18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #12110d,
+      #080808
+    );
+
+  padding:18px 15px;
+
+  margin-bottom:12px;
+}
+
+.contact-main .icon{
+  width:72px;
+  height:72px;
+
+  border:1px solid #9a7527;
+  border-radius:50%;
+
+  display:grid;
+  place-items:center;
+
+  margin:auto;
+
+  background:#111;
+
+  color:#f2c94c;
+
+  font-size:31px;
+}
+
+.contact-main h3{
+  margin:12px 0 5px;
+  font-size:17px;
+}
+
+.location{
+  color:#aaa;
+  font-size:10px;
+}
+
+.contact-list{
+  border:1px solid #4f3e1c;
+  border-radius:16px;
+
+  background:#0d0d0d;
+
+  padding:13px;
+}
+
+.row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:13px 4px;
+
+  border-bottom:1px solid #2f291e;
+}
+
+.row:last-child{
+  border-bottom:0;
+}
+
+.ico{
+  width:42px;
+  height:42px;
+
+  border-radius:12px;
+
+  background:#16130c;
+
+  display:grid;
+  place-items:center;
+
+  color:#f2c94c;
+
+  font-size:20px;
+
+  border:1px solid #4c3a18;
+
+  flex-shrink:0;
+}
+
+.row-info{
+  min-width:0;
+  flex:1;
+}
+
+.row-info b{
+  display:block;
+  font-size:12px;
+}
+
+.row-info small{
+  display:block;
+  color:#999;
+  font-size:9px;
+  margin-top:3px;
+  word-break:break-word;
+}
+
+.action{
+  margin-left:auto;
+
+  border:1px solid #8a6821;
+
+  background:#f0c64f;
+
+  color:#111;
+
+  border-radius:9px;
+
+  padding:8px 10px;
+
+  font-size:9px;
+  font-weight:900;
+
+  flex-shrink:0;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+nav{
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:78px;
+
+  background:rgba(4,4,4,.98);
+
+  border-top:1px solid #29251e;
+
+  z-index:10;
+}
+
+.navin{
+  max-width:430px;
+  height:100%;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+}
+
+nav button{
+  border:0;
+  background:none;
+
+  color:#ddd;
+
+  font-size:9px;
+}
+
+nav button span{
+  display:block;
+  font-size:25px;
+  height:33px;
+}
+
+nav button.active{
+  color:#f2c94c;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  display:none;
+
+  position:fixed;
+
+  left:50%;
+  bottom:90px;
+
+  transform:translateX(-50%);
+
+  background:#f2c94c;
+
+  color:#111;
+
+  padding:10px 13px;
+
+  border-radius:10px;
+
+  font-size:10px;
+  font-weight:800;
+
+  z-index:20;
+
+  white-space:nowrap;
+}
+
+/* =========================
+   SMALL SCREEN
+========================= */
+
+@media(max-width:360px){
+
+  .brand{
+    font-size:13px;
+  }
+
+  .brand small{
+    font-size:6px;
+  }
+
+}
 </style>
 </head>
+
 <body>
 
-<header class="header">
-  <nav class="nav">
-    <a class="brand" href="#">
-      <div class="logo">VK</div>
-      <div><strong>Vandan Kutch Travels</strong><small>Travel • Taxi • Tours</small></div>
-    </a>
-    <div class="navlinks">
-      <button onclick="scrollToBooking()">Book Now</button>
-      <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</button>
-      <button onclick="document.getElementById('payment').scrollIntoView({behavior:'smooth'})">Payment</button>
-    </div>
-    <button class="menu" onclick="scrollToBooking()">☰</button>
-  </nav>
+<div class="app">
+
+<!-- =====================================================
+     HOME SCREEN
+===================================================== -->
+
+<section id="home" class="screen active">
+
+<header>
+
+  <div class="logo">
+    VK
+  </div>
+
+  <div class="brand">
+    VANDAN KUTCH TRAVELS
+
+    <small>
+      YOUR JOURNEY, OUR RESPONSIBILITY
+    </small>
+  </div>
+
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <h1>Travel Kutch.<br>Travel Gujarat.<br>Travel Easy.</h1>
-      <p>Reliable taxi and travel services with simple online booking, location-based pickup & drop, automatic driving distance and transparent fare calculation.</p>
-      <div class="hero-badges">
-        <span class="badge">📍 Smart Location Search</span>
-        <span class="badge">📏 Automatic KM</span>
-        <span class="badge">💳 20% Advance</span>
-      </div>
-    </div>
-    <div></div>
+
+<div class="home-hero">
+
+  <div class="vk">
+    VK
   </div>
+
+  <h1>
+    VANDAN KUTCH TRAVELS
+  </h1>
+
+  <p>
+    Reliable • Comfortable • Professional Travel
+  </p>
+
+</div>
+
+
+<div class="content">
+
+  <div class="service-title">
+    OUR SERVICES
+  </div>
+
+
+  <div class="services">
+
+    <button
+      class="service-card"
+      onclick="openBook('Local')"
+    >
+
+      <span class="sicon">
+        🚕
+      </span>
+
+      <b>
+        Local
+      </b>
+
+      <small>
+        City & nearby rides
+      </small>
+
+    </button>
+
+
+    <button
+      class="service-card"
+      onclick="openBook('Airport')"
+    >
+
+      <span class="sicon">
+        ✈️
+      </span>
+
+      <b>
+        Airport
+      </b>
+
+      <small>
+        Airport pickup & drop
+      </small>
+
+    </button>
+
+
+    <button
+      class="service-card"
+      onclick="openBook('Railway')"
+    >
+
+      <span class="sicon">
+        🚆
+      </span>
+
+      <b>
+        Railway
+      </b>
+
+      <small>
+        Station transfers
+      </small>
+
+    </button>
+
+
+    <button
+      class="service-card"
+      onclick="openBook('Out of Kutch')"
+    >
+
+      <span class="sicon">
+        🗺️
+      </span>
+
+      <b>
+        Out of Kutch
+      </b>
+
+      <small>
+        Travel outside Kutch
+      </small>
+
+    </button>
+
+
+    <button
+      class="service-card"
+      onclick="openBook('Out of Gujarat')"
+    >
+
+      <span class="sicon">
+        🏢
+      </span>
+
+      <b>
+        Out of Gujarat
+      </b>
+
+      <small>
+        Long distance travel
+      </small>
+
+    </button>
+
+
+    <button
+      class="service-card"
+      onclick="openBook('Car & Taxi')"
+    >
+
+      <span class="sicon">
+        🚘
+      </span>
+
+      <b>
+        Car & Taxi
+      </b>
+
+      <small>
+        Private vehicle
+      </small>
+
+    </button>
+
+  </div>
+
+
+  <div class="quick">
+
+    <button
+      class="btn"
+      onclick="showScreen('book')"
+    >
+      BOOK YOUR RIDE
+    </button>
+
+  </div>
+
+</div>
+
 </section>
 
-<section class="booking" id="booking">
-  <div class="booking-card">
-    <div class="service-tabs" id="serviceTabs">
-      <button class="service-tab active" data-service="Local Service"><span class="tab-icon">🚕</span>Local</button>
-      <button class="service-tab" data-service="Airport Service"><span class="tab-icon">✈️</span>Airport</button>
-      <button class="service-tab" data-service="Railway Service"><span class="tab-icon">🚆</span>Railway</button>
-      <button class="service-tab" data-service="Out of Kutch Service"><span class="tab-icon">🗺️</span>Out of Kutch</button>
-      <button class="service-tab" data-service="Out of Gujarat Service"><span class="tab-icon">🏙️</span>Out of Gujarat</button>
-      <button class="service-tab" data-service="Car & Taxi"><span class="tab-icon">🚗</span>Car & Taxi</button>
-    </div>
 
-    <h2 id="bookingTitle">Book Local Service</h2>
-    <p class="section-lead" style="margin:5px 0 18px;text-align:left">Select pickup and drop locations. Distance will be calculated automatically after both locations are selected.</p>
+<!-- =====================================================
+     BOOK SCREEN
+===================================================== -->
 
-    <div class="form-grid">
-      <div class="field">
-        <label>📍 PICKUP LOCATION</label>
-        <div class="location-wrap">
-          <input id="pickup" autocomplete="off" placeholder="Search airport, station, village, hotel, society..." />
-          <div id="pickupSuggestions" class="suggestions"></div>
-        </div>
-        <div id="pickupStatus" class="location-status">Search and select a location.</div>
+<section id="book" class="screen">
+
+<header>
+
+  <button
+    class="back"
+    onclick="showScreen('home')"
+  >
+    ‹
+  </button>
+
+  <div class="logo">
+    VK
+  </div>
+
+  <div class="brand">
+    VANDAN KUTCH TRAVELS
+
+    <small>
+      YOUR JOURNEY, OUR RESPONSIBILITY
+    </small>
+  </div>
+
+</header>
+
+
+<main class="content">
+
+  <div class="heading">
+    BOOK YOUR RIDE
+  </div>
+
+  <div class="sub">
+    Choose your service and select pickup & drop locations.
+  </div>
+
+
+  <div class="service-grid">
+
+    <button
+      class="service active"
+      data-service="Local"
+      onclick="pickService(this)"
+    >
+      🚕<br>
+      Local
+    </button>
+
+
+    <button
+      class="service"
+      data-service="Airport"
+      onclick="pickService(this)"
+    >
+      ✈️<br>
+      Airport
+    </button>
+
+
+    <button
+      class="service"
+      data-service="Railway"
+      onclick="pickService(this)"
+    >
+      🚆<br>
+      Railway
+    </button>
+
+
+    <button
+      class="service"
+      data-service="Out of Kutch"
+      onclick="pickService(this)"
+    >
+      🗺️<br>
+      Out of Kutch
+    </button>
+
+
+    <button
+      class="service"
+      data-service="Out of Gujarat"
+      onclick="pickService(this)"
+    >
+      🏢<br>
+      Out of Gujarat
+    </button>
+
+
+    <button
+      class="service"
+      data-service="Car & Taxi"
+      onclick="pickService(this)"
+    >
+      🚘<br>
+      Car & Taxi
+    </button>
+
+  </div>
+
+
+  <section class="card">
+
+    <!-- AIRPORT / RAILWAY SELECTOR -->
+
+    <div
+      id="specialWrap"
+      style="display:none"
+    >
+
+      <div
+        class="label"
+        id="specialLabel"
+      >
+        SELECT DESTINATION
       </div>
 
       <div class="field">
-        <label>📍 DROP LOCATION</label>
-        <div class="location-wrap">
-          <input id="drop" autocomplete="off" placeholder="Search destination..." />
-          <div id="dropSuggestions" class="suggestions"></div>
-        </div>
-        <div id="dropStatus" class="location-status">Search and select a location.</div>
-      </div>
 
-      <div class="field">
-        <label>📅 TRAVEL DATE</label>
-        <input id="travelDate" type="date">
-      </div>
-      <div class="field">
-        <label>🕐 PICKUP TIME</label>
-        <input id="travelTime" type="time">
-      </div>
+        <select
+          id="specialSelect"
+          onchange="specialChanged()"
+        >
 
-      <div class="field">
-        <label>👤 PASSENGERS</label>
-        <select id="passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
-      </div>
-      <div class="field">
-        <label>🚗 VEHICLE</label>
-        <select id="vehicle">
-          <option value="Sedan">Sedan</option>
-          <option value="SUV">SUV</option>
-          <option value="Innova">Innova</option>
-          <option value="Tempo Traveller">Tempo Traveller</option>
+          <option value="">
+            Select
+          </option>
+
         </select>
+
       </div>
+
     </div>
 
-    <div class="form-actions">
-      <button class="primary" onclick="calculateDistance()">📏 Calculate Distance</button>
-      <button class="secondary" onclick="useDemoLocations()">Demo Locations</button>
+
+    <!-- PICKUP -->
+
+    <div class="label">
+      PICKUP LOCATION
     </div>
 
-    <div class="distance-box" id="distanceBox">
-      <div class="distance-row">
-        <div><small>DRIVING DISTANCE</small><div class="distance-value" id="distanceValue">—</div><div class="note" id="durationValue">—</div></div>
-        <div><small>ESTIMATED FARE</small><div class="fare-value" id="fareValue">₹ —</div><div class="note">Final fare can be confirmed by Vandan Kutch Travels.</div></div>
-      </div>
+    <div class="field">
+
+      <span class="ico">
+        ●
+      </span>
+
+      <input
+        id="pickup"
+        placeholder="Search airport, station, village, society, hotel..."
+      >
+
     </div>
 
-    <div class="summary" id="summary">
-      <h3>Booking Summary</h3>
-      <div class="summary-grid">
-        <div><span>Service</span><b id="sService">—</b></div>
-        <div><span>Vehicle</span><b id="sVehicle">—</b></div>
-        <div><span>Pickup</span><b id="sPickup">—</b></div>
-        <div><span>Drop</span><b id="sDrop">—</b></div>
-        <div><span>Date & Time</span><b id="sDate">—</b></div>
-        <div><span>Advance (20%)</span><b id="sAdvance">—</b></div>
-      </div>
-      <button class="primary" style="margin-top:15px" onclick="sendBooking()">Continue Booking</button>
+
+    <!-- DROP -->
+
+    <div class="label">
+      DROP LOCATION
     </div>
+
+    <div class="field">
+
+      <span class="ico">
+        ●
+      </span>
+
+      <input
+        id="drop"
+        placeholder="Search your destination..."
+      >
+
+    </div>
+
+
+    <!-- DATE + TIME -->
+
+    <div class="two">
+
+      <div>
+
+        <div class="label">
+          DATE
+        </div>
+
+        <input
+          id="date"
+          type="date"
+          style="padding-left:12px"
+        >
+
+      </div>
+
+
+      <div>
+
+        <div class="label">
+          TIME
+        </div>
+
+        <input
+          id="time"
+          type="time"
+          style="padding-left:12px"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- PASSENGERS -->
+
+    <div
+      class="label"
+      style="margin-top:12px"
+    >
+      PASSENGERS
+    </div>
+
+    <select
+      id="pass"
+      style="padding-left:12px;margin-bottom:12px"
+    >
+
+      <option>
+        1 Passenger
+      </option>
+
+      <option selected>
+        2 Passengers
+      </option>
+
+      <option>
+        3 Passengers
+      </option>
+
+      <option>
+        4 Passengers
+      </option>
+
+      <option>
+        5 Passengers
+      </option>
+
+      <option>
+        6 Passengers
+      </option>
+
+      <option>
+        7 Passengers
+      </option>
+
+    </select>
+
+
+    <!-- VEHICLE -->
+
+    <div class="info">
+
+      <div class="caricon">
+        🚗
+      </div>
+
+      <div>
+
+        <b>
+          Maruti Suzuki Ertiga CNG • 7 Seater
+        </b>
+
+        <small>
+          AC • Comfortable • Private Car & Taxi
+        </small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DISTANCE -->
+
+  <section class="distance">
+
+    <div class="distance-title">
+
+      <span>
+        AUTOMATIC DRIVING DISTANCE
+      </span>
+
+      <span>
+        📍
+      </span>
+
+    </div>
+
+
+    <div
+      class="distance-value"
+      id="distance"
+    >
+      — km
+    </div>
+
+
+    <div class="distance-note">
+
+      Pickup + Drop selected →
+      Google Routes API will calculate
+      driving distance automatically.
+
+    </div>
+
+  </section>
+
+
+  <button
+    class="btn"
+    onclick="estimate()"
+  >
+    CALCULATE ESTIMATE
+  </button>
+
+
+  <!-- FARE -->
+
+  <section class="fare">
+
+    <div class="fare-row">
+
+      <b>
+        ESTIMATED FARE
+      </b>
+
+      <div
+        class="amount"
+        id="fare"
+      >
+        ₹500<small>+</small>
+      </div>
+
+    </div>
+
+
+    <div class="payment">
+
+      <span>
+        20% Advance
+      </span>
+
+      <b id="advance">
+        ₹100+
+      </b>
+
+    </div>
+
+
+    <div class="payment">
+
+      <span>
+        Remaining 80%
+      </span>
+
+      <span>
+        Payable during trip
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <button
+    class="whatsapp"
+    onclick="confirmBooking()"
+  >
+    💬 CONFIRM BOOKING VIA WHATSAPP
+  </button>
+
+
+  <div class="note">
+
+    Rate ₹18/km • Minimum fare ₹500 •
+    20% advance for confirmation
+
   </div>
+
+</main>
+
 </section>
 
-<section class="section" id="services">
-  <h2>Our Services</h2>
-  <p class="section-lead">One booking flow for local and long-distance travel.</p>
-  <div class="cards">
-    <div class="card"><div class="card-icon">🚕</div><h3>Local Service</h3><p>Point-to-point travel within your local area with automatic driving distance.</p></div>
-    <div class="card"><div class="card-icon">✈️</div><h3>Airport Service</h3><p>Airport pickup and drop with location search and automatic route distance.</p></div>
-    <div class="card"><div class="card-icon">🚆</div><h3>Railway Service</h3><p>Railway station transfers with easy pickup and destination selection.</p></div>
-    <div class="card"><div class="card-icon">🗺️</div><h3>Out of Kutch</h3><p>Travel from Kutch to destinations outside Kutch with automatic KM calculation.</p></div>
-    <div class="card"><div class="card-icon">🏙️</div><h3>Out of Gujarat</h3><p>Interstate travel with route-based driving distance and fare estimation.</p></div>
-    <div class="card"><div class="card-icon">🚗</div><h3>Car & Taxi</h3><p>Comfortable vehicles for local, intercity and custom travel requirements.</p></div>
+
+<!-- =====================================================
+     MY BOOKINGS SCREEN
+===================================================== -->
+
+<section
+  id="bookings"
+  class="screen"
+>
+
+<header>
+
+  <button
+    class="back"
+    onclick="showScreen('home')"
+  >
+    ‹
+  </button>
+
+  <div class="logo">
+    VK
   </div>
+
+  <div class="brand">
+    VANDAN KUTCH TRAVELS
+
+    <small>
+      YOUR JOURNEY, OUR RESPONSIBILITY
+    </small>
+  </div>
+
+</header>
+
+
+<main class="content">
+
+  <div class="heading">
+    MY BOOKINGS
+  </div>
+
+  <div class="sub">
+    View and manage your Vandan Kutch Travels rides.
+  </div>
+
+
+  <section class="empty">
+
+    <div class="icon">
+      ▣
+    </div>
+
+    <h3>
+      No Bookings Yet
+    </h3>
+
+    <p>
+      Your confirmed rides will appear here
+      after you complete a booking.
+    </p>
+
+    <button
+      class="btn"
+      style="height:47px"
+      onclick="showScreen('book')"
+    >
+      BOOK YOUR FIRST RIDE
+    </button>
+
+  </section>
+
+
+  <section
+    class="card"
+    style="margin-top:14px"
+  >
+
+    <div class="label">
+      BOOKING DETAILS
+    </div>
+
+    <div
+      style="
+        color:#999;
+        font-size:9px;
+        line-height:1.6;
+      "
+    >
+
+      Once Firebase is connected,
+      confirmed bookings can be stored
+      and displayed here with status,
+      pickup, drop, date, time,
+      distance, fare and advance payment.
+
+    </div>
+
+  </section>
+
+</main>
+
 </section>
 
-<section class="section" id="payment">
-  <h2>Simple Payment</h2>
-  <p class="section-lead">Book your vehicle with a 20% advance and pay the remaining amount later.</p>
-  <div class="payment">
-    <div class="payment-box"><div class="advance">20%</div><h3>Advance Payment</h3><p style="color:var(--muted);margin-top:6px">Pay 20% of the estimated booking amount to confirm the booking.</p></div>
-    <div class="payment-box"><div class="advance">80%</div><h3>Remaining Payment</h3><p style="color:var(--muted);margin-top:6px">The remaining 80% can be paid later, according to the booking terms.</p></div>
+
+<!-- =====================================================
+     PROFILE SCREEN
+===================================================== -->
+
+<section
+  id="profile"
+  class="screen"
+>
+
+<header>
+
+  <button
+    class="back"
+    onclick="showScreen('home')"
+  >
+    ‹
+  </button>
+
+  <div class="logo">
+    VK
   </div>
+
+  <div class="brand">
+    VANDAN KUTCH TRAVELS
+
+    <small>
+      YOUR JOURNEY, OUR RESPONSIBILITY
+    </small>
+  </div>
+
+</header>
+
+
+<main class="content">
+
+  <div class="heading">
+    MY PROFILE
+  </div>
+
+  <div class="sub">
+    Create your profile once.
+    Your booking details will be filled automatically.
+  </div>
+
+
+  <section class="profile-card">
+
+    <div
+      class="avatar"
+      id="avatar"
+    >
+      <span>
+        ♙
+      </span>
+    </div>
+
+
+    <input
+      id="photoInput"
+      type="file"
+      accept="image/*"
+      style="display:none"
+      onchange="previewPhoto(event)"
+    >
+
+
+    <button
+      class="photo-btn"
+      onclick="
+        document
+        .getElementById('photoInput')
+        .click()
+      "
+    >
+      📷 ADD / CHANGE PHOTO
+    </button>
+
+
+    <h3 id="profileName">
+      Your Name
+    </h3>
+
+    <p id="profileMobile">
+      Add your mobile number
+    </p>
+
+  </section>
+
+
+  <section class="form">
+
+    <div class="label">
+      FULL NAME
+    </div>
+
+    <input
+      id="pName"
+      type="text"
+      placeholder="Enter your full name"
+    >
+
+
+    <div class="label">
+      MOBILE NUMBER
+    </div>
+
+    <input
+      id="pMobile"
+      type="tel"
+      inputmode="numeric"
+      maxlength="10"
+      placeholder="Enter 10-digit mobile number"
+    >
+
+
+    <div class="label">
+      EMAIL ADDRESS
+    </div>
+
+    <input
+      id="pEmail"
+      type="email"
+      placeholder="Enter your email address"
+    >
+
+
+    <button
+      class="btn"
+      onclick="saveProfile()"
+    >
+      SAVE PROFILE
+    </button>
+
+  </section>
+
+
+  <div class="note">
+
+    Your saved profile details will
+    automatically be used for future
+    ride bookings.
+
+  </div>
+
+</main>
+
 </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div><strong>Vandan Kutch Travels</strong><p>Reliable travel services from Kutch to Gujarat and beyond.</p></div>
-    <div><strong>Booking Flow</strong><p>Pickup → Drop → Automatic KM → Fare → 20% Advance</p></div>
-  </div>
-</footer>
 
-<div class="toast" id="toast"></div>
+<!-- =====================================================
+     CONTACT SCREEN
+===================================================== -->
+
+<section
+  id="contact"
+  class="screen"
+>
+
+<header>
+
+  <button
+    class="back"
+    onclick="showScreen('home')"
+  >
+    ‹
+  </button>
+
+  <div class="logo">
+    VK
+  </div>
+
+  <div class="brand">
+    VANDAN KUTCH TRAVELS
+
+    <small>
+      YOUR JOURNEY, OUR RESPONSIBILITY
+    </small>
+  </div>
+
+</header>
+
+
+<main class="content">
+
+  <div class="heading">
+    CONTACT US
+  </div>
+
+
+  <div class="sub">
+
+    We are here to help with your booking,
+    travel and journey-related questions.
+
+  </div>
+
+
+  <section class="contact-main">
+
+    <div class="icon">
+      ☎
+    </div>
+
+    <h3>
+      Vandan Kutch Travels
+    </h3>
+
+    <div class="location">
+      Mundra, Kutch, Gujarat
+    </div>
+
+  </section>
+
+
+  <section class="contact-list">
+
+
+    <!-- CALL -->
+
+    <div class="row">
+
+      <div class="ico">
+        ☎
+      </div>
+
+      <div class="row-info">
+
+        <b>
+          Call Us
+        </b>
+
+        <small>
+          9913747955
+        </small>
+
+      </div>
+
+      <button
+        class="action"
+        onclick="
+          location.href='tel:9913747955'
+        "
+      >
+        CALL
+      </button>
+
+    </div>
+
+
+    <!-- WHATSAPP -->
+
+    <div class="row">
+
+      <div class="ico">
+        💬
+      </div>
+
+      <div class="row-info">
+
+        <b>
+          WhatsApp
+        </b>
+
+        <small>
+          9913747955
+        </small>
+
+      </div>
+
+      <button
+        class="action"
+        onclick="openWhatsApp()"
+      >
+        CHAT
+      </button>
+
+    </div>
+
+
+    <!-- EMAIL -->
+
+    <div class="row">
+
+      <div class="ico">
+        ✉
+      </div>
+
+      <div class="row-info">
+
+        <b>
+          Email
+        </b>
+
+        <small
+          style="color:#f2c94c"
+        >
+          vandannanjar1@gmail.com
+        </small>
+
+      </div>
+
+      <button
+        class="action"
+        onclick="
+          location.href=
+          'mailto:vandannanjar1@gmail.com'
+        "
+      >
+        EMAIL
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <div class="note">
+
+    For bookings and support,
+    contact us directly.
+
+    <br>
+
+    <b>
+      Vandan Kutch Travels
+    </b>
+
+  </div>
+
+</main>
+
+</section>
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav>
+
+<div class="navin">
+
+
+  <button
+    data-nav="home"
+    onclick="showScreen('home')"
+  >
+
+    <span>
+      ⌂
+    </span>
+
+    Home
+
+  </button>
+
+
+  <button
+    data-nav="book"
+    onclick="showScreen('book')"
+  >
+
+    <span>
+      ＋
+    </span>
+
+    Book
+
+  </button>
+
+
+  <button
+    data-nav="bookings"
+    onclick="showScreen('bookings')"
+  >
+
+    <span>
+      ▣
+    </span>
+
+    My Bookings
+
+  </button>
+
+
+  <button
+    data-nav="profile"
+    onclick="showScreen('profile')"
+  >
+
+    <span>
+      ♙
+    </span>
+
+    Profile
+
+  </button>
+
+
+  <button
+    data-nav="contact"
+    onclick="showScreen('contact')"
+  >
+
+    <span>
+      ☎
+    </span>
+
+    Contact
+
+  </button>
+
+
+</div>
+
+</nav>
+
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
+</div>
+
 
 <script>
-/*
-  VAN​DAN KUTCH TRAVELS — AUTOMATIC DISTANCE ENGINE
 
-  IMPORTANT:
-  1. Enable Google Maps Platform APIs in Google Cloud.
-  2. For production, use a restricted API key and preferably a secure backend/proxy.
-  3. Replace GOOGLE_MAPS_API_KEY below with your browser-restricted key.
-  4. The production version should use Google Places/Autocomplete + Routes API.
-*/
+/* =====================================================
+   VANDAN KUTCH TRAVELS
+   SINGLE INDEX.HTML APP
+===================================================== */
 
-const GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY";
 
-let selectedService = "Local Service";
-let pickupPlace = null;
-let dropPlace = null;
-let lastDistanceKm = 0;
+/* =========================
+   CONFIG
+========================= */
 
-const serviceTabs = document.querySelectorAll(".service-tab");
-serviceTabs.forEach(btn => btn.addEventListener("click", () => {
-  serviceTabs.forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  selectedService = btn.dataset.service;
-  document.getElementById("bookingTitle").textContent = "Book " + selectedService;
-  resetRoute();
-}));
+const RATE_PER_KM = 18;
 
-function scrollToBooking(){document.getElementById("booking").scrollIntoView({behavior:"smooth"});}
+const MIN_FARE = 500;
 
-function resetRoute(){
-  pickupPlace=null;dropPlace=null;lastDistanceKm=0;
-  document.getElementById("pickupStatus").textContent="Search and select a location.";
-  document.getElementById("dropStatus").textContent="Search and select a location.";
-  document.getElementById("distanceBox").style.display="none";
-  document.getElementById("summary").style.display="none";
-}
+const ADVANCE_PERCENT = 20;
 
-function showToast(msg){
-  const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";
-  clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2800);
-}
+const WHATSAPP_NUMBER =
+  "919913747955";
 
-/*
-  Demo autocomplete:
-  This is only a fallback so the new HTML can be tested immediately.
-  In production, replace this with Google Places Autocomplete / Places API.
-*/
-const demoPlaces=[
-  {name:"Bhuj Airport, Bhuj, Gujarat",lat:23.2878,lng:69.6701},
-  {name:"Bhuj Railway Station, Bhuj, Gujarat",lat:23.2534,lng:69.6669},
-  {name:"Mundra, Kutch, Gujarat",lat:22.8397,lng:69.7219},
-  {name:"Gandhidham, Kutch, Gujarat",lat:23.0753,lng:70.1337},
-  {name:"Anjar, Kutch, Gujarat",lat:23.1132,lng:70.0266},
-  {name:"Gandhi Dham Railway Station, Gujarat",lat:23.0745,lng:70.1328},
-  {name:"Ahmedabad Airport, Gujarat",lat:23.0734,lng:72.6266},
-  {name:"Ahmedabad Railway Station, Gujarat",lat:23.0264,lng:72.6006},
-  {name:"Vadodara Airport, Gujarat",lat:22.3362,lng:73.2263},
-  {name:"Rajkot Airport, Gujarat",lat:22.3094,lng:70.7795}
+
+/* =========================
+   APP STATE
+========================= */
+
+let selectedService = "Local";
+
+let calculatedDistance = null;
+
+
+/* =========================
+   CUSTOMER PROFILE
+========================= */
+
+let profile = {
+
+  name:
+    localStorage.getItem("vkt_name") || "",
+
+  mobile:
+    localStorage.getItem("vkt_mobile") || "",
+
+  email:
+    localStorage.getItem("vkt_email") || "",
+
+  photo:
+    localStorage.getItem("vkt_photo") || ""
+
+};
+
+
+/* =========================
+   AIRPORT LIST
+========================= */
+
+const airportList = [
+
+  "Bhuj Airport (BHJ)",
+
+  "Ahmedabad Airport (AMD)",
+
+  "Rajkot Airport (HSR)",
+
+  "Jamnagar Airport (JGA)",
+
+  "Vadodara Airport (BDQ)",
+
+  "Surat Airport (STV)"
+
 ];
 
-function attachSearch(inputId,suggestId,statusId,type){
-  const input=document.getElementById(inputId), box=document.getElementById(suggestId);
-  input.addEventListener("input",()=>{
-    const q=input.value.trim().toLowerCase();
-    box.innerHTML="";
-    if(!q){box.style.display="none";return}
-    const matches=demoPlaces.filter(p=>p.name.toLowerCase().includes(q)).slice(0,6);
-    matches.forEach(p=>{
-      const d=document.createElement("div");d.className="suggestion";
-      d.innerHTML="<b>📍 "+p.name.split(",")[0]+"</b><span>"+p.name+"</span>";
-      d.onclick=()=>{
-        input.value=p.name;
-        box.style.display="none";
-        if(type==="pickup") pickupPlace=p; else dropPlace=p;
-        document.getElementById(statusId).textContent="✓ Location selected";
-        if(pickupPlace&&dropPlace) calculateDistance();
-      };
-      box.appendChild(d);
+
+/* =========================
+   RAILWAY LIST
+========================= */
+
+const railwayList = [
+
+  "Bhuj Railway Station",
+
+  "Gandhidham Railway Station",
+
+  "Anjar Railway Station",
+
+  "Gandhidham Junction",
+
+  "Ahmedabad Railway Station",
+
+  "Rajkot Railway Station",
+
+  "Jamnagar Railway Station"
+
+];
+
+
+/* =====================================================
+   SCREEN NAVIGATION
+===================================================== */
+
+function showScreen(id){
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+
+      screen.classList.remove("active");
+
     });
-    box.style.display=matches.length?"block":"none";
-  });
-}
-attachSearch("pickup","pickupSuggestions","pickupStatus","pickup");
-attachSearch("drop","dropSuggestions","dropStatus","drop");
 
-function haversine(a,b){
-  const R=6371,rad=Math.PI/180;
-  const dLat=(b.lat-a.lat)*rad,dLng=(b.lng-a.lng)*rad;
-  const x=Math.sin(dLat/2)**2+Math.cos(a.lat*rad)*Math.cos(b.lat*rad)*Math.sin(dLng/2)**2;
-  return 2*R*Math.asin(Math.sqrt(x));
-}
 
-/*
-  Route distance:
-  The demo fallback estimates distance using coordinates.
-  Once Google Routes API is connected, replace this function with
-  computeRoutes() from your secured backend / Google Routes API.
-*/
-async function getDrivingDistance(){
-  if(!pickupPlace||!dropPlace) throw new Error("Select both locations.");
+  const screen =
+    document.getElementById(id);
 
-  // Production placeholder:
-  // return await fetch("/api/routes", {
-  //   method:"POST",
-  //   headers:{"Content-Type":"application/json"},
-  //   body:JSON.stringify({origin:pickupPlace,destination:dropPlace})
-  // }).then(r=>r.json());
 
-  // Temporary test fallback — NOT road distance.
-  // This keeps the UI functional until the Google Routes API is connected.
-  const straightKm=haversine(pickupPlace,dropPlace);
-  return {distanceKm:straightKm*1.25,durationMin:Math.max(8,Math.round(straightKm*1.8))};
-}
+  if(screen){
 
-function ratePerKm(){
-  switch(selectedService){
-    case "Local Service": return 18;
-    case "Airport Service": return 20;
-    case "Railway Service": return 19;
-    case "Out of Kutch Service": return 17;
-    case "Out of Gujarat Service": return 16;
-    case "Car & Taxi": return 18;
-    default:return 18;
+    screen.classList.add("active");
+
   }
+
+
+  document
+    .querySelectorAll("nav button")
+    .forEach(button => {
+
+      button.classList.remove("active");
+
+    });
+
+
+  const navButton =
+    document.querySelector(
+      `nav button[data-nav="${id}"]`
+    );
+
+
+  if(navButton){
+
+    navButton.classList.add("active");
+
+  }
+
+
+  window.scrollTo(0,0);
+
+
+  if(id === "book"){
+
+    fillProfileIntoBooking();
+
+  }
+
 }
 
-async function calculateDistance(){
-  if(!pickupPlace||!dropPlace){
-    showToast("Please search and select both Pickup and Drop locations.");
+
+/* =====================================================
+   OPEN BOOKING
+===================================================== */
+
+function openBook(service){
+
+  selectedService = service;
+
+  showScreen("book");
+
+
+  document
+    .querySelectorAll(".service")
+    .forEach(button => {
+
+      button.classList.toggle(
+        "active",
+        button.dataset.service === service
+      );
+
+    });
+
+
+  updateSpecialSelector();
+
+}
+
+
+/* =====================================================
+   SERVICE SELECTION
+===================================================== */
+
+function pickService(button){
+
+  selectedService =
+    button.dataset.service;
+
+
+  document
+    .querySelectorAll(".service")
+    .forEach(item => {
+
+      item.classList.remove("active");
+
+    });
+
+
+  button.classList.add("active");
+
+
+  updateSpecialSelector();
+
+}
+
+
+/* =====================================================
+   AIRPORT / RAILWAY SELECTOR
+===================================================== */
+
+function updateSpecialSelector(){
+
+  const wrap =
+    document.getElementById(
+      "specialWrap"
+    );
+
+  const select =
+    document.getElementById(
+      "specialSelect"
+    );
+
+  const label =
+    document.getElementById(
+      "specialLabel"
+    );
+
+
+  select.innerHTML =
+    '<option value="">Select</option>';
+
+
+  if(selectedService === "Airport"){
+
+    wrap.style.display =
+      "block";
+
+    label.textContent =
+      "SELECT AIRPORT";
+
+
+    airportList.forEach(
+      airport => {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value =
+          airport;
+
+        option.textContent =
+          airport;
+
+        select.appendChild(
+          option
+        );
+
+      }
+    );
+
+  }
+
+  else if(
+    selectedService === "Railway"
+  ){
+
+    wrap.style.display =
+      "block";
+
+    label.textContent =
+      "SELECT RAILWAY STATION";
+
+
+    railwayList.forEach(
+      station => {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value =
+          station;
+
+        option.textContent =
+          station;
+
+        select.appendChild(
+          option
+        );
+
+      }
+    );
+
+  }
+
+  else{
+
+    wrap.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =====================================================
+   SPECIAL DESTINATION
+===================================================== */
+
+function specialChanged(){
+
+  const value =
+    document.getElementById(
+      "specialSelect"
+    ).value;
+
+
+  if(!value){
+
     return;
+
   }
-  const btn=document.querySelector(".form-actions .primary");
-  const old=btn.textContent;btn.disabled=true;btn.textContent="Calculating…";
-  try{
-    const route=await getDrivingDistance();
-    lastDistanceKm=route.distanceKm;
-    const fare=Math.max(300,Math.round(lastDistanceKm*ratePerKm()));
-    document.getElementById("distanceValue").textContent=lastDistanceKm.toFixed(1)+" KM";
-    document.getElementById("durationValue").textContent="Estimated driving time: "+route.durationMin+" min";
-    document.getElementById("fareValue").textContent="₹ "+fare.toLocaleString("en-IN");
-    document.getElementById("distanceBox").style.display="block";
-    updateSummary(fare);
-  }catch(e){showToast(e.message||"Could not calculate route.");}
-  finally{btn.disabled=false;btn.textContent=old}
+
+
+  document.getElementById(
+    "drop"
+  ).value = value;
+
+
+  toast(
+    value +
+    " selected as Drop location"
+  );
+
 }
 
-function updateSummary(fare){
-  document.getElementById("sService").textContent=selectedService;
-  document.getElementById("sVehicle").textContent=document.getElementById("vehicle").value;
-  document.getElementById("sPickup").textContent=pickupPlace.name;
-  document.getElementById("sDrop").textContent=dropPlace.name;
-  const date=document.getElementById("travelDate").value||"Date not selected";
-  const time=document.getElementById("travelTime").value||"Time not selected";
-  document.getElementById("sDate").textContent=date+" • "+time;
-  document.getElementById("sAdvance").textContent="₹ "+Math.round(fare*.20).toLocaleString("en-IN");
-  document.getElementById("summary").style.display="block";
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+function saveProfile(){
+
+  const name =
+    document.getElementById(
+      "pName"
+    ).value.trim();
+
+
+  const mobile =
+    document.getElementById(
+      "pMobile"
+    ).value.trim();
+
+
+  const email =
+    document.getElementById(
+      "pEmail"
+    ).value.trim();
+
+
+  if(!name){
+
+    toast(
+      "Please enter your full name"
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !/^[0-9]{10}$/.test(mobile)
+  ){
+
+    toast(
+      "Please enter valid 10-digit mobile number"
+    );
+
+    return;
+
+  }
+
+
+  profile.name =
+    name;
+
+  profile.mobile =
+    mobile;
+
+  profile.email =
+    email;
+
+
+  localStorage.setItem(
+    "vkt_name",
+    name
+  );
+
+  localStorage.setItem(
+    "vkt_mobile",
+    mobile
+  );
+
+  localStorage.setItem(
+    "vkt_email",
+    email
+  );
+
+
+  document.getElementById(
+    "profileName"
+  ).textContent =
+    name;
+
+
+  document.getElementById(
+    "profileMobile"
+  ).textContent =
+    "+91 " + mobile;
+
+
+  toast(
+    "Profile saved successfully"
+  );
+
 }
 
-function useDemoLocations(){
-  pickupPlace=demoPlaces[1];dropPlace=demoPlaces[0];
-  document.getElementById("pickup").value=pickupPlace.name;
-  document.getElementById("drop").value=dropPlace.name;
-  document.getElementById("pickupStatus").textContent="✓ Location selected";
-  document.getElementById("dropStatus").textContent="✓ Location selected";
-  calculateDistance();
+
+/* =====================================================
+   PROFILE PHOTO
+===================================================== */
+
+function previewPhoto(event){
+
+  const file =
+    event.target.files[0];
+
+
+  if(!file){
+
+    return;
+
+  }
+
+
+  const reader =
+    new FileReader();
+
+
+  reader.onload =
+    function(e){
+
+      profile.photo =
+        e.target.result;
+
+
+      localStorage.setItem(
+        "vkt_photo",
+        profile.photo
+      );
+
+
+      document.getElementById(
+        "avatar"
+      ).innerHTML =
+        `<img
+          src="${profile.photo}"
+          alt="Profile Photo"
+        >`;
+
+
+      toast(
+        "Profile photo added"
+      );
+
+    };
+
+
+  reader.readAsDataURL(
+    file
+  );
+
 }
 
-function sendBooking(){
-  if(!pickupPlace||!dropPlace||!lastDistanceKm){showToast("Please calculate the distance first.");return}
-  showToast("Booking flow ready — connect Firebase/WhatsApp/payment next.");
+
+/* =====================================================
+   LOAD PROFILE
+===================================================== */
+
+function loadProfile(){
+
+  if(profile.name){
+
+    document.getElementById(
+      "pName"
+    ).value =
+      profile.name;
+
+
+    document.getElementById(
+      "profileName"
+    ).textContent =
+      profile.name;
+
+  }
+
+
+  if(profile.mobile){
+
+    document.getElementById(
+      "pMobile"
+    ).value =
+      profile.mobile;
+
+
+    document.getElementById(
+      "profileMobile"
+    ).textContent =
+      "+91 " +
+      profile.mobile;
+
+  }
+
+
+  if(profile.email){
+
+    document.getElementById(
+      "pEmail"
+    ).value =
+      profile.email;
+
+  }
+
+
+  if(profile.photo){
+
+    document.getElementById(
+      "avatar"
+    ).innerHTML =
+      `<img
+        src="${profile.photo}"
+        alt="Profile Photo"
+      >`;
+
+  }
+
 }
 
-document.getElementById("travelDate").min=new Date().toISOString().split("T")[0];
+
+/* =====================================================
+   BOOKING PROFILE LINK
+===================================================== */
+
+function fillProfileIntoBooking(){
+
+  /*
+    Customer profile is saved in localStorage.
+
+    Name + Mobile + Email are therefore
+    already available to the booking flow.
+
+    Customer does NOT need to type them
+    again on every booking.
+  */
+
+}
+
+
+/* =====================================================
+   ESTIMATE
+===================================================== */
+
+function estimate(){
+
+  const pickup =
+    document.getElementById(
+      "pickup"
+    ).value.trim();
+
+
+  const drop =
+    document.getElementById(
+      "drop"
+    ).value.trim();
+
+
+  if(!pickup || !drop){
+
+    toast(
+      "Please select Pickup and Drop location"
+    );
+
+    return;
+
+  }
+
+
+  /*
+    IMPORTANT:
+
+    This is the place where the live
+    Google Places + Google Routes API
+    connection will be added.
+
+    After the customer selects both
+    locations:
+
+    Pickup
+          +
+    Drop
+          ↓
+    Google Routes API
+          ↓
+    Driving Distance KM
+          ↓
+    KM × ₹18
+          ↓
+    Minimum ₹500
+          ↓
+    20% Advance
+  */
+
+
+  toast(
+    "Pickup & Drop selected. Google Routes API connection is required for live KM."
+  );
+
+}
+
+
+/* =====================================================
+   UPDATE FARE
+===================================================== */
+
+function setCalculatedDistance(km){
+
+  calculatedDistance =
+    Number(km);
+
+
+  if(
+    !Number.isFinite(
+      calculatedDistance
+    ) ||
+    calculatedDistance <= 0
+  ){
+
+    document.getElementById(
+      "distance"
+    ).textContent =
+      "— km";
+
+    return;
+
+  }
+
+
+  document.getElementById(
+    "distance"
+  ).textContent =
+    calculatedDistance.toFixed(1) +
+    " km";
+
+
+  const fare =
+    Math.max(
+      MIN_FARE,
+      calculatedDistance *
+      RATE_PER_KM
+    );
+
+
+  const advance =
+    fare *
+    (ADVANCE_PERCENT / 100);
+
+
+  document.getElementById(
+    "fare"
+  ).innerHTML =
+    "₹" +
+    Math.round(
+      fare
+    ).toLocaleString("en-IN") +
+    "<small>+</small>";
+
+
+  document.getElementById(
+    "advance"
+  ).textContent =
+    "₹" +
+    Math.round(
+      advance
+    ).toLocaleString("en-IN") +
+    "+";
+
+}
+
+
+/* =====================================================
+   WHATSAPP BOOKING
+===================================================== */
+
+function confirmBooking(){
+
+  const pickup =
+    document.getElementById(
+      "pickup"
+    ).value.trim();
+
+
+  const drop =
+    document.getElementById(
+      "drop"
+    ).value.trim();
+
+
+  const date =
+    document.getElementById(
+      "date"
+    ).value;
+
+
+  const time =
+    document.getElementById(
+      "time"
+    ).value;
+
+
+  const passengers =
+    document.getElementById(
+      "pass"
+    ).value;
+
+
+  if(
+    !profile.name ||
+    !profile.mobile
+  ){
+
+    toast(
+      "Please create your Profile first"
+    );
+
+
+    setTimeout(
+      () => showScreen("profile"),
+      900
+    );
+
+
+    return;
+
+  }
+
+
+  if(
+    !pickup ||
+    !drop
+  ){
+
+    toast(
+      "Please select Pickup and Drop"
+    );
+
+    return;
+
+  }
+
+
+  let fareText =
+    "To be calculated";
+
+
+  if(calculatedDistance){
+
+    const fare =
+      Math.max(
+        MIN_FARE,
+        calculatedDistance *
+        RATE_PER_KM
+      );
+
+
+    fareText =
+      "₹" +
+      Math.round(
+        fare
+      ).toLocaleString("en-IN") +
+      "+";
+
+  }
+
+
+  const message =
+
+`VANDAN KUTCH TRAVELS - BOOKING REQUEST
+
+Customer: ${profile.name}
+Mobile: ${profile.mobile}
+Email: ${profile.email || "Not provided"}
+
+Service: ${selectedService}
+
+Pickup:
+${pickup}
+
+Drop:
+${drop}
+
+Date:
+${date || "Not selected"}
+
+Time:
+${time || "Not selected"}
+
+Passengers:
+${passengers}
+
+Driving Distance:
+${
+  calculatedDistance
+  ? calculatedDistance.toFixed(1) + " km"
+  : "Pending"
+}
+
+Estimated Fare:
+${fareText}
+
+Advance:
+20%
+
+Remaining:
+80% payable later`;
+
+
+  window.location.href =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+}
+
+
+/* =====================================================
+   CONTACT WHATSAPP
+===================================================== */
+
+function openWhatsApp(){
+
+  const message =
+    "Hello Vandan Kutch Travels, I need information about booking.";
+
+
+  window.location.href =
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(
+      message
+    );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function toast(text){
+
+  const element =
+    document.getElementById(
+      "toast"
+    );
+
+
+  element.textContent =
+    text;
+
+
+  element.style.display =
+    "block";
+
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+
+  window.toastTimer =
+    setTimeout(
+      () => {
+
+        element.style.display =
+          "none";
+
+      },
+      2500
+    );
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+document.getElementById(
+  "date"
+).min =
+  new Date()
+  .toISOString()
+  .slice(0,10);
+
+
+loadProfile();
+
+updateSpecialSelector();
+
 </script>
+
 </body>
 </html>
