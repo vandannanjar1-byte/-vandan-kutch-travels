@@ -8,27 +8,45 @@
 <meta name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover">
 
-<meta name="theme-color" content="#07152e">
+<meta name="theme-color"
+      content="#07152e">
 
 <meta name="apple-mobile-web-app-capable"
       content="yes">
 
-<link rel="manifest" href="manifest.json">
+<link rel="manifest"
+      href="manifest.json">
 
 <title>Vandan Kutch Travels</title>
 
+
 <style>
+
+/* ==================================================
+   RESET
+================================================== */
 
 *{
   box-sizing:border-box;
 }
 
+
 body{
   margin:0;
   background:#dfe4eb;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
   color:#172033;
 }
+
+
+/* ==================================================
+   APP
+================================================== */
 
 .app{
   width:100%;
@@ -39,30 +57,53 @@ body{
   padding-bottom:88px;
 }
 
-/* =========================
+
+/* ==================================================
    HEADER
-========================= */
+================================================== */
 
 header{
-  background:linear-gradient(145deg,#07152e,#1d3a63);
+  background:
+    linear-gradient(
+      145deg,
+      #07152e,
+      #1d3a63
+    );
+
   color:#fff;
-  padding:30px 20px 22px;
-  border-radius:0 0 28px 28px;
+
+  padding:
+    30px
+    20px
+    22px;
+
+  border-radius:
+    0
+    0
+    28px
+    28px;
 }
+
 
 .logo{
   width:52px;
   height:52px;
+
   border-radius:15px;
+
   background:#d8ad52;
   color:#101010;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:25px;
   font-weight:900;
+
   margin-bottom:14px;
 }
+
 
 .brand{
   font-size:24px;
@@ -70,416 +111,685 @@ header{
   letter-spacing:.3px;
 }
 
+
 .tag{
   font-size:13px;
   opacity:.82;
   margin-top:4px;
 }
 
+
 .location{
   font-size:13px;
   margin-top:16px;
 }
 
-/* =========================
+
+/* ==================================================
    HERO
-========================= */
+================================================== */
 
 .hero{
   background:#fff;
   color:#172033;
+
   border-radius:20px;
+
   margin-top:18px;
   padding:17px;
-  box-shadow:0 10px 25px #0002;
+
+  box-shadow:
+    0 10px 25px #0002;
 }
+
 
 .hero h2{
   margin:0 0 5px;
   font-size:19px;
 }
 
+
 .muted{
   font-size:12px;
   color:#687387;
 }
 
-/* =========================
+
+/* ==================================================
    BUTTONS
-========================= */
+================================================== */
 
 button{
   font:inherit;
   cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
+
+  -webkit-tap-highlight-color:
+    transparent;
 }
+
 
 .primary{
   border:0;
   border-radius:13px;
+
   background:#d8ad52;
   color:#111;
+
   font-weight:800;
+
   padding:14px;
   width:100%;
+
   margin-top:14px;
 }
+
 
 .green{
   border:0;
   border-radius:13px;
+
   background:#35a866;
   color:#fff;
+
   font-weight:800;
+
   padding:14px;
   width:100%;
+
   margin-top:10px;
 }
 
-/* =========================
+
+.secondary{
+  border:1px solid #d8dde6;
+
+  border-radius:13px;
+
+  background:#fff;
+  color:#172033;
+
+  font-weight:700;
+
+  padding:13px;
+  width:100%;
+
+  margin-top:10px;
+}
+
+
+/* ==================================================
    SECTIONS
-========================= */
+================================================== */
 
 .section{
   padding:18px;
 }
 
+
 .title{
   font-size:18px;
   font-weight:800;
+
   margin-bottom:12px;
 }
 
+
 .grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:
+    1fr 1fr;
+
   gap:11px;
 }
 
+
 .card{
   background:#fff;
+
   border-radius:17px;
+
   padding:15px;
-  box-shadow:0 5px 16px #00000010;
+
+  box-shadow:
+    0 5px 16px #00000010;
 }
+
 
 .service{
   cursor:pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
 }
+
 
 .service:active{
   transform:scale(.98);
 }
 
+
 .ico{
   font-size:27px;
 }
+
 
 .service b{
   display:block;
   margin-top:7px;
 }
 
+
 .service .muted{
   margin-top:3px;
 }
 
-/* =========================
+
+/* ==================================================
    BOTTOM NAV
-========================= */
+================================================== */
 
 .bottom{
   position:fixed;
+
   bottom:0;
   left:50%;
-  transform:translateX(-50%);
-  width:min(430px,100%);
-  padding:9px 5px calc(9px + env(safe-area-inset-bottom));
+
+  transform:
+    translateX(-50%);
+
+  width:min(
+    430px,
+    100%
+  );
+
+  padding:
+    9px
+    5px
+    calc(
+      9px +
+      env(safe-area-inset-bottom)
+    );
+
   background:#fff;
-  border-top:1px solid #e1e4e9;
+
+  border-top:
+    1px solid #e1e4e9;
+
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
+
   z-index:100;
 }
+
 
 .nav{
   border:0;
   background:none;
+
   color:#6b7483;
+
   font-size:11px;
+
   padding:5px;
 }
 
+
 .nav strong{
   display:block;
+
   font-size:21px;
+
   margin-bottom:2px;
 }
+
 
 .nav.on{
   color:#07152e;
   font-weight:800;
 }
 
-/* =========================
+
+/* ==================================================
    SCREENS
-========================= */
+================================================== */
 
 .screen{
   display:none;
 }
 
+
 .screen.on{
   display:block;
 }
 
+
 .back{
   border:0;
   background:none;
+
   color:#fff;
-  padding:0 0 15px;
+
+  padding:
+    0
+    0
+    15px;
+
   font-weight:700;
 }
 
-/* =========================
+
+/* ==================================================
    FORM
-========================= */
+================================================== */
 
 .form{
   margin:16px;
+
   background:#fff;
+
   border-radius:18px;
+
   padding:17px;
-  box-shadow:0 5px 18px #00000010;
+
+  box-shadow:
+    0 5px 18px #00000010;
 }
+
 
 .label{
   font-size:12px;
   color:#687387;
-  margin:10px 0 5px;
+
+  margin:
+    10px
+    0
+    5px;
 }
+
 
 .input{
   width:100%;
+
   padding:13px;
-  border:1px solid #d8dde6;
+
+  border:
+    1px solid #d8dde6;
+
   border-radius:11px;
+
   font-size:15px;
+
   background:#fff;
   color:#172033;
 }
 
+
 .input:focus{
   outline:none;
+
   border-color:#d8ad52;
 }
 
+
+.input:read-only{
+  background:#f3f5f8;
+  color:#4f596b;
+}
+
+
 .row{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:10px;
 }
 
-/* =========================
-   EXTRA SELECT BOX
-========================= */
 
-.location-box{
-  background:#f8f9fb;
-  border:1px solid #e1e5ec;
-  border-radius:13px;
-  padding:11px;
-  margin-top:10px;
-}
-
-.location-box .label{
-  margin-top:0;
-}
-
-.location-box.hide{
-  display:none;
-}
-
-/* =========================
+/* ==================================================
    FARE
-========================= */
+================================================== */
 
 .fare{
   margin-top:14px;
+
   background:#eef8f2;
-  border:1px solid #cde9d7;
+
+  border:
+    1px solid #cde9d7;
+
   border-radius:13px;
+
   padding:13px;
 }
 
-.fare b{
-  font-size:20px;
-}
 
-.distance-info{
-  margin-top:6px;
+.fare-title{
   font-size:12px;
   color:#687387;
+
+  margin-bottom:4px;
 }
 
-/* =========================
+
+.fare b{
+  font-size:22px;
+  color:#172033;
+}
+
+
+.distance-box{
+  margin-top:9px;
+
+  font-size:13px;
+
+  color:#4f596b;
+}
+
+
+.distance-box strong{
+  color:#172033;
+}
+
+
+.distance-detail{
+  margin-top:6px;
+
+  font-size:11px;
+
+  color:#687387;
+
+  line-height:1.5;
+}
+
+
+/* ==================================================
+   SPECIAL OPTIONS
+================================================== */
+
+.option-box{
+  margin-top:10px;
+
+  padding:12px;
+
+  background:#f7f8fa;
+
+  border:
+    1px solid #e0e4ea;
+
+  border-radius:13px;
+}
+
+
+.option-box.hidden{
+  display:none;
+}
+
+
+.option-title{
+  font-size:12px;
+
+  font-weight:700;
+
+  color:#4f596b;
+
+  margin-bottom:6px;
+}
+
+
+/* ==================================================
    TOURS
-========================= */
+================================================== */
 
 .tour{
   background:#fff;
+
   border-radius:17px;
+
   padding:16px;
+
   margin-bottom:11px;
-  box-shadow:0 5px 16px #00000010;
+
+  box-shadow:
+    0 5px 16px #00000010;
 }
+
 
 .tour h3{
   margin:0 0 4px;
 }
 
+
 .tour button{
   margin-top:10px;
 }
 
-/* =========================
+
+/* ==================================================
    NOTICE
-========================= */
+================================================== */
 
 .notice{
   margin:16px;
+
   background:#fff8e7;
-  border:1px solid #efdfa9;
+
+  border:
+    1px solid #efdfa9;
+
   border-radius:15px;
+
   padding:14px;
+
   font-size:13px;
 }
 
-/* =========================
+
+/* ==================================================
    BOOKING
-========================= */
+================================================== */
 
 .booking{
   background:#fff;
+
   border-radius:17px;
+
   padding:16px;
+
   margin-bottom:12px;
-  box-shadow:0 5px 16px #00000010;
+
+  box-shadow:
+    0 5px 16px #00000010;
 }
 
+
 .booking h3{
-  margin:0 0 8px;
+  margin:
+    0
+    0
+    8px;
 }
+
 
 .booking-line{
   font-size:13px;
+
   margin:5px 0;
+
   color:#4f596b;
 }
+
 
 .booking-line b{
   color:#172033;
 }
 
+
 .booking-actions{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:8px;
+
   margin-top:12px;
 }
 
+
 .small-btn{
   border:0;
+
   border-radius:10px;
+
   padding:10px;
+
   font-weight:700;
 }
+
 
 .delete-btn{
   background:#f1eeee;
   color:#a33;
 }
 
+
 .whatsapp-btn{
   background:#35a866;
   color:#fff;
 }
 
-/* =========================
-   LOADING
-========================= */
 
-.loading{
-  opacity:.6;
-  pointer-events:none;
+/* ==================================================
+   INFO
+================================================== */
+
+.info{
+  margin-top:10px;
+
+  padding:11px;
+
+  background:#f4f6f9;
+
+  border-radius:11px;
+
+  font-size:11px;
+
+  line-height:1.5;
+
+  color:#687387;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(
+  max-width:360px
+){
+
+  .brand{
+    font-size:21px;
+  }
+
+  .row{
+    grid-template-columns:
+      1fr;
+  }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <div class="app">
+
 
 <!-- ==================================================
      HOME
 ================================================== -->
 
-<section id="home" class="screen on">
+<section
+  id="home"
+  class="screen on">
+
 
 <header>
+
 
 <div class="logo">
 VK
 </div>
 
+
 <div class="brand">
 VANDAN KUTCH TRAVELS
 </div>
+
 
 <div class="tag">
 Your Journey, Our Responsibility
 </div>
 
+
 <div class="location">
 📍 Mundra, Kutch, Gujarat
 </div>
 
+
 <div class="hero">
+
 
 <h2>
 🚗 Ertiga CNG • 7 Seater
 </h2>
 
+
 <div class="muted">
-Corporate • Airport • Railway • Outstation • Kutch Tours
+Corporate • Airport • Railway •
+Outstation • Kutch Tours
 </div>
 
+
 <button
-class="primary"
-onclick="go('book')">
+  class="primary"
+  onclick="go('book')">
 
 🚕 BOOK YOUR RIDE
 
 </button>
 
+
 </div>
+
 
 </header>
 
 
+
 <div class="section">
+
 
 <div class="title">
 Our Services
 </div>
 
+
 <div class="grid">
 
+
 <div
-class="card service"
-onclick="quick('Airport Transfer')">
+  class="card service"
+  onclick="quick('Airport Transfer')">
 
 <div class="ico">
 ✈️
@@ -496,9 +806,10 @@ Airport Pickup / Drop
 </div>
 
 
+
 <div
-class="card service"
-onclick="quick('Railway Transfer')">
+  class="card service"
+  onclick="quick('Railway Transfer')">
 
 <div class="ico">
 🚉
@@ -515,9 +826,10 @@ Station Pickup / Drop
 </div>
 
 
+
 <div
-class="card service"
-onclick="quick('Corporate Travel')">
+  class="card service"
+  onclick="quick('Corporate Travel')">
 
 <div class="ico">
 🏢
@@ -534,9 +846,10 @@ Company & Guests
 </div>
 
 
+
 <div
-class="card service"
-onclick="go('tours')">
+  class="card service"
+  onclick="go('tours')">
 
 <div class="ico">
 🏜️
@@ -552,12 +865,15 @@ Rann • Mandvi • Bhuj
 
 </div>
 
+
 </div>
 
 </div>
+
 
 
 <div class="section">
+
 
 <div class="card">
 
@@ -565,57 +881,71 @@ Rann • Mandvi • Bhuj
 Why Vandan Kutch Travels?
 </b>
 
+
 <p class="muted">
 
 ✓ Mundra based<br>
 ✓ Clean 7-seater Ertiga CNG<br>
 ✓ Local & outstation service<br>
-✓ Airport & railway transfers<br>
-✓ Easy WhatsApp booking
+✓ Airport & Railway pickup/drop<br>
+✓ Easy WhatsApp booking<br>
+✓ ₹18/km • Minimum ₹500
 
 </p>
 
 </div>
 
 
+
 <button
-class="green"
-onclick="wa()">
+  class="green"
+  onclick="wa()">
 
 💬 WhatsApp Booking
 
 </button>
 
+
 </div>
 
+
 </section>
+
 
 
 <!-- ==================================================
      BOOK
 ================================================== -->
 
-<section id="book" class="screen">
+<section
+  id="book"
+  class="screen">
+
 
 <header>
 
+
 <button
-class="back"
-onclick="go('home')">
+  class="back"
+  onclick="go('home')">
 
 ← Back
 
 </button>
 
+
 <div class="brand">
 Book Your Ride
 </div>
+
 
 <div class="tag">
 Mundra • Kutch • Gujarat
 </div>
 
+
 </header>
+
 
 
 <div class="form">
@@ -627,10 +957,11 @@ Mundra • Kutch • Gujarat
 Service
 </div>
 
+
 <select
-id="service"
-class="input"
-onchange="serviceChanged()">
+  id="service"
+  class="input"
+  onchange="serviceChanged()">
 
 <option value="Local Ride">
 Local Ride
@@ -659,74 +990,84 @@ Kutch Tour
 </select>
 
 
-<!-- AIRPORT OPTIONS -->
+
+<!-- ==================================================
+     AIRPORT OPTIONS
+================================================== -->
 
 <div
-id="airportBox"
-class="location-box hide">
+  id="airportOptions"
+  class="option-box hidden">
 
-<div class="label">
-Airport Service
+
+<div class="option-title">
+✈️ Airport Service
 </div>
 
+
 <select
-id="airportAction"
-class="input"
-onchange="airportChanged()">
+  id="airportType"
+  class="input"
+  onchange="airportChanged()">
 
 <option value="">
 Select Airport Service
 </option>
 
 <option value="Airport Pickup">
-✈️ Airport Pickup
+Airport Pickup
 </option>
 
 <option value="Airport Drop">
-✈️ Airport Drop
+Airport Drop
 </option>
 
 </select>
 
 
 <div class="label">
-Select Gujarat Airport
+Select Airport
 </div>
 
+
 <select
-id="airport"
-class="input"
-onchange="airportSelected()">
+  id="airport"
+  class="input"
+  onchange="airportChanged()">
 
 <option value="">
-Select Airport
+Select Gujarat Airport
 </option>
 
 <option value="Sardar Vallabhbhai Patel International Airport, Ahmedabad">
 Ahmedabad Airport
 </option>
 
-<option value="Surat Airport, Surat">
-Surat Airport
-</option>
-
 <option value="Vadodara Airport, Vadodara">
 Vadodara Airport
 </option>
 
-<option value="Rajkot International Airport, Rajkot">
-Rajkot International Airport
+<option value="Surat International Airport, Surat">
+Surat Airport
 </option>
 
-<option value="Bhuj Airport, Bhuj">
-Bhuj Airport
+<option value="Rajkot International Airport, Hirasar">
+Rajkot Airport
+</option>
+
+<option value="Bhavnagar Airport, Bhavnagar">
+Bhavnagar Airport
 </option>
 
 <option value="Jamnagar Airport, Jamnagar">
 Jamnagar Airport
 </option>
 
-<option value="Kandla Airport, Gandhidham">
+<option value="Bhuj Airport, Bhuj">
+Bhuj Airport
+</option>
+
+<option value="Kandla Airport, Kandla / Gandhidham">
 Kandla Airport
 </option>
 
@@ -734,11 +1075,7 @@ Kandla Airport
 Porbandar Airport
 </option>
 
-<option value="Bhavnagar Airport, Bhavnagar">
-Bhavnagar Airport
-</option>
-
-<option value="Keshod Airport, Keshod">
+<option value="Keshod Airport, Keshod / Junagadh">
 Keshod Airport
 </option>
 
@@ -748,34 +1085,40 @@ Mundra Airport
 
 </select>
 
+
 </div>
 
 
-<!-- RAILWAY OPTIONS -->
+
+<!-- ==================================================
+     RAILWAY OPTIONS
+================================================== -->
 
 <div
-id="railwayBox"
-class="location-box hide">
+  id="railwayOptions"
+  class="option-box hidden">
 
-<div class="label">
-Railway Service
+
+<div class="option-title">
+🚉 Railway Service
 </div>
 
+
 <select
-id="railwayAction"
-class="input"
-onchange="railwayChanged()">
+  id="railwayType"
+  class="input"
+  onchange="railwayChanged()">
 
 <option value="">
 Select Railway Service
 </option>
 
 <option value="Railway Pickup">
-🚉 Railway Pickup
+Railway Pickup
 </option>
 
 <option value="Railway Drop">
-🚉 Railway Drop
+Railway Drop
 </option>
 
 </select>
@@ -785,91 +1128,107 @@ Select Railway Service
 Select Railway Station
 </div>
 
+
 <select
-id="railway"
-class="input"
-onchange="railwaySelected()">
+  id="railwayStation"
+  class="input"
+  onchange="railwayChanged()">
 
 <option value="">
 Select Railway Station
 </option>
 
-<option value="Mundra, Kutch, Gujarat">
-Mundra Area
-</option>
-
-<option value="Gandhidham Railway Station, Gandhidham">
+<option value="Gandhidham Railway Station">
 Gandhidham Railway Station
 </option>
 
-<option value="Bhuj Railway Station, Bhuj">
+<option value="Bhuj Railway Station">
 Bhuj Railway Station
 </option>
 
-<option value="Anjar Railway Station, Anjar">
-Anjar Railway Station
+<option value="Mundra-Mandvi Railway Station">
+Mundra-Mandvi Railway Station
 </option>
 
-<option value="Samakhiali Railway Station, Samakhiali">
-Samakhiali Railway Station
+<option value="Adipur Railway Station">
+Adipur Railway Station
 </option>
 
-<option value="Gandhidham Junction, Gandhidham">
-Gandhidham Junction
+<option value="Ahmedabad Junction Railway Station">
+Ahmedabad Junction Railway Station
 </option>
 
-<option value="Ahmedabad Junction Railway Station, Ahmedabad">
-Ahmedabad Railway Station
+<option value="Vadodara Junction Railway Station">
+Vadodara Junction Railway Station
 </option>
 
-<option value="Vadodara Junction Railway Station, Vadodara">
-Vadodara Railway Station
-</option>
-
-<option value="Surat Railway Station, Surat">
+<option value="Surat Railway Station">
 Surat Railway Station
 </option>
 
-<option value="Rajkot Junction Railway Station, Rajkot">
-Rajkot Railway Station
+<option value="Rajkot Junction Railway Station">
+Rajkot Junction Railway Station
 </option>
 
-<option value="Jamnagar Railway Station, Jamnagar">
+<option value="Jamnagar Railway Station">
 Jamnagar Railway Station
+</option>
+
+<option value="Bhavnagar Terminus Railway Station">
+Bhavnagar Terminus Railway Station
+</option>
+
+<option value="Porbandar Railway Station">
+Porbandar Railway Station
 </option>
 
 </select>
 
+
 </div>
 
 
-<!-- PICKUP -->
+
+<!-- ==================================================
+     NORMAL LOCATIONS
+================================================== -->
+
+<div
+  id="normalLocations">
+
 
 <div class="label">
 Pickup Location
 </div>
 
+
 <input
-id="pickup"
-class="input"
-placeholder="e.g. The Fern Residency, Mundra">
+  id="pickup"
+  class="input"
+  placeholder="e.g. The Fern Residency, Mundra">
 
-
-<!-- DROP -->
 
 <div class="label">
 Drop Location
 </div>
 
+
 <input
-id="drop"
-class="input"
-placeholder="e.g. Bhuj Airport">
+  id="drop"
+  class="input"
+  placeholder="e.g. Bhuj Airport">
 
 
-<!-- DATE / TIME -->
+</div>
+
+
+
+<!-- ==================================================
+     DATE TIME
+================================================== -->
 
 <div class="row">
+
 
 <div>
 
@@ -877,12 +1236,14 @@ placeholder="e.g. Bhuj Airport">
 Date
 </div>
 
+
 <input
-id="date"
-type="date"
-class="input">
+  id="date"
+  type="date"
+  class="input">
 
 </div>
+
 
 
 <div>
@@ -891,19 +1252,25 @@ class="input">
 Time
 </div>
 
+
 <input
-id="time"
-type="time"
-class="input">
+  id="time"
+  type="time"
+  class="input">
 
 </div>
 
+
 </div>
 
 
-<!-- PEOPLE / NAME -->
+
+<!-- ==================================================
+     PEOPLE NAME
+================================================== -->
 
 <div class="row">
+
 
 <div>
 
@@ -911,15 +1278,17 @@ class="input">
 Passengers
 </div>
 
+
 <input
-id="people"
-type="number"
-min="1"
-max="7"
-value="2"
-class="input">
+  id="people"
+  type="number"
+  min="1"
+  max="7"
+  value="2"
+  class="input">
 
 </div>
+
 
 
 <div>
@@ -928,14 +1297,17 @@ class="input">
 Name
 </div>
 
+
 <input
-id="name"
-class="input"
-placeholder="Your name">
+  id="name"
+  class="input"
+  placeholder="Your name">
 
 </div>
 
+
 </div>
+
 
 
 <!-- MOBILE -->
@@ -944,87 +1316,141 @@ placeholder="Your name">
 Mobile
 </div>
 
+
 <input
-id="mobile"
-class="input"
-value="+91 99137 47955">
+  id="mobile"
+  class="input"
+  value="+91 99137 47955">
 
 
-<!-- FARE -->
+
+<!-- ==================================================
+     FARE
+================================================== -->
 
 <div class="fare">
 
-Estimated Fare:
 
-<br>
+<div class="fare-title">
+Estimated Fare
+</div>
+
 
 <b id="fare">
 ₹ —
 </b>
 
+
 <div
-id="distanceInfo"
-class="distance-info">
+  class="distance-box">
+
+Distance:
+<strong id="distance">
+— km
+</strong>
+
+</div>
+
+
+<div
+  id="distanceDetail"
+  class="distance-detail">
 
 Enter pickup and drop location.
 
 </div>
 
-<div class="muted">
-Final fare will be confirmed by Vandan.
-</div>
 
 </div>
 
+
+
+<!-- ==================================================
+     RATE INFO
+================================================== -->
+
+<div class="info">
+
+💰 Fare calculation:
+<br>
+
+₹18 per km
+
+<br>
+
+Minimum fare: ₹500
+
+<br>
+
+Final fare will be confirmed by
+Vandan Kutch Travels.
+
+</div>
+
+
+
+<!-- ESTIMATE -->
 
 <button
-id="estimateBtn"
-class="primary"
-onclick="estimate()">
+  class="primary"
+  onclick="estimate()">
 
 📍 Calculate Distance & Estimate
 
 </button>
 
 
+
+<!-- WHATSAPP -->
+
 <button
-class="green"
-onclick="sendBooking()">
+  class="green"
+  onclick="sendBooking()">
 
 💬 Confirm via WhatsApp
 
 </button>
+
 
 </div>
 
 </section>
 
 
+
 <!-- ==================================================
      TOURS
 ================================================== -->
 
-<section id="tours" class="screen">
+<section
+  id="tours"
+  class="screen">
+
 
 <header>
 
+
 <button
-class="back"
-onclick="go('home')">
+  class="back"
+  onclick="go('home')">
 
 ← Back
 
 </button>
 
+
 <div class="brand">
 Kutch Tours
 </div>
+
 
 <div class="tag">
 Private Ertiga CNG • 7 Seater
 </div>
 
+
 </header>
+
 
 
 <div class="section">
@@ -1032,63 +1458,77 @@ Private Ertiga CNG • 7 Seater
 
 <div class="tour">
 
+
 <h3>
 🏜️ Rann of Kutch
 </h3>
+
 
 <div class="muted">
 Dhordo • White Rann • Kala Dungar
 </div>
 
+
 <button
-class="primary"
-onclick="quick('Kutch Tour')">
+  class="primary"
+  onclick="quick('Kutch Tour')">
 
 Request Quote
 
 </button>
 
+
 </div>
 
 
+
 <div class="tour">
+
 
 <h3>
 🌊 Mandvi Tour
 </h3>
 
+
 <div class="muted">
 Mandvi • Beach • Local sightseeing
 </div>
 
+
 <button
-class="primary"
-onclick="quick('Kutch Tour')">
+  class="primary"
+  onclick="quick('Kutch Tour')">
 
 Request Quote
 
 </button>
 
+
 </div>
 
 
+
 <div class="tour">
+
 
 <h3>
 🏛️ Bhuj & Kutch
 </h3>
 
+
 <div class="muted">
 Bhuj • Local sightseeing
 </div>
 
+
 <button
-class="primary"
-onclick="quick('Kutch Tour')">
+  class="primary"
+  onclick="quick('Kutch Tour')">
 
 Request Quote
 
 </button>
+
 
 </div>
 
@@ -1098,28 +1538,37 @@ Request Quote
 </section>
 
 
+
 <!-- ==================================================
      BOOKINGS
 ================================================== -->
 
-<section id="trips" class="screen">
+<section
+  id="trips"
+  class="screen">
+
 
 <header>
+
 
 <div class="brand">
 My Bookings
 </div>
 
+
 <div class="tag">
 Upcoming & recent rides
 </div>
 
+
 </header>
 
 
+
 <div
-class="section"
-id="bookingList">
+  class="section"
+  id="bookingList">
+
 
 <div class="notice">
 
@@ -1132,28 +1581,37 @@ Book your first ride from the
 
 </div>
 
+
 </div>
 
 </section>
+
 
 
 <!-- ==================================================
      PROFILE
 ================================================== -->
 
-<section id="profile" class="screen">
+<section
+  id="profile"
+  class="screen">
+
 
 <header>
+
 
 <div class="brand">
 Profile
 </div>
 
+
 <div class="tag">
 Vandan Kutch Travels
 </div>
 
+
 </header>
+
 
 
 <div class="section">
@@ -1161,48 +1619,83 @@ Vandan Kutch Travels
 
 <div class="card">
 
+
 <b>
 Vandan Nanjar
 </b>
+
 
 <div class="muted">
 📞 +91 99137 47955
 </div>
 
+
 <div class="muted">
 📍 Mundra, Kutch, Gujarat
 </div>
 
+
 </div>
 
 
+
 <div
-class="card"
-style="margin-top:12px">
+  class="card"
+  style="margin-top:12px">
+
 
 <b>
 Vehicle
 </b>
 
+
 <div class="muted">
 Maruti Suzuki Ertiga CNG • 7 Seater
 </div>
 
+
 </div>
 
 
+
+<div
+  class="card"
+  style="margin-top:12px">
+
+
+<b>
+Fare
+</b>
+
+
+<div class="muted">
+
+₹18/km
+
+<br>
+
+Minimum ₹500
+
+</div>
+
+
+</div>
+
+
+
 <button
-class="green"
-onclick="call()">
+  class="green"
+  onclick="call()">
 
 📞 Call Vandan
 
 </button>
 
 
+
 <button
-class="primary"
-onclick="wa()">
+  class="primary"
+  onclick="wa()">
 
 💬 WhatsApp Booking
 
@@ -1214,15 +1707,17 @@ onclick="wa()">
 </section>
 
 
+
 <!-- ==================================================
      BOTTOM NAV
 ================================================== -->
 
 <nav class="bottom">
 
+
 <button
-class="nav on"
-onclick="go('home',this)">
+  class="nav on"
+  onclick="go('home',this)">
 
 <strong>
 🏠
@@ -1233,9 +1728,10 @@ Home
 </button>
 
 
+
 <button
-class="nav"
-onclick="go('book',this)">
+  class="nav"
+  onclick="go('book',this)">
 
 <strong>
 🚕
@@ -1246,9 +1742,10 @@ Book
 </button>
 
 
+
 <button
-class="nav"
-onclick="go('trips',this)">
+  class="nav"
+  onclick="go('trips',this)">
 
 <strong>
 📋
@@ -1259,9 +1756,10 @@ Bookings
 </button>
 
 
+
 <button
-class="nav"
-onclick="go('profile',this)">
+  class="nav"
+  onclick="go('profile',this)">
 
 <strong>
 👤
@@ -1271,42 +1769,67 @@ Profile
 
 </button>
 
+
 </nav>
+
 
 </div>
 
 
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
 <script>
+
+/* ==================================================
+   SETTINGS
+================================================== */
+
+const RATE_PER_KM = 18;
+
+const MINIMUM_FARE = 500;
+
 
 /* ==================================================
    SERVICE WORKER
 ================================================== */
 
-if('serviceWorker' in navigator){
+if (
+  'serviceWorker' in navigator
+) {
 
-  window.addEventListener('load',function(){
+  window.addEventListener(
+    'load',
+    function(){
 
-    navigator.serviceWorker
-      .register('service-worker.js')
-      .catch(function(error){
+      navigator.serviceWorker
+        .register(
+          'service-worker.js'
+        )
+        .catch(
+          function(error){
 
-        console.log(
-          'Service Worker error:',
-          error
+            console.log(
+              'Service Worker error:',
+              error
+            );
+
+          }
         );
 
-      });
-
-  });
+    }
+  );
 
 }
 
 
 /* ==================================================
-   SCREEN NAVIGATION
+   SCREENS
 ================================================== */
 
-const screens=[
+const screens = [
   'home',
   'book',
   'tours',
@@ -1315,50 +1838,82 @@ const screens=[
 ];
 
 
-function go(id,btn){
+function go(
+  id,
+  btn
+){
 
-  screens.forEach(function(x){
+  screens.forEach(
+    function(x){
 
-    const el=
-      document.getElementById(x);
+      const el =
+        document.getElementById(
+          x
+        );
 
-    if(el){
-      el.classList.remove('on');
+      if(el){
+
+        el.classList.remove(
+          'on'
+        );
+
+      }
+
     }
+  );
 
-  });
 
+  const page =
+    document.getElementById(
+      id
+    );
 
-  const page=
-    document.getElementById(id);
 
   if(page){
-    page.classList.add('on');
+
+    page.classList.add(
+      'on'
+    );
+
   }
 
 
   document
-    .querySelectorAll('.nav')
-    .forEach(function(x){
+    .querySelectorAll(
+      '.nav'
+    )
+    .forEach(
+      function(x){
 
-      x.classList.remove('on');
+        x.classList.remove(
+          'on'
+        );
 
-    });
+      }
+    );
 
 
   if(btn){
 
-    btn.classList.add('on');
+    btn.classList.add(
+      'on'
+    );
 
-  }else{
+  }
+  else{
 
-    const navButton=
+    const navButton =
       document.querySelector(
         `.nav[onclick*="'${id}'"]`
       );
 
+
     if(navButton){
-      navButton.classList.add('on');
+
+      navButton.classList.add(
+        'on'
+      );
+
     }
 
   }
@@ -1376,22 +1931,30 @@ function go(id,btn){
    QUICK SERVICE
 ================================================== */
 
-function quick(service){
+function quick(
+  service
+){
 
-  const serviceEl=
-    document.getElementById('service');
+  const serviceEl =
+    document.getElementById(
+      'service'
+    );
+
 
   if(serviceEl){
 
-    serviceEl.value=service;
+    serviceEl.value =
+      service;
 
   }
 
 
-  go('book');
-
-
   serviceChanged();
+
+
+  go(
+    'book'
+  );
 
 }
 
@@ -1402,73 +1965,225 @@ function quick(service){
 
 function serviceChanged(){
 
-  const service=
-    document.getElementById('service').value;
+  const service =
+    document.getElementById(
+      'service'
+    ).value;
 
 
-  const airportBox=
-    document.getElementById('airportBox');
-
-  const railwayBox=
-    document.getElementById('railwayBox');
-
-
-  airportBox.classList.add('hide');
-  railwayBox.classList.add('hide');
+  const airportOptions =
+    document.getElementById(
+      'airportOptions'
+    );
 
 
-  if(service==='Airport Transfer'){
+  const railwayOptions =
+    document.getElementById(
+      'railwayOptions'
+    );
 
-    airportBox.classList.remove('hide');
+
+  const normalLocations =
+    document.getElementById(
+      'normalLocations'
+    );
+
+
+  airportOptions
+    .classList.add(
+      'hidden'
+    );
+
+
+  railwayOptions
+    .classList.add(
+      'hidden'
+    );
+
+
+  normalLocations
+    .classList.remove(
+      'hidden'
+    );
+
+
+  resetLocationReadonly();
+
+
+  if(
+    service ===
+    'Airport Transfer'
+  ){
+
+    airportOptions
+      .classList.remove(
+        'hidden'
+      );
+
+
+    normalLocations
+      .classList.remove(
+        'hidden'
+      );
+
+
+    updateAirportLocations();
 
   }
 
 
-  if(service==='Railway Transfer'){
+  else if(
+    service ===
+    'Railway Transfer'
+  ){
 
-    railwayBox.classList.remove('hide');
+    railwayOptions
+      .classList.remove(
+        'hidden'
+      );
+
+
+    normalLocations
+      .classList.remove(
+        'hidden'
+      );
+
+
+    updateRailwayLocations();
 
   }
+
+
+  clearEstimate();
 
 }
 
 
 /* ==================================================
-   AIRPORT SERVICE
+   RESET
+================================================== */
+
+function resetLocationReadonly(){
+
+  const pickup =
+    document.getElementById(
+      'pickup'
+    );
+
+
+  const drop =
+    document.getElementById(
+      'drop'
+    );
+
+
+  pickup.readOnly =
+    false;
+
+
+  drop.readOnly =
+    false;
+
+}
+
+
+/* ==================================================
+   AIRPORT
 ================================================== */
 
 function airportChanged(){
 
-  const action=
-    document.getElementById('airportAction').value;
+  updateAirportLocations();
 
-  const airport=
-    document.getElementById('airport').value;
+  clearEstimate();
+
+}
 
 
-  if(!action || !airport){
+function updateAirportLocations(){
+
+  const type =
+    document.getElementById(
+      'airportType'
+    ).value;
+
+
+  const airport =
+    document.getElementById(
+      'airport'
+    ).value;
+
+
+  const pickup =
+    document.getElementById(
+      'pickup'
+    );
+
+
+  const drop =
+    document.getElementById(
+      'drop'
+    );
+
+
+  if(
+    !type ||
+    !airport
+  ){
+
+    pickup.readOnly =
+      false;
+
+    drop.readOnly =
+      false;
+
     return;
-  }
-
-
-  if(action==='Airport Pickup'){
-
-    document.getElementById('drop').value=
-      airport;
-
-    document.getElementById('drop').readOnly=
-      true;
 
   }
 
 
-  if(action==='Airport Drop'){
+  if(
+    type ===
+    'Airport Pickup'
+  ){
 
-    document.getElementById('pickup').value=
+    pickup.value =
       airport;
 
-    document.getElementById('pickup').readOnly=
+    pickup.readOnly =
       true;
+
+    drop.value =
+      '';
+
+    drop.readOnly =
+      false;
+
+    drop.placeholder =
+      'Where should we drop you?';
+
+  }
+
+
+  else if(
+    type ===
+    'Airport Drop'
+  ){
+
+    pickup.value =
+      '';
+
+    pickup.readOnly =
+      false;
+
+    drop.value =
+      airport;
+
+    drop.readOnly =
+      true;
+
+    pickup.placeholder =
+      'Where should we pick you up?';
 
   }
 
@@ -1476,61 +2191,102 @@ function airportChanged(){
 
 
 /* ==================================================
-   AIRPORT SELECTED
-================================================== */
-
-function airportSelected(){
-
-  const action=
-    document.getElementById('airportAction').value;
-
-
-  if(!action){
-    return;
-  }
-
-
-  airportChanged();
-
-}
-
-
-/* ==================================================
-   RAILWAY SERVICE
+   RAILWAY
 ================================================== */
 
 function railwayChanged(){
 
-  const action=
-    document.getElementById('railwayAction').value;
+  updateRailwayLocations();
 
-  const station=
-    document.getElementById('railway').value;
+  clearEstimate();
+
+}
 
 
-  if(!action || !station){
+function updateRailwayLocations(){
+
+  const type =
+    document.getElementById(
+      'railwayType'
+    ).value;
+
+
+  const station =
+    document.getElementById(
+      'railwayStation'
+    ).value;
+
+
+  const pickup =
+    document.getElementById(
+      'pickup'
+    );
+
+
+  const drop =
+    document.getElementById(
+      'drop'
+    );
+
+
+  if(
+    !type ||
+    !station
+  ){
+
+    pickup.readOnly =
+      false;
+
+    drop.readOnly =
+      false;
+
     return;
-  }
-
-
-  if(action==='Railway Pickup'){
-
-    document.getElementById('drop').value=
-      station;
-
-    document.getElementById('drop').readOnly=
-      true;
 
   }
 
 
-  if(action==='Railway Drop'){
+  if(
+    type ===
+    'Railway Pickup'
+  ){
 
-    document.getElementById('pickup').value=
+    pickup.value =
       station;
 
-    document.getElementById('pickup').readOnly=
+    pickup.readOnly =
       true;
+
+    drop.value =
+      '';
+
+    drop.readOnly =
+      false;
+
+    drop.placeholder =
+      'Where should we drop you?';
+
+  }
+
+
+  else if(
+    type ===
+    'Railway Drop'
+  ){
+
+    pickup.value =
+      '';
+
+    pickup.readOnly =
+      false;
+
+    drop.value =
+      station;
+
+    drop.readOnly =
+      true;
+
+    pickup.placeholder =
+      'Where should we pick you up?';
 
   }
 
@@ -1538,152 +2294,309 @@ function railwayChanged(){
 
 
 /* ==================================================
-   RAILWAY SELECTED
+   KNOWN LOCATIONS
 ================================================== */
 
-function railwaySelected(){
+const knownLocations = {
 
-  const action=
-    document.getElementById('railwayAction').value;
+  /* AIRPORTS */
+
+  "Sardar Vallabhbhai Patel International Airport, Ahmedabad":
+    [23.0772,72.6347],
+
+  "Vadodara Airport, Vadodara":
+    [22.3362,73.2263],
+
+  "Surat International Airport, Surat":
+    [21.1141,72.7418],
+
+  "Rajkot International Airport, Hirasar":
+    [22.3787,71.0478],
+
+  "Bhavnagar Airport, Bhavnagar":
+    [21.7522,72.1852],
+
+  "Jamnagar Airport, Jamnagar":
+    [22.4655,70.0126],
+
+  "Bhuj Airport, Bhuj":
+    [23.2878,69.6702],
+
+  "Kandla Airport, Kandla / Gandhidham":
+    [23.1127,70.1000],
+
+  "Porbandar Airport, Porbandar":
+    [21.6487,69.6572],
+
+  "Keshod Airport, Keshod / Junagadh":
+    [21.3174,70.2704],
+
+  "Mundra Airport, Mundra":
+    [22.8397,69.7219],
 
 
-  if(!action){
-    return;
-  }
+  /* RAILWAY */
 
+  "Gandhidham Railway Station":
+    [23.0753,70.1337],
 
-  railwayChanged();
+  "Bhuj Railway Station":
+    [23.2515,69.6669],
 
-}
+  "Mundra-Mandvi Railway Station":
+    [22.8397,69.7219],
+
+  "Adipur Railway Station":
+    [23.0758,70.0966],
+
+  "Ahmedabad Junction Railway Station":
+    [23.0225,72.5714],
+
+  "Vadodara Junction Railway Station":
+    [22.3107,73.1793],
+
+  "Surat Railway Station":
+    [21.2049,72.8401],
+
+  "Rajkot Junction Railway Station":
+    [22.3027,70.8022],
+
+  "Jamnagar Railway Station":
+    [22.4697,70.0667],
+
+  "Bhavnagar Terminus Railway Station":
+    [21.7590,72.1530],
+
+  "Porbandar Railway Station":
+    [21.6417,69.6293]
+
+};
 
 
 /* ==================================================
-   NORMAL LOCATION INPUT
+   CITY COORDINATES
 ================================================== */
 
-document.addEventListener(
-  'DOMContentLoaded',
-  function(){
+const cityCoordinates = {
 
-    const pickup=
-      document.getElementById('pickup');
+  mundra:
+    [22.8397,69.7219],
 
-    const drop=
-      document.getElementById('drop');
+  bhuj:
+    [23.2420,69.6669],
 
+  gandhidham:
+    [23.0753,70.1337],
 
-    pickup.addEventListener(
-      'input',
-      function(){
+  kandla:
+    [23.1127,70.1000],
 
-        if(
-          document.getElementById('airportAction').value!=='Airport Drop' &&
-          document.getElementById('railwayAction').value!=='Railway Drop'
-        ){
+  mandvi:
+    [22.8300,69.3600],
 
-          pickup.readOnly=false;
+  ahmedabad:
+    [23.0225,72.5714],
 
-        }
+  vadodara:
+    [22.3072,73.1812],
 
-      }
-    );
+  surat:
+    [21.1702,72.8311],
 
+  rajkot:
+    [22.3039,70.8022],
 
-    drop.addEventListener(
-      'input',
-      function(){
+  jamnagar:
+    [22.4707,70.0577],
 
-        if(
-          document.getElementById('airportAction').value!=='Airport Pickup' &&
-          document.getElementById('railwayAction').value!=='Railway Pickup'
-        ){
+  bhavnagar:
+    [21.7645,72.1519],
 
-          drop.readOnly=false;
+  porbandar:
+    [21.6417,69.6293],
 
-        }
+  junagadh:
+    [21.5222,70.4579],
 
-      }
-    );
+  keshod:
+    [21.3033,70.2486],
 
+  dwarka:
+    [22.2442,68.9685],
 
-    renderBookings();
+  gandhinagar:
+    [23.2156,72.6369]
 
-  }
-);
+};
 
 
 /* ==================================================
-   LOCATION SEARCH
+   CITY FIND
 ================================================== */
 
-/*
-  IMPORTANT:
-  હવે Kutch suffix forcibly add થતો નથી.
-  એટલે Ahmedabad, Surat, Vadodara વગેરે પણ
-  properly search થશે.
-*/
+function getCityCoordinates(
+  text
+){
 
-async function getCoordinates(location){
-
-  const queries=[
-
-    location + ', Gujarat, India',
-
-    location + ', India',
-
-    location
-
-  ];
+  const value =
+    String(text)
+      .toLowerCase()
+      .trim();
 
 
   for(
-    let i=0;
-    i<queries.length;
-    i++
+    const city in cityCoordinates
   ){
 
-    try{
+    if(
+      value.includes(
+        city
+      )
+    ){
 
-      const url=
-        'https://nominatim.openstreetmap.org/search' +
-        '?format=jsonv2' +
-        '&limit=1' +
-        '&countrycodes=in' +
-        '&q=' +
-        encodeURIComponent(
-          queries[i]
-        );
+      return {
 
+        lat:
+          cityCoordinates[city][0],
 
-      const response=
-        await fetch(
-          url,
-          {
-            method:'GET',
-            headers:{
-              'Accept':'application/json'
-            }
-          }
-        );
+        lon:
+          cityCoordinates[city][1],
 
+        source:
+          'city'
 
-      if(!response.ok){
-        continue;
-      }
+      };
+
+    }
+
+  }
 
 
-      const data=
+  return null;
+
+}
+
+
+/* ==================================================
+   GEOCODING
+================================================== */
+
+async function geocodeLocation(
+  location
+){
+
+  const clean =
+    String(location)
+      .trim();
+
+
+  if(!clean){
+
+    throw new Error(
+      'Empty location'
+    );
+
+  }
+
+
+  /* EXACT KNOWN */
+
+  if(
+    knownLocations[clean]
+  ){
+
+    return {
+
+      lat:
+        knownLocations[clean][0],
+
+      lon:
+        knownLocations[clean][1],
+
+      source:
+        'known'
+
+    };
+
+  }
+
+
+  /* CITY */
+
+  const city =
+    getCityCoordinates(
+      clean
+    );
+
+
+  /* NOMINATIM */
+
+  try{
+
+    const query =
+      encodeURIComponent(
+        clean +
+        ', Gujarat, India'
+      );
+
+
+    const url =
+      'https://nominatim.openstreetmap.org/search' +
+
+      '?format=jsonv2' +
+
+      '&limit=1' +
+
+      '&countrycodes=in' +
+
+      '&q=' +
+      query;
+
+
+    const controller =
+      new AbortController();
+
+
+    const timeout =
+      setTimeout(
+        function(){
+
+          controller.abort();
+
+        },
+        6000
+      );
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          signal:
+            controller.signal
+        }
+      );
+
+
+    clearTimeout(
+      timeout
+    );
+
+
+    if(
+      response.ok
+    ){
+
+      const data =
         await response.json();
 
 
       if(
-        data &&
-        data.length &&
-        data[0].lat &&
-        data[0].lon
+        Array.isArray(data) &&
+        data.length
       ){
 
-        return{
+        return {
 
           lat:
             parseFloat(
@@ -1693,180 +2606,397 @@ async function getCoordinates(location){
           lon:
             parseFloat(
               data[0].lon
-            )
+            ),
+
+          source:
+            'nominatim'
 
         };
 
       }
 
-    }catch(error){
-
-      console.log(
-        'Geocoding attempt failed:',
-        error
-      );
-
     }
+
+  }
+
+  catch(error){
+
+    console.log(
+      'Geocoding failed:',
+      error
+    );
+
+  }
+
+
+  /* CITY FALLBACK */
+
+  if(city){
+
+    return city;
 
   }
 
 
   throw new Error(
-    'Location not found: '+
-    location
+    'Location not found'
   );
 
 }
 
 
 /* ==================================================
-   HAVERSINE DISTANCE
+   OSRM
+================================================== */
+
+async function tryOSRM(
+  start,
+  end
+){
+
+  const url =
+    'https://router.project-osrm.org' +
+
+    '/route/v1/driving/' +
+
+    start.lon +
+    ',' +
+    start.lat +
+
+    ';' +
+
+    end.lon +
+    ',' +
+    end.lat +
+
+    '?overview=false';
+
+
+  const controller =
+    new AbortController();
+
+
+  const timeout =
+    setTimeout(
+      function(){
+
+        controller.abort();
+
+      },
+      8000
+    );
+
+
+  try{
+
+    const response =
+      await fetch(
+        url,
+        {
+          signal:
+            controller.signal
+        }
+      );
+
+
+    clearTimeout(
+      timeout
+    );
+
+
+    if(
+      !response.ok
+    ){
+
+      throw new Error(
+        'OSRM failed'
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if(
+      data.code === 'Ok' &&
+      data.routes &&
+      data.routes.length
+    ){
+
+      return {
+
+        distanceKm:
+          data.routes[0].distance /
+          1000,
+
+        durationMin:
+          data.routes[0].duration /
+          60,
+
+        method:
+          'road'
+
+      };
+
+    }
+
+
+    throw new Error(
+      'Route unavailable'
+    );
+
+  }
+
+  catch(error){
+
+    clearTimeout(
+      timeout
+    );
+
+    throw error;
+
+  }
+
+}
+
+
+/* ==================================================
+   ALTERNATIVE ROUTER
+================================================== */
+
+async function tryAlternativeRoute(
+  start,
+  end
+){
+
+  const url =
+    'https://routing.openstreetmap.de' +
+
+    '/routed-car/route/v1/driving/' +
+
+    start.lon +
+    ',' +
+    start.lat +
+
+    ';' +
+
+    end.lon +
+    ',' +
+    end.lat +
+
+    '?overview=false';
+
+
+  const controller =
+    new AbortController();
+
+
+  const timeout =
+    setTimeout(
+      function(){
+
+        controller.abort();
+
+      },
+      8000
+    );
+
+
+  try{
+
+    const response =
+      await fetch(
+        url,
+        {
+          signal:
+            controller.signal
+        }
+      );
+
+
+    clearTimeout(
+      timeout
+    );
+
+
+    if(
+      !response.ok
+    ){
+
+      throw new Error(
+        'Alternative routing failed'
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    if(
+      data.code === 'Ok' &&
+      data.routes &&
+      data.routes.length
+    ){
+
+      return {
+
+        distanceKm:
+          data.routes[0].distance /
+          1000,
+
+        durationMin:
+          data.routes[0].duration /
+          60,
+
+        method:
+          'road'
+
+      };
+
+    }
+
+
+    throw new Error(
+      'Alternative unavailable'
+    );
+
+  }
+
+  catch(error){
+
+    clearTimeout(
+      timeout
+    );
+
+    throw error;
+
+  }
+
+}
+
+
+/* ==================================================
+   HAVERSINE
 ================================================== */
 
 function haversineDistance(
-  lat1,
-  lon1,
-  lat2,
-  lon2
+  start,
+  end
 ){
 
-  const R=6371;
-
-  const dLat=
-    (lat2-lat1)*
-    Math.PI/180;
-
-  const dLon=
-    (lon2-lon1)*
-    Math.PI/180;
+  const R =
+    6371;
 
 
-  const a=
-    Math.sin(dLat/2)*
-    Math.sin(dLat/2)+
-    Math.cos(lat1*Math.PI/180)*
-    Math.cos(lat2*Math.PI/180)*
-    Math.sin(dLon/2)*
-    Math.sin(dLon/2);
+  const lat1 =
+    start.lat *
+    Math.PI /
+    180;
 
 
-  const c=
-    2*
+  const lat2 =
+    end.lat *
+    Math.PI /
+    180;
+
+
+  const dLat =
+    (
+      end.lat -
+      start.lat
+    ) *
+    Math.PI /
+    180;
+
+
+  const dLon =
+    (
+      end.lon -
+      start.lon
+    ) *
+    Math.PI /
+    180;
+
+
+  const a =
+    Math.sin(
+      dLat / 2
+    ) *
+    Math.sin(
+      dLat / 2
+    ) +
+
+    Math.cos(lat1) *
+    Math.cos(lat2) *
+
+    Math.sin(
+      dLon / 2
+    ) *
+    Math.sin(
+      dLon / 2
+    );
+
+
+  const c =
+    2 *
     Math.atan2(
       Math.sqrt(a),
       Math.sqrt(1-a)
     );
 
 
-  return R*c;
+  return R * c;
 
 }
 
 
 /* ==================================================
-   ROAD DISTANCE - OSRM
+   FALLBACK DISTANCE
 ================================================== */
 
-async function getRoadDistance(
+function fallbackRoadDistance(
   start,
   end
 ){
 
-  const servers=[
-
-    'https://router.project-osrm.org',
-
-    'https://routing.openstreetmap.de/routed-car'
-
-  ];
+  const straight =
+    haversineDistance(
+      start,
+      end
+    );
 
 
-  for(
-    let i=0;
-    i<servers.length;
-    i++
-  ){
+  /*
+     Road distance is generally
+     longer than straight distance.
 
-    try{
+     1.25 is used only when
+     routing servers are unavailable.
+  */
 
-      const url=
-        servers[i]+
-        '/route/v1/driving/' +
-        start.lon+','+
-        start.lat+';'+
-        end.lon+','+
-        end.lat+
-        '?overview=false&alternatives=false&steps=false';
+  const road =
+    straight * 1.25;
 
 
-      const controller=
-        new AbortController();
+  return {
 
+    distanceKm:
+      road,
 
-      const timeout=
-        setTimeout(
-          function(){
-            controller.abort();
-          },
-          12000
-        );
+    durationMin:
+      (
+        road /
+        45
+      ) * 60,
 
+    method:
+      'estimated'
 
-      const response=
-        await fetch(
-          url,
-          {
-            signal:
-              controller.signal
-          }
-        );
-
-
-      clearTimeout(timeout);
-
-
-      if(!response.ok){
-        continue;
-      }
-
-
-      const data=
-        await response.json();
-
-
-      if(
-        data &&
-        data.code==='Ok' &&
-        data.routes &&
-        data.routes.length &&
-        data.routes[0].distance
-      ){
-
-        return{
-
-          distance:
-            data.routes[0].distance/1000,
-
-          source:
-            'road'
-
-        };
-
-      }
-
-    }catch(error){
-
-      console.log(
-        'Routing server failed:',
-        error
-      );
-
-    }
-
-  }
-
-
-  return null;
+  };
 
 }
 
@@ -1880,215 +3010,473 @@ async function calculateDistance(
   drop
 ){
 
-  const start=
-    await getCoordinates(
+  const start =
+    await geocodeLocation(
       pickup
     );
 
 
-  const end=
-    await getCoordinates(
+  const end =
+    await geocodeLocation(
       drop
     );
 
 
-  /*
-    First try actual road distance.
-  */
+  /* REAL ROAD DISTANCE */
 
-  const road=
-    await getRoadDistance(
+  try{
+
+    return await tryOSRM(
       start,
       end
     );
 
+  }
 
-  if(road){
+  catch(error){
 
-    return road;
+    console.log(
+      'OSRM unavailable'
+    );
 
   }
 
 
-  /*
-    If public routing server is unavailable,
-    calculate straight-line distance and
-    apply road factor.
+  /* ALTERNATIVE */
 
-    This prevents the app from showing
-    "Unable to calculate distance".
-  */
+  try{
 
-  const straight=
-    haversineDistance(
-      start.lat,
-      start.lon,
-      end.lat,
-      end.lon
+    return await tryAlternativeRoute(
+      start,
+      end
     );
 
+  }
 
-  const estimatedRoad=
-    straight*1.25;
+  catch(error){
+
+    console.log(
+      'Alternative routing unavailable'
+    );
+
+  }
 
 
-  return{
+  /* FALLBACK */
 
-    distance:
-      estimatedRoad,
-
-    source:
-      'estimated'
-
-  };
+  return fallbackRoadDistance(
+    start,
+    end
+  );
 
 }
 
 
 /* ==================================================
-   ESTIMATE FARE
+   FARE
 ================================================== */
 
-async function estimate(){
+function calculateFare(
+  distanceKm
+){
 
-  const pickupEl=
-    document.getElementById('pickup');
+  if(
+    !distanceKm ||
+    distanceKm <= 0
+  ){
 
-  const dropEl=
-    document.getElementById('drop');
-
-  const fareBox=
-    document.getElementById('fare');
-
-  const distanceInfo=
-    document.getElementById('distanceInfo');
-
-  const button=
-    document.getElementById('estimateBtn');
-
-
-  const pickup=
-    pickupEl.value.trim();
-
-  const drop=
-    dropEl.value.trim();
-
-
-  if(!pickup || !drop){
-
-    fareBox.innerText=
-      'Enter pickup & drop';
-
-    distanceInfo.innerText=
-      'Please enter both locations.';
-
-    return 0;
+    return MINIMUM_FARE;
 
   }
 
 
+  let fare =
+    Math.ceil(
+      distanceKm *
+      RATE_PER_KM
+    );
+
+
+  if(
+    fare <
+    MINIMUM_FARE
+  ){
+
+    fare =
+      MINIMUM_FARE;
+
+  }
+
+
+  return fare;
+
+}
+
+
+/* ==================================================
+   DURATION
+================================================== */
+
+function formatDuration(
+  minutes
+){
+
+  minutes =
+    Math.round(
+      minutes
+    );
+
+
+  if(
+    minutes < 60
+  ){
+
+    return (
+      minutes +
+      ' minutes'
+    );
+
+  }
+
+
+  const hours =
+    Math.floor(
+      minutes / 60
+    );
+
+
+  const mins =
+    minutes % 60;
+
+
+  if(!mins){
+
+    return (
+      hours +
+      (
+        hours === 1
+          ? ' hour'
+          : ' hours'
+      )
+    );
+
+  }
+
+
+  return (
+    hours +
+    (
+      hours === 1
+        ? ' hour '
+        : ' hours '
+    ) +
+    mins +
+    ' minutes'
+  );
+
+}
+
+
+/* ==================================================
+   ESTIMATE
+================================================== */
+
+async function estimate(){
+
+  const pickupEl =
+    document.getElementById(
+      'pickup'
+    );
+
+
+  const dropEl =
+    document.getElementById(
+      'drop'
+    );
+
+
+  const fareEl =
+    document.getElementById(
+      'fare'
+    );
+
+
+  const distanceEl =
+    document.getElementById(
+      'distance'
+    );
+
+
+  const detailEl =
+    document.getElementById(
+      'distanceDetail'
+    );
+
+
+  const pickup =
+    pickupEl.value.trim();
+
+
+  const drop =
+    dropEl.value.trim();
+
+
+  if(
+    !pickup ||
+    !drop
+  ){
+
+    fareEl.innerText =
+      'Enter pickup & drop';
+
+
+    distanceEl.innerText =
+      '— km';
+
+
+    detailEl.innerText =
+      'Please enter both locations.';
+
+
+    return {
+
+      distance:0,
+
+      fare:MINIMUM_FARE,
+
+      method:'pending'
+
+    };
+
+  }
+
+
+  if(
+    pickup.toLowerCase() ===
+    drop.toLowerCase()
+  ){
+
+    fareEl.innerHTML =
+      '₹' +
+      MINIMUM_FARE +
+      '+';
+
+
+    distanceEl.innerText =
+      '0 km';
+
+
+    detailEl.innerText =
+      'Minimum fare applied.';
+
+
+    return {
+
+      distance:0,
+
+      fare:MINIMUM_FARE,
+
+      method:'same-location'
+
+    };
+
+  }
+
+
+  /* LOADING */
+
+  fareEl.innerText =
+    'Calculating...';
+
+
+  distanceEl.innerText =
+    'Calculating...';
+
+
+  detailEl.innerText =
+    'Finding road distance...';
+
+
   try{
 
-    button.classList.add('loading');
-
-    button.innerText=
-      '📍 Calculating...';
-
-
-    fareBox.innerText=
-      'Calculating...';
-
-
-    distanceInfo.innerText=
-      'Finding route...';
-
-
-    const result=
+    const result =
       await calculateDistance(
         pickup,
         drop
       );
 
 
-    const distanceKm=
-      result.distance;
-
-
-    /*
-      RATE
-    */
-
-    const ratePerKm=18;
-
-
-    let fare=
-      Math.ceil(
-        distanceKm*
-        ratePerKm
+    let distanceKm =
+      Number(
+        result.distanceKm
       );
 
 
-    /*
-      MINIMUM FARE
-    */
+    if(
+      !Number.isFinite(
+        distanceKm
+      ) ||
+      distanceKm <= 0
+    ){
 
-    if(fare<500){
-
-      fare=500;
-
-    }
-
-
-    /*
-      DISPLAY
-    */
-
-    fareBox.innerHTML=
-      `₹${fare}+`;
-
-
-    if(result.source==='road'){
-
-      distanceInfo.innerHTML=
-        `🛣️ Road distance: <b>${distanceKm.toFixed(1)} km</b><br>`+
-        `${distanceKm.toFixed(1)} km × ₹${ratePerKm}/km`;
-
-    }else{
-
-      distanceInfo.innerHTML=
-        `📍 Estimated road distance: <b>${distanceKm.toFixed(1)} km</b><br>`+
-        `${distanceKm.toFixed(1)} km × ₹${ratePerKm}/km`;
+      throw new Error(
+        'Invalid distance'
+      );
 
     }
 
 
-    return fare;
+    distanceKm =
+      Math.round(
+        distanceKm * 10
+      ) / 10;
 
 
-  }catch(error){
+    const fare =
+      calculateFare(
+        distanceKm
+      );
+
+
+    /* DISTANCE */
+
+    distanceEl.innerText =
+      distanceKm.toFixed(1) +
+      ' km';
+
+
+    /* FARE */
+
+    fareEl.innerHTML =
+
+      '₹' +
+      fare +
+      '+' +
+
+      '<br>' +
+
+      '<small>' +
+
+      distanceKm.toFixed(1) +
+      ' km × ₹' +
+      RATE_PER_KM +
+      '/km' +
+
+      '<br>' +
+
+      'Minimum fare: ₹' +
+      MINIMUM_FARE +
+
+      '</small>';
+
+
+    /* DETAIL */
+
+    if(
+      result.method ===
+      'estimated'
+    ){
+
+      detailEl.innerHTML =
+
+        'Approximate road distance calculated.' +
+
+        '<br>' +
+
+        'Final distance/fare will be confirmed by Vandan.';
+
+    }
+
+    else{
+
+      detailEl.innerHTML =
+
+        'Road distance calculated.' +
+
+        (
+          result.durationMin
+            ? '<br>Approx. driving time: ' +
+              formatDuration(
+                result.durationMin
+              )
+            : ''
+        );
+
+    }
+
+
+    return {
+
+      distance:
+        distanceKm,
+
+      fare:
+        fare,
+
+      method:
+        result.method
+
+    };
+
+  }
+
+  catch(error){
 
     console.error(
-      'Distance calculation error:',
+      'Estimate error:',
       error
     );
 
 
-    fareBox.innerText=
-      'Unable to find location';
+    /*
+       IMPORTANT:
+       Estimate never blocks booking.
+
+       If location cannot be
+       resolved, minimum fare
+       remains available.
+    */
+
+    fareEl.innerHTML =
+
+      '₹' +
+      MINIMUM_FARE +
+      '+' +
+
+      '<br>' +
+
+      '<small>' +
+
+      'Minimum fare: ₹' +
+      MINIMUM_FARE +
+
+      '</small>';
 
 
-    distanceInfo.innerHTML=
-      'Please check pickup/drop spelling and try again.';
+    distanceEl.innerText =
+      'Pending';
 
 
-    return 0;
+    detailEl.innerHTML =
 
-  }finally{
+      'Distance will be confirmed by Vandan.' +
 
-    button.classList.remove('loading');
+      '<br>' +
 
-    button.innerText=
-      '📍 Calculate Distance & Estimate';
+      'Booking can still continue.';
+
+
+    return {
+
+      distance:0,
+
+      fare:
+        MINIMUM_FARE,
+
+      method:
+        'pending'
+
+    };
 
   }
 
@@ -2101,38 +3489,55 @@ async function estimate(){
 
 async function sendBooking(){
 
-  const name=
-    document.getElementById('name')
-      .value.trim();
+  const name =
+    document.getElementById(
+      'name'
+    ).value.trim();
 
-  const mobile=
-    document.getElementById('mobile')
-      .value.trim();
 
-  const service=
-    document.getElementById('service')
-      .value.trim();
+  const mobile =
+    document.getElementById(
+      'mobile'
+    ).value.trim();
 
-  const pickup=
-    document.getElementById('pickup')
-      .value.trim();
 
-  const drop=
-    document.getElementById('drop')
-      .value.trim();
+  const service =
+    document.getElementById(
+      'service'
+    ).value.trim();
 
-  const date=
-    document.getElementById('date')
-      .value;
 
-  const time=
-    document.getElementById('time')
-      .value;
+  const pickup =
+    document.getElementById(
+      'pickup'
+    ).value.trim();
 
-  const people=
-    document.getElementById('people')
-      .value;
 
+  const drop =
+    document.getElementById(
+      'drop'
+    ).value.trim();
+
+
+  const date =
+    document.getElementById(
+      'date'
+    ).value;
+
+
+  const time =
+    document.getElementById(
+      'time'
+    ).value;
+
+
+  const people =
+    document.getElementById(
+      'people'
+    ).value;
+
+
+  /* VALIDATION */
 
   if(!name){
 
@@ -2178,81 +3583,60 @@ async function sendBooking(){
   }
 
 
-  /*
-    Calculate fare
-  */
+  /* ESTIMATE */
 
-  const fare=
+  const result =
     await estimate();
 
 
-  if(!fare){
-
-    /*
-      Do not save invalid booking
-      when location cannot be calculated.
-    */
-
-    return;
-
-  }
+  const distance =
+    result.distance || 0;
 
 
-  const airportAction=
-    document.getElementById(
-      'airportAction'
-    ).value;
-
-  const airport=
-    document.getElementById(
-      'airport'
-    ).value;
-
-  const railwayAction=
-    document.getElementById(
-      'railwayAction'
-    ).value;
-
-  const railway=
-    document.getElementById(
-      'railway'
-    ).value;
+  const fare =
+    result.fare ||
+    MINIMUM_FARE;
 
 
-  const booking={
+  /* SAVE */
 
-    name:name,
+  const booking = {
 
-    mobile:mobile,
+    name:
+      name,
 
-    service:service,
+    mobile:
+      mobile,
 
-    airportAction:
-      airportAction,
+    service:
+      service,
 
-    airport:
-      airport,
+    pickup:
+      pickup,
 
-    railwayAction:
-      railwayAction,
+    drop:
+      drop,
 
-    railway:
-      railway,
+    date:
+      date,
 
-    pickup:pickup,
+    time:
+      time,
 
-    drop:drop,
+    people:
+      people,
 
-    date:date,
+    distance:
+      distance
+        ? distance.toFixed(1)
+        : 'Pending',
 
-    time:time,
-
-    people:people,
-
-    fare:fare,
+    fare:
+      fare,
 
     createdAt:
-      new Date().toISOString()
+      new Date()
+        .toISOString()
 
   };
 
@@ -2262,34 +3646,9 @@ async function sendBooking(){
   );
 
 
-  let specialInfo='';
+  /* WHATSAPP */
 
-
-  if(
-    service==='Airport Transfer' &&
-    airport
-  ){
-
-    specialInfo=
-      `Airport Service: ${airportAction}\n`+
-      `Airport: ${airport}\n`;
-
-  }
-
-
-  if(
-    service==='Railway Transfer' &&
-    railway
-  ){
-
-    specialInfo=
-      `Railway Service: ${railwayAction}\n`+
-      `Railway Station: ${railway}\n`;
-
-  }
-
-
-  const message=
+  const message =
 
 `🚕 VANDAN KUTCH TRAVELS
 
@@ -2299,15 +3658,31 @@ Name: ${name}
 Mobile: ${mobile}
 Service: ${service}
 
-${specialInfo}
 Pickup: ${pickup}
 Drop: ${drop}
 
-Date: ${date || 'Not specified'}
-Time: ${time || 'Not specified'}
+Date: ${
+  date ||
+  'Not specified'
+}
+
+Time: ${
+  time ||
+  'Not specified'
+}
+
 Passengers: ${people}
 
-Estimated Fare: ₹${fare}
+Estimated Road Distance: ${
+  distance
+    ? distance.toFixed(1) + ' km'
+    : 'Pending'
+}
+
+Estimated Fare: ₹${fare}+
+
+Rate: ₹${RATE_PER_KM}/km
+Minimum Fare: ₹${MINIMUM_FARE}
 
 Please confirm availability and final fare.
 
@@ -2316,15 +3691,11 @@ Vandan Kutch Travels
 Mundra, Kutch, Gujarat`;
 
 
-  const whatsappUrl=
-    'https://wa.me/919913747955?text='+
+  window.location.href =
+    'https://wa.me/919913747955?text=' +
     encodeURIComponent(
       message
     );
-
-
-  window.location.href=
-    whatsappUrl;
 
 }
 
@@ -2335,29 +3706,26 @@ Mundra, Kutch, Gujarat`;
 
 function wa(){
 
-  const message=
+  const message =
     'Hello Vandan Kutch Travels, I would like to book an Ertiga CNG ride. Please share availability and fare.';
 
 
-  const url=
-    'https://wa.me/919913747955?text='+
+  window.location.href =
+    'https://wa.me/919913747955?text=' +
     encodeURIComponent(
       message
     );
-
-
-  window.location.href=url;
 
 }
 
 
 /* ==================================================
-   PHONE
+   CALL
 ================================================== */
 
 function call(){
 
-  window.location.href=
+  window.location.href =
     'tel:+919913747955';
 
 }
@@ -2371,21 +3739,23 @@ function saveBooking(
   booking
 ){
 
-  let bookings=[];
+  let bookings = [];
 
 
   try{
 
-    bookings=
+    bookings =
       JSON.parse(
         localStorage.getItem(
           'vandanBookings'
         )
-      )||[];
+      ) || [];
 
-  }catch(error){
+  }
 
-    bookings=[];
+  catch(error){
+
+    bookings = [];
 
   }
 
@@ -2416,17 +3786,19 @@ function getBookings(){
 
   try{
 
-    return(
+    return (
       JSON.parse(
         localStorage.getItem(
           'vandanBookings'
         )
-      )||[]
+      ) || []
     );
 
-  }catch(error){
+  }
 
-    return[];
+  catch(error){
+
+    return [];
 
   }
 
@@ -2434,12 +3806,12 @@ function getBookings(){
 
 
 /* ==================================================
-   DISPLAY BOOKINGS
+   RENDER BOOKINGS
 ================================================== */
 
 function renderBookings(){
 
-  const list=
+  const list =
     document.getElementById(
       'bookingList'
     );
@@ -2450,13 +3822,15 @@ function renderBookings(){
   }
 
 
-  const bookings=
+  const bookings =
     getBookings();
 
 
-  if(!bookings.length){
+  if(
+    !bookings.length
+  ){
 
-    list.innerHTML=`
+    list.innerHTML = `
 
       <div class="notice">
 
@@ -2476,7 +3850,8 @@ function renderBookings(){
   }
 
 
-  list.innerHTML='';
+  list.innerHTML =
+    '';
 
 
   bookings.forEach(
@@ -2485,86 +3860,23 @@ function renderBookings(){
       index
     ){
 
-      const item=
+      const item =
         document.createElement(
           'div'
         );
 
 
-      item.className=
+      item.className =
         'booking';
 
 
-      let extra='';
-
-
-      if(
-        booking.airport
-      ){
-
-        extra+=`
-
-          <div class="booking-line">
-
-            <b>Airport:</b>
-            ${escapeHtml(
-              booking.airport
-            )}
-
-          </div>
-
-          <div class="booking-line">
-
-            <b>Airport Service:</b>
-            ${escapeHtml(
-              booking.airportAction
-            )}
-
-          </div>
-
-        `;
-
-      }
-
-
-      if(
-        booking.railway
-      ){
-
-        extra+=`
-
-          <div class="booking-line">
-
-            <b>Station:</b>
-            ${escapeHtml(
-              booking.railway
-            )}
-
-          </div>
-
-          <div class="booking-line">
-
-            <b>Railway Service:</b>
-            ${escapeHtml(
-              booking.railwayAction
-            )}
-
-          </div>
-
-        `;
-
-      }
-
-
-      item.innerHTML=`
+      item.innerHTML = `
 
         <h3>
           🚕 ${escapeHtml(
             booking.service
           )}
         </h3>
-
-        ${extra}
 
         <div class="booking-line">
           <b>Name:</b>
@@ -2611,12 +3923,28 @@ function renderBookings(){
         </div>
 
         <div class="booking-line">
+          <b>Distance:</b>
+          ${escapeHtml(
+            booking.distance ||
+            'Pending'
+          )}
+          ${
+            booking.distance &&
+            booking.distance !==
+            'Pending'
+              ? ' km'
+              : ''
+          }
+        </div>
+
+        <div class="booking-line">
           <b>Estimated Fare:</b>
           ₹${escapeHtml(
             String(
-              booking.fare
+              booking.fare ||
+              MINIMUM_FARE
             )
-          )}
+          )}+
         </div>
 
         <div class="booking-actions">
@@ -2698,7 +4026,7 @@ function deleteBooking(
   index
 ){
 
-  const bookings=
+  const bookings =
     getBookings();
 
 
@@ -2740,11 +4068,11 @@ function repeatWhatsApp(
   index
 ){
 
-  const bookings=
+  const bookings =
     getBookings();
 
 
-  const booking=
+  const booking =
     bookings[index];
 
 
@@ -2753,32 +4081,7 @@ function repeatWhatsApp(
   }
 
 
-  let specialInfo='';
-
-
-  if(
-    booking.airport
-  ){
-
-    specialInfo=
-      `Airport Service: ${booking.airportAction}\n`+
-      `Airport: ${booking.airport}\n`;
-
-  }
-
-
-  if(
-    booking.railway
-  ){
-
-    specialInfo=
-      `Railway Service: ${booking.railwayAction}\n`+
-      `Railway Station: ${booking.railway}\n`;
-
-  }
-
-
-  const message=
+  const message =
 
 `🚕 VANDAN KUTCH TRAVELS
 
@@ -2788,21 +4091,45 @@ Name: ${booking.name}
 Mobile: ${booking.mobile}
 Service: ${booking.service}
 
-${specialInfo}
 Pickup: ${booking.pickup}
 Drop: ${booking.drop}
 
-Date: ${booking.date || 'Not specified'}
-Time: ${booking.time || 'Not specified'}
+Date: ${
+  booking.date ||
+  'Not specified'
+}
+
+Time: ${
+  booking.time ||
+  'Not specified'
+}
+
 Passengers: ${booking.people}
 
-Estimated Fare: ₹${booking.fare}
+Estimated Road Distance: ${
+  booking.distance ||
+  'Pending'
+}${
+  booking.distance &&
+  booking.distance !==
+  'Pending'
+    ? ' km'
+    : ''
+}
+
+Estimated Fare: ₹${
+  booking.fare ||
+  MINIMUM_FARE
+}+
+
+Rate: ₹${RATE_PER_KM}/km
+Minimum Fare: ₹${MINIMUM_FARE}
 
 Please confirm availability and final fare.`;
 
 
-  window.location.href=
-    'https://wa.me/919913747955?text='+
+  window.location.href =
+    'https://wa.me/919913747955?text=' +
     encodeURIComponent(
       message
     );
@@ -2811,7 +4138,57 @@ Please confirm availability and final fare.`;
 
 
 /* ==================================================
-   INITIAL LOAD
+   CLEAR ESTIMATE
+================================================== */
+
+function clearEstimate(){
+
+  const distanceEl =
+    document.getElementById(
+      'distance'
+    );
+
+
+  const fareEl =
+    document.getElementById(
+      'fare'
+    );
+
+
+  const detailEl =
+    document.getElementById(
+      'distanceDetail'
+    );
+
+
+  if(distanceEl){
+
+    distanceEl.innerText =
+      '— km';
+
+  }
+
+
+  if(fareEl){
+
+    fareEl.innerText =
+      '₹ —';
+
+  }
+
+
+  if(detailEl){
+
+    detailEl.innerText =
+      'Enter pickup and drop location.';
+
+  }
+
+}
+
+
+/* ==================================================
+   PAGE LOAD
 ================================================== */
 
 document.addEventListener(
@@ -2820,10 +4197,13 @@ document.addEventListener(
 
     renderBookings();
 
+    serviceChanged();
+
   }
 );
 
 </script>
+
 
 </body>
 </html>
