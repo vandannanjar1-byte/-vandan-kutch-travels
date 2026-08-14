@@ -1,16 +1,19 @@
+```html
 <!doctype html>
 <html lang="gu">
+
 <head>
 
-<link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#07152e">
 <meta charset="utf-8">
 
 <meta name="viewport"
       content="width=device-width,initial-scale=1,viewport-fit=cover">
 
+<meta name="theme-color" content="#07152e">
+
 <meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="manifest" href="manifest.json">
 
 <title>Vandan Kutch Travels</title>
 
@@ -272,10 +275,30 @@ button{
   border-color:#d8ad52;
 }
 
+.input:disabled{
+  background:#f1f3f6;
+  color:#495365;
+}
+
 .row{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
+}
+
+.special-box{
+  background:#f8f9fb;
+  border:1px solid #e1e5eb;
+  border-radius:14px;
+  padding:12px;
+  margin-top:12px;
+}
+
+.special-title{
+  font-size:13px;
+  font-weight:800;
+  color:#172033;
+  margin-bottom:7px;
 }
 
 .fare{
@@ -373,13 +396,19 @@ button{
   color:#fff;
 }
 
+.hidden{
+  display:none !important;
+}
+
 </style>
+
 </head>
 
 
 <body>
 
 <div class="app">
+
 
 <!-- ==================================================
      HOME
@@ -416,7 +445,9 @@ Corporate • Airport • Railway • Outstation • Kutch Tours
 <button
   class="primary"
   onclick="go('book')">
+
 🚕 BOOK YOUR RIDE
+
 </button>
 
 </div>
@@ -432,6 +463,7 @@ Our Services
 
 <div class="grid">
 
+
 <div
   class="card service"
   onclick="quick('Airport Transfer')">
@@ -441,7 +473,7 @@ Our Services
 <b>Airport</b>
 
 <div class="muted">
-Bhuj Airport
+Airport Pickup & Drop
 </div>
 
 </div>
@@ -456,7 +488,7 @@ Bhuj Airport
 <b>Railway</b>
 
 <div class="muted">
-Gandhidham Station
+Railway Pickup & Drop
 </div>
 
 </div>
@@ -491,6 +523,7 @@ Rann • Mandvi • Bhuj
 
 </div>
 
+
 </div>
 
 </div>
@@ -509,7 +542,8 @@ Why Vandan Kutch Travels?
 ✓ Mundra based<br>
 ✓ Clean 7-seater Ertiga CNG<br>
 ✓ Local & outstation service<br>
-✓ Easy WhatsApp booking
+✓ Easy WhatsApp booking<br>
+✓ Airport & Railway pickup/drop
 
 </p>
 
@@ -527,6 +561,7 @@ Why Vandan Kutch Travels?
 </div>
 
 </section>
+
 
 
 <!-- ==================================================
@@ -558,21 +593,115 @@ Mundra • Kutch • Gujarat
 
 <div class="form">
 
+
+<!-- SERVICE -->
+
 <div class="label">
 Service
 </div>
 
-<select id="service" class="input">
+<select
+  id="service"
+  class="input"
+  onchange="serviceChanged()">
 
-<option>Local Ride</option>
-<option>Airport Transfer</option>
-<option>Railway Transfer</option>
-<option>Corporate Travel</option>
-<option>Outstation</option>
-<option>Kutch Tour</option>
+<option value="Local Ride">
+Local Ride
+</option>
+
+<option value="Airport Transfer">
+Airport Transfer
+</option>
+
+<option value="Railway Transfer">
+Railway Transfer
+</option>
+
+<option value="Corporate Travel">
+Corporate Travel
+</option>
+
+<option value="Outstation">
+Outstation
+</option>
+
+<option value="Kutch Tour">
+Kutch Tour
+</option>
 
 </select>
 
+
+
+<!-- =========================
+     SPECIAL SERVICE BOX
+========================= -->
+
+<div
+  id="specialBox"
+  class="special-box hidden">
+
+
+<div class="special-title">
+Service Type
+</div>
+
+
+<select
+  id="specialType"
+  class="input"
+  onchange="specialTypeChanged()">
+
+<option value="">
+Select Pickup / Drop
+</option>
+
+</select>
+
+
+<div
+  id="specialPlaceWrap"
+  class="hidden">
+
+<div class="label">
+Select Location
+</div>
+
+<select
+  id="specialPlace"
+  class="input"
+  onchange="specialPlaceChanged()">
+
+<option value="">
+Select Airport / Station
+</option>
+
+</select>
+
+</div>
+
+
+<div
+  id="flightTrainWrap"
+  class="hidden">
+
+<div class="label">
+Flight / Train Number
+</div>
+
+<input
+  id="flightTrain"
+  class="input"
+  placeholder="e.g. AI123 / 22956">
+
+</div>
+
+
+</div>
+
+
+
+<!-- PICKUP -->
 
 <div class="label">
 Pickup Location
@@ -584,6 +713,9 @@ Pickup Location
   placeholder="e.g. The Fern Residency, Mundra">
 
 
+
+<!-- DROP -->
+
 <div class="label">
 Drop Location
 </div>
@@ -593,6 +725,9 @@ Drop Location
   class="input"
   placeholder="e.g. Bhuj Airport">
 
+
+
+<!-- DATE / TIME -->
 
 <div class="row">
 
@@ -625,6 +760,9 @@ Time
 
 </div>
 
+
+
+<!-- PEOPLE / NAME -->
 
 <div class="row">
 
@@ -661,6 +799,9 @@ Name
 </div>
 
 
+
+<!-- MOBILE -->
+
 <div class="label">
 Mobile
 </div>
@@ -671,6 +812,9 @@ Mobile
   value="+91 99137 47955">
 
 
+
+<!-- FARE -->
+
 <div class="fare">
 
 Estimated fare:
@@ -680,10 +824,11 @@ Estimated fare:
 </b>
 
 <div class="muted">
-Final fare will be confirmed by Vandan.
+Road distance × ₹18/km • Minimum ₹500
 </div>
 
 </div>
+
 
 
 <button
@@ -706,6 +851,7 @@ Confirm via WhatsApp
 </div>
 
 </section>
+
 
 
 <!-- ==================================================
@@ -806,6 +952,7 @@ Request Quote
 </section>
 
 
+
 <!-- ==================================================
      BOOKINGS
 ================================================== -->
@@ -843,6 +990,7 @@ Book your first ride from the
 </div>
 
 </section>
+
 
 
 <!-- ==================================================
@@ -922,6 +1070,7 @@ Maruti Suzuki Ertiga CNG • 7 Seater
 </section>
 
 
+
 <!-- ==================================================
      BOTTOM NAV
 ================================================== -->
@@ -972,19 +1121,16 @@ Profile
 </div>
 
 
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
 
 <script>
 
-/* =========================
+/* ==================================================
    SERVICE WORKER
-========================= */
+================================================== */
 
 if ('serviceWorker' in navigator) {
 
-  window.addEventListener('load', function(){
+  window.addEventListener('load',function(){
 
     navigator.serviceWorker
       .register('service-worker.js')
@@ -1002,9 +1148,10 @@ if ('serviceWorker' in navigator) {
 }
 
 
-/* =========================
+
+/* ==================================================
    SCREEN NAVIGATION
-========================= */
+================================================== */
 
 const screens = [
   'home',
@@ -1015,14 +1162,14 @@ const screens = [
 ];
 
 
-function go(id, btn) {
+function go(id,btn){
 
   screens.forEach(function(x){
 
     const el =
       document.getElementById(x);
 
-    if (el) {
+    if(el){
       el.classList.remove('on');
     }
 
@@ -1032,7 +1179,7 @@ function go(id, btn) {
   const page =
     document.getElementById(id);
 
-  if (page) {
+  if(page){
     page.classList.add('on');
   }
 
@@ -1046,18 +1193,18 @@ function go(id, btn) {
     });
 
 
-  if (btn) {
+  if(btn){
 
     btn.classList.add('on');
 
-  } else {
+  }else{
 
     const navButton =
       document.querySelector(
         `.nav[onclick*="'${id}'"]`
       );
 
-    if (navButton) {
+    if(navButton){
       navButton.classList.add('on');
     }
 
@@ -1072,22 +1219,456 @@ function go(id, btn) {
 }
 
 
-/* =========================
-   QUICK SERVICE
-========================= */
 
-function quick(service) {
+/* ==================================================
+   AIRPORT LIST
+================================================== */
+
+const airports = [
+
+  {
+    name:'Ahmedabad Airport',
+    location:'Sardar Vallabhbhai Patel International Airport, Ahmedabad, Gujarat, India'
+  },
+
+  {
+    name:'Surat Airport',
+    location:'Surat Airport, Dumas Road, Surat, Gujarat, India'
+  },
+
+  {
+    name:'Vadodara Airport',
+    location:'Vadodara Airport, Vadodara, Gujarat, India'
+  },
+
+  {
+    name:'Rajkot International Airport',
+    location:'Rajkot International Airport, Hirasar, Rajkot, Gujarat, India'
+  },
+
+  {
+    name:'Bhuj Airport',
+    location:'Bhuj Airport, Bhuj, Kutch, Gujarat, India'
+  },
+
+  {
+    name:'Jamnagar Airport',
+    location:'Jamnagar Airport, Jamnagar, Gujarat, India'
+  },
+
+  {
+    name:'Kandla Airport',
+    location:'Kandla Airport, Kandla, Kutch, Gujarat, India'
+  },
+
+  {
+    name:'Bhavnagar Airport',
+    location:'Bhavnagar Airport, Bhavnagar, Gujarat, India'
+  },
+
+  {
+    name:'Porbandar Airport',
+    location:'Porbandar Airport, Porbandar, Gujarat, India'
+  },
+
+  {
+    name:'Keshod Airport',
+    location:'Keshod Airport, Keshod, Junagadh, Gujarat, India'
+  },
+
+  {
+    name:'Mundra Airport',
+    location:'Mundra Airport, Mundra, Kutch, Gujarat, India'
+  }
+
+];
+
+
+
+/* ==================================================
+   RAILWAY STATION LIST
+================================================== */
+
+const railwayStations = [
+
+  {
+    name:'Gandhidham Railway Station',
+    location:'Gandhidham Railway Station, Gandhidham, Kutch, Gujarat, India'
+  },
+
+  {
+    name:'Bhuj Railway Station',
+    location:'Bhuj Railway Station, Bhuj, Kutch, Gujarat, India'
+  },
+
+  {
+    name:'Mundra-Mandvi Road Railway Station',
+    location:'Mundra-Mandvi Road Railway Station, Gujarat, India'
+  },
+
+  {
+    name:'Anjar Railway Station',
+    location:'Anjar Railway Station, Anjar, Kutch, Gujarat, India'
+  },
+
+  {
+    name:'Adipur Railway Station',
+    location:'Adipur Railway Station, Adipur, Kutch, Gujarat, India'
+  },
+
+  {
+    name:'Ahmedabad Junction',
+    location:'Ahmedabad Junction Railway Station, Ahmedabad, Gujarat, India'
+  },
+
+  {
+    name:'Gandhinagar Capital Railway Station',
+    location:'Gandhinagar Capital Railway Station, Gandhinagar, Gujarat, India'
+  },
+
+  {
+    name:'Vadodara Junction',
+    location:'Vadodara Railway Station, Vadodara, Gujarat, India'
+  },
+
+  {
+    name:'Surat Railway Station',
+    location:'Surat Railway Station, Surat, Gujarat, India'
+  },
+
+  {
+    name:'Rajkot Junction',
+    location:'Rajkot Junction Railway Station, Rajkot, Gujarat, India'
+  },
+
+  {
+    name:'Jamnagar Railway Station',
+    location:'Jamnagar Railway Station, Jamnagar, Gujarat, India'
+  },
+
+  {
+    name:'Bhavnagar Terminus',
+    location:'Bhavnagar Terminus Railway Station, Bhavnagar, Gujarat, India'
+  },
+
+  {
+    name:'Porbandar Railway Station',
+    location:'Porbandar Railway Station, Porbandar, Gujarat, India'
+  },
+
+  {
+    name:'Junagadh Junction',
+    location:'Junagadh Junction Railway Station, Junagadh, Gujarat, India'
+  }
+
+];
+
+
+
+/* ==================================================
+   QUICK SERVICE
+================================================== */
+
+function quick(service){
 
   const serviceEl =
     document.getElementById('service');
 
-  if (serviceEl) {
+  if(serviceEl){
+
     serviceEl.value = service;
+
   }
 
 
+  serviceChanged();
+
   go('book');
 
+}
+
+
+
+/* ==================================================
+   SERVICE CHANGE
+================================================== */
+
+function serviceChanged(){
+
+  const service =
+    document.getElementById('service').value;
+
+
+  const specialBox =
+    document.getElementById('specialBox');
+
+  const specialType =
+    document.getElementById('specialType');
+
+  const specialPlace =
+    document.getElementById('specialPlace');
+
+  const specialPlaceWrap =
+    document.getElementById('specialPlaceWrap');
+
+  const flightTrainWrap =
+    document.getElementById('flightTrainWrap');
+
+  const flightTrain =
+    document.getElementById('flightTrain');
+
+
+  /*
+    Reset
+  */
+
+  specialType.innerHTML =
+    '<option value="">Select Pickup / Drop</option>';
+
+  specialPlace.innerHTML =
+    '<option value="">Select Airport / Station</option>';
+
+  specialPlaceWrap.classList.add('hidden');
+
+  flightTrainWrap.classList.add('hidden');
+
+  flightTrain.value = '';
+
+
+  resetLocationFields();
+
+
+  /*
+    Airport
+  */
+
+  if(service === 'Airport Transfer'){
+
+    specialBox.classList.remove('hidden');
+
+    specialType.innerHTML = `
+
+      <option value="">
+        Select Airport Service
+      </option>
+
+      <option value="Airport Pickup">
+        ✈️ Airport Pickup
+      </option>
+
+      <option value="Airport Drop">
+        🛫 Airport Drop
+      </option>
+
+    `;
+
+    fillPlaceList(airports,'Airport');
+
+  }
+
+
+  /*
+    Railway
+  */
+
+  else if(service === 'Railway Transfer'){
+
+    specialBox.classList.remove('hidden');
+
+    specialType.innerHTML = `
+
+      <option value="">
+        Select Railway Service
+      </option>
+
+      <option value="Railway Pickup">
+        🚉 Railway Pickup
+      </option>
+
+      <option value="Railway Drop">
+        🚆 Railway Drop
+      </option>
+
+    `;
+
+    fillPlaceList(
+      railwayStations,
+      'Railway Station'
+    );
+
+  }
+
+
+  else{
+
+    specialBox.classList.add('hidden');
+
+  }
+
+
+  updatePlaceVisibility();
+
+}
+
+
+
+/* ==================================================
+   FILL AIRPORT / STATION LIST
+================================================== */
+
+function fillPlaceList(list,type){
+
+  const select =
+    document.getElementById('specialPlace');
+
+
+  select.innerHTML =
+    `<option value="">Select ${type}</option>`;
+
+
+  list.forEach(function(item){
+
+    const option =
+      document.createElement('option');
+
+    option.value =
+      item.location;
+
+    option.textContent =
+      item.name;
+
+    select.appendChild(option);
+
+  });
+
+}
+
+
+
+/* ==================================================
+   SPECIAL TYPE CHANGE
+================================================== */
+
+function specialTypeChanged(){
+
+  updatePlaceVisibility();
+
+  specialPlaceChanged();
+
+}
+
+
+
+/* ==================================================
+   SHOW/HIDE SPECIAL FIELDS
+================================================== */
+
+function updatePlaceVisibility(){
+
+  const type =
+    document.getElementById('specialType').value;
+
+
+  const placeWrap =
+    document.getElementById('specialPlaceWrap');
+
+  const flightTrainWrap =
+    document.getElementById('flightTrainWrap');
+
+
+  if(type){
+
+    placeWrap.classList.remove('hidden');
+
+    flightTrainWrap.classList.remove('hidden');
+
+  }else{
+
+    placeWrap.classList.add('hidden');
+
+    flightTrainWrap.classList.add('hidden');
+
+  }
+
+}
+
+
+
+/* ==================================================
+   SPECIAL PLACE CHANGE
+================================================== */
+
+function specialPlaceChanged(){
+
+  const type =
+    document.getElementById('specialType').value;
+
+
+  const place =
+    document.getElementById('specialPlace').value;
+
+
+  const pickup =
+    document.getElementById('pickup');
+
+
+  const drop =
+    document.getElementById('drop');
+
+
+  if(!type || !place){
+
+    resetLocationFields();
+
+    return;
+
+  }
+
+
+  /*
+    AIRPORT / RAILWAY PICKUP
+  */
+
+  if(
+    type === 'Airport Pickup' ||
+    type === 'Railway Pickup'
+  ){
+
+    pickup.value = place;
+
+    pickup.disabled = true;
+
+    drop.disabled = false;
+
+  }
+
+
+  /*
+    AIRPORT / RAILWAY DROP
+  */
+
+  if(
+    type === 'Airport Drop' ||
+    type === 'Railway Drop'
+  ){
+
+    drop.value = place;
+
+    drop.disabled = true;
+
+    pickup.disabled = false;
+
+  }
+
+}
+
+
+
+/* ==================================================
+   RESET LOCATION FIELDS
+================================================== */
+
+function resetLocationFields(){
 
   const pickup =
     document.getElementById('pickup');
@@ -1096,42 +1677,46 @@ function quick(service) {
     document.getElementById('drop');
 
 
-  if (
-    pickup &&
-    drop &&
-    pickup.value.trim() &&
-    drop.value.trim()
-  ) {
+  pickup.disabled = false;
 
-    estimate();
-
-  }
+  drop.disabled = false;
 
 }
 
 
-/* =========================
-   GET COORDINATES
-========================= */
 
-async function getCoordinates(location) {
+/* ==================================================
+   GET COORDINATES
+================================================== */
+
+async function getCoordinates(location){
+
+  /*
+    IMPORTANT:
+    No longer forcing ", Kutch, Gujarat"
+    on every location.
+  */
+
+  const query =
+    location +
+    ', India';
+
 
   const url =
     'https://nominatim.openstreetmap.org/search' +
     '?format=json' +
     '&limit=1' +
+    '&countrycodes=in' +
+    '&accept-language=en' +
     '&q=' +
-    encodeURIComponent(
-      location +
-      ', Kutch, Gujarat, India'
-    );
+    encodeURIComponent(query);
 
 
   const response =
     await fetch(url);
 
 
-  if (!response.ok) {
+  if(!response.ok){
 
     throw new Error(
       'Geocoding request failed'
@@ -1144,10 +1729,7 @@ async function getCoordinates(location) {
     await response.json();
 
 
-  if (
-    !data ||
-    !data.length
-  ) {
+  if(!data || !data.length){
 
     throw new Error(
       'Location not found: ' +
@@ -1159,23 +1741,26 @@ async function getCoordinates(location) {
 
   return {
 
-    lat:parseFloat(data[0].lat),
+    lat:
+      parseFloat(data[0].lat),
 
-    lon:parseFloat(data[0].lon)
+    lon:
+      parseFloat(data[0].lon)
 
   };
 
 }
 
 
-/* =========================
+
+/* ==================================================
    CALCULATE ROAD DISTANCE
-========================= */
+================================================== */
 
 async function calculateDistance(
   pickup,
   drop
-) {
+){
 
   const start =
     await getCoordinates(pickup);
@@ -1186,17 +1771,17 @@ async function calculateDistance(
 
 
   const url =
-    `https://router.project-osrm.org/route/v1/driving/` +
+    'https://router.project-osrm.org/route/v1/driving/' +
     `${start.lon},${start.lat};` +
     `${end.lon},${end.lat}` +
-    `?overview=false`;
+    '?overview=false';
 
 
   const response =
     await fetch(url);
 
 
-  if (!response.ok) {
+  if(!response.ok){
 
     throw new Error(
       'Routing request failed'
@@ -1209,11 +1794,11 @@ async function calculateDistance(
     await response.json();
 
 
-  if (
+  if(
     data.code !== 'Ok' ||
     !data.routes ||
     !data.routes.length
-  ) {
+  ){
 
     throw new Error(
       'Route not found'
@@ -1229,11 +1814,12 @@ async function calculateDistance(
 }
 
 
-/* =========================
-   ESTIMATE FARE
-========================= */
 
-async function estimate() {
+/* ==================================================
+   ESTIMATE FARE
+================================================== */
+
+async function estimate(){
 
   const pickupEl =
     document.getElementById('pickup');
@@ -1246,44 +1832,32 @@ async function estimate() {
 
 
   const pickup =
-    pickupEl
-      ? pickupEl.value.trim()
-      : '';
+    pickupEl.value.trim();
 
 
   const drop =
-    dropEl
-      ? dropEl.value.trim()
-      : '';
+    dropEl.value.trim();
 
 
-  if (!pickup || !drop) {
+  if(!pickup || !drop){
 
-    if (fareBox) {
-
-      fareBox.innerText =
-        'Enter pickup & drop';
-
-    }
+    fareBox.innerText =
+      'Enter pickup & drop';
 
     return 0;
 
   }
 
 
-  try {
+  try{
 
-    if (fareBox) {
-
-      fareBox.innerText =
-        'Calculating...';
-
-    }
+    fareBox.innerText =
+      'Calculating...';
 
 
-    /* =========================
-       ROAD DISTANCE
-    ========================= */
+    /*
+      ROAD DISTANCE
+    */
 
     const distanceKm =
       await calculateDistance(
@@ -1292,9 +1866,9 @@ async function estimate() {
       );
 
 
-    /* =========================
-       RATE
-    ========================= */
+    /*
+      RATE
+    */
 
     const ratePerKm = 18;
 
@@ -1305,37 +1879,36 @@ async function estimate() {
       );
 
 
-    /* =========================
-       MINIMUM FARE
-    ========================= */
+    /*
+      MINIMUM FARE
+    */
 
-    if (fare < 500) {
+    if(fare < 500){
 
       fare = 500;
 
     }
 
 
-    /* =========================
-       SHOW FARE
-    ========================= */
+    /*
+      SHOW FARE
+    */
 
-    if (fareBox) {
+    fareBox.innerHTML =
 
-      fareBox.innerHTML =
-        `₹${fare}+<br>
-        <small>
-        ${distanceKm.toFixed(1)}
-        km × ₹${ratePerKm}/km
-        </small>`;
-
-    }
+      `₹${fare}+<br>
+      <small>
+      ${distanceKm.toFixed(1)}
+      km × ₹${ratePerKm}/km
+      </small>`;
 
 
     return fare;
 
+  }
 
-  } catch (error) {
+
+  catch(error){
 
     console.error(
       'Fare calculation error:',
@@ -1343,12 +1916,8 @@ async function estimate() {
     );
 
 
-    if (fareBox) {
-
-      fareBox.innerText =
-        'Unable to calculate distance';
-
-    }
+    fareBox.innerText =
+      'Unable to calculate distance';
 
 
     return 0;
@@ -1358,90 +1927,81 @@ async function estimate() {
 }
 
 
-/* =========================
+
+/* ==================================================
    SEND BOOKING
-========================= */
+================================================== */
 
-async function sendBooking() {
-
-  const nameEl =
-    document.getElementById('name');
-
-  const mobileEl =
-    document.getElementById('mobile');
-
-  const serviceEl =
-    document.getElementById('service');
-
-  const pickupEl =
-    document.getElementById('pickup');
-
-  const dropEl =
-    document.getElementById('drop');
-
-  const dateEl =
-    document.getElementById('date');
-
-  const timeEl =
-    document.getElementById('time');
-
-  const peopleEl =
-    document.getElementById('people');
-
+async function sendBooking(){
 
   const name =
-    nameEl
-      ? nameEl.value.trim()
-      : '';
+    document.getElementById('name')
+      .value.trim();
 
 
   const mobile =
-    mobileEl
-      ? mobileEl.value.trim()
-      : '';
+    document.getElementById('mobile')
+      .value.trim();
 
 
   const service =
-    serviceEl
-      ? serviceEl.value.trim()
+    document.getElementById('service')
+      .value.trim();
+
+
+  const specialType =
+    document.getElementById('specialType')
+      .value.trim();
+
+
+  const specialPlaceEl =
+    document.getElementById('specialPlace');
+
+
+  const specialPlace =
+    specialPlaceEl
+      ? specialPlaceEl.options[
+          specialPlaceEl.selectedIndex
+        ]?.text || ''
       : '';
+
+
+  const flightTrain =
+    document.getElementById('flightTrain')
+      .value.trim();
 
 
   const pickup =
-    pickupEl
-      ? pickupEl.value.trim()
-      : '';
+    document.getElementById('pickup')
+      .value.trim();
 
 
   const drop =
-    dropEl
-      ? dropEl.value.trim()
-      : '';
+    document.getElementById('drop')
+      .value.trim();
 
 
   const date =
-    dateEl
-      ? dateEl.value
-      : '';
+    document.getElementById('date')
+      .value;
 
 
   const time =
-    timeEl
-      ? timeEl.value
-      : '';
+    document.getElementById('time')
+      .value;
 
 
   const people =
-    peopleEl
-      ? peopleEl.value
-      : '';
+    document.getElementById('people')
+      .value;
+
 
 
   /* =========================
      VALIDATION
   ========================= */
 
-  if (!name) {
+  if(!name){
 
     alert(
       'Please enter your name'
@@ -1452,7 +2012,7 @@ async function sendBooking() {
   }
 
 
-  if (!mobile) {
+  if(!mobile){
 
     alert(
       'Please enter your mobile number'
@@ -1463,7 +2023,7 @@ async function sendBooking() {
   }
 
 
-  if (!pickup) {
+  if(!pickup){
 
     alert(
       'Please enter pickup location'
@@ -1474,7 +2034,7 @@ async function sendBooking() {
   }
 
 
-  if (!drop) {
+  if(!drop){
 
     alert(
       'Please enter drop location'
@@ -1485,12 +2045,58 @@ async function sendBooking() {
   }
 
 
+  if(
+    service === 'Airport Transfer' ||
+    service === 'Railway Transfer'
+  ){
+
+    if(!specialType){
+
+      alert(
+        'Please select Pickup or Drop'
+      );
+
+      return;
+
+    }
+
+
+    if(!specialPlace){
+
+      alert(
+        'Please select Airport / Railway Station'
+      );
+
+      return;
+
+    }
+
+  }
+
+
+
   /* =========================
      CALCULATE FARE
   ========================= */
 
   const fare =
     await estimate();
+
+
+  /*
+    Do not save if route failed.
+  */
+
+  if(!fare){
+
+    alert(
+      'Distance could not be calculated. Please check pickup and drop locations.'
+    );
+
+    return;
+
+  }
+
 
 
   /* =========================
@@ -1504,6 +2110,12 @@ async function sendBooking() {
     mobile:mobile,
 
     service:service,
+
+    specialType:specialType,
+
+    specialPlace:specialPlace,
+
+    flightTrain:flightTrain,
 
     pickup:pickup,
 
@@ -1526,6 +2138,7 @@ async function sendBooking() {
   saveBooking(booking);
 
 
+
   /* =========================
      WHATSAPP MESSAGE
   ========================= */
@@ -1538,12 +2151,20 @@ BOOKING REQUEST
 
 Name: ${name}
 Mobile: ${mobile}
+
 Service: ${service}
+
+${specialType ? `Service Type: ${specialType}` : ''}
+${specialPlace ? `Airport/Station: ${specialPlace}` : ''}
+${flightTrain ? `Flight/Train No: ${flightTrain}` : ''}
+
 Pickup: ${pickup}
 Drop: ${drop}
+
 Date: ${date || 'Not specified'}
 Time: ${time || 'Not specified'}
 Passengers: ${people}
+
 Estimated Fare: ₹${fare}
 
 Please confirm availability and final fare.
@@ -1564,11 +2185,12 @@ Mundra, Kutch, Gujarat`;
 }
 
 
-/* =========================
-   WHATSAPP GENERAL
-========================= */
 
-function wa() {
+/* ==================================================
+   GENERAL WHATSAPP
+================================================== */
+
+function wa(){
 
   const message =
     'Hello Vandan Kutch Travels, I would like to book an Ertiga CNG ride. Please share availability and fare.';
@@ -1585,11 +2207,12 @@ function wa() {
 }
 
 
-/* =========================
-   PHONE CALL
-========================= */
 
-function call() {
+/* ==================================================
+   PHONE CALL
+================================================== */
+
+function call(){
 
   window.location.href =
     'tel:+919913747955';
@@ -1597,15 +2220,17 @@ function call() {
 }
 
 
-/* =========================
-   SAVE BOOKING
-========================= */
 
-function saveBooking(booking) {
+/* ==================================================
+   SAVE BOOKING
+================================================== */
+
+function saveBooking(booking){
 
   let bookings = [];
 
-  try {
+
+  try{
 
     bookings =
       JSON.parse(
@@ -1614,7 +2239,9 @@ function saveBooking(booking) {
         )
       ) || [];
 
-  } catch (error) {
+  }
+
+  catch(error){
 
     bookings = [];
 
@@ -1635,13 +2262,14 @@ function saveBooking(booking) {
 }
 
 
-/* =========================
+
+/* ==================================================
    GET BOOKINGS
-========================= */
+================================================== */
 
-function getBookings() {
+function getBookings(){
 
-  try {
+  try{
 
     return (
       JSON.parse(
@@ -1651,7 +2279,9 @@ function getBookings() {
       ) || []
     );
 
-  } catch (error) {
+  }
+
+  catch(error){
 
     return [];
 
@@ -1660,11 +2290,12 @@ function getBookings() {
 }
 
 
-/* =========================
-   DISPLAY BOOKINGS
-========================= */
 
-function renderBookings() {
+/* ==================================================
+   DISPLAY BOOKINGS
+================================================== */
+
+function renderBookings(){
 
   const list =
     document.getElementById(
@@ -1672,7 +2303,7 @@ function renderBookings() {
     );
 
 
-  if (!list) {
+  if(!list){
     return;
   }
 
@@ -1681,7 +2312,7 @@ function renderBookings() {
     getBookings();
 
 
-  if (!bookings.length) {
+  if(!bookings.length){
 
     list.innerHTML = `
 
@@ -1727,12 +2358,56 @@ function renderBookings() {
           )}
         </h3>
 
+
+        ${
+          booking.specialType
+            ? `
+              <div class="booking-line">
+                <b>Type:</b>
+                ${escapeHtml(
+                  booking.specialType
+                )}
+              </div>
+            `
+            : ''
+        }
+
+
+        ${
+          booking.specialPlace
+            ? `
+              <div class="booking-line">
+                <b>Airport/Station:</b>
+                ${escapeHtml(
+                  booking.specialPlace
+                )}
+              </div>
+            `
+            : ''
+        }
+
+
+        ${
+          booking.flightTrain
+            ? `
+              <div class="booking-line">
+                <b>Flight/Train:</b>
+                ${escapeHtml(
+                  booking.flightTrain
+                )}
+              </div>
+            `
+            : ''
+        }
+
+
         <div class="booking-line">
           <b>Name:</b>
           ${escapeHtml(
             booking.name
           )}
         </div>
+
 
         <div class="booking-line">
           <b>Pickup:</b>
@@ -1741,6 +2416,7 @@ function renderBookings() {
           )}
         </div>
 
+
         <div class="booking-line">
           <b>Drop:</b>
           ${escapeHtml(
@@ -1748,19 +2424,24 @@ function renderBookings() {
           )}
         </div>
 
+
         <div class="booking-line">
           <b>Date:</b>
           ${escapeHtml(
-            booking.date || 'Not specified'
+            booking.date ||
+            'Not specified'
           )}
         </div>
+
 
         <div class="booking-line">
           <b>Time:</b>
           ${escapeHtml(
-            booking.time || 'Not specified'
+            booking.time ||
+            'Not specified'
           )}
         </div>
+
 
         <div class="booking-line">
           <b>Passengers:</b>
@@ -1769,12 +2450,16 @@ function renderBookings() {
           )}
         </div>
 
+
         <div class="booking-line">
           <b>Estimated Fare:</b>
           ₹${escapeHtml(
-            String(booking.fare)
+            String(
+              booking.fare
+            )
           )}
         </div>
+
 
         <div class="booking-actions">
 
@@ -1785,6 +2470,7 @@ function renderBookings() {
             WhatsApp
 
           </button>
+
 
           <button
             class="small-btn delete-btn"
@@ -1807,37 +2493,59 @@ function renderBookings() {
 }
 
 
-/* =========================
-   ESCAPE HTML
-========================= */
 
-function escapeHtml(value) {
+/* ==================================================
+   ESCAPE HTML
+================================================== */
+
+function escapeHtml(value){
 
   return String(value)
-    .replaceAll('&','&amp;')
-    .replaceAll('<','&lt;')
-    .replaceAll('>','&gt;')
-    .replaceAll('"','&quot;')
-    .replaceAll("'","&#039;");
+
+    .replaceAll(
+      '&',
+      '&amp;'
+    )
+
+    .replaceAll(
+      '<',
+      '&lt;'
+    )
+
+    .replaceAll(
+      '>',
+      '&gt;'
+    )
+
+    .replaceAll(
+      '"',
+      '&quot;'
+    )
+
+    .replaceAll(
+      "'",
+      '&#039;'
+    );
 
 }
 
 
-/* =========================
-   DELETE BOOKING
-========================= */
 
-function deleteBooking(index) {
+/* ==================================================
+   DELETE BOOKING
+================================================== */
+
+function deleteBooking(index){
 
   const bookings =
     getBookings();
 
 
-  if (
+  if(
     !confirm(
       'Delete this booking?'
     )
-  ) {
+  ){
 
     return;
 
@@ -1861,11 +2569,12 @@ function deleteBooking(index) {
 }
 
 
-/* =========================
-   REPEAT WHATSAPP
-========================= */
 
-function repeatWhatsApp(index) {
+/* ==================================================
+   REPEAT WHATSAPP
+================================================== */
+
+function repeatWhatsApp(index){
 
   const bookings =
     getBookings();
@@ -1875,7 +2584,7 @@ function repeatWhatsApp(index) {
     bookings[index];
 
 
-  if (!booking) {
+  if(!booking){
     return;
   }
 
@@ -1888,12 +2597,19 @@ BOOKING REQUEST
 
 Name: ${booking.name}
 Mobile: ${booking.mobile}
+
 Service: ${booking.service}
+${booking.specialType ? `Service Type: ${booking.specialType}` : ''}
+${booking.specialPlace ? `Airport/Station: ${booking.specialPlace}` : ''}
+${booking.flightTrain ? `Flight/Train No: ${booking.flightTrain}` : ''}
+
 Pickup: ${booking.pickup}
 Drop: ${booking.drop}
+
 Date: ${booking.date || 'Not specified'}
 Time: ${booking.time || 'Not specified'}
 Passengers: ${booking.people}
+
 Estimated Fare: ₹${booking.fare}
 
 Please confirm availability and final fare.`;
@@ -1906,9 +2622,10 @@ Please confirm availability and final fare.`;
 }
 
 
-/* =========================
-   LOAD BOOKINGS
-========================= */
+
+/* ==================================================
+   PAGE LOAD
+================================================== */
 
 document.addEventListener(
   'DOMContentLoaded',
@@ -1916,10 +2633,43 @@ document.addEventListener(
 
     renderBookings();
 
+    /*
+      Set today's date automatically
+    */
+
+    const date =
+      document.getElementById('date');
+
+    if(date){
+
+      const today =
+        new Date();
+
+      const yyyy =
+        today.getFullYear();
+
+      const mm =
+        String(
+          today.getMonth()+1
+        ).padStart(2,'0');
+
+      const dd =
+        String(
+          today.getDate()
+        ).padStart(2,'0');
+
+      date.min =
+        `${yyyy}-${mm}-${dd}`;
+
+    }
+
   }
 );
 
 </script>
 
 </body>
+
 </html>
+```
+
