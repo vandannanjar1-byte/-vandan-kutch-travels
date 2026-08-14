@@ -1,311 +1,1925 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="gu">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Vandan Kutch Travels - Mundra</title>
-<style>
-:root {
-  --black:#050505;
-  --panel:#0c0c0c;
-  --gold:#f3c52e;
-  --gold2:#d9a915;
-  --white:#fff;
-  --muted:#b9b9b9;
-  --line:rgba(243,197,46,.55);
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:#000;color:#fff;font-family:Arial,Helvetica,sans-serif}
-body{min-height:100vh;overflow-x:hidden}
-button{font:inherit}
-.app{width:100%;max-width:720px;margin:auto;min-height:100vh;background:#000;position:relative;padding-bottom:94px}
-.header{height:148px;padding:18px 28px 8px;display:grid;grid-template-columns:56px 1fr 112px;align-items:center;gap:8px}
-.menu{width:48px;height:48px;border:0;background:transparent;display:flex;flex-direction:column;justify-content:center;gap:7px;cursor:pointer}
-.menu span{height:3px;width:34px;background:var(--gold);border-radius:3px;display:block}
-.brand{text-align:center;line-height:1}
-.brand-logo{width:76px;height:76px;margin:-4px auto 2px;display:block}
-.brand-name{font-weight:800;font-size:23px;letter-spacing:1px;color:var(--gold);white-space:nowrap}
-.tagline{font-size:11px;letter-spacing:3px;color:#ddd;margin-top:7px}
-.call-btn{justify-self:end;border:0;border-radius:16px;background:linear-gradient(180deg,#ffd957,#e7b62c);color:#070707;font-weight:800;padding:15px 16px;display:flex;gap:8px;align-items:center;cursor:pointer}
-.call-btn svg{width:21px;height:21px}
-.location{display:flex;justify-content:center;align-items:center;gap:8px;color:#eee;font-size:16px;margin-top:2px}
-.location svg{width:21px;fill:var(--gold)}
 
-.hero{position:relative;min-height:360px;margin-top:5px;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:
-linear-gradient(90deg,#000 0%,rgba(0,0,0,.98) 28%,rgba(0,0,0,.48) 56%,rgba(0,0,0,.1) 100%),
-linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.72));z-index:2}
-.hero-bg{position:absolute;right:-2px;top:0;width:68%;height:100%;object-fit:cover;object-position:70% 50%;filter:brightness(.78) contrast(1.06);}
-.hero-copy{position:relative;z-index:3;width:53%;padding:38px 0 0 44px}
-.hero-title{font-size:45px;line-height:1.18;font-weight:800;margin:0 0 20px}
-.hero-title .gold{color:var(--gold)}
-.hero-copy p{font-size:17px;line-height:1.35;color:#eee;margin:0;max-width:315px}
-.service-title{height:58px;display:flex;align-items:center;justify-content:center;gap:18px;color:var(--gold);font-size:22px;font-weight:800}
-.service-title::before,.service-title::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold));}
-.service-title::after{background:linear-gradient(90deg,var(--gold),transparent)}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 32px}
-.card{min-height:168px;border:1px solid var(--line);border-radius:17px;background:linear-gradient(145deg,#111,#080808);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;box-shadow:inset 0 0 18px rgba(243,197,46,.035);transition:.18s}
-.card:active{transform:scale(.98);background:#151515}
-.icon{width:62px;height:62px;border-radius:50%;background:linear-gradient(145deg,#ffdb4b,#dba917);display:grid;place-items:center;margin-bottom:10px;box-shadow:0 4px 18px rgba(243,197,46,.15)}
-.icon svg{width:34px;height:34px;stroke:#050505;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.card h3{font-size:18px;margin:0 0 6px;font-weight:800}
-.card p{margin:0;color:#bdbdbd;font-size:14px}
-.features{margin:34px 32px 0;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#111,#080808);display:grid;grid-template-columns:repeat(3,1fr);min-height:105px}
-.feature{display:flex;align-items:center;justify-content:center;gap:9px;padding:12px 10px;position:relative}
-.feature:not(:last-child)::after{content:"";position:absolute;right:0;top:18px;bottom:18px;width:1px;background:rgba(243,197,46,.22)}
-.feature-icon{color:var(--gold);font-size:35px;line-height:1}
-.feature strong{display:block;font-size:14px;line-height:1.2}
-.feature span{display:block;color:#aaa;font-size:12px;margin-top:5px;line-height:1.2}
-.book-btn{margin:42px 44px 0;width:calc(100% - 88px);height:70px;border:0;border-radius:36px;background:linear-gradient(180deg,#ffdb58,#e8b82e);color:#080808;font-size:23px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:0 8px 28px rgba(243,197,46,.16);cursor:pointer}
-.book-btn svg{width:29px;height:29px}
-.book-btn .arrow{margin-left:auto;margin-right:22px}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(720px,100%);height:92px;background:rgba(4,4,4,.97);border-top:1px solid #252525;display:grid;grid-template-columns:repeat(5,1fr);z-index:20;padding-bottom:env(safe-area-inset-bottom)}
-.nav-item{border:0;background:transparent;color:#eee;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:14px;cursor:pointer}
-.nav-item svg{width:29px;height:29px;stroke:#eee;fill:none;stroke-width:2}
-.nav-item.active{color:var(--gold);background:linear-gradient(180deg,#1b1b1b,#101010);border-radius:22px 22px 0 0;margin:0 10px}
-.nav-item.active svg{stroke:var(--gold)}
-.drawer{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:30;display:none}
-.drawer.open{display:block}
-.drawer-panel{width:min(370px,90vw);height:100%;background:linear-gradient(180deg,#090909,#050505);border-right:1px solid rgba(243,197,46,.35);padding:24px 18px 20px;box-shadow:18px 0 55px #000;overflow-y:auto}
-.drawer-top{display:grid;grid-template-columns:52px 1fr 42px;align-items:center;gap:12px;padding:4px 2px 22px;border-bottom:1px solid #252525}
-.drawer-logo{width:52px;height:52px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:Georgia,serif;font-size:22px;font-weight:700}
-.drawer-brand{color:var(--gold);font-weight:900;font-size:16px;letter-spacing:1px}.drawer-sub{font-size:9px;letter-spacing:2px;color:#aaa;margin-top:5px}
-.drawer-close{width:38px;height:38px;border:1px solid #3a3a3a;border-radius:50%;background:#141414;color:#fff;font-size:25px;cursor:pointer}
-.drawer-menu{padding:15px 0 8px}.drawer-item{width:100%;min-height:68px;background:transparent;border:0;border-bottom:1px solid #202020;color:#fff;display:grid;grid-template-columns:48px 1fr 18px;align-items:center;text-align:left;padding:8px 5px;cursor:pointer}
-.drawer-item:hover{background:linear-gradient(90deg,rgba(243,197,46,.09),transparent)}.drawer-icon{width:40px;height:40px;border-radius:12px;background:rgba(243,197,46,.1);border:1px solid rgba(243,197,46,.28);color:var(--gold);display:grid;place-items:center;font-size:23px}.drawer-item b{display:block;font-size:16px}.drawer-item small{display:block;color:#888;font-size:11px;margin-top:4px}.drawer-item i{font-style:normal;color:var(--gold);font-size:25px}
-.drawer-services{margin-top:14px;padding:16px 12px;border:1px solid rgba(243,197,46,.22);border-radius:16px;background:#0c0c0c}.drawer-services-title{font-size:11px;letter-spacing:2px;color:var(--gold);font-weight:800;margin-bottom:12px}.drawer-service-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.drawer-service-grid button{height:40px;border:1px solid #292929;border-radius:9px;background:#111;color:#ddd;font-size:12px;cursor:pointer}.drawer-service-grid button:hover{border-color:var(--gold);color:var(--gold)}
-.drawer-call{width:100%;height:52px;margin-top:16px;border:0;border-radius:27px;background:linear-gradient(180deg,#ffdb58,#e8b82e);color:#050505;font-weight:900;cursor:pointer}.drawer-footer{text-align:center;color:#666;font-size:9px;letter-spacing:2px;margin-top:15px}
-.drawer-panel h2{color:var(--gold);margin:12px 0 28px}
-.drawer-panel button{display:block;width:100%;text-align:left;background:transparent;border:0;color:#fff;padding:16px 4px;font-size:17px;border-bottom:1px solid #222}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:40;display:none;align-items:flex-end;justify-content:center}
-.modal.open{display:flex}
-.modal-box{width:min(720px,100%);background:#0c0c0c;border:1px solid #3c3c3c;border-bottom:0;border-radius:26px 26px 0 0;padding:24px 24px 34px}
-.modal-head{display:flex;justify-content:space-between;align-items:center}
-.modal-head h2{margin:0;color:var(--gold)}
-.close{background:#222;border:0;color:#fff;border-radius:50%;width:38px;height:38px;font-size:22px}
-.form{display:grid;gap:12px;margin-top:20px}
-.form input,.form select{width:100%;height:52px;border:1px solid #3b3b3b;border-radius:12px;background:#050505;color:#fff;padding:0 14px;outline:none}
-.form button{height:54px;border:0;border-radius:27px;background:var(--gold);font-weight:900}
-.toast{position:fixed;left:50%;bottom:108px;transform:translateX(-50%);background:#1a1a1a;border:1px solid #444;color:#fff;padding:12px 18px;border-radius:12px;z-index:60;display:none;white-space:nowrap}
-@media(max-width:560px){
-  .header{height:132px;padding:12px 18px 4px;grid-template-columns:42px 1fr 82px}
-  .menu{width:40px}
-  .menu span{width:28px}
-  .brand-logo{width:58px;height:58px}
-  .brand-name{font-size:18px}
-  .tagline{font-size:8px;letter-spacing:2px}
-  .call-btn{padding:12px 11px;border-radius:14px;font-size:14px}
-  .call-btn svg{width:18px;height:18px}
-  .location{font-size:14px}
-  .hero{min-height:345px}
-  .hero-copy{padding:35px 0 0 45px;width:58%}
-  .hero-title{font-size:38px}
-  .hero-copy p{font-size:15px}
-  .services{padding:0 32px;gap:12px}
-  .card{min-height:170px}
-  .card h3{font-size:17px}
-  .card p{font-size:13px}
-  .features{margin-left:32px;margin-right:32px}
-  .feature{gap:6px;padding:9px 5px}
-  .feature-icon{font-size:28px}
-  .feature strong{font-size:12px}
-  .feature span{font-size:10px}
-  .book-btn{margin-left:44px;margin-right:44px;width:calc(100% - 88px);font-size:20px}
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#07152e">
+<meta charset="utf-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<title>Vandan Kutch Travels</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
 }
-@media(max-width:390px){
-  .services{padding:0 20px}
-  .features{margin-left:20px;margin-right:20px}
-  .book-btn{margin-left:28px;margin-right:28px;width:calc(100% - 56px)}
-  .hero-copy{padding-left:30px}
-  .hero-title{font-size:34px}
+
+body{
+  margin:0;
+  background:#dfe4eb;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;
+  color:#172033;
 }
+
+.app{
+  width:100%;
+  max-width:430px;
+  min-height:100vh;
+  margin:auto;
+  background:#f6f7fa;
+  padding-bottom:88px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:linear-gradient(145deg,#07152e,#1d3a63);
+  color:#fff;
+  padding:30px 20px 22px;
+  border-radius:0 0 28px 28px;
+}
+
+.logo{
+  width:52px;
+  height:52px;
+  border-radius:15px;
+  background:#d8ad52;
+  color:#101010;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.brand{
+  font-size:24px;
+  font-weight:850;
+  letter-spacing:.3px;
+}
+
+.tag{
+  font-size:13px;
+  opacity:.82;
+  margin-top:4px;
+}
+
+.location{
+  font-size:13px;
+  margin-top:16px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:#fff;
+  color:#172033;
+  border-radius:20px;
+  margin-top:18px;
+  padding:17px;
+  box-shadow:0 10px 25px #0002;
+}
+
+.hero h2{
+  margin:0 0 5px;
+  font-size:19px;
+}
+
+.muted{
+  font-size:12px;
+  color:#687387;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+  font:inherit;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.primary{
+  border:0;
+  border-radius:13px;
+  background:#d8ad52;
+  color:#111;
+  font-weight:800;
+  padding:14px;
+  width:100%;
+  margin-top:14px;
+}
+
+.green{
+  border:0;
+  border-radius:13px;
+  background:#35a866;
+  color:#fff;
+  font-weight:800;
+  padding:14px;
+  width:100%;
+  margin-top:10px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+  padding:18px;
+}
+
+.title{
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:11px;
+}
+
+.card{
+  background:#fff;
+  border-radius:17px;
+  padding:15px;
+  box-shadow:0 5px 16px #00000010;
+}
+
+.service{
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.service:active{
+  transform:scale(.98);
+}
+
+.ico{
+  font-size:27px;
+}
+
+.service b{
+  display:block;
+  margin-top:7px;
+}
+
+.service .muted{
+  margin-top:3px;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(430px,100%);
+  padding:9px 5px calc(9px + env(safe-area-inset-bottom));
+  background:#fff;
+  border-top:1px solid #e1e4e9;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:100;
+}
+
+.nav{
+  border:0;
+  background:none;
+  color:#6b7483;
+  font-size:11px;
+  padding:5px;
+}
+
+.nav strong{
+  display:block;
+  font-size:21px;
+  margin-bottom:2px;
+}
+
+.nav.on{
+  color:#07152e;
+  font-weight:800;
+}
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen{
+  display:none;
+}
+
+.screen.on{
+  display:block;
+}
+
+.back{
+  border:0;
+  background:none;
+  color:#fff;
+  padding:0 0 15px;
+  font-weight:700;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form{
+  margin:16px;
+  background:#fff;
+  border-radius:18px;
+  padding:17px;
+  box-shadow:0 5px 18px #00000010;
+}
+
+.label{
+  font-size:12px;
+  color:#687387;
+  margin:10px 0 5px;
+}
+
+.input{
+  width:100%;
+  padding:13px;
+  border:1px solid #d8dde6;
+  border-radius:11px;
+  font-size:15px;
+  background:#fff;
+  color:#172033;
+}
+
+.input:focus{
+  outline:none;
+  border-color:#d8ad52;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.fare{
+  margin-top:14px;
+  background:#eef8f2;
+  border:1px solid #cde9d7;
+  border-radius:13px;
+  padding:13px;
+}
+
+.fare b{
+  font-size:20px;
+}
+
+/* =========================
+   TOURS
+========================= */
+
+.tour{
+  background:#fff;
+  border-radius:17px;
+  padding:16px;
+  margin-bottom:11px;
+  box-shadow:0 5px 16px #00000010;
+}
+
+.tour h3{
+  margin:0 0 4px;
+}
+
+.tour button{
+  margin-top:10px;
+}
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+  margin:16px;
+  background:#fff8e7;
+  border:1px solid #efdfa9;
+  border-radius:15px;
+  padding:14px;
+  font-size:13px;
+}
+
+/* =========================
+   BOOKING ITEM
+========================= */
+
+.booking{
+  background:#fff;
+  border-radius:17px;
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:0 5px 16px #00000010;
+}
+
+.booking h3{
+  margin:0 0 8px;
+}
+
+.booking-line{
+  font-size:13px;
+  margin:5px 0;
+  color:#4f596b;
+}
+
+.booking-line b{
+  color:#172033;
+}
+
+.booking-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+
+.small-btn{
+  border:0;
+  border-radius:10px;
+  padding:10px;
+  font-weight:700;
+}
+
+.delete-btn{
+  background:#f1eeee;
+  color:#a33;
+}
+
+.whatsapp-btn{
+  background:#35a866;
+  color:#fff;
+}
+
 </style>
 </head>
+
+
 <body>
+
 <div class="app">
 
-<header class="header">
-  <button class="menu" aria-label="Open menu" onclick="toggleDrawer(true)"><span></span><span></span><span></span></button>
-  <div class="brand">
-    <svg class="brand-logo" viewBox="0 0 100 100" aria-label="VK logo">
-      <circle cx="50" cy="50" r="43" fill="none" stroke="#f3c52e" stroke-width="2.5"/>
-      <path d="M20 40h60M24 60h52" stroke="#f3c52e" stroke-width="2" opacity=".45"/>
-      <text x="50" y="64" text-anchor="middle" fill="#f3c52e" font-size="44" font-family="Georgia" font-weight="700">VK</text>
-      <path d="M42 14l8-10 8 10" fill="none" stroke="#f3c52e" stroke-width="3"/>
-    </svg>
-    <div class="brand-name">VANDAN KUTCH TRAVELS</div>
-    <div class="tagline">YOUR JOURNEY, OUR RESPONSIBILITY</div>
-  </div>
-  <button class="call-btn" onclick="callNow()">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 2.5l3.1 1.3c.7.3 1.1 1 .9 1.7l-.8 3.1c-.1.5-.5.9-1 1l-1.4.3a15.3 15.3 0 0 0 5.7 5.7l.3-1.4c.1-.5.5-.9 1-.999l3.1-.8c.7-.2 1.4.2 1.7.9l1.3 3.1c.3.7 0 1.5-.6 1.9l-2.1 1.4c-.7.5-1.6.7-2.4.4C8.7 19.1 4.9 15.3 2.7 8.6c-.3-.8-.1-1.7.4-2.4l1.4-2.1c.6-.6 1.4-.9 2.1-.6z"/></svg>
-    Call
-  </button>
-</header>
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<section id="home" class="screen on">
+
+<header>
+
+<div class="logo">VK</div>
+
+<div class="brand">
+VANDAN KUTCH TRAVELS
+</div>
+
+<div class="tag">
+Your Journey, Our Responsibility
+</div>
 
 <div class="location">
-  <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5" fill="#000"/></svg>
-  Mundra, Kutch, Gujarat
+📍 Mundra, Kutch, Gujarat
 </div>
 
-<section class="hero">
-  <img class="hero-bg" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wAARCAFoAYYDASIAAhEBAxEB/8QAHQAAAAcBAQEAAAAAAAAAAAAAAAECAwQFBgcICf/EAFIQAAECBAQDBQQGBwMJBwMFAAECAwAEBREGEiExB0FRExQiYXEygZGhFUJSscHRCCMzYnKCkhYkQzVTVFVzsuHw8TREY6KzwtIXJYNFhZOjw//EABsBAAMBAQEBAQAAAAAAAAAAAAABAgMEBQYH/8QANBEAAgIBAwMDAwAIBwEAAAAAAAECEQMSITEEE1EFIkEUMmEVI1JxgZGh0QYkM0JDscHh/9oADAMBAAIRAxEAPwDwfP1Geqc6ubqM7MTcyu2d+YdLi1WFhdSiSdABEYJBFjDwbSfqw4GkfZgHRFTcKGu20P5wpNoeDLZGqRCksN75RCsdEEo1tbSAQbWEWaZdm3sQsSzJPsCCxUQUKsLQoq0uN+oMTxKsW9gQ6mTZt7A+cLUOiBNzk1PTa5uemnpqYcN1vPuFxatLaqJJOgA9IjqQTc9d4uhIy99Wx8TDiZKW2LQ+cGodFU0Qlq0NvJzqGm0XwkZb/ND5w4mQlObCfnE6h0WOFuKvEHBeAazgzDGInqZR60SZ9lltAW9dAQR2lsyQUixAIjJm3Z2A8hGgFNkj/gp+cOCmSVv2KfnBrQaDLIRmNj1hSmMpuBrGqapciFay6T8YlfRVPUNZZHxMLWh6GZIfsojpTZ0nbneNkaTI3sJdPxMJNDlCb9gn5wu4g7bMpl0g0p1jWfQsqE/9mSfjCk0aU37sn5wdxD7bMoG76wvILRq00uT1tKpt74M0mUUCUSqb++F3ENY2ZVKLiHUteUaduksA3Mqk/GHPo1gnSWSPjC7iH22ZpLfWFhrQaRoxS0cpcQsUpN9JcQnkQ1jZnA0ekOIZPSNMmjoI1aEKVTGUWHZiF3EUsbM4lrTaJLTRAvaLsU9s/wCCPhD6ZFsJ1aTEvIhrGyi7EEaphSWL/Vi+TT0n6g+EGJBI3QIWtD0FIJbyh5EsCNRFwmSR9kfCFiTA2SINYaClMqByMGmX10EXYklHdELEjb6sGsagyk7AfZgd1B5RedzSDtB92QBoIWsHAoDLEHQGFd3WdLGL4SotqIT3cA7RXcI0FMiSJNzcRIRLIRra5izDBMH3bWFq8laSu7uD9W0JMsOhi3TLDLcwksjlBrDSVPdRbaC7ugcotFtabQwpk30BhqROkgltMZbHCQnD7Nv9IT/uqjZKl1neMpj5kt4bYUf9JSP/ACqjSD3M5rY51AgQI6DAtEp8ocCeUBKTDoRE2UElELCD0hxCNAIdCYVjoaSnyh5LY6QtKPKHktiE2OhoNnpDiUHpD6UaQ4lvyidQ6Gko8ocSjqIeDUOBs8xCsqhkNw4lvWH0IHSHUt+UTY1EZQ2ekOhAh5LZ6QsNn7MJspIQlscodS2rnACFchCgFj6pibKC7Fd9NYfQ0u2ohKCseUSm3HbWteIbZSQTTSyLFMSRJ5kXVrBIU6ogbCJzTgPhI98ZybNIpELuKSNARDzUlYWiwbbSqJKGUgaxDmWoFWJIfZ0h1EslOimgRFq2yiHCwgjnEaytBVmXbPsgJPpBiWGXYGLLuqT1gxKA9YWsrSVgluqYLuiCdQIuO6aQYlNdrwdxC0FOqWQALbwBLA6Wi3dlgClITdR2tCkyWu0CyD0WVaZYAeyIIsDpFx3TS1oAkr7iDuBoZRFm31YW20FGw33i57gDqU/GG5WTSp51xCPBolJtv1h9xC7bIQaVktaElhZi8EqAbWhJlfKF3R9spUyhJuYV3UDW0XXdfKC7oCraDuB2ynMqbQQlOdove6C20F3QX2+UHdF2ylErbdMGZY3taLlUrblBCVJ5QdwO2U4lj0gu66+zF13blBCW1hrILtlIqVvyhCpZIO0XplddoaVKeK9oayi7ZSKY6JjEcS2yjCsuSLf3tP8AuLjqBlANxHPuLTaW8GytiM3fUaX/APDcjfDO5pGOWFRbOOQIECPRPPNAls2EPJQbbQtCIfSi/KM2zRIaSg22h1Ld94eS3ytDgb5WibHQ0hoW2h1LWsOpatyh1LcTZSiJSyYeS0baiFpQbw+hJ0iWy0hpLXlDqWfKH0t3h9Dem0Q5FqIwhgw8iXHMRIQ35RJQ0CdohzLUSIJfyh5DFtAImoYB5GH0MA8jEPIWoEBMv5Q4JbqkRYiXhxMrflEPIUoFciUBNrCJCZMZdhFgJIn6p+EOJkvIxm8hosZATJDe0SW5NIT7MTUSKjzVD4k1ge0r4Rm8n5LWIityykoASBDqZdZ5xLbllBOqj8IfblyTuYh5DRYyE3LKvqIlJlgdwIsGZQW2MSUSg6Rk8xawlWmU02h5EncbRaIlNbZYkokzbRMZvMWsJSiV8VrQFSyGkKcc0SkXJi6TK3fCbQ2JZMzUVBIPd5dWXNycdHTyT9/pAswPEVbUioqLzibOuWuPsjkn77+Zh8yVh7Ii5TKi+0OCVvyiHm3KWEoDJX5Q4mS8J0i97oOhgu7AX5W35Qu+V2igVJ5/1CRdShcg8k31h1coAAlKQAOVos5BlL0sZ0A2f1Rfkgez8d/fDypXyg724u1sUndBbaFiTGW9otUspUtbfNNs3lfUQ6JXw+zD7wu2UhlB0gxKabRcmWHSB3cDcQd4O2U4lR0gxKjoItS0hO5HxiK/MSzIOdxI8hrDWRh2yEuVHSDTKDLe1h1MJmKg1kIZBJtpFU69OOosp426XjWNshxonTKpeW/auJTeIC6nKIcsCVD7QER3JF54hZeBO3iVcwaKKpQv2iT6RqtK5Zm4yfCELrSBmyMG+wN4rl1WbzkhdvQbRb/2fcKdB74T/Zt4n6sWsuJEPDkZnnZ59WqlEnqYw3ElxS8LMX/0tP8AuLjqysLulW4Ajn/Fyiqp2CpV9SwbzyEWH+zcP4R1YM8HNJHNnwzUG2cYgQIEeqeUbBCdIkJRoLGEoQLRJSkdI52zdICEQ+hu/KDQi9okoQLRLZaQ2lrQQ6lmHkp5Wh1CeoiGy0htDI5iJLbIhSE9RElsADaIcmaKKG0MC8PplxpDiAOkSEgaaCM3JmiihpDGu0PoZ1h1A6Q8hMZORooiUM7RKQyICEXtElDd9ozcjSMQkS6bRJaldLiA23yBiWy2QdzGMpm8YCmpUkbw+mUN4ksN8ontMjmI5pZDVYyIzImw0iT9H6bRZsNApAyxBqOIqNT5pUiHVzk8kXMpKJzqT/GfZQP4iIzUpTdRVlNRgrkIFP8AD7MLbkcpuU6dYpZjFhS0VzM1LyKf8zKgPu+9xXgT7kq9YoXuI0nLZkyzSFK/zsy4Xl/FWg9wEdMekyy/Bzy6vHHjc6GzILX+zbUr0ESO4qR4nShodXFhP3xxWe4qT7iik1VYT9lLlgPcIz0xjt513MZxar/vExrH02T+5mT9RiuEehy9S2D+uqcqk/uqKvuhtyu4eY9up5v4UfmY83TGLXlnMHnD6A/lER3E7y2yc739J/KN4+lx+WYy9Sl8I7ziXiFh+kyqGZCYdXUZxYl5YuJAS2ToXD1CenM2ESUY4wzISLEpKyjym2khIK3rlXVRsNybk+Zjy7UZx2eqKJ1Uw+VtgZQQoZbdDbTXWLBuuudgEqU8SOasxPxjf9G4kqox+vyXyekHOJdGQkZKeg/xOmIiuKMgScsgwPVZP4x51crqyN1/Aw0a0r7S/gYa9PxeBfX5PJ6PHFSWG0hKfEwlfFKVUhSF06TKVCxBvqPjHnH6btutfwMKNazD9qfnD+gxeCfrsnk9GNcU5NCUNinSoQkBIAuLAbc4dVxSp+bWnsW8lGPNorVh+2+cAVlSlavA/wA0H6Pxv4H9dk8npVjiNRErW4qQ1cVnWQ8d7W5+kS08RcNqXkDEyFn6jawo/dHm1mqurCWmnQFq2Vm2HMwh+uPH+7ybi0sjQkbuHqfyiX6difwNdfkXyekHsd0YuWStbPk6tNx7hcw4MUYefAH04hCjuFIUNfUR50p/fJ14NS3iOxWRce4c/XaLhLdPlHclUrakODdHa5be5IjN+nYkaR9RyHd21SM86EylVlHieSXRf4GH3aA/e5Um3WOBpnKFKTClOVmcQM4yOJUoC1rgapMaenYrcZCBS8bXts1N6pPw/KMMnQSjvCX9Dpx+oJ7TidSOH1Zbl4QYodkeJ0fCKSm40qZlwKpTEvN/6VT1hY96N4upapM1KTL8jNJfbG5SbFPqNxHFkxZocnfjzYsnA0uktp3etCTLysuLqmlH0gKSpbhC1GG3ZUE6gxKt8strwh3vsqhIALh8yYeZnJM6XPvMV6pVATqICWGsug+cU4RaEpSRb94lDusRzDjs5Lr4dSQaUkq+kkbf7J2Nv2CPP4xzjjOhKcBShSP/ANQRr/8Ajcjfo8aWaLs5usk+zI4XAgQI+lPmTWtTxT7aL+kTG6iwSApKk+ZipAvDqRrGbijRSaL5qblT/igeukSW5iXUoJS8gk8rxnUi0PJ10iHjRXdZpmltrVZC0qPQGH0pvrGVTdJzIOU9RpE5mqTjVgpYcHRY/GIePwWsvk0aReH07CM+itq/0cf1RKlq2grtMslKeRRr8YzeNmqyIvmxpDo0MNsqbdbS40tKkKFwQYfyEnSMnE2jIWk84fQoiGg0bQ+hs5dozcUaKQ82YlNqtrEZps7j3xJSi2kZyibRkSWVgKie0sJMVaPCqJib5LiOecDohMtWnhmEPVCuUyi0hVRqkylhlGg5qWeSUjck9IytYxFLUOWbSptc1OvnJLSbWq3VfgPOJNCw0tqcRijHLiJqqjWWkAbtSY5WGxV/zrCh0mreXBOXq1DaPIwqexhimSdcs9h2kOizSUEJm3kn6yln2AegF4on6C1JyfcU1Z9poH9k2u2Y9TlAzHzOsaupTs9WZ09msNMg+JxW3u6mCl2pKRWVsoC3Obq9VH06e6O6GnGqijzpasjuTMQ5hJLzOcSs/Mg8yhWvxMVDlOo0olaVSmVaSUqBCQQRvyjeYjxF9H0h+aCyVpFkC+6joP8Anyjlzcwp0EKVewzKJ5mOnE5S3Zz5VGOyHFJpva5W5Uk3sAncn3QVSo9Wk2lPuUd5tlAzKWdkjqdYXh1rvFcE0vVuX/WfzfV/P3Ro67U3UUd1TbhClFKMx5A7xbm00kQo2rZhxNIW1cN306mIDky6q9wAi+nnFiucGRSC7cHQjNvFe6+hC8raglIFrA2jZGRFUs20t8ICFAoJ+4Q+C04CVEH11i3pWHJeo0TvKZssvKUoJSpN0EA6ef3wm0uQSb4M6XUJ+olX8WtoSp5sm3YtwuqU2bpc6WJkAEjMlSTdKx1BivKt7mKW/AnsSCtkn9ij5wglk7tgfzGIxVDsrLzE5Otyssyt15w2QhAuTDAWW2VD2VD+aG+wZUSEqUD56iNazw8rqsvbPyUuo/VU4VEfAQirYImKHQ3qnM1aVUEWCW20KutR2AJ+MZ92PCZfalzRkWz2bxJF7crxb09hbreZAJcUcqCOXU/CKMk2Hmbxv8EUpVRqDbbdwpJDYNr5VHW/u390XN6VZMVbLil0oCRVKpcUywnwuKZOVbquaQrkkbG2pN+UOqw1SX6fNSrFPZQpbZCXALqCrXBudd43KMJyLCA0mamCALDQCIs3SvouZT2a1qbWnMgq3uN45o5U2bvG0tzlmGVsPvSyZ5ht5Da+xdQ6Mw08j5H5R0CZwXhubRlco7Cf3mroPyMYl2XFOxxVZVKcqHbTbQ+ZA+Jjs+GaY1W8Lys81OgKUC2tBTfKpOm/wMPLLTuGNW6MQ1gMybJdw/iCo05wfVWoOI+Ghh7C+KK8xiScpFWkWpupy60gOSqwy44gjdJOir6aHQx0I0Gckhn0faUbXbBNvUco5zxCkzQsQ0fFjdwhS+5zJH2d0n3a/CMotZNmW04O0dVoM5TcRvOMMu93qTeqpd5HZK/nQfZ/iF0+kUGIcVpw7VF06o0SeYmEa5XQEhQ6pOtx5iNNRKJJ4rojE26wl5YF0qQsodZWNMzaxqk31HrFbxCYqM1gp+hV1oz0yyc9Kqa0hLqHBqWHwNLrSCEqGijuAbX4ezDXujvXU5FDZnP5jiVNd7umkMmX+yXDnPv2+USRxJkRLgopEwXNiguJAHvH5RzRxbroSoKISdekJbWlnMSd/nHd9Hifwcf12VfJ0dXElZBBorW+n647fCMRxJxc5X8OS8kZNmXQiZS7YLKl3CFj0trFRM1BwghJyJ+ZjP1VwLlkgD697n0MaY+lxwkmkZZOryTjpbKiBAgR2HIaZO0Opia2gW/ZJ/piShu+vZJ/pEZ6i6K4C4hxAi0QlOn6pH9Ih5LQ3DSP6RCchqJUhPpCwnSLcNgH9in+kQ8hsX/Yo/pETrK0FHktDraTvF6WrjRhH9Ah1DQCNWG/6BC1j0FHtz3ixk6hOS4SG3iUj6i9RE5EuFK/YNf0iHe5TNk9l3VFt8zAUT84lzTKUWiexWWHWgVpS2vmCrQ+kTU1WnpT430J9VD84pVSdTcGRqdYY13TKoJ+cMzNBnXG8kxWJhaTyQ2hu3wEY6YmynIvBiWis3zzSbdQCR8oju4ypiXbNNPuD7WiAfiYok4Plyn9dNziwTc3WPyiT/Y2mpaCguZ/rH5QaMa5H3MpKdxopLx7OSSEcgFXI/CAcaT7iW5WRllvzz5yS8slNys9TbYRV1Ok0+nMsNMCZm6hMKyS0mFAlw7XNhomOg4QwyzgeUVVaupExXZhPjWdpdP2E9LQOONK0hKeS6bJFAwwjCuevYhfTPYhmE+JxeqWB9hPIRGnak5NTKnXlqDXTYq/4Q7UZl2oqL7qv1Z9lJ5+cUE4FqUf1l/fAlfJLdcFjMVk9iEIISkCwAGgiqcrDtleIfCILiFWtnPxiI6ycp8ZAtrFrHEhzZQYorLsw81KFzwIu6r12EQEOlujpJNlvG/oIq5txU7UFFJJLzlh/CNBD9Vmw04ENm3ZpyiOlRSVIwbbe5p6G+hijlaVAKdWVG3QaCJL9U7vIvvkJUUJuEqFwTyimprXYU1loqzeG5I5k6/jDdaV2VEcP2lpHziNKsrU6M1NTDr00t51eZazdRAtc+kRlLKuZtBOLzaw0Tr0jYgnSRL88y2s3K1pT84365pTbtm0pSkGwSBYCOd05zJWZQ30DyfvjX1WfRJyZfuCs6Np6mM5q2VF1uU+Jp4zVTbZJB7ukg2+0dbe6wjPLUNYW46pRKnFFSibqUeZMR1KB2i4qiXuLTrckaDlGuwG62xUZybOUOpQlCSeQJ1+4RjwoFpQvr0jQ4QcR9JPsqUAXGrpB5kH/rCmrQ4OmdEfq4bacmCpKg2grsOdhe0cxrFcqVXUDOTbjgUrMG7+FPSw2jXziCaVNoQPEWVgX9DHOgoqXnPLaM8UEty8k29h1lGaaCreFOvw2+cdWwU0/TZNl9slCwe1URzJ5fC/xjCUOnd6W2m2riwL+Q1J+6OpyjQbkgAi2bW3ly+UGWVqgxrezo2QO5XEjRQBHvitxIye5Syx9UqSfheLejhv6ElXn3EtgtA5lm0Q8RJZdMoGJlDqCpSShCgRtvHBH7jrkricgxoyJKu0Wq2slwqlnD5ch8CY6DwfnCpuo0latWlB1AP9KvwMZfiLTlPcPFzKRdco+h3TodD+EWnCt3sseSDpNm51vKenjR/8gI6MvuxmUPbkO5yaClV7W6xzziRhxVVwpVqQlq7nZl+X81J8Qt8CI6qiVLarEaxGrFMDolZkpvlWWzp9Ux52LJpkd08eqJzXgJXjOYXTLKX4w2CQeqTlV8spjq2JaQmr4cdQUXWUEJVzCvaQfcoJMedsDOqwXxuq+HXVFDLE/nSP/CWbH3ZVj4R6wl2AaW4F8iB8xFdT7cikuGTg3hTPFGOaaaPi4pKOxl59luoyyUg2Lbyc9h5BWdP8sZR91QBypCfXUx6Fx9g+WxHwtpVX7UsO4fqE3S3ljKLsF9eQEnayrW9Y5VOYJk1AdhVfERbVbJP+9HoYcylFWcWXE1I5+o3Ucyorqif1CR+9+BjpCOGszkCxOvrB2KWkK+5cZrGWFXKFSG5lbz68z4bs5LlsapUfauem0bxnFukYPG0rMVAgQI2MzpDTN02sYlIZsm2sSmm9B7MS0N+ICyTeORzOlRIDbIKhe490SksJyjWJzUuRySffEpLCgkaJ+MQ5miiViZdJPOH0SqSnnFm2yQACE+4w6EAG20Q5lKBXtyqCT7Rh8SaNiDFm222LXCr9Id7JnMFEKuOuloz1mmhEBmSbtsYf7s2AAL/GLFptncL2HW8PoaaUfbSbRDyFRgVbUqgr529YlIpb07NCXlmFurtmITsB1J2A8zE9ttkLuFpIvpGB4g4npszOJw7K1qZp7csB3mVeYIS86dc5UgnMmxGUECw89YcFKbpBNqCtmlqc7hqkILc/iClodR7TbLhfKT0JQCPnFXU8T0uSwwzUpRaJxU1dMmyi93VA2NxuADvHH6mhK8jneULlhpnReyj0FwNfujr3C/B/YyTeL64wkLSMlOk9wynfOR1N7j1vHS8Kirbs545nJ1RpuH+Fzh9tzE+J7PV+aTmSlWvdEH6oHJVvhCqrNKn6i5ML1ZQbD94wis1dRmFAqivUtTdKazaKUM5v56xNN7hdbDcxNkpOpisdczXN4amJ5htZzvJB6A3itmay0m/Ytlf7ytBGkYshyJTisqhfbziprVQbl6W8gPIS84jKgE2OvOIU1WJxabIUlA/dTFLMOreUXHRnUeahcmNYwM3IYl1y7Myl4uBYbTZISk6ed4gPLQ8++pxacobUpOu55D5xMS44yXShAIWnKbiKnsRdZczFemQpOnneNaMzYSrmWVbzKsAgak7aCGalO0uakFyq54JKtlJSVWIOkUK5qZXIplVueBPPmfImIviHKFpCxlxNlKSFBQBtmHPzhuyrHUQ4q99RCCLcosAkLLbiHUqspKrg9DD8xPPzSy4+6pxfVR29IjkAi8IvlOkAmGVKO8JJPWDNoL1gEAEjW8Oy765Z9DzS1ocQbpUk6iG7AwXKACc7WKk42ptU9MKQsWUFLvcREb1IHUwWXPoOXSJlOli/PoSRfUaQtkPk3WH2DIUN+pqaChLtAJB5qURf5X+EdLYkEuOAJT4dLekYyTTKroCKYhxC3HWnX3Ak3tmBQgffGmnsTJw9w1lMQFtLsy8w2hltQ0U6RbXyFiTHJO2zpjSL5uXcTMJQ6q1kjKhSth5AxPMkoKbcyXsoHQeceX56pVSeqTk7OTb7z7isy3FqNyYmyeIcQSmXuNSnWlDYIcVDeB+RLMvB33FFME3hGtSgR7Uu4R6gZh90YnCEz2VCos8D+zTlNuqTf8DFJTOJ+K2LsVaTTU2HEltzOgocKSCDZQ568xF2xT26LhKRXKuvLkJlwuMpmAEvNXOVSFgaGxOihoQeULQ4xplKak00egpV+alnFCSdyNueLQaHoYuZZUw8bvrK1E3zHf0ilwos1DCNNncpUpUugKNtiBlP3RZrrtGlJkSqp5t2a5S0sC+6f5EAn5R5UuaSPRjxuzhPFSXFM/SHkKikKSirSIQo7ArSCj/2pj0tgytzNbwdT3nOzIUhKHbDxFxJANz6i/vjjnErB9RxjibDc+lcpQWac6tTr1fmW5JS0KKT4GiS6dj9TnGhwvP4qkKJPUmTk3GW1PKUy8lSGsw2K0OuG+U2BFmifSOjJ7oRvlGEHplJfBb4el6ZiGl4uwjOqSqWqdQn2Um+iV9sooUPMKAMeYqphVEm099Id8acZWW1DsgoFYJFviI9WYGwVKUORYVMT77r6VqdPZqOUKUoqPiV4jqdzqYxXFLhCiaxu/iORcmXZKc/vTjRfUlEs4TlUQBsnNYk7gq6RGHPGE2r2NJ4J5IKlujimH6jRqRh2ZWmnoqqs4UsvAo7uLEWuNdYgcR52RnMHy3d5eXl30zSO0aaUslILayLk6H3RpalwqxFRqJPzKKpJsyi0ZnQsqGYDUC5H/WOb4ip0wnBNNrK51lxEwvsiznu4kpzgEjpYbx6GPTKVpnDPVGOloyECBAjsOQ7M2wLZsnyiWhhKiP1evWEtJQDfP7iLRKlwFHN2ihfkdo86TO9IcRLpKfZSNOkSWWAUgZQPSDQnNcDU7apiQw0UmylJJA2KYzs0SAmXIJIRYeusKEtqSCcvK51iV2YAv8AqkDmdfzhFghV1OMqCtgCfziNyqQpDBIAUogjnmhfYoQcxUBp13hoOMoQTnQAfaSYU2hly7rOQubXKSdOkS0ykSUBvswVqCb66mHWS0PEFptbcG4itEu/Nz4ZZZzuAdDp666Dzi4lmqRTwFVF1E6+N2JdWVtJ81DVXu084VFJ+RcrJzM9NdjJsqmFW17JN7DqTsPfFZiDgq3XKw9WH6pKqnEyoQzIi6ULeG3aOD6tugvyuBrGwpc3UKkoMSUuiWlRs2wjIgfDf1N418lT5WRT20y4HF72voIhZJY3cWPSp7M8xt8K8cMYlRN1zC03NSzAK0JkOzeSsj2UgJV4U+USqs/iSVmcrlFq0o5v2bqgyo/yki/uvHpd+uSks8A6hOe10tbK9T0HmfdFPU61JVSUckKk2xNyrmi2HUhSDre1vURqusm+YmT6WHwzy9N1TEi1WVTJ1sEXHbulN/S+8Vry8ZTavBIThTys4VfjHql7EdPalkyvdpUsoGVLXZJypHQC1hFG/M4ZfcK3aFSyTue7oBPwEbR6t/smUulX7R5ldkMX38VPnk/yqMRHJTEwJCpWo+9ChHpt04VUn/IsmP4cw+4xBdbwqq//ANoZH8Lix+MWuqf7JL6ZeTzO7KVopIeYmwnmVpVYQ2JebsCe8EDYhKrWj0mZPCij/kwD0eX+cMP0vCC0m9PV6duv840XVfgj6b8nnNXeUDRUwP5TDd5knMor97Zjv66Dg9R/ye4PSYVCThfCCkn+6zCfITCopdQvBPYfk4IFu3son1ymEOurT9Yf0x3VzCeEwrwonE+j35iIs5hLCTbHbzEzNS7X23XkpSfQkaw/qF4E8D8nEC6oi/gPyg+0um6st/IR1cUXBbxLVM+lZ9e2ZsJQ2P5lDX4RJlsD0lbl5q7afsghZ95IEV314JWFnHg4nkgepMJLhB0yj0EdxVg3CbRAMmtzzUv8okJwTgxbCnXKc2hCBmWtTpSEjqTfSF9QvA+w/JwYrPNe/wC7BZxzsf5Y3dVp+H3ay4xh2VcmZcWCSElzMrnl0uR0iVLYHqTzPbLpLcmyNS9OkMpHx1jTuIjQ+DnWZP2R7riHGZSYmnOzlWHXVdEi8b1dMwzIKtMVXv7oP7GmMjKD5uK0+AiRLPF1XZ0mnN08W0dzFx0/zHQe4QdwNHkycpQJtlOaZSGlKFgFch+MX0tRpek0xytVJtHdmh4EHRTy+SR+PlF7TaPncZm3s7zrgSoqcNzcxlsa1c1WuiQZXeTkroSE7KV9ZX4e6JUtTorSkiNhWp9lihoqCUduSFJSLAXN7DoI1mOM44P4ZmEn9jPTcvrqLpVpp6Ry9qYcYmUPs+FxCsySORi4FRrVakkUr+9zbSHS+mXRmWAtW6so2JhyhumTGWzRXLqM4f8AFA9EgQuUVVp2Z7GVW+4u17JVbTrFwzgXFE17NFdZHV9Qb++LSV4XVxxY7zOU+XG58aln5CH3Ir5EoS8Fezhmfml2n67S6cnmqanQr/yozH5R0bC+D8CMUtLoxVXqxnB72mlUnwZ0qBHZuvLSkJtuTc35WEQKTwspzc02upz704AdWmU9kg+RNySPhHTJejOIYYlpRjsZdpIS202LJQOg/wCbxzZcy+GdGPE/kspKZp7FNalqThmS7om6mnMRT71TUAdbhhstsDrrmi2dqtYnpHuUzW59cqRYykmEU+Wt07KXCAR/ETECUobku4mXyEJcBWjyI9ofj8Y1tLw4pQTdN/O0cOTKkdkMbZU0OmIl3P7nJsy46tNhJ+O8XFUqFNoz1Ml6tUWZOYqTxZky+opDiwL2zHQbgXPMgRtJWhylOpK56cWzLSzYu5MPrDbaPVR0EefONuPeGVaxBh+Saa/tiinF/tpOQdWy0VryBH64A5xdNilPUaxnjvLKkXN9uNnpKj0l9cih3IbkAiwiBiPGOEsJ1OkS+IsQU2SdW8425LPOBSy0ppQOZAubEpTuNTaPJuJOOnEqbbewxQ0DB1LYbEs5TKWSjsynQguKutJ2BAI1HW8Z2ncLMe1mhTOIW6NU3GUJL6pxbKsqudytWp9dYf0Nb5JUVi6/RNOEbOn4qpuBq1XJ2bpVUqM3R3HSZcPOdilAtqgBZvYG4Eco4j0akU3DLLlKpcw2gzaUmcWpSkKuhZygkWvpfTpHVOHbtfVgmWmaNhZE0p1xajOrle0IN7FOY6CxEUvHqWxAnhvITNcnpUlVRQkSrb6CtJ7J03KEbDlc9Y6+nbi1Ew62MdU3Dg87QIECPTPKO5JbcAzLQLeS9ImtNKy3MuMu97iK9E9Q0KGaqt+gsB8yYJ6u4bZWM9SCgDfwqAP3R5zjJ/B6Ckl8iH8Qy7OJG6WphopKg2p0L1Qs8rRom1thsZ3WinmE3Pxjms0nCqa0J5irTKGu1DvZlIWb3vbN0jUuY0w23LBaEzBNuVh+EVLHsqREZ7uzRInqet9ckFhbjYCim2wO0JeLRs2hrU6gZAYwdNxLQpOpLmZeRmHXFBQs86pVwTfYW5xucKqxRj6tiiYMwUqozuXOoAFCGkfbcWpQShI6k/GIeJrgtZE0R5mWDqQpbLirbG+UD5xoKBh2sTtJmKkiTdYkJZJcdnH1htptA3UFHVVvK8aN6gsYKxHMUmtzVKqlVlilLiJNomXYWQCUgq1WoXtfQeUZ3jHiyZlMD0yjIfPa1R1TrwBtZhu1k+QKiPhGfuk1FGntinJmUrGJDMrMjR87UpfxLJ8b56q6Donl5mL3DVPU+hL865lbHnvGHw8lC3A6+dBrrF1U8TdiAyyvKgaWEbvHtpiYxnvbOrPYkk6dTgxJhLaRzBivqeMjTJcMpWldRWkKyq1EsDspQ5rI1CeW55COSOYqVLShnyUuOJOVhteoUvqeoA1+EUiqy4W1KceW44tRUtazdSlHUknmTEx6byOXUHRl4oWFLWt9a3FnMpa1XKj1J6xEVilWe/aH4xzdVVVc+M/GGVVNV/bPxjRYEZ95nQX8Rlaie0PxiMrEStu0MYM1Ek+184bNQVf2jFLEiXlZvFYhVb9oYaViAndfzjCGfUfrmEmfVzWYrtIXdZu/p8/b+cJXXVKH7SML38i/iMKE8rKSpdk8yTD7Yu6zborRJ9u/vh1+uMybIcnZkMJUPCj2lq9E7+82EYP6XdAyyfh6vKHi/lHL13hpC0BwurUXHDqVrNyffB20HcNc/iioziMlMl0SaNu8TH6xw+g2T84YYaYcf7xUHnZ5/wDzkwoqiiE6rLoTD0s6688EoudYNNBqs10vUw0sJQAlPIDlEwTs0+sBhC1E9Irpany0uwJupTKGWxqcxAgT2PKbIyvYUKS7de3aqGVP5mM2rexafk21OoanmQ/UpjswNezRqf8AhDdXxlg2kSK6fMty01bUy4T2xURzI2+Mcndr1eq+ZM3PupbP+EyShPy398QkUl9b2Vpgm/lC7Sv3Mfdf+1GtmuKFQeJYoVLl5BvkpQBP9KQB98Z6enqjVHO2qc8/Mq6OL0HonYRNlcNTKWs7pbaG+phKqfTmVHt5hThB1CdotaVwjN6nyIkG5ce0oe6L2Qm5OWWp5xDuRvUkI+X4QmnTVGl2crEoh5y2iQRp5k8hEhluZnJsOuISQk3QgJytoPUDcnzMDfkaRaomVIw8GmWXETPd8iSq1kLy2B+MclqFPfoc2GJp2XfdcRmKW1lWQE6ZtNzHYGJPOUh26xfUbD4RynEFCrrOI5lU1IzDqnXVLS42grCxfSxH3RWJq6DInRQqWpR2CR0SI6dwxRNy1Km3r5W3nQEkaE2Gpv01iDhThrU6pMNzVXl3JKSBuULFnHfIDl6mOqytDTLVFEqxLpaZLYLbaBYJy6EAelonLljWlBixu7GmpZ11zMSoxay1JdcANo1FPw8tbKT2XKNPJ0GXlZRc1NrZYl2xmW88sNtoH7yjoPfHBPMlwd0MT+THUrD63JkXQbdTEXic5iikUOlUzBYeNZnps2blUhTxabTcm3JGYgEnTlDmIeOfDrCgWzR1OYknxcBuT/VsJP7zqhqP4QY4jibihifiHjKQVPVSn4al2itphyVSttDCV753E3WoGwuTcc7RWHFknLVJbfknLlhBUnuehmMYt4ewnJVPijM0Kkz7biCqSp8x3iaUrY3ZGgBF72UcsYTE36U6k9pJ4Cwuhnkmfqp7RVuoZT4QdtyfSOK1OlS89XEyOHHXqv2CMj1QyqtNOE3UsZtQjknNYkC9tYtqbw9mSsO1aZQwn/NNnMfyjb6bFHeW5i8+R7RIOJMaYyxu/wBvievz9UX9RlxdmkeSW02QkeQESsI4TxSxUkViQmX6OtoEomm1FtxAIIOU77Exqmv7O4cZ/USrKnE/Xc1V84jP457cFvtQEHSyR+MaanVQWxGlXc2d+4T8E8PUOlS+K8RMip1FaEzMvLvi7bKd8ygb51keLXbTcx2zHOMKDgjBExP1dbamltqZl5QEZplRFsiR0tudgI8qSX6RtZpGGJemJp8jOvMthpE3MOKuUgWAUhNrkDS99Y5jiziBXsY1n6QrNRem3QkNt5jZDKBslCdkjy+McH0mTJO8j2Oz6nHCNQ5OmUSflqlQkimS803LpcXnYbeytIWSVKsPO9/fGL4zMqbwNJqMuGh39GtyT+zci94VzDiafUG+0QhCgl0ZwVa6jQRW8cH0uYBk0BalEVBB9kJH7NzpHXjVZEjnm9UG2cDgQIEeicB1RvBNDbdK3n5lSeSVLAt6mCdw5g9hFpl6XzH6y5jX4XjXMYUoIZyrpDb3MlwLcJHvMSZHDdIkpjtKdRZFAJurtWcyvcTe0cDzHcsRynETGH0V2XNMcY7qCM2RVxYWjVS05h4y4MrLqdQkWKmZVbgB9QIo+KNNl5LEjCpaUbl+2ZK1htOUKIJF7R1zB9kYPpZQ9lBlkXQHEp5dDF5J1BSIhC5NGJos3T5ur3kZR6YCUFJLcsq4N9tt497cIcNf2JwYujN0pZRNSiHa3NpR+saecTmSkcyltJTdI2uTHnHAVJps/wAU6BTW1qSlyeQ4ptBACgDmO3pHv/CcjJP4bZn0i5fUt1djopRUQSRz2tGDlKbpGrUYLc+enGPD1SwrxdnJiYSru8+ovtuDUE6ZgD8D6GOMcS55VTqtIWSpSWZZTYsDp47/AIx9AuOeFaDWZGZw5Un0SKO8D6IqZSVGUmOzK8ixzb3HobdI8NcRsPTmHiafiBpqmVKRf7N2WcWACFpuFtk+22oWKVDlpvGmJrV+UZ5E3GzBs1NUu1kSlY90V85UVuqJsfjAmUZlXadZWPJwfnEN2XmC3mDK1fw6x1JI52xt2bdeKQb5UCwGb4w2uZXltr8YUiWeyEllY9UmIjqVJcsRb1iqRI4X1ecEXz5wgJ21HxglpITrAAov35mEKeNt4avdVgYMpIFrQwFdqeog+1VbeGy2pIvaCIMADheOt4LOpZuo6DlDeUkQtLZvpAA6l2wsIWHDe0Ry26p0IQkqJ5ARaN0mY7NKljJ5DeE6AQ2UJAU6oAQ83VXGV2k2gD9tf4CGnJMNrSSUp/iNospShVKpZG6fTpqZWo2HZtmx95sIltDSZGdU/OfrZt5x1XLOdvQcoXJy3anLa1465h/9HLiXVqYmenaUzQ5JQB7zVnRLot1uvKPnG2w/wg4RYbmQcX8RW61MpNlSdCaXMgnpdASk/wBZjKWRLg1jjb5OD02TaamQkt3UdgRcn3RuKbgzGFbU2KPh2bcSs2Dikdmj4nf3Ax7BwTgXDrTa04L4SpbDaw0ZzEb4bBcAuQGWQSoi+oJ02JvGpxbhfjO1h51dDxBS6bkbKu40aR7otQAuUoWQVKNuVwekcbzWdSx0eU2P0aMeTdNE/iSpydCkbXU5MKDKQP4nSn5CCY4ScFqK6RUcS1LFs4k27tSxnav+88oJR/SFQ3U5L6RxGJvGs9WJ5sZitQWXXVHkLrvlBPOxt0jcYAwXQKlIVnE8xPzsvh+lTTbDTTraRMzBcuUI+yk2AKj56CLjkdcilAal+HWDq3SkUmQwPJU1Dh/VTTKiubaJ+sFgAet0kdY4wwzZNiUqUCUlSdlWJFx5aR6gxvxElsP8KqmMPykrTWSyW0BkFTryjokKcOqrqKdNBHnKm08pYaatcISEg9bc4FO1YnCnQuRki4oHLGjZopcbTZKtekS6PS86wMovHQ6XQUFtPaZUgblRsAOp8o58matkdEMRmaRhoKaSVIvCcSuYXwgxLVPEVUlKeG3bBDqrurSpJByti6lbJ5RzPiLxaxqmqz9CwYmXpdPYdUwJ5haVzExlNipK/qJP7uttzHCZ2RrkzUHJmoiaefWbrcfUVLUT1J1jXH0znvN0Z5M6htBWd2r/AOkxKyiFSmCMOJcUnTv1V1HqlpJ096jHGMTY4xZjSodtiOtzU4L3RL5srSP4WxZI+ERpTDz615n1IZSeV9Y0chJ0SlOJddaD6xrdWsdkMWPH9q3OSWSeTl7FHR8K1isKBlZUpb/zi/Cke8xvZDh3QJBhMxXJvvLg1LaVZUe/mflFVP43cQ2G5NKGUDoL2jLz+JJuaJLjyl3+0fwhtTl+BJwj+Tp0zjCg0alLp1LlGUptbK0kAA9SesY6pYxfeWqzmUdEb/GMap2ZmDqSB8IfakkDV5alk8gbCHHElyJ5Wxc1VJibcPtEna2phq0002VrDgHUmJraUpFm0BHoLQzMrscpN7xoZsimZWvQ2vFhLEKUQVAHNzMVrbDil5Qn3+USMrYeCVuICidATrA0CZ2vAie7tzKAP8JIsfUxTcZFFWCZQE3/AL8j/wBNyLPAkwZiSlQdVrQ4HNN8lgP96KvjIjLgmVuLHv6OVv8ADcjmivedMn7DiMCBAjtOM7LMcRZBi6Gyp48srIT8zFNO8TZpwZZWQdCtrqmFW+AtGMbZCwCG3Sq2pCNjEtqSmXVi8tc2tm9kmOdYYL4N3lkxypVSbrrjT00hQU2kp1UVHUxcSWJJtltlguONhtAQjIAdB6iIsnQ59TgUOzQOiotE0KbJCO1aQeakouYppcEpyR3X9Hxtx7iNI4znnslFpSy3OzD9k9mXUFKSkD2lD2iPsgmPb2Fp2cwVR0Sk7UEzdHK1uydUzZmHmXFFaQVi4QoEkC+hFtY8D8P8SLwdhZVHqD61yU+53hcwlF1y7ifClYT9ZNrpI6ajURvKLjnE+F5V+m4dxRPUmnz7ZUqXlHUuyzoO7jOcENk9UW1vpeOXLibdp0dMJ+2uTt2KMV/2j4ryIsiWS02tCVIKXUys4+QhBcOwKW0qIvbUp6x5E41cQjJ/pXGUareamUGXboyJl6SYnlIbCbueB0FKznJ3NxqAYvmahL4dmHJqSXUJCYaJWzU6WoGYSb5srza/BNIJ1sqyhyVyjllUl8X4Y4gCSdkpXFkvXEisS5QwXG6m26CVKAAzclJUndKkm2ovD6fA1PW2GbMnDQkXtZxLIP0CTq6aRw6xU4+pxL8milIk5qWsrwlQZWnMFDW422IhgUmgT2GRiBnhrhScb7LtlytLrM6zMoA9pPYqWblO5AB011jITc5w9cws1JDDE9R6+wspmHnHlusu6nTJcKbI0Gt9oj0OncP52huGoYpnqLXW1HsVJbU5LOi1xmWBmQb6WsesdiORmhpMpgjElSTTKRgqusz6wSiWlcRIC1ka2Sh1kknyvEas0HCNEqTUnWZLG9MddRnbKpmUmQsXsSLBANjpvGXlmHXqtKszGJHZVsuBHfG5pDiWwTbMBnSq2vkYt6xQ5+lKRIU/G9LxDJLKlgsOqeS2eedCknITffUHrDESFUfBziFOMYlxS02gXWp2iNOBA6koeiMKJhWceDMpjl5xw3AS5Q3AT/SpUdF4PYIw/inD89VUVKl1bF8iFvSuDp1gSjE4UkZc7ibF4HXwaC9gSAYex3S8H8SmziqkzUjgrFbLnd6rRaivu6W3wQnLmNsqdPCq2g8K7WBKsZyd/DdCl5pTK8c01t0aFL9NmUEev6swtjCtOmLdljzCqjfZwvtf7zQilmZxDU2qWXRaa++hfZlbZcOcg20KV2N+o3jeVGvcUZXB6KRP4anqRTVZENBiWVLAISmwQm4uQdydSTuYYiiewcx2NkYvweojkJ5QPzSIhf2PcvZOIcJK/wD3VA+8xJptWVJ1dK38GJq032ZCGp0rfsftZLWJHmCIYrs3iCbqinXcOTFKlgAEScvLBlKBbU2CBqd72goBxrBU4rRFXwmr0rbA+9UKTg2ebXdc/hhQG4FbY/8AlDuFq9KUxTnZcM5avzwcuHZ/tJgNi3s9mBl89QYYnKhiR6eM7UKE+hBXdLDMomWbv9nKlA08oAJNGodTxBXVUPDtLamJxCglVn0lu97DKoHxX8o7bRP0Y8UzdNTM4mqU1KtDxLYptPcWR5do52aB7yY49RcQYkoPEenYqXSX6OtTiENPBC0JLqbKQq6tzcD3Ex9OK3O03idwsoGNaRUpKUqBYTMsd7dSlBV/iNLvpcKBTqNI4+ryyxRuKs6+mxwySqbo8RVSkcOuHFUZorPDSdrteWU9ma5PlaVZvYUlqXypUFXFgFqvHcMNUXF1QoRospW5fB1dcBbMnh6mMNtyKsubs3nykuKcKdcqFXA3OkZzjnhuQFCptfodYp39oaQ6lyVl5aabcdUgrzFuwUdW1+JJ5gqEX+EOKzL9KmcUP0arytTcYCZyUblFBntgbkqfFwltRurUZhci9o4MnUZZwUor953QwYYycZP9xyKYmKxRcSTNKxHIU6uVFmcUiamaohc8/M2VYpzuKOVNtsgB1BvHb+F3CWR/+qdcnJVptcpRQp6UQ8cyQtQCmgeoSTqf3RGIlsCSuIq7/bbiRjig0qjOudqZelTImXnxe4QCn2d7FRud42szx0oFH4qpmcF09hdLQ0mUVLtuXEy2AASoC5ueR3GUGHLLqrchQ03SPXGGsOy1DoEjKNpzLYl0oKjqSo+Jaj5qUSTFjVFMN0h1x4ABCcyeoI2t7453hbiWxWqSz9HU+vOpy+Eu0x3MkfZUbZVW+0D7ojY6q2L3cNOv0mmNMTCU5mn6xNIkmGlbhagVKKrGxtptHTLqIRhpgjlWGUp3JnjzjXjOj0biFXWaZTUujvjoSSQEDxHYet4l116dw5w+wJw9mXOyq9Wz4lrDQ8JZ7VNmGlDkQ2nY9Yz8lTuGmC8c/wBq+KXEOnYuqEo93lvD1DBeRMOg5gHnlWSlGaxIAN4w1axHiHiTxDq2KW5R6bnqpMKcXMOXalpdB0S2FnVSUpAACRc2gxwSjuVOVy2L3GFY+navL0iVWFSUkQ84UkZVL1CE+7VXuT1iTIMy8pId5mlpQ2kXKiYzVpHCTLsvPzzU0b9o7OM7KcI9gp5EWsLaWA2O+JrGMJqrvFBJblknwMpOg8z1MPtuWy4DWo7vk3VW4mOyUwWaKlKQNO1NjGWqeOcQVG6ZurTKkKGqO0ISfdGTU8p0k3iDM1OTSrIl5SyNygXHxjaOGK+DKWaT+SfO1JYBUlWg5mH69jKuYicaXXJwzTssylhDiiCQlPsgkb6c94zT76ZlNm1eDnEZfhaVYW0jVQRi5slzFVcubOEeV4guVF1e6ifWIoQtzxHQdTDiW20csx840USbYV3ntTc/KHWWUp9s3PlAvdI0hxAJhiHUZQCEi0Ppt1tDASRcW98PBNhrEsBwKsL5tor33czt7xIeUEo0iuKsyyYaQWW0o4lMs64UlZAslIFyYonu0Lqlug5ydbjaNbhdMswV1GdBU0ynMEfaJ2ERcVzMtU1Coy8u2w4LIcbb2t9U/hAnvQ62N/wqnFzIGZaiG2FgDkCSkE/IRJ4zIAwHJrtqZ9H/AKbkVPB7MlicdtcAlPxsYseMLql4ElUnL/29B0/2bkYf8htf6s4lAgQI6jmOrtycuG7JCSfICJSWGEIJIQj+IiNaxXOG8mu0tgedqBGyqhPlA/pRFmzxKEmMlDwbhim22WJXtlD3rjC34N6XkychKTU26lEjJTMyToAzLqUfkDGkb4d48ncqpfCtRKBrmcQloD3qIhyZ4pY8mEkIxAqWQPqSjDbIHpZN4r5XF6XMT06exziKqu0hmYS5M5nVuqUkG4QlIOuYgD0vCeoFRd4/wHiTBtCpE1VZVtLL0o2lwsLDgl3jmPZuEbK1BB2Ousc5axTPUdvsGFIelirOZV32b9UkapV5j33j0HU8c07EzEzNtPStUpc4Ch1oHMgpP1SN0kediLR55x5htdDqPeZBTj9JfN2XTqpo/wCbWeo5Hn6wQd7SCardGlGLqJP0FcwuYVLLbH6xp3VaPS3tDzENvzL+J+DD4okwr6VwW+qsU6YZ8Lv0e6sdulJ3BZeyueQWqOVOulAt5Rc4Cxs5gfiBIVlTCZuUQtTc3JumyJqXcTkeZV0C0Ei/I2MaKNEOVmlpFV4j1bA0y6vCLGJKdUErR31tCUzgU2q6iHGz2ilArBOYKuDfaM1h6s4eo8pONYhwBMVmXdUM65l4NOMKB+q6lsKTfaxMdDRhbC6KvNVPg/xxlaBLzas6KTXw7JOtJvcNqcCVNuW2zcwIbksEcZqFWWq3hl3C9VnEEkv0afkXxMJO4caChnBvspJiiTkV8Nqq6XghCJAu5zLPBwLSgk+EOJJuQOfXlFhVJXh6tmWfw1V6pLOqWoPS9RSFKa2ylK0Isob3uAY2lYwrxKmKlN1St8Gasl+ZWXXnZCRdbaUo7kIQFIHu0jMV+famKJ3Sr8M/oep94zqqTEu4wQgC2TsiAj1NgdIYG24YYJwhi2gOmiY3qNP4htBTtPamihiTdeSrwNod1KlOJGUZ8gubaxLxtLyeLsItzXEuVVhLGjAU23OzTQCp3JplmEDxhOlkukabeJNiOSU+YpUirvUjXpiXm0AqbT3CwJ5AntLWPoYrpiZmqzWHpqq1RIddOdbswVnMb/ugxNbj1F/ham4qq78rLUJxTILvZomFKQ200d7lZ2A3vEnF1PxJT6jLs1bEUviCZCSoNp7SY7IEnmU218oj4doWE11VoYjxk1J04JJWZBp155SraJSlSABruTt0MM1uQoyqqtrB9anFSaBYv1N5uXLh/dAI09YYi8wcjihL0WbncN9jTKatSlzEy4WpdAygA3KrKAFx5X84y07M1cTbrk3OytTfcWSp0qMwpRvyVzi6maRhKTpzSJjHE/V6g6gBMpT2QlptR5KdcXa1+idbRNoOHK3OnPOY6p+Hqc2SFTE3VEZhbYJZQvOsnyHWGIu30cZ8OYITITqGMN0sshCEFTMs4sK8WmU5ysixNxmAjDtMYgk0mvOVhlDjKwEuOrLjmY7ZQofOJFblsPylT7vLcQJ+sNoQVGZTIOBJWdwjO5cj942v0jWYcw9S8A01nGOL2mpqsTCA7Q6JUEZghJ9mcm0E+xzbaP7Q2J8A8SGVpwlUn6U3XuIWJJqQMwx29LpxT2s5OX9lwNkgMtE/XXYkeyFQ1MT7bjTTMxNV+ZUhIuFzqGm787JSgm1/OIFXr4qeIpmrVasKnJ2acLr8w6orW6o8zb4ADQDQACIj1apiSMhecPkjT5mM5K/gtbGiZRIuIBFMZv8AaffeePzVb5RfUDFs7g6cM9hytVGkzp0K6Y7kCh0WjVCx5ERzt7ErHZZEyz6x0U4Ej4ARG/tI+EgMSku2PO6vviXCylOjtY4z44mnQV4Y4fuPXuZx+gM9qs/aUAMt/dGtpnFjiw2yFymK6ZR022pNFYYt70oEeaTiKrKUMs4Wx/4aEp+dodVX55bdnZx9Z/eWTGMsHg0jm8nqY8S8XT7BFf4q4teHNLU8JcfBIJiixFWcK1amIaVVK3UX0JstdSqD01mPMgGyRHn6UxBMNIyFYizk60+9Lr3udARGT6Z3dmy6lVSRspFNCanlGXp7AN/aUhN/xi1xDiVum0xMlLu5Zt1OuU6to/An7o5vTp92VqClqzWtc30iFUKg6/NuTDiiVrNyTGqx2zJ5KQ5Waip+4Kr/ALt9IpG3yF2JsnlcwT7qlE3N4iqJtl67x0xVHO22yU/NreSWkKIb52+t/wAIgkttqsVpSYbdeLSeyQfF16CIJ3vFqJLZbN3QsLGo5+cSnGAo3tdNtPOKiUfKHA2T4D15GLpgqcZAv7OkJ7AtyucvntyhIGsSH2iFac4YNkwwDSRvDqSOSoZBBO0OJHigAkXItZUGp6ydyfWHadTahV55ErT5Vx9xRsAkG3reNnL4JYpbYdrDqA4BfJfaM5SUS4wbMN3aYfTmSy4pJ52sIhrlnA8Gwg3UctraxuajPSTY7KTZBA0FtzFSlsl0vrAz206JhqQnE0GBaRT5/E0hJ1dgvU1DgdmWwop7XxBDbdxqApZFyOQMNcVsNuUWvGcYorVMptSacclEsaNOBt3IVJTc5dhce/nFxg8KZEpMlkFt6oBsudOybuEg+alk/wAsbL9IuUn38LYSmGwDSpCQblSq9rzD4ceVYfwoR6adYlP3FadjEcJWnG6LNuA2QVFKvM6Wh7i8onBEqnpPp/8ATciz4aspluHMssCzkw4t1R9+UfdFXxdVfBMsNP8At6Nv9m5Ga/1C39hxeBAgR1nMdZYFxzN4mNJJVY6DlrEdhKQdb3if+qATl1928ZM0FtoTmspRIP2dxGex40lOGWlICv26d99jGjSochr8LRUYuSlWGkqOuSYaNj6wIHwUchOVagSDUw2DLPISM0xLupWqx2S81fUa8xpGzpnECnVSU+jMQMMtB9ORTiTdh2/Pqg9L8+cFwxw9J1nB9Zcm8LPVVb072JnGG+0dZ/VkhITY2FzmOoOnOOUOsmWxE7JZisMuqbUSCMwCiNRFbMSdGgxdSVUSpdm2vtJdzxNOdU+fnGTcUVA3i5nnpjuncXXFLZbN0JUb5D5eUUigQow0DEpLiAShxaba+EkR1Sn8IOKE7huRq8iiVdZm2EzDTfek9pkULi4I3tY2vHKwoagjS0e6sGdkjhfh+ZmHUtsN0mXW44s6IQGgSo+QFzEzbQ4qzznKYW484euqUpdeaSNjITR1/wD41/hBr4gcf6QspmJjGbSU7iYDrqf/AOxKhHY6FxmVXjej4SVNMrmFS7PY1eWS84AqwV2K7KF9DaJ6uMmH0StTn/ofEjlLp0yZaYqjMoFyyVA29oKG5O1rwrfgKXk4cOOWO22C1W5CmzgOhFSoUo8T6ktJPziAvixRHT/feGeBXySSo/Q5ZJ97boj0TXuKeA6dONU6sTEykvhKmVv0x1bT2ZKVAoVlIVopO3WH5Oc4a4jfkpJLVAnJqfZW/LMvyQStxtBUFKspAsAUq3t7JhX+Ao87p4k8MnW0984L4ZKuapWbnGP/AHqtAexVwWm2s7nCdTJ5iXxE+n/ebMdpcpHBaqzxp7UlhB+YzZezYUhK7+4i/uhQ4McL37oXhtttS+SZpSD7hmgUkPScQZrHAh5fj4f4gY/2WJE2/wDMxEtc/wAAMyQcI4qR1tX2T/8A4x0+a/R84dLadDDVUk1lCihxE1nKDYkGyhY+keUnjleUnfKoi/obRad8EvY6+cZcHMNuCpYVwBMzNVa8TD1eqgnmWV8l93Q2hKyNwFqKbgXSY5nW8S1TEuIZqs1eadmJuYWXHHHVXUpR3JPX/oLAARTEkqJve8Amwh1sKxS1ZnLmFZtB1iPc3h9tpbhCUpJJ2A3hsQlayTrBp301i1lsPTT1lTBDKeh9r4RcsUqmyScy0JcI+s8dPhCbGkZ1iVmZjRllSz5DSLOWw7MueKZfQyOntGJ0zWJRpJbTMtpSPqo2+UQ01yTSTdTi/wCFP5xG5SotGKTS5ZQKwt9Q+0dIvafOSzACGpZtAH7sYxWImM9m5RxXmpf5CJMnidiXnUKm6cvsSRctq1t6HQxLiylKjsmGpBFVWe1l0LRbUKSDpGU4hYRp9BrDCJNRQiYbLnYk37Oxtp5Hl6GL5riTQcP0dsUIInH3UBSXHE5UI9U7kj4escsruJKhWas9OTcy4444dVLNyfLyHlGEIz1X8G05RUfyVs20lpwpC7+URdEpU4dhBLWVKte8WFNkxOTrba0ktJOZdvujqOYXRcNOz47eZSlponVxzbz56CGq1hnubK5uQmWpuXQfGWlZsv42gq1WHHnBKS10yyDbs0mwURzPWG5KfW0sZsuosQNAodPSHuGxQ7K05RoqcoLbv1QFRT1CWEtOqSn9mrxo9DFjSVFQQnqkiHLgS5Js6wW5RCtiQDFQRdR++NFXlJal0IAAVawEVMnJqeUFO+FHzMSnsNjLTS1ryMoKlHpGkpeGW3nm1VCYQ02dVEjRPu5wyl+VkGvClA84adrD7ycrIyj7RG3oIl2+BqkdImsUYXwtQWJbDMqpE60slyfcNlOJUMqk25DnGEnazO1aZK1uKUkn2lHf3RUqYW4O0fUpaiRqo/8ANotqJT52sVbuFHp8xUJq1+yl0FWUfaUdkjzJAiYwS3+S3Ny2EIZIA01PPmYFQPdaYp9Q0BsPMj/iRF3MSNGpDxGI6sJmYQbGlUd0LVfo7MaoSOoRnPpGSxVWUz6g1Ly7MowLBuUYJKGUjlcklSidSo6mLW7Iex1ThZhysVKlyFTadprtKdQ627LzU2GyH85Da1JHiHiKBmHmIveNU3M1PBtMpU1Uac27T6gmQMnKPdqXllGRUz+6myMqUnXeI/6PWBMO1+otuVqdcdmJ6nzGSXYNjKNNiynlna6llCEDqVHkIjYsk8Nqp8uzKh36WTiNtp11V1NTLKW1KDrenhuTdSbk3N9jGT+40j9pMpknL0unNSMsVFqXQGkk8x1PzMY7iyrNgyW1Fu/J2H/hrjaOOZLkJUU3vcjeMLxTXmwbLEKFjOoIFrfUXEw+5MqX20chgQIEdhynWwoA3sPcIkpKvsHbTURDQ/lBNwOnUQ5261eLW29xGTNCakuFQzKAA6neKnFiirCsxZaTlKVADyUImFxR8N7AxCqzYm6NNSqCta1NHKLdNfwgXIFbg/E05RnXpilzEwUOEOuyjL6miHUjwquNLA897aRsuHHDpFbmH8SYsac7g+4pwISooVMrJvcHcNgm9/rG3IG6OHeH6Gmlpm5iaRUMpSRJ5bdks7qcTzPIcraxs8VcTsN4fYVKJfM/PJFhLypGVFuSlbD0FzEzk7qJcYpK2c0xtgOeoc088wTNyCvYfSNU9Ascjp6GObqKcxFxeL7EfEDEOIlqYemTLyZOkqwcqfK53UfWM042Q12ludo0inW5nJq9gOWsbfKPdGGqOzij9H2lUjvkxLsz1Fl5dcxKWUtA7NIUBe4voQb9THhLs1jXKr3CJctU5+RAEpPTcuRyadUj7jDlGxRlR7JpfCx2gOSjcjiJh5mSSUy4m6HLqdQbHKoOgBQUCbg3vGfY4BysnQKJLytUl5yblZwzFUbnVvCWqSCq4SW0q8JA0vzjzjJcQ8cyJvKYtrDYHLvKj95jQyXHjilJWAxS6+ALWmWkOX9biJ0sepHpbFGGJ+tcaMM1gmWbw7QJdRl5dK/H29rJsi1sosj3JjIYwwHjOuYmxviGSl0tOLprVPo+R1OZ9q6e2CQD4SQFDW18xHOOYy36RePULBm5ejTnUrlshP8ASRF4z+k5VAnLO4RkHB1ZmXEffeFpkh2iwlmpmRmcLyEjwzakpOUYQam9VcPpWtpbaQXHW30HO4pRCiL88oiixi1ivENPqHEatYZrko0iZZ+i1B5CGZWWS4QQtsnOVqJGtgL3O1raOT/SbonZgTmF6k0rmWJpCx8wIvaf+kfgFwlUzK1pgnQ5pZDgPwXB7vAbeTrTzrc1TzNN2KXGe0SR0KLx8+nrmac/iP3mPXauPPDSYYdtV5pv9WqyFyigScpAHMR5GcUguqUDoSSL+sOFrkJje0J3VaHNDoCIkSUmqcnW5dFrqO/QRdkDTUsezMw54Wkm1+p6CJrdbXKN5ZOVZbJ3cWCpRhuszDapsSkv+wl/Cm31jzMV+UkbGCgJj1XqT58c2sDonT7ohqcUs3cWpR6k3hSW1K0CSfSD7BwqKSmyhuDuINg3GhqbARNkpWYm5kS8qwp11Q0bbQVqPuhgMrS4lIBKjsLRtMBsTCGKpMIZR2bZZTMrUvKpLal2155SrLcjygbGkZiZpdVkZ0y8zLOsPABRadQW1W62I1ENrfW5KqaWb+RG0ds4l02tuYZqM4/QZeWl5R1qdlJhM4lwS7Z/Vqbb1JUhZKVeov1jhrj6XppbiUZQrUiEnYNUOybxS0fWFlwqXcxFaNgRDt9YKAfQQVG/KLmWdEpRHHE6OveG/wC7z+d4pGx4L842eDJeWmcWibqLYfkKLKOVN9q1w6GRdCCOinC2k+RMJjRqadhWXwZIYdeqFLlZqvVt9Ic78yH26c0u2QJbPhLpSQolQOW4Fr3is4s02iuY2qcrRKY1T5ynMtOvIYGVEykpBWrINEqSVDbQg7aRYUaozdewvSJ6bdVMTrdXDzrijcqUt03PxVHYnsP4VluEPEDHuJaUiYffqYlZJ8HKsZUJZISeniWSOdoycqe5pptHkaeUJilSz97qQS2fQ6j8YlUZsAtLWbJBNyYhOMqYROyS9VMuAfBVtIsWmUoogcMwgKKSpCE+InXn9mNnxRkuRx+Zbm5tc08sZAbISekR1zq1KysIsPtKhhpAHiWQB1JjSU/B9Xn6cmrzAl6VSTqKlVF9g0v/AGYIzOH+EGJ2Q92UKG1OqzuLKj1Udvyi9oeHKxXnF/Q9PU+01q9NuLS1LsDqt1ZCEj1N+kPpqmC6EEmRkncTzqf8eopLEmk9UsJOdz+cgfuxX1rEuIMVvNit1Q92a0alkpDbDI5BtpNkpEHPAbIvJlOCaCwpNSqrmJ58f92pSzLySFdFvqGdz+QJHnFXVsY1+YoqZRMumk0VavBT6a13dhRturXM4bfWWTDEgzTJZxJbCXHOTjhBI92wizmJ1DzamwQcwKdr8vOEMwrk486dCEJ6J0hgkk3JJglApcKTuNDA8o1Is9M8CcTUah8MpsSzKPpp0zL046d0SstLKcZQOgLy0k9SkRnXpmrt0/CFFqcqGWlvPV1ha7FTja20NhV/s3bVb0MUPBitUxhFZw9VmnUMVZhLCp2WY7d6UCVhSlJRcFQIuCAeh5RMxDV5eY4jzK5Bp5qnSMuJOQl3lZlS7GYlDZ88viI6rMc8o7s2UtjSrmmwPA7mUb3KVHfyjCcSXA5hKXsb/wB7T7vAuLX6S7Ygdobcr7+kZnHUwl7DjASu/wDeU6fyqhQVSQ5StM59AgQI6TnOmNvhPhzEDncawfbJudUgb76n3coqiTewJy73hxDiUWURv0MZl2WLkwkJClKzE7AcvhF1gfsJziNS5KbKQy+pxk9qbJUVNqAGvU6e+Msty4Kf+MR1u5RmFyTva4tCoaZqsT4aepDZS4JlpptJbanpckOsi1uzdA1Unlm3A3jnpw1Wm5MTfdu2YVqHGlBYPwjcyHEqYU0mkYtQ5NtiwaqSBd5KeQcH+J66K9Ysu5IZlV1PC9QbWy4bqLA7RlzyW2dj7gYE3HYbSe6OQNBPewlxABB56RPqIYEiciVpVcaGx+BjXztLk6q4pyeo0xKTABPayQ7RtZ9DYp+cY6bpNVaJbXJzYYBum4zfdFpkUVyW9LpdT7yRB/rwPauD0N4C2uz8JJSrooEQ3kVyKT6GKJoXdwaKbHvTCMwvqgfdB3eRzVA7Vwb6+ogACSi+iSD5GAoJzalQ9YHaXGraD7rQZW3bxN39FGABNhyWPhBgHkpPxgrtHkoe+8DK19sj3QAKPajp8RCClf2TCsiOToPqILKb6LHxgATlPQw6y68y+FsrUhXIjSEZV9b++HGgoFRVuBpAA5LLlO8f3xCyCdVIMX7DFLWi8shpfzPvEZvKct7GEZlIVmSSD1EJoa2NeLIFkpSkfui0MPyzb5BXdKhoFp3H5xTS9ZmGrJdAeSPtaH4xaMVSUmLDOWl/ZX+cTTRV2QZlh5kpUU6pN0uIGnvHKJEpWZqlzapyUcShTrRZeacTmbdQd0nqDofIgWiyy+DMDp8jDSqfKTaTdJbV1Rpf3QJhQ1VsUu1GjfRzUs2wyohThSoqUu2wudgN7dYzSSUqvF0/TnZcWQgOp6oGvwiqmgQ6DYg9LWikSxLZ1MOX1hCG3AgOFCglV7KI0MOIALgBMDGS2TldQOd46Zw8n5Si06enZxCVCrTCaV4tlN5Ctwe+7YjmiLd5QAb6XsY3DOF63W+HdCmKKqVPZzc04tLj6WyFZkBJsd/YiJFR5LvClGqNHcmZJ2WeQwicDss86gpQ6hKwQpJOhG17c47vxcpiJt/A/AyjPhxwNmoVdxvUIK0lWdfT2lq16pjDPYXmpiRRIzePlt0lvIw22hg9pZ1CHHwEk+wlzKM+ytbbGHG+JtEkac3h/CtPmHsYVCTP05iKfmS66LC3ZtJtZPhsPIWjB290bJVyefMX0xVFx1XqUtxDipdwtlaDcKsRqPIxGowlH1ssVGdXJyyyQ5MIZLxQOoQCCr0uInY0Z7DF1TbJNwhAJJ52TGaMyUNhtvkLXjoStGDdM272K8O0EBGDcPgzKDpV61lmHj5oZt2TfwUR1jJ1avVSuVBU9WKjMz80rd2YcKiPIdB5CK1SyrUkk+cJhqNCch4PqGo+UH26usMQoDSKoVj4mlA7w59IvAAJcUAOURchMKDCjteFsAHV9o8p3mo3PrDfO8SkybitEpJiUxSCpV3VG3QbwWFDMlOPSKw/LOradGqVINjGnpZmXJfO6sqccUXFlR1JMRGJNlloZG05r7nUxcSYSpkiwItueUQ2Uh5C3U+1mHpFPit0robQJ07cEf0qi7WRpkta2vh5RnsTW+iGxmB/XDY/uqhLkb4MpAgQI1MzXFdykAk9IUt1CT4QbW+trEQOlNiSQL8oUpYtlTfLvEUUSO3smySfW+8NrWog6687aQwpeW4A8xpeBdRHiKid7nS8FAL8K9FgKT0IuIjq7eUfL1OnH5Rwiyi0spuOmkLCgNLDXcc4bWTppbzMMCJMPTyQpL0884epcUbxGZnJxhWZmbeb/gWRE2cRnaCk7jQ+YitUABYQ0IsBiGq7OTCXx0fbSv7xCvphhzSZo0g55oSWz8jFQd4EFBZa95oTgsunTLJ6tP3+REAN0VweCfm2fJxoK+4xVw4y0XVWJsnmYKCycZKUXo1V5VXk4hSD90GKPMLF2nZJ0fuPpH3mIqpYcngfUQ0WlDmDABMVRqin/uSleaFBX3GGHJGabPjlJhPqgwwFOIPhUpP8JtEhFSn2hZE7MJHQLMAbEcoANiSD5iCyj7QicK3VBvNqX/GAr7xANYmFftGJRz+JhP4CANiDlP7p98KQFJO14mfSaD7dMkj6II+4wEzdPWr9dTggcyysj5G8ADNlWH6tZ9BCOycOzRHrFo0xT37d0ny2r7Dhyn56H4xIFLeO80se9IgsKKLur5+pChJvn6vxi6VTAPbniP8A8qRCDJSKf2s+n3vflBY6IUt3+XuG3ggdFG4PuiR3+op0L7LfoBDhZoqfbm0Kt5qVBF6hI1SCr0bP4mEBGdmppZu5UVk9En8ofp1IdqD4UrtMl/E65p8PPzhxNWprX7KXdPoEphaMUuS5PdpFn1eJX8tBBv8AAbEWrvJmJsMSqMsswMqLbHqYiMtnOIfnKvOVBeZ5TaR9lpsIHyiOlelydAINwJKbCpWJB0HujbU/H9Sw3hynUWkUumLfU2pzvc0z2riVLcVokHwjlyjn7TpMyF8zHVuFWAHeIHEeiyayUSiEZnXOSQlaipR9Br8ImVfI438HUq5w+xxKYfRVZStNYmRPSZqnaulLUwhiXTldWBoMlytKEjWybxjqQ9gaf42ofZSmm09YDUpO5SA+2pICS6P84bWv13jouP8AFtOcwDMVqkJ7KUna01R6UAf2chJjKcvkpZUo9SYwXBKn4LqPESr0vHDSlyUlKT09KhLmT9awgupBPTwnTnGKtps1ZyfiK+w5xIxIZZWZlM6tltXVKVZQf/LGNifUplczNTEw57TzynFX6kkn74ggXjpjwYS5CgwNYUEw6hu5EMEJDdxpDiWtReHUt66CJTUotQzWCR1MTYURkM3UbfCJ7Emo6LukWiSxLpSnQDTmDcxJQgmxISNdSYVjEJlw0AlDZI8tYfDV7DLa+xtaHAg7m4N/dDoWhKDlAOlr22iR0IbSEEAgA87C8KSpKAcgIGm5vAU6gKSrILEAamEOKVlzoCgkCx1+cAySoqKshsm+/SKLESVJpiLg6PAXtpsY2uG8LzNT7OYmiuWkwL9paynP4B+JiRxSlpOR4eScpIy6WWRPoPVSj2bmqjuTEqS1JFOO1nHIECBG5iX97a208uULC12KrADcHlDIUkDnrzvBZ7G6deQ8okodWqxKraEb9YJJubgAWENKVbne3Mw0XQDc3111gAfcWAPP02hvtANgBEZb5IteGy4o6XtaCgJan06XUT6xBmFtKVdCSFc+hhKiTCDvDQmIMCFQLQxBc4MLUBYEiC1EFAAorVfeBnJ5wmBAAd9YF4KBAAZMC8FB8oABztAEEN4MwAC+sCCgQAHAv6QUCAA9SILWBB3gAFoGpgXgwqAAXIgXJ3MEN4AgGOpNnE6R3Ph7xElsGcCMYyEq2E16pKZlpSYt4mmHAQ/Y8v2aP6o4VfQEGOg8OK/RKViWVXiWl/SlGUexnpVPtqZVa6m/30EJUOuUjnEzVopPc1vEN5dIwZg3CyiQ5I05D7qL7OzDoWb+eURLqeF6BQeC0vjs1SaVWq9NPyTMmLBtLQJ7ZfX2co/mjUu4Rw9xExlVseV7FFPksKpU46l9D6QUhAKWEW3uAArKBc3tzji2K6/MPSMhTO9uPSki2uXkkLTlISpRUtwp5FZ1tyAAjJKy3sYycsZpXx+JhoIh9SM6yqFttFSrJFzG1mQ0lBvtD7bSlkZUk+kS25MW/WEnyGgiYgBLRSgZRflzhNjGWJVCNVkk9NwIkdmrMLHXa3MwEDwGycl9LWvDiUqIGVVxrewt84kBxpCQRdN76ZhpEgtAEFIzJvpfS/uiOgpSnwqGguEg84WXDlvsOt7wDQ62lINjoUi5OvWFFaReyki/TWIyXTlPiUDfS0TqdTZqpTFmSWmU+26seFPl5nyhMZHS06/MIaZbUtxZslKNSr0jb0XDMtJFE1VkomJgeJEuNUJ81dT5bQ/Iy0jS28smyC4RZbzivGv38h5CH3Ki3LIU7MOobSD4lHUD/jGcpN7I0jFLkt3ZhWYLWpNyPZ2t/wBI5nxJr8tUKW1TpZReDcyFqeB8NwlQsOu+/lD9cxO5UUrlJTM3L7K+055q6DyjF1o3kkC4sHBoPQw4Q3tinO1SKOBAgR0GBbk20V7oSpWu0ISo8j84JRzczElBlSiN94aXe1t4VY2EEoEk63HlAA1fXWCt74WN9BaDXbLoLGGAyQbawVucLMD0EMQ2RAI1hZGsDLeAQ3a0Ai8OWhNrwAItaBYQu3KCtAAixvAtYwq0FaABMA7wsg2grQAJg+UHBW1gAEFBnbaBaAAoEHaBaAAoM7wLQUAAgQLGBYwAGN4OEwIAF3OW0LZfcacSpCikjYgw0LwLEmAZs5HEcoiUzPSEuqYGvahIBUep8/OM7PTDtQqSphXM7X2iOwzMLFkpsPtGLBqUCE75j584mkuB3Y20xpddvdEpsJHhSLDkAINCbfVOvMQ8lGZI8PvvaFYCb2UCQR6w5fxaDbmRpCcpSbXJA+UOBtJWMxCwOWv/ACYQBhBQDc25i/Mw6FDIkJUeqvCbennEd1YzEXNz8oT25UcouRbYC0ADq1EE5dvWAlwqVYEW9ISyw/NOFphClK5i+lvPlaNNTKcxT8r6gl6Y5KI8KPQfjBdFIYp1AWcsxPqKEHxJZAspQ8+gjRhaWpbKhtLbaBYISbARCcmFKVmvc9RFZPVgShU0Mjj/ANjkn+L8ozdsvZF1MVJiSlC9MOWTbwJBupw+Q/GMjUavMVJ7tHlBLaT4GknRPn5nzivfmXJl0uzDi1rJ1JV8gOQhkEC+unK3OLUaIch8ulQ1JuPKK+rqvJI29sHpyMSS7Ybge6K+oqCpdJ3ObU+4xSRLK2BAgRZJtMa4FxHw+qlPp2J5RqWmKhT2apLpaeS6FMOglBJGxNjpGc0Ot/jHoT9MhVOXxewmqiqeVTjg6md1U8kBwtWXlKraZrb25x53JMA7FqPmbesIGvM36CCvzJgif+sKgsWbJ0vCSQRuYTm8NukFcQwYNzA/51ghygzveAAgNb9IULQmD90ABHeDOkC3utA5XvrAAVoK19oVyveDsPSABFtIIpF4XbW28DYQAN5YGWHN+UHbw7QAhvKYLJb1h7KDufdBlIveAKI+WAUw9YA2tAy6aiABi0DLtD5Rp+EGlsHy9YVhRHy6wYTD4bTy1g+zN9AYLChgNm8H2esSQ2pXKHA2kDW14LCiGlgq2BhwStxeJiSUnYQoJurMq3oOUFjojIkxe25iSzLJTdSB8oWdCLWPkOkOIN02Pp5wgCyi4skm3KH0WCbWKdb6Q2oEiyMoty3hXahFgoAkb2gAMAhdyFeh0h3N4Mtje2hhnMSrVI2v5wkuKJsNrX15wgJAWpCFfvAXzC/whpThKcwOp3vt/wAYQV5UnYWhpGZ5xKW0qUTsIKAWpasqQSk32FonyEi9MqS64stMjdZFyrySOcOStNZbTnmsqnBqEjYevWJapjxXJNht5QmxpFhLmXYZLUs2W0DUjdSj1Jg+10Cc22up0A536RUrmW0pUtxeVO5JirnamZjwJJSz0J1UephUOy2qFbIQWJJz+J1P/t/P4RRBQJOtz1MMhyyr5rabwSnBm1t98UkTY8FaEBRA6wRWBzv98MKdJP4wkq10NxDAeW4b3VfN1vESdILIN9c0KKul4YmCC2AOsAMjQIECKJPQuKuPGA8f8V1YqxjwmZnZJrDLdFlaW1Prbbln2wcjyCLHIL2CTcgc7xwMq084QD74FzYawAKubWgr9YL74LnAAq+sHm0hO1oBgGxV+kEdRBX0grwAHBjSE7QIAFX1g79YSTA5wALvpAJ6wgnlAvAAs36aQAdesJuTBg2gChUGDYaCE6wYUbGAYrXbWBra1tITc2uTBg3sfmTCoAyLHe8HcWvraCvqUwRPU35QUAvfb74JIvsPfBBVhoIVe6t99fSEAoDrzhQsCSB6eUNbC9ibbeUL+trrbS8AAvfRMOJuTludNTCRlTbQH1gZ7kkke6AB0Ksq+3rCkKNrn19YaSL+1by6w4FZdhYcoAFje97W16WhYUlIHIHn1hntCo3JB8+kJKyd9+sAElK76FXLlpCS5l2snW+ghjtOlgNoQpwHb7oAHy5clWtydyYT2l1ct4jlXLptEplm6c7xsPs8zAA4y05MLIAAHNRGgi1aDMs3ZrQnQqtqqIAetYJsANgIBf6E/GExomqf0Jtp5mI784ltPiIN9kjnEF2cyeFNlK8+UQlOEqJUbk+cFBY+/MuPOAuKsB7KRsIbvtrf0hrNpcQCoWubxVCHs5TrqeWsJKza17Q3mP2iYIkmChWLKtb35QWYjn8IRe0JvBQxWYesNum6b25wdx6Qhd8sMTG4ECBAIc1gc4BURBXMAxXvgvfBXggqAQqBAubQV4BgvB31hMDzgEgxBwkQfvgHYfvgZoK8D1gBir31gHeEiFQCDBvB84SL2gawAKzQL3EIEKvcbwAKF76QL9fnCQdIF4AFXud4F7CEwd4BoVc+doUDffSG7naDHrAA6SD0100gXvsQOmkIBEAbbwALB5326woE+REN5h/1gZ/SFQDue1rH1hPaEn2oazGBmNt4KCx3PoR74IuX1+UNZoK5vDAezXFoNAWsgAXMNpF9SYdz5RYaDoITGPoShs3vdXWFF0gbxGLnWEqctvBQEntraggRHXMqJKU6QwpZV6QV4KFYu8Fm8xCLwL+UMBd/OBckDWEXgZrbQBYrMQLXgX84TBXMAWKv5wL31hPOBfSAGw7+cIVtB87wlXWAQUCBAgAd7En6yfjCW0FZsCB6x7KxRXf0d8I8Q57hnivguqnUmX/UGtpz9qo5bhxGuZQPJQJv0jGfo54a4eVd3iRVKvhdmvUykSnfJFmop/WhtKlkA5TYKKUgG0eEvW/8vLqJY5JKq43TdKjtfRvWoKSs82Fo5LhV4atYx3zE3Ffg7V8D1Sk0fgdJ0epzLBblqgh/MZdZtZQB3tHIML0VGI8c0mgLmRLJn5xqVU8rZAWsJvr6x6PT9VKcJTyQca8//DGeJKSjF2UoaJA8QF4JLZUq19Y9mY4c4F8HsdyvDmvcGlTtK7JsTNfmM6nFhQ1Wk7qtzykWNwBpGN4F4R4V4t/SWxXISFEVV8KNSDz9NYqoJWkBaLE2IO17X1sRePOj62pYJdQ8bUUrXG6/v+Df6J61DVuzzOplQTmuIJDRUL5gI9F1jizwUcodRkJXgDIy00tpxlqaTMX7NZBAXr0OsaDB0pw0wh+hrRuImJOG1MxJPOzzks4p5RQtd3VAEqvyAtaLl6tOONTliabaSVrexLpE5UpfFnlNxspIuRrBlBBsTePUmNcMcL8c/o1K4y4LwgjDM7SJ5DU1TwoqZmEhxKSkgmx9tJBFuYMZr9IrBOG5Gg4N4h4HpEtTqJW5BKXWZQHs0PWzjcnUhSh/JFdP6xDNOONxabbTv4a3r+XAT6OUU5Xa5/mef8hsTfaDKCEA3BMehk4Lwxg79B1eMMQUKTmcSYinC3S3n0ntGGTpmTryCFn1UIn8bOHtBl+G3CljCWHJOTq9caQ245LpIVMuKbay5iT9pZ+MOPrGN5FCtnJxv49qt/wE+klpv5pf1PNQaJTfMB6wRBCgLg+keusQynAb9HqXp+E6xgtOPMWLYQ/UpmYcAbZzagJB0SDuBa9rEnWOe8Rf/oTiWewhWuHMjM0mo1CcQ3VKAoFTTSC4BfMTZJPROhBvptCwer96Vxxy0PiVbP8A9oJ9LpW8lfg4YWyUCyheG7ZTY62j2TxbrvBjhbxAOFFcDaVU7Szcx3htZQPEDpbXa28eWuIFaoNfx7OVXDOHW8P010IDdObVmDRCADr5kE++NPT/AFGXWVLtuMWrTdC6jp1h21WzNXgXhMHaPUOQOD0tpCTcmwgyLC8ACud4LlCb6bGBe8AC9bwOd7wm8C9oAFXMAE2hN4FzAAq5grwV4A9YAFQV+UEDrBwAC8KGhhN4BMAxwK08oGa4hq8EVQAOFVjBXvrCCYFzaAQq+sFBdYG40gAPaBeCMD5QAA9YF9IHOBcQAC+kA9YFoKABV9oLZUFA5wAC+sEdoB6wUAAgQIEAHt/BuPuI2LsZt8M+MPC1irtkqYmKk7JFsNAA+NRIyKBtukgm9xEXghTqfgbibxop2F0iflaXLnubLn6wOZStQbI+tr4fOBAj80zyXbzRiqi4xdK6vUt6/sfSRj7o3vu/+jlPEjirxAxpw+maBV+FsjRpPtETC5yVpS2VthGvtZdE66xxSgUyrVrFMjSqEw6/Upl9Lcs20bKKydLHl6wIEfZ9A44+mm8cUqvz4/LPI6hN5Umz17hziNxhk8ayHC/ipw7axNLqcTKLnlyuc5Nu0Lli24ANSo2JA3vFnw8wrh/BP6cGK6RhhDbMmKEXxKoN0sOKKFFsX2F7acgbQIEfHzmpQyaYqKljtpcN2vg9iEfdFPepf+HMMa8aeI2JcH1jDM1wnp0pKTbSmVTUtS3ErbSDfMlWXfTeNZhzE9Hwn+gRh6p17C0piSTNSdaMhNLKUXLyyF6cxY29YECPVnhxyxYsajSc48X4f5ObVKMpzu3pZC/SFrU09+j7hZeBJeTlMBVMh55mTaCCh72koXbQC+bT7STflFdwrl3uLf6Jta4Z9qhyq0adZmZHtVWytrcB36C7o/mECBGE/wBT6VOcPuxzbT+bUqt+dil7+qinxKO/8iu/Sxr8mjGFA4dUdwfRmGaW2wEJ2Dqki9/PIlHxMbXixiCVw5QOAtdmhmlpHsH3fJAQzc+4XMCBHRjwQePooPiSlf8AGO5EpNTzPxX/AGYz9Jjh5iqe4tu42otNmaxRawwwtiakUF4JIbSmxy3tewIOxBjnzvCvGuDHsKYjxDR1yUpUJ9pDYWf1jag4khLid0kjUDpAgRh6b6pm7WLp9q3X5pLY0z9LC5ZfnZnpTjRxcxvgrigukYfwDIVuUEs253t+QW+rMQbpzAW0jxtjOoVGr46qlXq1NFNnJ2YXNOygaLQaKzmsEnUDWBAjv/w1DHHHFxik2t3v/c5/U7t2/ko4vsGV+Qwzjen1ypUCTrstLOZ10+cJ7N0dDbpvzGkCBH1EoqcXF8M8lPTujotf4zYNrU8l1ngfhGWCSTop0FXrkKR8ozk9j/C8yghvhXhuXJN7tuv/APzgQI5odHix0or+rNXnnLkoJ3EVImk5WMIUuV03bW4fvVFYZ+V/1VL/ABV+cCBHUoqOyMnJvkT36W5UyX+Kvzg+/wAv/qyX+KvzgQIYgu/S5P8AkyX+Kvzgd+lr2+jJf4q/OBAgAV3+WA/yXLfFX5wO/Sv+q5b4q/OBAgAHfpX/AFVL/wBSvzgd+lv9Vy3xV+cCBAARnpb/AFZL/FX5wXfZbf6MY/qV+cCBAAO/S/8Aq1j4q/OE98l/9XsfFX5wIEABGbYP/cWfifzgu9Mf6C18TAgQAAzTBH/Ymh7zCTMtHaUaHvMCBAAXbt/6M38TCS6gnRhA95gQIAC7RP8Am0/EwWZJ+qIECAAiRe9oIwIEAA3gEwIEABQIECAAQIECAD//2Q==" alt="Maruti Suzuki Ertiga">
-  <div class="hero-copy">
-    <h1 class="hero-title">Travel in<br><span class="gold">comfort.</span><br><br>Book with<br><span class="gold">confidence.</span></h1>
-    <p>Premium car &amp; taxi booking<br>from Kutch to Gujarat and beyond.</p>
-  </div>
-</section>
+<div class="hero">
 
-<div class="service-title">CHOOSE SERVICE</div>
+<h2>
+🚗 Ertiga CNG • 7 Seater
+</h2>
 
-<section class="services">
-  <button class="card" onclick="openBooking('Local')">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 15l1-6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2l1 6"/><path d="M5 15v4M19 15v4M3 15h18M7 18h2M15 18h2"/><circle cx="7" cy="12" r="1"/><circle cx="17" cy="12" r="1"/></svg></span>
-    <h3>Local</h3><p>City travel</p>
-  </button>
-  <button class="card" onclick="openBooking('Airport')">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="M2 16l8-3 2-9 2 1-1 9 7 3c1 .5 1 1.5.5 2.5-.3.7-1.2 1-1.9.7L12 17l-6.5 2.2c-.7.3-1.5 0-1.8-.7-.5-1 0-2 1-2.5z"/></svg></span>
-    <h3>Airport</h3><p>Pickup / Drop</p>
-  </button>
-  <button class="card" onclick="openBooking('Railway')">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h10a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"/><path d="M7 18l-2 3M17 18l2 3M4 13h16M8 7h2M14 7h2"/></svg></span>
-    <h3>Railway</h3><p>Station transfer</p>
-  </button>
-  <button class="card" onclick="openBooking('Out of Kutch')">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 6l7-3 4 2 7-3v16l-7 3-4-2-7 3V6z"/><path d="M10 3v16M14 5v14"/></svg></span>
-    <h3>Out of Kutch</h3><p>Intercity travel</p>
-  </button>
-  <button class="card" onclick="openBooking('Out of Gujarat')">
-    <span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="14" rx="1"/><path d="M8 7V4h8v3M8 11h2M14 11h2M8 15h2M14 15h2M8 19h2M14 19h2"/></svg></span>
-    <h3>Out of Gujarat</h3><p>Interstate travel</p>
-  </button>
-  <button class="card" onclick="openBooking('Car & Taxi')">
-    <span class="icon"><svg viewBox="0 0 24 24"><path d="M5 15l1.5-6h11L19 15"/><path d="M4 15h16v4H4z"/><circle cx="7" cy="16.5" r="1"/><circle cx="17" cy="16.5" r="1"/></svg></span>
-    <h3>Car &amp; Taxi</h3><p>Private booking</p>
-  </button>
-</section>
+<div class="muted">
+Corporate • Airport • Railway • Outstation • Kutch Tours
+</div>
 
-<section class="features">
-  <div class="feature"><div class="feature-icon">⌁</div><div><strong>AUTOMATIC<br>DISTANCE</strong><span>No manual KM</span></div></div>
-  <div class="feature"><div class="feature-icon">20%</div><div><strong>20% ADVANCE</strong><span>80% payable<br>during trip</span></div></div>
-  <div class="feature"><div class="feature-icon">♟</div><div><strong>7 SEATER</strong><span>Maruti Suzuki<br>Ertiga CNG</span></div></div>
-</section>
-
-<button class="book-btn" onclick="openBooking('General')">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 9h18"/><circle cx="16" cy="16" r="3"/><path d="M16 14v2l1 1"/></svg>
-  BOOK YOUR RIDE NOW
-  <span class="arrow">›</span>
+<button
+  class="primary"
+  onclick="go('book')">
+🚕 BOOK YOUR RIDE
 </button>
 
-<nav class="nav">
-  <button class="nav-item active" data-tab="home" onclick="showTab('home',this)">
-    <svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10h-6v-6H9v6H3z"/></svg><span>Home</span>
-  </button>
-  <button class="nav-item" data-tab="book" onclick="showTab('book',this)">
-    <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span>Book</span>
-  </button>
-  <button class="nav-item" data-tab="bookings" onclick="showTab('bookings',this)">
-    <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 2v4M16 2v4M4 9h16M8 13h2M14 13h2M8 17h2M14 17h2"/></svg><span>My Bookings</span>
-  </button>
-  <button class="nav-item" data-tab="profile" onclick="showTab('profile',this)">
-    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Profile</span>
-  </button>
-  <button class="nav-item" data-tab="contact" onclick="showTab('contact',this)">
-    <svg viewBox="0 0 24 24"><path d="M6.5 3.5l3 1.2c.7.3 1 1 .8 1.7l-.8 2.8a15 15 0 0 0 5.3 5.3l2.8-.8c.7-.2 1.4.1 1.7.8l1.2 3c.3.7 0 1.5-.6 1.9l-1.8 1.2c-.8.5-1.7.7-2.5.4C9.2 18.7 5.3 14.8 3.8 8.6c-.2-.8 0-1.7.4-2.5l1.2-1.8c.4-.8 1.4-1.1 2.1-.8z"/></svg><span>Contact</span>
-  </button>
+</div>
+
+</header>
+
+
+<div class="section">
+
+<div class="title">
+Our Services
+</div>
+
+<div class="grid">
+
+<div
+  class="card service"
+  onclick="quick('Airport Transfer')">
+
+<div class="ico">✈️</div>
+
+<b>Airport</b>
+
+<div class="muted">
+Bhuj Airport
+</div>
+
+</div>
+
+
+<div
+  class="card service"
+  onclick="quick('Railway Transfer')">
+
+<div class="ico">🚉</div>
+
+<b>Railway</b>
+
+<div class="muted">
+Gandhidham Station
+</div>
+
+</div>
+
+
+<div
+  class="card service"
+  onclick="quick('Corporate Travel')">
+
+<div class="ico">🏢</div>
+
+<b>Corporate</b>
+
+<div class="muted">
+Company & guests
+</div>
+
+</div>
+
+
+<div
+  class="card service"
+  onclick="go('tours')">
+
+<div class="ico">🏜️</div>
+
+<b>Kutch Tours</b>
+
+<div class="muted">
+Rann • Mandvi • Bhuj
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="card">
+
+<b>
+Why Vandan Kutch Travels?
+</b>
+
+<p class="muted">
+
+✓ Mundra based<br>
+✓ Clean 7-seater Ertiga CNG<br>
+✓ Local & outstation service<br>
+✓ Easy WhatsApp booking
+
+</p>
+
+</div>
+
+
+<button
+  class="green"
+  onclick="wa()">
+
+💬 WhatsApp Booking
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     BOOK
+================================================== -->
+
+<section id="book" class="screen">
+
+<header>
+
+<button
+  class="back"
+  onclick="go('home')">
+
+← Back
+
+</button>
+
+<div class="brand">
+Book Your Ride
+</div>
+
+<div class="tag">
+Mundra • Kutch • Gujarat
+</div>
+
+</header>
+
+
+<div class="form">
+
+<div class="label">
+Service
+</div>
+
+<select id="service" class="input">
+
+<option>Local Ride</option>
+<option>Airport Transfer</option>
+<option>Railway Transfer</option>
+<option>Corporate Travel</option>
+<option>Outstation</option>
+<option>Kutch Tour</option>
+
+</select>
+
+
+<div class="label">
+Pickup Location
+</div>
+
+<input
+  id="pickup"
+  class="input"
+  placeholder="e.g. The Fern Residency, Mundra">
+
+
+<div class="label">
+Drop Location
+</div>
+
+<input
+  id="drop"
+  class="input"
+  placeholder="e.g. Bhuj Airport">
+
+
+<div class="row">
+
+<div>
+
+<div class="label">
+Date
+</div>
+
+<input
+  id="date"
+  type="date"
+  class="input">
+
+</div>
+
+
+<div>
+
+<div class="label">
+Time
+</div>
+
+<input
+  id="time"
+  type="time"
+  class="input">
+
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div>
+
+<div class="label">
+Passengers
+</div>
+
+<input
+  id="people"
+  type="number"
+  min="1"
+  max="7"
+  value="2"
+  class="input">
+
+</div>
+
+
+<div>
+
+<div class="label">
+Name
+</div>
+
+<input
+  id="name"
+  class="input"
+  placeholder="Your name">
+
+</div>
+
+</div>
+
+
+<div class="label">
+Mobile
+</div>
+
+<input
+  id="mobile"
+  class="input"
+  value="+91 99137 47955">
+
+
+<div class="fare">
+
+Estimated fare:
+
+<b id="fare">
+₹ —
+</b>
+
+<div class="muted">
+Final fare will be confirmed by Vandan.
+</div>
+
+</div>
+
+
+<button
+  class="primary"
+  onclick="estimate()">
+
+Calculate Estimate
+
+</button>
+
+
+<button
+  class="green"
+  onclick="sendBooking()">
+
+Confirm via WhatsApp
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     TOURS
+================================================== -->
+
+<section id="tours" class="screen">
+
+<header>
+
+<button
+  class="back"
+  onclick="go('home')">
+
+← Back
+
+</button>
+
+<div class="brand">
+Kutch Tours
+</div>
+
+<div class="tag">
+Private Ertiga CNG • 7 Seater
+</div>
+
+</header>
+
+
+<div class="section">
+
+
+<div class="tour">
+
+<h3>
+🏜️ Rann of Kutch
+</h3>
+
+<div class="muted">
+Dhordo • White Rann • Kala Dungar
+</div>
+
+<button
+  class="primary"
+  onclick="quick('Kutch Tour')">
+
+Request Quote
+
+</button>
+
+</div>
+
+
+<div class="tour">
+
+<h3>
+🌊 Mandvi Tour
+</h3>
+
+<div class="muted">
+Mandvi • Beach • Local sightseeing
+</div>
+
+<button
+  class="primary"
+  onclick="quick('Kutch Tour')">
+
+Request Quote
+
+</button>
+
+</div>
+
+
+<div class="tour">
+
+<h3>
+🏛️ Bhuj & Kutch
+</h3>
+
+<div class="muted">
+Bhuj • Local sightseeing
+</div>
+
+<button
+  class="primary"
+  onclick="quick('Kutch Tour')">
+
+Request Quote
+
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     BOOKINGS
+================================================== -->
+
+<section id="trips" class="screen">
+
+<header>
+
+<div class="brand">
+My Bookings
+</div>
+
+<div class="tag">
+Upcoming & recent rides
+</div>
+
+</header>
+
+
+<div
+  class="section"
+  id="bookingList">
+
+<div class="notice">
+
+No bookings yet.
+
+<br><br>
+
+Book your first ride from the
+<b>Book</b> tab.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     PROFILE
+================================================== -->
+
+<section id="profile" class="screen">
+
+<header>
+
+<div class="brand">
+Profile
+</div>
+
+<div class="tag">
+Vandan Kutch Travels
+</div>
+
+</header>
+
+
+<div class="section">
+
+
+<div class="card">
+
+<b>
+Vandan Nanjar
+</b>
+
+<div class="muted">
+📞 +91 99137 47955
+</div>
+
+<div class="muted">
+📍 Mundra, Kutch, Gujarat
+</div>
+
+</div>
+
+
+<div
+  class="card"
+  style="margin-top:12px">
+
+<b>
+Vehicle
+</b>
+
+<div class="muted">
+Maruti Suzuki Ertiga CNG • 7 Seater
+</div>
+
+</div>
+
+
+<button
+  class="green"
+  onclick="call()">
+
+📞 Call Vandan
+
+</button>
+
+
+<button
+  class="primary"
+  onclick="wa()">
+
+💬 WhatsApp Booking
+
+</button>
+
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     BOTTOM NAV
+================================================== -->
+
+<nav class="bottom">
+
+<button
+  class="nav on"
+  onclick="go('home',this)">
+
+<strong>🏠</strong>
+Home
+
+</button>
+
+
+<button
+  class="nav"
+  onclick="go('book',this)">
+
+<strong>🚕</strong>
+Book
+
+</button>
+
+
+<button
+  class="nav"
+  onclick="go('trips',this)">
+
+<strong>📋</strong>
+Bookings
+
+</button>
+
+
+<button
+  class="nav"
+  onclick="go('profile',this)">
+
+<strong>👤</strong>
+Profile
+
+</button>
+
 </nav>
+
 </div>
 
-<div class="drawer" id="drawer" onclick="if(event.target===this)toggleDrawer(false)">
-  <div class="drawer-panel">
-    <div class="drawer-top">
-      <div class="drawer-logo">VK</div>
-      <div><div class="drawer-brand">VANDAN KUTCH</div><div class="drawer-sub">TRAVELS • MUNDRA</div></div>
-      <button class="drawer-close" onclick="toggleDrawer(false)">×</button>
-    </div>
-    <div class="drawer-menu">
-      <button class="drawer-item" onclick="goHome()"><span class="drawer-icon">⌂</span><span><b>Home</b><small>Back to home</small></span><i>›</i></button>
-      <button class="drawer-item" onclick="openBooking('General');toggleDrawer(false)"><span class="drawer-icon">＋</span><span><b>Book a Ride</b><small>Reserve your Ertiga</small></span><i>›</i></button>
-      <button class="drawer-item" onclick="showBookings();toggleDrawer(false)"><span class="drawer-icon">▣</span><span><b>My Bookings</b><small>View saved bookings</small></span><i>›</i></button>
-      <button class="drawer-item" onclick="showProfile();toggleDrawer(false)"><span class="drawer-icon">♙</span><span><b>Profile</b><small>Your customer details</small></span><i>›</i></button>
-      <button class="drawer-item" onclick="showContact();toggleDrawer(false)"><span class="drawer-icon">☎</span><span><b>Contact Us</b><small>Call Vandan Kutch Travels</small></span><i>›</i></button>
-      <button class="drawer-item" onclick="showAbout();toggleDrawer(false)"><span class="drawer-icon">ⓘ</span><span><b>About Us</b><small>Premium travel service</small></span><i>›</i></button>
-    </div>
-    <div class="drawer-services">
-      <div class="drawer-services-title">SERVICES</div>
-      <div class="drawer-service-grid">
-        <button onclick="openBooking('Local');toggleDrawer(false)">Local</button>
-        <button onclick="openBooking('Airport');toggleDrawer(false)">Airport</button>
-        <button onclick="openBooking('Railway');toggleDrawer(false)">Railway</button>
-        <button onclick="openBooking('Out of Kutch');toggleDrawer(false)">Out of Kutch</button>
-        <button onclick="openBooking('Out of Gujarat');toggleDrawer(false)">Out of Gujarat</button>
-        <button onclick="openBooking('Car & Taxi');toggleDrawer(false)">Car & Taxi</button>
-      </div>
-    </div>
-    <button class="drawer-call" onclick="toggleDrawer(false);callNow()">☎ CALL +91 9913747955</button>
-    <div class="drawer-footer">YOUR JOURNEY, OUR RESPONSIBILITY</div>
-  </div>
-</div>
 
-<div class="modal" id="modal" onclick="if(event.target===this)closeBooking()">
-  <div class="modal-box">
-    <div class="modal-head"><h2>Book Your Ride</h2><button class="close" onclick="closeBooking()">×</button></div>
-    <form class="form" onsubmit="submitBooking(event)">
-      <select id="service"><option>General</option><option>Local</option><option>Airport</option><option>Railway</option><option>Out of Kutch</option><option>Out of Gujarat</option><option>Car & Taxi</option></select>
-      <input id="name" required placeholder="Your name">
-      <input id="phone" required inputmode="tel" placeholder="Mobile number">
-      <input id="pickup" required placeholder="Pickup location">
-      <input id="drop" required placeholder="Drop location">
-      <input id="date" required type="date">
-      <input id="time" required type="time">
-      <button type="submit">CONTINUE BOOKING</button>
-    </form>
-  </div>
-</div>
-<div class="toast" id="toast"></div>
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
 
 <script>
-const PHONE = "+919913747955"; // Add your real Vandan Kutch Travels number here, e.g. "+919XXXXXXXXX"
-function callNow(){
-  if(PHONE) window.location.href="tel:"+PHONE;
-  else showToast("Add your business phone number in the PHONE variable.");
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if ('serviceWorker' in navigator) {
+
+  window.addEventListener('load', function(){
+
+    navigator.serviceWorker
+      .register('service-worker.js')
+      .catch(function(error){
+
+        console.log(
+          'Service Worker registration failed:',
+          error
+        );
+
+      });
+
+  });
+
 }
-function toggleDrawer(open){document.getElementById("drawer").classList.toggle("open",open)}
-function openBooking(service){
-  document.getElementById("service").value=service;
-  document.getElementById("modal").classList.add("open");
-}
-function closeBooking(){document.getElementById("modal").classList.remove("open")}
-function submitBooking(e){
-  e.preventDefault();
-  const data={service:service.value,name:name.value,phone:phone.value,pickup:pickup.value,drop:drop.value,date:date.value,time:time.value};
-  const list=JSON.parse(localStorage.getItem("vktBookings")||"[]");
-  list.unshift(data); localStorage.setItem("vktBookings",JSON.stringify(list));
-  closeBooking(); showToast("Booking details saved successfully.");
-}
-function showToast(msg){
-  const t=document.getElementById("toast"); t.textContent=msg; t.style.display="block";
-  setTimeout(()=>t.style.display="none",2600);
-}
-function goHome(){toggleDrawer(false);window.scrollTo({top:0,behavior:"smooth"});document.querySelectorAll(".nav-item").forEach(x=>x.classList.remove("active"));document.querySelector('[data-tab="home"]').classList.add("active");}
-function showBookings(){const list=JSON.parse(localStorage.getItem("vktBookings")||"[]");showToast(list.length?list.length+" booking(s) saved on this device.":"No bookings yet.");}
-function showProfile(){showToast("Profile section ready for your customer details.");}
-function showContact(){callNow();}
-function showAbout(){showToast("Vandan Kutch Travels • Mundra, Kutch, Gujarat");}
-function showTab(tab,el){
-  document.querySelectorAll(".nav-item").forEach(x=>x.classList.remove("active"));
-  el.classList.add("active");
-  if(tab==="book") openBooking("General");
-  if(tab==="bookings"){
-    const list=JSON.parse(localStorage.getItem("vktBookings")||"[]");
-    showToast(list.length ? `${list.length} booking(s) saved on this device.` : "No bookings yet.");
+
+
+/* =========================
+   SCREEN NAVIGATION
+========================= */
+
+const screens = [
+  'home',
+  'book',
+  'tours',
+  'trips',
+  'profile'
+];
+
+
+function go(id, btn) {
+
+  screens.forEach(function(x){
+
+    const el =
+      document.getElementById(x);
+
+    if (el) {
+      el.classList.remove('on');
+    }
+
+  });
+
+
+  const page =
+    document.getElementById(id);
+
+  if (page) {
+    page.classList.add('on');
   }
-  if(tab==="profile") showToast("Profile section ready for your customer details.");
-  if(tab==="contact") callNow();
+
+
+  document
+    .querySelectorAll('.nav')
+    .forEach(function(x){
+
+      x.classList.remove('on');
+
+    });
+
+
+  if (btn) {
+
+    btn.classList.add('on');
+
+  } else {
+
+    const navButton =
+      document.querySelector(
+        `.nav[onclick*="'${id}'"]`
+      );
+
+    if (navButton) {
+      navButton.classList.add('on');
+    }
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
 }
-document.getElementById("date").min=new Date().toISOString().split("T")[0];
+
+
+/* =========================
+   QUICK SERVICE
+========================= */
+
+function quick(service) {
+
+  const serviceEl =
+    document.getElementById('service');
+
+  if (serviceEl) {
+    serviceEl.value = service;
+  }
+
+
+  go('book');
+
+
+  const pickup =
+    document.getElementById('pickup');
+
+  const drop =
+    document.getElementById('drop');
+
+
+  if (
+    pickup &&
+    drop &&
+    pickup.value.trim() &&
+    drop.value.trim()
+  ) {
+
+    estimate();
+
+  }
+
+}
+
+
+/* =========================
+   GET COORDINATES
+========================= */
+
+async function getCoordinates(location) {
+
+  const url =
+    'https://nominatim.openstreetmap.org/search' +
+    '?format=json' +
+    '&limit=1' +
+    '&q=' +
+    encodeURIComponent(
+      location +
+      ', Kutch, Gujarat, India'
+    );
+
+
+  const response =
+    await fetch(url);
+
+
+  if (!response.ok) {
+
+    throw new Error(
+      'Geocoding request failed'
+    );
+
+  }
+
+
+  const data =
+    await response.json();
+
+
+  if (
+    !data ||
+    !data.length
+  ) {
+
+    throw new Error(
+      'Location not found: ' +
+      location
+    );
+
+  }
+
+
+  return {
+
+    lat:parseFloat(data[0].lat),
+
+    lon:parseFloat(data[0].lon)
+
+  };
+
+}
+
+
+/* =========================
+   CALCULATE ROAD DISTANCE
+========================= */
+
+async function calculateDistance(
+  pickup,
+  drop
+) {
+
+  const start =
+    await getCoordinates(pickup);
+
+
+  const end =
+    await getCoordinates(drop);
+
+
+  const url =
+    `https://router.project-osrm.org/route/v1/driving/` +
+    `${start.lon},${start.lat};` +
+    `${end.lon},${end.lat}` +
+    `?overview=false`;
+
+
+  const response =
+    await fetch(url);
+
+
+  if (!response.ok) {
+
+    throw new Error(
+      'Routing request failed'
+    );
+
+  }
+
+
+  const data =
+    await response.json();
+
+
+  if (
+    data.code !== 'Ok' ||
+    !data.routes ||
+    !data.routes.length
+  ) {
+
+    throw new Error(
+      'Route not found'
+    );
+
+  }
+
+
+  return (
+    data.routes[0].distance / 1000
+  );
+
+}
+
+
+/* =========================
+   ESTIMATE FARE
+========================= */
+
+async function estimate() {
+
+  const pickupEl =
+    document.getElementById('pickup');
+
+  const dropEl =
+    document.getElementById('drop');
+
+  const fareBox =
+    document.getElementById('fare');
+
+
+  const pickup =
+    pickupEl
+      ? pickupEl.value.trim()
+      : '';
+
+
+  const drop =
+    dropEl
+      ? dropEl.value.trim()
+      : '';
+
+
+  if (!pickup || !drop) {
+
+    if (fareBox) {
+
+      fareBox.innerText =
+        'Enter pickup & drop';
+
+    }
+
+    return 0;
+
+  }
+
+
+  try {
+
+    if (fareBox) {
+
+      fareBox.innerText =
+        'Calculating...';
+
+    }
+
+
+    /* =========================
+       ROAD DISTANCE
+    ========================= */
+
+    const distanceKm =
+      await calculateDistance(
+        pickup,
+        drop
+      );
+
+
+    /* =========================
+       RATE
+    ========================= */
+
+    const ratePerKm = 18;
+
+
+    let fare =
+      Math.ceil(
+        distanceKm * ratePerKm
+      );
+
+
+    /* =========================
+       MINIMUM FARE
+    ========================= */
+
+    if (fare < 500) {
+
+      fare = 500;
+
+    }
+
+
+    /* =========================
+       SHOW FARE
+    ========================= */
+
+    if (fareBox) {
+
+      fareBox.innerHTML =
+        `₹${fare}+<br>
+        <small>
+        ${distanceKm.toFixed(1)}
+        km × ₹${ratePerKm}/km
+        </small>`;
+
+    }
+
+
+    return fare;
+
+
+  } catch (error) {
+
+    console.error(
+      'Fare calculation error:',
+      error
+    );
+
+
+    if (fareBox) {
+
+      fareBox.innerText =
+        'Unable to calculate distance';
+
+    }
+
+
+    return 0;
+
+  }
+
+}
+
+
+/* =========================
+   SEND BOOKING
+========================= */
+
+async function sendBooking() {
+
+  const nameEl =
+    document.getElementById('name');
+
+  const mobileEl =
+    document.getElementById('mobile');
+
+  const serviceEl =
+    document.getElementById('service');
+
+  const pickupEl =
+    document.getElementById('pickup');
+
+  const dropEl =
+    document.getElementById('drop');
+
+  const dateEl =
+    document.getElementById('date');
+
+  const timeEl =
+    document.getElementById('time');
+
+  const peopleEl =
+    document.getElementById('people');
+
+
+  const name =
+    nameEl
+      ? nameEl.value.trim()
+      : '';
+
+
+  const mobile =
+    mobileEl
+      ? mobileEl.value.trim()
+      : '';
+
+
+  const service =
+    serviceEl
+      ? serviceEl.value.trim()
+      : '';
+
+
+  const pickup =
+    pickupEl
+      ? pickupEl.value.trim()
+      : '';
+
+
+  const drop =
+    dropEl
+      ? dropEl.value.trim()
+      : '';
+
+
+  const date =
+    dateEl
+      ? dateEl.value
+      : '';
+
+
+  const time =
+    timeEl
+      ? timeEl.value
+      : '';
+
+
+  const people =
+    peopleEl
+      ? peopleEl.value
+      : '';
+
+
+  /* =========================
+     VALIDATION
+  ========================= */
+
+  if (!name) {
+
+    alert(
+      'Please enter your name'
+    );
+
+    return;
+
+  }
+
+
+  if (!mobile) {
+
+    alert(
+      'Please enter your mobile number'
+    );
+
+    return;
+
+  }
+
+
+  if (!pickup) {
+
+    alert(
+      'Please enter pickup location'
+    );
+
+    return;
+
+  }
+
+
+  if (!drop) {
+
+    alert(
+      'Please enter drop location'
+    );
+
+    return;
+
+  }
+
+
+  /* =========================
+     CALCULATE FARE
+  ========================= */
+
+  const fare =
+    await estimate();
+
+
+  /* =========================
+     SAVE BOOKING
+  ========================= */
+
+  const booking = {
+
+    name:name,
+
+    mobile:mobile,
+
+    service:service,
+
+    pickup:pickup,
+
+    drop:drop,
+
+    date:date,
+
+    time:time,
+
+    people:people,
+
+    fare:fare,
+
+    createdAt:
+      new Date().toISOString()
+
+  };
+
+
+  saveBooking(booking);
+
+
+  /* =========================
+     WHATSAPP MESSAGE
+  ========================= */
+
+  const message =
+
+`🚕 VANDAN KUTCH TRAVELS
+
+BOOKING REQUEST
+
+Name: ${name}
+Mobile: ${mobile}
+Service: ${service}
+Pickup: ${pickup}
+Drop: ${drop}
+Date: ${date || 'Not specified'}
+Time: ${time || 'Not specified'}
+Passengers: ${people}
+Estimated Fare: ₹${fare}
+
+Please confirm availability and final fare.
+
+Thank you.
+Vandan Kutch Travels
+Mundra, Kutch, Gujarat`;
+
+
+  const whatsappUrl =
+    'https://wa.me/919913747955?text=' +
+    encodeURIComponent(message);
+
+
+  window.location.href =
+    whatsappUrl;
+
+}
+
+
+/* =========================
+   WHATSAPP GENERAL
+========================= */
+
+function wa() {
+
+  const message =
+    'Hello Vandan Kutch Travels, I would like to book an Ertiga CNG ride. Please share availability and fare.';
+
+
+  const url =
+    'https://wa.me/919913747955?text=' +
+    encodeURIComponent(message);
+
+
+  window.location.href =
+    url;
+
+}
+
+
+/* =========================
+   PHONE CALL
+========================= */
+
+function call() {
+
+  window.location.href =
+    'tel:+919913747955';
+
+}
+
+
+/* =========================
+   SAVE BOOKING
+========================= */
+
+function saveBooking(booking) {
+
+  let bookings = [];
+
+  try {
+
+    bookings =
+      JSON.parse(
+        localStorage.getItem(
+          'vandanBookings'
+        )
+      ) || [];
+
+  } catch (error) {
+
+    bookings = [];
+
+  }
+
+
+  bookings.unshift(booking);
+
+
+  localStorage.setItem(
+    'vandanBookings',
+    JSON.stringify(bookings)
+  );
+
+
+  renderBookings();
+
+}
+
+
+/* =========================
+   GET BOOKINGS
+========================= */
+
+function getBookings() {
+
+  try {
+
+    return (
+      JSON.parse(
+        localStorage.getItem(
+          'vandanBookings'
+        )
+      ) || []
+    );
+
+  } catch (error) {
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================
+   DISPLAY BOOKINGS
+========================= */
+
+function renderBookings() {
+
+  const list =
+    document.getElementById(
+      'bookingList'
+    );
+
+
+  if (!list) {
+    return;
+  }
+
+
+  const bookings =
+    getBookings();
+
+
+  if (!bookings.length) {
+
+    list.innerHTML = `
+
+      <div class="notice">
+
+        No bookings yet.
+
+        <br><br>
+
+        Book your first ride from the
+        <b>Book</b> tab.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  list.innerHTML = '';
+
+
+  bookings.forEach(
+    function(booking,index){
+
+      const item =
+        document.createElement(
+          'div'
+        );
+
+
+      item.className =
+        'booking';
+
+
+      item.innerHTML = `
+
+        <h3>
+          🚕 ${escapeHtml(
+            booking.service
+          )}
+        </h3>
+
+        <div class="booking-line">
+          <b>Name:</b>
+          ${escapeHtml(
+            booking.name
+          )}
+        </div>
+
+        <div class="booking-line">
+          <b>Pickup:</b>
+          ${escapeHtml(
+            booking.pickup
+          )}
+        </div>
+
+        <div class="booking-line">
+          <b>Drop:</b>
+          ${escapeHtml(
+            booking.drop
+          )}
+        </div>
+
+        <div class="booking-line">
+          <b>Date:</b>
+          ${escapeHtml(
+            booking.date || 'Not specified'
+          )}
+        </div>
+
+        <div class="booking-line">
+          <b>Time:</b>
+          ${escapeHtml(
+            booking.time || 'Not specified'
+          )}
+        </div>
+
+        <div class="booking-line">
+          <b>Passengers:</b>
+          ${escapeHtml(
+            booking.people
+          )}
+        </div>
+
+        <div class="booking-line">
+          <b>Estimated Fare:</b>
+          ₹${escapeHtml(
+            String(booking.fare)
+          )}
+        </div>
+
+        <div class="booking-actions">
+
+          <button
+            class="small-btn whatsapp-btn"
+            onclick="repeatWhatsApp(${index})">
+
+            WhatsApp
+
+          </button>
+
+          <button
+            class="small-btn delete-btn"
+            onclick="deleteBooking(${index})">
+
+            Delete
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      list.appendChild(item);
+
+    }
+  );
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value) {
+
+  return String(value)
+    .replaceAll('&','&amp;')
+    .replaceAll('<','&lt;')
+    .replaceAll('>','&gt;')
+    .replaceAll('"','&quot;')
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   DELETE BOOKING
+========================= */
+
+function deleteBooking(index) {
+
+  const bookings =
+    getBookings();
+
+
+  if (
+    !confirm(
+      'Delete this booking?'
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  bookings.splice(
+    index,
+    1
+  );
+
+
+  localStorage.setItem(
+    'vandanBookings',
+    JSON.stringify(bookings)
+  );
+
+
+  renderBookings();
+
+}
+
+
+/* =========================
+   REPEAT WHATSAPP
+========================= */
+
+function repeatWhatsApp(index) {
+
+  const bookings =
+    getBookings();
+
+
+  const booking =
+    bookings[index];
+
+
+  if (!booking) {
+    return;
+  }
+
+
+  const message =
+
+`🚕 VANDAN KUTCH TRAVELS
+
+BOOKING REQUEST
+
+Name: ${booking.name}
+Mobile: ${booking.mobile}
+Service: ${booking.service}
+Pickup: ${booking.pickup}
+Drop: ${booking.drop}
+Date: ${booking.date || 'Not specified'}
+Time: ${booking.time || 'Not specified'}
+Passengers: ${booking.people}
+Estimated Fare: ₹${booking.fare}
+
+Please confirm availability and final fare.`;
+
+
+  window.location.href =
+    'https://wa.me/919913747955?text=' +
+    encodeURIComponent(message);
+
+}
+
+
+/* =========================
+   LOAD BOOKINGS
+========================= */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function(){
+
+    renderBookings();
+
+  }
+);
+
 </script>
+
 </body>
 </html>
